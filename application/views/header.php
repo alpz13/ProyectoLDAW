@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">aaa
 <!--        <script src="<?php echo base_url(); ?>/js/jquery.min.js"></script>
         <script src="<?php echo base_url(); ?>/js/jquery.scrolly.min.js"></script>
         <script src="<?php echo base_url(); ?>/js/skel.min.js"></script>
