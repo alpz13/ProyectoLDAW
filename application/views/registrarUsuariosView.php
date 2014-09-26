@@ -20,23 +20,27 @@
                     <table>
                         <tr>
                             <td>Nombre:</td>
-                            <td><input type='text' name='nombre'</td>
+                            <td><input type='text' name='nombre' value="<?php echo set_value('nombre');?>"</td>
                         </tr>
                         <tr>
                             <td>Apellido Paterno:</td>
-                            <td><input type='text' name='apellidoP'</td>
+                            <td><input type='text' name='apellidoP' value="<?php echo set_value('apellidoP');?>"</td>
                         </tr>
                         <tr>
                             <td>Apellido Materno:</td>
-                            <td><input type='text' name='apellidoM'</td>
+                            <td><input type='text' name='apellidoM' value="<?php echo set_value('apellidoM');?>"</td>
                         </tr>
                         <tr>
                             <td>Contraseña:</td>
-                            <td><input type='password' name='pass'</td>
+                            <td><input type='password' name='pass' value="<?php echo set_value('pass');?>"</td>
+                        </tr>
+                        <tr>
+                            <td>Repita su contraseña:</td>
+                            <td><input type='password' name='passCon' value="<?php echo set_value('passCon');?>"</td>
                         </tr>
                         <tr>
                             <td>Correo:</td>
-                            <td><input type='text' name='mail'</td>
+                            <td><input type='text' name='mail' value="<?php echo set_value('mail');?>"</td>
                         </tr>
                         <tr>
                             <td></td>
@@ -44,6 +48,7 @@
                         </tr>
                     </table>
                 <?php echo form_close(); ?>
+                <?php echo validation_errors(); ?>
                 <?php 
                     if(isset($error)) {
                             echo "<div class='error'>".$error."</div>";

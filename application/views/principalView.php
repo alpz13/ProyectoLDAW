@@ -7,6 +7,20 @@
     </head>
     <body>
         <?php include ('header.php'); ?>
+        <div>
+            <?php 
+                if(isset($error)) {
+                    echo "<div class='error'>".$error."</div>";
+                }
+            ?>
+        </div>
+        <div>
+            <?php
+                if(isset($success)) {
+                    echo "<div class='success'>".$success."</div>";
+                }                 
+            ?>
+        </div>
         <div id='header' class="dark">
             <?php echo form_open('principalController/home'); ?>
                 <div>
@@ -26,25 +40,12 @@
                     <input type="submit" value="Entrar" class='boton'/>
                 </div>
             <?php echo form_close(); ?>
-            <div>
-            <?php 
-                if(isset($error)) {
-                    echo "<div class='error'>".$error."</div>";
-                }
-            ?>
-            </div>
             <br/>
             <div id='second'>
                 <?php echo form_open('principalController/registrar'); ?>
                     <label>¿Aún no tienes cuenta?</label><br/>
                     <input type='submit' value='Registrarse'/>
                 <?php echo form_close(); ?>
-            </div>
-            <div>
-                <?php
-                    if(isset($success)) {
-                        echo $success;
-                    }                 ?>
             </div>
         </div>
         <div class='footer'>
