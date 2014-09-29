@@ -16,6 +16,13 @@
             </div>
         </div>
             <div class="principalAreaP dark">
+                <div class="loadImage">
+                    <form enctype="multipart/form-data" class="formulario">
+                        <label>Subir un archivo</label><br />
+                        <input name="archivo" type="file" id="imagen" /><br /><br />
+                        <input type="button" value="Subir imagen" /><br />
+                    </form>
+                </div>
                 <?php echo form_open('usuariosController/registraUsuario'); ?>
                     <table class="tRegistro">
                         <tr>
