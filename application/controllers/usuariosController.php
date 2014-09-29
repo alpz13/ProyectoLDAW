@@ -13,8 +13,12 @@ class UsuariosController extends CI_Controller {
         $this->form_validation->set_rules('passCon', 'Confirmacion contraseña', 'required|matches[pass]');
         $this->form_validation->set_rules('mail', 'Correo', 'required|valid_email');
         
+        $this->form_validation->set_message('required', 'El campo %s es requerido');
+        $this->form_validation->set_message('min_lenght', 'El campo %s debe tener al menos 6 caracteres');
+        $this->form_validation->set_message('matches', 'Las contraseñas no coinciden');
+        $this->form_validation->set_message('valid_email', 'Debe incluir un email válido');
+        
         if ($this->form_validation->run() == FALSE) {
-                //$data['error'] = "Favor de llenar todos los campos";
                 $this->load->view('registrarUsuariosView');
         } else {
             $nom = $this->input->post('nombre');
