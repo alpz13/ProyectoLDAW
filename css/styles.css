@@ -33,14 +33,19 @@ h2
     color: white;
 }
 
-table.default tbody tr
+table.default tbody tr, .tablaRegister
 {
     border: solid 1px #e6e6e6;
 }
 
 .table
 {
-    padding: 0% 0% 0% 37%;
+    padding: 0% 0% 0% 35%;
+}
+
+.tRegistro td
+{
+    width: 200px;
 }
 
 .resultados table
@@ -149,7 +154,7 @@ footer
     display: block;
     width: auto;
     height: auto;
-    margin-left: 35%;    
+    margin-left: 33%;    
     font-size: 20px;
 }
 
@@ -182,10 +187,10 @@ footer
     text-align: center;
 }
 
-.success .error
+.error
 {
-    font-size: 40px;
-    font-family: bold;
+    color: white;
+    font-size: small;
 }
 
 .success h2
@@ -196,10 +201,4 @@ footer
 .error h2
 {
     color: #fcd1c1;
-}
-
-.success, .error
-{
-    width: 100%;
-    background-color: #fb959e;
 }
