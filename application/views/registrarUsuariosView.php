@@ -10,20 +10,19 @@
         <div class="principalArea">
             <div>
                 <div id="title"><h2>Nuevo usuario</h2></div>
-                <input type="button" id="prueba" value="Prueba"/>
             </div>
             <div id="contentArea">
                 
             </div>
         </div>
             <div class="principalAreaP dark">
-                <div class="loadImage">
+<!--                <div class="loadImage">
                     <form enctype="multipart/form-data" class="formulario">
                         <label>Subir un archivo</label><br />
                         <input name="archivo" type="file" id="imagen" /><br /><br />
                         <input type="button" value="Subir imagen" /><br />
                     </form>
-                </div>
+                </div>-->
                 <?php echo form_open('usuariosController/registraUsuario'); ?>
                     <table class="tRegistro">
                         <tr>
