@@ -1,3 +1,5 @@
 $(document).ready(function() {      
-    $("#error").slideDown("slow");
+    $("#prueba").click (function () {
+        $("#title").slideToggle("slow");
+    });
 });

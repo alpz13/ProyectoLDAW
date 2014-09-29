@@ -10,6 +10,7 @@
         <div class="principalArea">
             <div>
                 <div id="title"><h2>Nuevo usuario</h2></div>
+                <input type="button" id="prueba" value="Prueba"/>
             </div>
             <div id="contentArea">
                 

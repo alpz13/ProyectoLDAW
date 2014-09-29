@@ -1,5 +1,4 @@
 $(document).ready(function(){
- 
     $(".messages").hide();
     //queremos que esta variable sea global
     var fileExtension = "";
