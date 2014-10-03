@@ -4,7 +4,7 @@ class indexController extends CI_Controller{
 
 	public function index()
 	{
-		this->load->view('indexView');
+		$this->load->view('indexView');
 	}
 }
 

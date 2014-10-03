@@ -1,0 +1,21 @@
+#intro{
+    background:url(images/firstBG.jpg) 50% 0 no-repeat fixed;
+    color: white;
+    height: 600px;
+    margin: 0;
+    padding: 160px 0 0 0;
+}
+
+.story{
+    margin: 0 auto;
+    min-width: 980px;
+    width: 980px;
+}
+
+#second .bg{
+    background: url(images/trainers.png) 50% 0 no-repeat fixed;
+    ...
+    position: absolute;
+    ...
+    z-index: 200;
+}
