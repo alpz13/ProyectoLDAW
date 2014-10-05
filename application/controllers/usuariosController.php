@@ -37,4 +37,46 @@ class UsuariosController extends CI_Controller {
             }
         }
     }
+    
+    public function actualizaUsuario()
+    {
+        $this->load->model('usuariosModel');
+        
+        $id = $this->session->userdata('id');
+        $nombre = $this->input->post('nombre');
+        $aPaterno = $this->input->post('aPaterno');
+        $aMaterno = $this->input->post('aMaterno');
+        $pass = $this->input->post('pass');
+        $passCon = $this->input->post('passCon');
+        $mail = $this->input->post('mail');
+        $foto = $this->input->post('foto');
+        
+        if(($nombre || $aPaterno || $aMaterno || $pass || $passCon || $mail) == "") {
+            echo "Deben indicarse todos los campos";
+        } else if($pass != $passCon) {
+            echo "Las contraseñas no coinciden";
+        } else {
+            if($foto == "") {
+                $foto = "../../files/defaultFoto.jpg";
+            }
+            $resultado = $this->usuariosModel->actualizaUsuario($id, $nombre, $aPaterno, $aMaterno, $pass, $mail, $foto);
+            if($resultado == 1) {
+                echo "Datos actualizados";
+                $dataUser['nombre'] = $nombre;
+                $dataUser['apellidoP'] = $aPaterno;
+                $dataUser['apellidoM'] = $aMaterno;
+                $dataUser['pass'] = $pass;
+                $dataUser['mail'] = $mail;
+                $dataUser['foto'] = $foto;
+                $this->session->set_userdata($dataUser);
+            } else {
+                echo "No se han podido registrar los datos. Favor de volver a intentar";
+            }
+        }
+    }
+    
+    public function loadImage()
+    {
+        
+    }
 }

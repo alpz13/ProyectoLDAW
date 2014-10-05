@@ -11,11 +11,8 @@
         <?php echo form_open('principalController/Configuracion'); ?>
             <input type="submit" id="config" value="Configuración"><br/>
         <?php echo form_close(); ?>
-        <?php echo form_open('principalController/Proyectos'); ?>
+        <?php echo form_open('principalController/ProyectosWorker'); ?>
             <input type="submit" id="proyectos" value="Proyectos"><br/>
-        <?php echo form_close(); ?>
-        <?php echo form_open('principalController/Usuarios'); ?>
-            <input type="submit" id="usuarios" value="usuarios"><br/>
         <?php echo form_close(); ?>
         <?php echo form_open('principalController/Mensajes'); ?>
         <input type="submit" id="mensajes" value="Mensajes"><br/>

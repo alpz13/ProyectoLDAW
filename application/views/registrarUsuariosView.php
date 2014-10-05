@@ -1,5 +1,6 @@
 <?php 
     include_once 'header.php';
+    echo base_url();
 ?>
 
 <title>Home</title>
@@ -16,13 +17,18 @@
             </div>
         </div>
             <div class="principalAreaP dark">
-<!--                <div class="loadImage">
+                <div class="loadImage">
                     <form enctype="multipart/form-data" class="formulario">
-                        <label>Subir un archivo</label><br />
-                        <input name="archivo" type="file" id="imagen" /><br /><br />
-                        <input type="button" value="Subir imagen" /><br />
-                    </form>
-                </div>-->
+                        <input name="archivo" type="file" id="imagen" />
+                        <input type="button" value="Subir imagen" id="sendImage"/>
+                    </form>                    
+                </div>
+                <div class="messages">
+                    <!--Aquí se visualiza el mensaje de cargar imagenes-->
+                </div><br/>
+                <div class="showImage">
+                    <!--div para visualizar en el caso de imagen-->
+                </div>
                 <?php echo form_open('usuariosController/registraUsuario'); ?>
                     <table class="tRegistro">
                         <tr>
