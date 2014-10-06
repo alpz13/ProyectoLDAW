@@ -1,0 +1,215 @@
+﻿/* ------------------------------------------------------------ *\
+|* ------------------------------------------------------------ *|
+|* Globa ls
+|* ------------------------------------------------------------ *|
+\* ------------------------------------------------------------ */
+button {
+    font-family: "Open Sans", sans-serif;
+    font-size: 14px;
+    cursor: pointer;
+    border: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
+
+/* ------------------------------------------------------------ *\
+|* ------------------------------------------------------------ *|
+|* Side button
+|* ------------------------------------------------------------ *|
+\* ------------------------------------------------------------ */
+
+      *{margin:0px;padding:0px;}
+      #suggestPost
+      {
+        background:transparent url(suggest-post.png) no-repeat scroll 0px 0px;
+        height:170px;
+        left:0;
+        position:fixed;
+        top:150px;
+        width:40px;
+      }
+      div#suggestPost:hover
+      {
+        background-position:-41px 0px;
+
+      }
+      #suggestPost a
+      {
+        display:block;
+        height:170px;
+        width:40px;
+
+      }
+
+
+/* ------------------------------------------------------------ *\
+|* ------------------------------------------------------------ *|
+|* Template
+|* ------------------------------------------------------------ *|
+\* ------------------------------------------------------------ */
+.mask { /*Dims the page when menu is up*/
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 15;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+}
+
+
+
+
+/* ------------------------------------------------------------ *\
+|* ------------------------------------------------------------ *|
+|* Toggle Buttons
+|* ------------------------------------------------------------ *|
+\* ------------------------------------------------------------ */
+.buttons {
+    z-index: 10;
+    margin-bottom: 30px;
+    text-align: left;
+    position:fixed; 
+    top:2%; 
+    left:0%;
+    height:170px;
+    width:40px;
+
+}
+.buttons button {
+    display: inline-block;
+    margin: 0 0 4px 0;
+    padding: 15px 30px;
+    color: #fff;
+    background-color: black;
+    height:170px;
+    width:40px;
+}
+.buttons button:hover,
+.buttons button.active {
+    background-color: gray;
+}
+.buttons button:focus {
+    outline: none
+}
+/* ------------------------------------------------------------ *\
+|* ------------------------------------------------------------ *|
+|* Menus
+|* ------------------------------------------------------------ *|
+\* ------------------------------------------------------------ */
+/* general style for all menus */
+nav.menu {
+    position: fixed;
+    z-index: 20;
+    background-color: #A9D0F5;
+    overflow: hidden;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -ms-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+}
+nav.menu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+nav.menu a {
+    font-weight: 300;
+    color: #fff;
+}
+button.close-menu {
+    background-color: gray;
+    color: #fff;
+}
+button.close-menu:focus {
+    outline: none
+}
+/* slide menu left and right, push menu left and right */
+nav.slide-menu-left{
+    top: 0;
+    width: 300px;
+    height: 100%;
+}
+nav.slide-menu-left li{
+    display: block;
+    text-align: center;
+    border-bottom: solid 1px gray;
+    border-top: solid 1px white;
+}
+nav.slide-menu-left li:first-child {
+    border-top: none
+}
+nav.slide-menu-left li:last-child {
+    border-bottom: none
+}
+nav.slide-menu-left a{
+    display: block;
+    padding: 10px;
+    font-size: 18px;
+}
+nav.slide-menu-left button.close-menu{
+    margin: 10px 0;
+    padding: 10px 30px;
+    background-color: #848484;
+    color: #fff;
+}
+nav.slide-menu-left{
+    left: -300px
+}
+nav.slide-menu-right,
+nav.push-menu-right {
+    right: -300px
+}
+body.sml-open nav.slide-menu-left{
+    left: 0
+}
+body.smr-open nav.slide-menu-right{
+    right: 0
+}
+body.pml-open #wrapper {
+    left: 300px
+}
+body.pmr-open #wrapper {
+    left: -300px
+}
+/* ------------------------------------------------------------ *\
+|* ------------------------------------------------------------ *|
+|* Media Queries
+|* ------------------------------------------------------------ *|
+\* ------------------------------------------------------------ */
+@media all and (max-width: 860px) { 
+	.buttons br {
+	  	display: none
+	}
+	.buttons button {
+	  	padding: 10px 20px
+	}
+}
+@media all and (max-width: 660px) { 
+	}
+@media all and (max-width: 330px) { 
+	nav.slide-menu-left {
+	  	top: 0;
+	  	width: 100%;
+	}
+	nav.slide-menu-left{
+	  	left: -100%
+	}
+	body.sml-open nav.slide-menu-left{
+	  	left: 0
+	}
+	body.pml-open #wrapper {
+	  	left: 100%
+	}
+	body.pmr-open #wrapper {
+	  	left: -100%
+	}
+}
