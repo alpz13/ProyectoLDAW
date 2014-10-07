@@ -62,8 +62,8 @@
 	            <p>Come feel free to join us and try us out.</p>
 	        </div>
 	        <div class="float-right">
-	        	<button type="button">Login</button>
-	        	<button type="button">Register</button>
+	        	<button class="button_par" type="button" style="top: 232px; left: 190px;">Login</button>
+	        	<button class="button_par" type="button" style="top: 232px; left: 190px;">Register</button>
 	        </div>
 	    </div> <!--.story-->
 	</div> <!--#fifth-->
