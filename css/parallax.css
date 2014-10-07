@@ -6,13 +6,15 @@ body{
 
 p{
     margin: 0 0 20px 0; 
+    font-weight: bold;
 }
 
 p, ul{
     font-family:"Proxima Nova Light", 'Helvetica Neue', Arial, Helvetica, sans-serif;
     font-size-adjust:0.488;
-    font-weight:200;
+    font-weight:500;
     font-style:normal;
+    font-weight: bold;
 }
 
 img{
@@ -24,6 +26,8 @@ h1, #pixels{
     font-size-adjust:0.40;
     font-weight:700;
     font-style:normal;
+    font-weight: bold;
+    font-size: 100px;
 }
 
 h2{
@@ -31,6 +35,9 @@ h2{
     font-size-adjust:0.531;
     font-weight:500;
     font-style:normal;
+    font-weight: bold;
+    font-size: 45px;
+
 }
 
 #header h1, #pixels{
@@ -70,7 +77,7 @@ h2{
 #intro{
     background:url(../images/1.jpg) 50% 0 no-repeat fixed;
     color: white;
-    height: 600px;
+    height: 650px;
     margin: 0 auto;
     padding: 0;
     -webkit-background-size: cover;
@@ -82,7 +89,7 @@ h2{
 #second{
     background: url(../images/5.jpg) 50% 0 no-repeat fixed;
     color: white;
-    height: 1300px;
+    height: 650px;
     margin: 0 auto;
     overflow: hidden;
     padding: 0;

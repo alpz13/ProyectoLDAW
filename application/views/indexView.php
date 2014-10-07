@@ -29,22 +29,26 @@
 
 	<div id="intro">
 		<div class="story">
-			una historia bonita			
+			<div class="float-left">
+				<h1>Job Scope</h1>
+			</div>	
 		</div>
 	</div>
 
 	<div id="second">
 		<div class="story">
-			<div class="bg"></div>
-			Sigue en dos pasos
+			<div class="float-right">
+				<h2>Basic Idea</h2>
+				<p>Are you looking for a job but you hate to look for one?, you have certain skills but you don't find the perfect job for you, don't even tell me about the many hours spent in the computer just to find a job that you actually qualify. Significantly reduce the hours spent with "JOB SCOPE".</p>
+			</div>
 		</div>
 	</div>
 
 	<div id="third">
 		<div class="story">
 	    	<div class="float-left">
-	        	<h2>What Happens When JavaScript is Disabled?</h2>
-	            <p>The user gets a slap! Actually, all that jQuery does is moves the backgrounds relative to the position of the scrollbar. Without it, the backgrounds simply stay put and the user would never know they are missing out on the awesome! CSS2 does a good enough job to still make the effect look cool.</p>
+	        	<h2>Got tired of looking and not finding anything?</h2>
+	            <p>Remove all frustation with us and try us out, easy to use, in a few steps you can be appplying for the job specially designed for you </p>
 	        </div>
 	    </div> <!--.story-->
 	</div> <!--#third-->
@@ -52,10 +56,14 @@
 	<div id="fifth">
 		<div class="story">
 	    	<div class="float-left">
-	            <h2>Empty Containers vs CSS3 Multiple Backgrounds</h2>
-	            <p><em>This section only works in modern browsers that support multiple backgrounds.</em></p>
-	            <p>The Nikebetterworld.com demo uses only CSS2 to create it's parallax effect. It uses empty containers in each section to give the impression of multiple backgrounds, which is the method I used for the image of the trainers. It's actually possible to achieve the same effect using CSS3s multiple backgrounds -- as I've done with the bubbles in this section, although, it will only work in modern browsers that support CSS3 multiple backgrounds.</p>
-	            <p>The use of CSS3 means less markup and jQuery, making the script slightly quicker.</p>
+	            <h2>Whant to check us out?</h2>
+	            <p><em>Reduce searching hours.</em></p>
+	            <p>Free, simple and designed to pair you with the perfect job for you.</p>
+	            <p>Come feel free to join us and try us out.</p>
+	        </div>
+	        <div class="float-right">
+	        	<button type="button">Login</button>
+	        	<button type="button">Register</button>
 	        </div>
 	    </div> <!--.story-->
 	</div> <!--#fifth-->
