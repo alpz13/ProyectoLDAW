@@ -10,9 +10,21 @@
 </footer>
 
 -->
-<footer>
-      <div id="Bottom">
-         <p class="down">Copyright © 2014, <a href="http://www.jobscope.com">
-		 Design by: Job Scope Team</a></p>
+    
+				</p>
+				<div><br/><br/><br/></div>
+            
+          
+            </div>
+          </div>
+          <div class="cleaner"></div>
+        </div>
       </div>
-</footer>
+      <div id="Bottom">
+         <p class="down">Copyright &copy; 2014, <a href="http://www.jobscope.com">Design by: Job Scope Team</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
