@@ -7,15 +7,15 @@
 <head>
 	<meta charset="UTF-8">
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
-	<script type="text/javascript" src="../../javascript/nbw-parallax.js"></script>
-	<script type="text/javascript" src="../../javascript/jquery.localscroll-1.2.7-min.js"></script>
-	<script type="text/javascript" src="../../javascript/jquery.scrollTo-1.4.2-min.js"></script>
-	<script type="text/javascript" src="../../javascript/jquery.inview.js"></script>
+	<script type="text/javascript" src="<?php echo base_url(); ?>javascript/nbw-parallax.js"></script>
+	<script type="text/javascript" src="<?php echo base_url(); ?>javascript/jquery.localscroll-1.2.7-min.js"></script>
+	<script type="text/javascript" src="<?php echo base_url(); ?>javascript/jquery.scrollTo-1.4.2-min.js"></script>
+	<script type="text/javascript" src="<?php echo base_url(); ?>javascript/jquery.inview.js"></script>
 	<link href="<?php echo base_url(); ?>/css/parallax.css" rel="stylesheet" type="text/css" />
 	<script type="text/javascript">
 		$(document).ready(function(){
 			$('#nav').localScroll();
-		})
+		});
 	</script>
 </head>
 <body>
@@ -31,6 +31,11 @@
 			<div class="float-left">
 				<h1>Job Scope</h1>
 			</div>	
+			<div class="float-right">
+	        	<button class="button_par" type="button" style="top: 232px; left: 190px;">Login</button>
+	        	<button class="button_par" type="button" style="top: 232px; left: 190px;">Register</button>
+	        	<input type="text" name="lname">
+	        </div>
 		</div>
 	</div>
 
@@ -60,10 +65,7 @@
 	            <p>Free, simple and designed to pair you with the perfect job for you.</p>
 	            <p>Come feel free to join us and try us out.</p>
 	        </div>
-	        <div class="float-right">
-	        	<button class="button_par" type="button" style="top: 232px; left: 190px;">Login</button>
-	        	<button class="button_par" type="button" style="top: 232px; left: 190px;">Register</button>
-	        </div>
+	        
 	    </div> <!--.story-->
 	</div> <!--#fifth-->
 

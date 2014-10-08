@@ -12,7 +12,8 @@ p{
    -1px -1px 0 #000,  
     1px -1px 0 #000,
     -1px 1px 0 #000,
-     1px 1px 0 #000;}
+     1px 1px 0 #000;
+  }
 
 p, ul{
     font-family:"Proxima Nova Light", 'Helvetica Neue', Arial, Helvetica, sans-serif;
@@ -191,3 +192,11 @@ h2{
    border-top-color: #153345;
    background: #153345;
    }
+
+input
+{
+  -moz-border-radius: 15px;
+ border-radius: 15px;
+    border:solid 1px black;
+    padding:5px;
+}
