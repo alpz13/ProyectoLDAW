@@ -1,4 +1,4 @@
-<div >
+<div>
     <div>
         <input type="search" name="buscar" id="buscar" class="busqueda"/>
         <input type="submit" value="" style="border-style: none; background: url('../../images/search.gif') no-repeat; width: 24px; height: 20px;">

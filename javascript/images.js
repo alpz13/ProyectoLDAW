@@ -24,10 +24,10 @@ $(document).ready(function(){
         //información del formulario
         var formData = new FormData($(".formulario")[0]);
         var message = ""; 
-        var baseURL = $(this).data("url");
+        url = $("#url").val();
         //hacemos la petición ajax  
         $.ajax({
-            url: "<?=base_url()?>index.php/usuariosController/loadImage');?>",  
+            url: url+"index.php/usuariosController/loadImage",  
             type: 'POST',
             // Form data
             //datos del formulario

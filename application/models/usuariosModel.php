@@ -25,7 +25,7 @@ class UsuariosModel extends CI_Model {
         }
     }
     
-    public function registraUsuario($nom, $apeP, $apeM, $pass, $mail)
+    public function registraUsuario($nom, $apeP, $apeM, $pass, $mail, $foto)
     {
         try {
             $data = array(
@@ -35,7 +35,8 @@ class UsuariosModel extends CI_Model {
                     'Passwd' => $pass,
                     'Mail' => $mail,
                     'Disponibilidad' => 1,
-                    'idTipo' => 3
+                    'idTipo' => 3,
+                    'urlFoto' => $foto
                 );
             $this->db->insert('usuarios', $data);
             return 1;
@@ -72,6 +73,17 @@ class UsuariosModel extends CI_Model {
         } catch (Exception $ex) {
             return 0;
         }
+    }
+    
+    public function getUsuarios($id)
+    {
+        $this->db->select('*');
+        $this->db->where('idUsuarios !=', $id);
+        $this->db->from('usuarios');
+        
+        $resultado = $this->db->get();
+        
+        return $resultado;
     }
 }
 ?>

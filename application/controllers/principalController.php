@@ -75,6 +75,15 @@ class PrincipalController extends CI_Controller {
             $this->load->view('configuracionView', $data);
         }
         
+        public function Usuarios()
+        {
+            $this->load->model('usuariosModel');
+            $id = $this->session->userdata('id');
+            
+            $data['usuarios'] = $this->usuariosModel->getUsuarios($id);
+            $this->load->view('usuariosView', $data);
+        }
+        
         public function cerrarSesion()
         {
             $this->session->sess_destroy();

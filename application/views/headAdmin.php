@@ -15,7 +15,7 @@
             <input type="submit" id="proyectos" value="Proyectos"><br/>
         <?php echo form_close(); ?>
         <?php echo form_open('principalController/Usuarios'); ?>
-            <input type="submit" id="usuarios" value="usuarios"><br/>
+            <input type="submit" id="usuariosMenu" value="Usuarios"><br/>
         <?php echo form_close(); ?>
         <?php echo form_open('principalController/Mensajes'); ?>
         <input type="submit" id="mensajes" value="Mensajes"><br/>

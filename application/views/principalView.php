@@ -43,9 +43,13 @@
             <br/>
             <div id='second'>
                 <?php echo form_open('principalController/registrar'); ?>
+                    <input type="hidden" id="url" value="<?php echo base_url(); ?>"/>
                     <label>¿Aún no tienes cuenta?</label><br/>
-                    <input type='submit' value='Registrarse'/>
+                    <input type='submit' id="nuevoUsuario" value='Registrarse'/>
                 <?php echo form_close(); ?>
+            </div>
+            <div id="contenido" style="display: none">
+                
             </div>
         </div>
         <div class='footer'>
