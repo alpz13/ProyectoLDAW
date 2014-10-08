@@ -377,3 +377,10 @@ input
     border:solid 1px black;
     padding:5px;
 }
+textarea 
+{
+    -moz-border-radius: 15px;
+ border-radius: 15px;
+    border:solid 1px black;
+    padding:5px;
+}
