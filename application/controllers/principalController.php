@@ -32,16 +32,16 @@ class PrincipalController extends CI_Controller {
 	                    $this->session->set_userdata($dataUser);
 	                    $this->load->view('homeView');
 	                } else {
-	                	$data['error'] = "Usuario/Contraseﾃｱa incorrectos";
+	                	$data['error'] = "Usuario/Contraseña incorrectos";
                                 $data['bin'] = 1;
 	                    $this->load->view('indexView', $data);
 	                }
                 } else {
-                	$data['error'] = "Usuario/Contraseﾃｱa incorrectos";
+                	$data['error'] = "Usuario/Contraseña incorrectos";
 	                $this->load->view('indexView', $data);
                 }
 	        } else {
-	        	$data['error'] = "Usuario/Contraseﾃｱa incorrectos";
+	        	$data['error'] = "Usuario/Contraseña incorrectos";
 	            $this->load->view('indexView', $data);
 	        }
         }
