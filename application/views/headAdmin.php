@@ -1,4 +1,5 @@
 <!-- Menu Inicia  -->
+ <link type="image/x-icon" href="<?php echo base_url(); ?>images/websiteico.ico" rel="shortcut icon"/>
 <nav class="menu slide-menu-left">
     <ul>
         <!--<li><button class="close-menu"><img src="images/Button close_opt.jpg" alt="Close"/></button></li>-->
