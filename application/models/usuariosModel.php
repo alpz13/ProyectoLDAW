@@ -13,19 +13,15 @@ class UsuariosModel extends CI_Model {
         $this->load->database();
     }
     
-    function login($user, $pass)
+    public function login($user, $pass)
     {
         $query = "SELECT * FROM usuarios WHERE Mail='".$user."' AND Passwd='".$pass."';";
         $result = $this->db->query($query);
         
-        if($result->num_rows() > 0) {
-            return $result;
-        } else{
-            return 0;
-        }
+        return $result;
     }
     
-    function registraUsuario($nom, $apeP, $apeM, $pass, $mail)
+    public function registraUsuario($nom, $apeP, $apeM, $pass, $mail, $foto)
     {
         try {
             $data = array(
@@ -35,16 +31,55 @@ class UsuariosModel extends CI_Model {
                     'Passwd' => $pass,
                     'Mail' => $mail,
                     'Disponibilidad' => 1,
-                    'idTipo' => 3
+                    'idTipo' => 3,
+                    'urlFoto' => $foto
                 );
             $this->db->insert('usuarios', $data);
             return 1;
         } catch (Exception $ex) {
             return 0;
-        }
-        
+        }        
     }
+    
+    public function getInfo($id)
+    {
+        $this->db->select('*');
+        $this->db->where('idUsuarios', $id);
+        $this->db->from('usuarios');
 
+        $query = $this->db->get();
+        return $query;
+    }
+    
+    public function actualizaUsuario($id, $nombre, $aPaterno, $aMaterno, $pass, $mail, $foto)
+    {
+        try {
+            $data = array(
+                      'Nombre'      => $nombre,
+                      'APaterno'    => $aPaterno,
+                      'AMaterno'    => $aMaterno,
+                      'Passwd'      => $pass,
+                      'Mail'        => $mail,
+                      'urlFoto'     => $foto
+                    );
+            $this->db->where('idUsuarios', $id);
+            $this->db->update('usuarios', $data);
+            
+            return 1;
+        } catch (Exception $ex) {
+            return 0;
+        }
+    }
+    
+    public function getUsuarios($id)
+    {
+        $this->db->select('*');
+        $this->db->where('idUsuarios !=', $id);
+        $this->db->from('usuarios');
+        
+        $resultado = $this->db->get();
+        
+        return $resultado;
+    }
 }
-
 ?>

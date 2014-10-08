@@ -28,13 +28,6 @@
         <?php echo form_close(); ?>
         </li>
         
-         <li>
-        <?php echo form_open('principalController/Usuarios'); ?>
-        <a href="<?php echo base_url(); ?>index.php/principalController/Usuarios" class="button2" style="top: 232px; left: 190px;"><img src="<?php echo base_url(); ?>images/setting-icon_opt.png" type="submit" id="config" alt="configuracion"/>Users</a>
-        <!-- <input type="submit" id="config" value="Configuraci・・ｽｳn"><br/>    -->
-        <?php echo form_close(); ?>
-        </li>
-        
         <li>
         <?php echo form_open('principalController/Configuracion'); ?>
         <a href="<?php echo base_url(); ?>index.php/principalController/Configuracion" class="button2" style="top: 232px; left: 190px;"><img src="<?php echo base_url(); ?>images/setting-icon_opt.png" type="submit" id="config" alt="configuracion"/>Settings</a>

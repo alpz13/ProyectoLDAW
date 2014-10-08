@@ -14,14 +14,6 @@
                 include 'headAdmin.php';
             ?>
         </div>
-        <div class="principalArea">
-            <div>
-                <div id="title"><h2>Bienvenido! <?php echo $nombre; ?></h2></div>
-            </div>
-            <div id="contentArea">
-                
-            </div>
-        </div>
         <div class="principalAreaP dark">
             <table>
                 <tr>

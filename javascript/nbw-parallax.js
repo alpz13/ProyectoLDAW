@@ -22,7 +22,7 @@ $(document).ready(function() { //when the document is ready...
 	var $secondBG = $('#second');
 	var $thirdBG = $('#third');
 	var $fourthBG = $('#fourth');
-	var trainers = $("#second .bg");
+	//var trainers = $("#second .bg");
 	
 	var windowHeight = $window.height(); //get the height of the window
 	
@@ -65,7 +65,7 @@ $(document).ready(function() { //when the document is ready...
 		//if the first section is in view...
 		if($firstBG.hasClass("inview")){
 			//call the newPos function and change the background position
-			$firstBG.css({'backgroundPosition': newPos(50, windowHeight, pos, 900, 0.3)}); 
+			$firstBG.css({'backgroundPosition': newPos(50, windowHeight, pos, 625, 0.3)}); 
 		}
 		
 		//if the second section is in view...
@@ -79,7 +79,7 @@ $(document).ready(function() { //when the document is ready...
 		//if the third section is in view...
 		if($thirdBG.hasClass("inview")){
 			//call the newPos function and change the background position
-			$thirdBG.css({'backgroundPosition': newPos(50, windowHeight, pos, 2850, 0.3)});
+			$thirdBG.css({'backgroundPosition': newPos(50, windowHeight, pos, 1900, 0.3)});
 		}
 		
 		//if the fourth section is in view...
