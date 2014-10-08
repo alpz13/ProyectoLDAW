@@ -8,7 +8,7 @@
 		<li><a href="#third" title="Next Section"><img src="<?php echo base_url(); ?>images/dot.png" alt="Link" /></a></li>
 		<li><a href="#fifth" title="Next Section"><img src="<?php echo base_url(); ?>images/dot.png" alt="Link" /></a></li>
 	</ul>
-        <?php if(isset($bin)) { ?>
+        <?php if(isset($bin) || isset($error)) { ?>
             <script>
                 $(document).ready(function() {
                     $("#principalDiv").hide();
@@ -98,7 +98,7 @@
                         <div class="float-left">
                             <?php 
                                 if(isset($error)) {
-                                    echo "<div class='error'>".$error."</div>";
+                                    echo "<div class='error'><p>".$error."</p></div>";
                                 }
                             ?>
                         </div>
