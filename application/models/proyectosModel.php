@@ -30,6 +30,7 @@ class ProyectosModel extends CI_Model {
         $this->db->select('*');
         $this->db->from('trabajos');
         $this->db->join('usuarios', 'usuarios.idUsuarios = trabajos.idSupervisor');
+        $this->db->order_by('idTrabajos', "desc");
         
         $query = $this->db->get();
         
@@ -50,13 +51,25 @@ class ProyectosModel extends CI_Model {
     
     public function consultaTrabajadores()
     {
-        $this->db->select('*');
-        $this->db->from('usuarios');
-        $this->db->where('idTipo !=', 1);
-        $this->db->where('idTipo !=', 2);
-        $query = $this->db->get();
+        $query = "SELECT idUsuario FROM usuariotrabajo GROUP BY idUsuario HAVING COUNT(*) >= 5 ORDER BY idUsuario";
+        $resultado = $this->db->query($query);
         
-        return $query;
+        return $resultado;
+    }
+    
+    public function menoresCinco($resultado, $id) {
+        if($resultado->num_rows() > 0) {
+            $aux = "WHERE ";
+            foreach($resultado->result() as $row) {
+                $aux .= "idUsuarios != ".$row->idUsuario." OR ";
+            }
+            $aux .= "idUsuarios != 0";
+            
+            $query = "SELECT * FROM usuarios ".$aux;
+            $resultado = $this->db->query($query);
+            
+            return $resultado;
+        }
     }
     
     public function cuentaProyectos($idUsuario)
@@ -86,7 +99,26 @@ class ProyectosModel extends CI_Model {
             return -1;
         }
     }
-
+    
+    public function buscarProyecto($idProyecto)
+    {
+        $this->db->where('idTrabajos', $idProyecto);
+        $this->db->from('trabajos');
+        $resultado = $this->db->get();
+        
+        return $resultado;
+    }
+    
+    public function eliminaProyecto($idProyecto)
+    {
+        $this->db->where('idTrabajos', $idProyecto);
+        try {
+            $this->db->delete('trabajos');
+            return 1;
+        } catch (Exception $ex) {
+            return 0;
+        }
+    }
 }
 
 ?>
