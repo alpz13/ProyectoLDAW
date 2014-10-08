@@ -14,23 +14,23 @@
                 ?>
             </div>
         </div>
-        <div class="principalAreaP dark">
+        <div>
             <input type="hidden" id="url" value="<?php echo base_url(); ?>"/>
-            <table>
+            <table style="margin-left: 27%;">
                 <tr>
                     <?php echo form_open("usuariosController/crearUsuario"); ?>
                         <td>
-                            <input type="button" id="nuevoUsuario" value="Crear Usuario"/>
+                            <input class='button2' type="button" id="nuevoUsuario" value="Crear Usuario"/>
                         </td>
                     <?php echo form_close(); ?>
                     <?php echo form_open("usuariosController/eliminarUsuario"); ?>
                         <td>
-                            <input type="button" id="eliminarUsuario" value="Eliminar Usuario"/>
+                            <input class='button2' type="button" id="eliminarUsuario" value="Eliminar Usuario"/>
                         </td>
                     <?php echo form_close(); ?>
                     <?php echo form_open("usuariosController/modificarUsuario"); ?>
                         <td>
-                            <input type="button" id="modificarUsuario" value="Modificar Usuario"/>
+                            <input class='button2' type="button" id="modificarUsuario" value="Modificar Usuario"/>
                         </td>
                     <?php echo form_close(); ?>
                 </tr>
@@ -40,7 +40,7 @@
         <input type="hidden" id="urlUsuarios" value="<?php echo base_url(); ?>"/>
         <div id="usuarioRegistrarC">
             <?php echo form_open(); ?>
-                    <table class="tRegistro">
+                    <table class="tRegistro" style="margin-left: 33%;">
                         <tr>
                             <td>Nombre:</td>
                             <td><input type='text' name='nombre' id="nombre" value="<?php echo set_value('nombre');?>"</td>
@@ -74,13 +74,13 @@
                         <tr>
                             <td></td>
                             <br/><br/>
-                            <td><input type='button' id="registraUsuarioC" value='Registrar'/></td>
+                            <td><input class='button2' type='button' id="registraUsuarioC" value='Registrar'/></td>
                         </tr>
                     </table>
             <?php echo form_close(); ?>
         </div>
         <div id="usuarioEliminarC">
-            <select id="usuarioSelectC">
+            <select id="usuarioSelectC" style="margin-left: 40%;">
                 <option value="">Selecciona un usuario</option>
                 <?php 
                     if($usuarios->num_rows > 0) {
@@ -92,10 +92,22 @@
             </select>
         </div>
         <div id="usuarioModificarC">
-            
+            <select id="usuarioModificarSelectC" style="margin-left: 40%;">
+                <option value="">Selecciona un usuario</option>
+                <?php 
+                    if($usuarios->num_rows > 0) {
+                        foreach($usuarios->result() as $row) {
+                            echo "<option value='".$row->idUsuarios."'>".$row->Nombre." ".$row->APaterno." ".$row->AMaterno."</option>";
+                        }
+                    }
+                ?>
+            </select>
         </div>
         <div id="contenido">
             
+        </div><br/>
+        <div id="buttonShow">
+            <input class='button2' type='button' id='eliminarUsuarioConfig' value='Eliminar' style="margin-left: 45%;"/>
         </div>
     </body>
 </html>
