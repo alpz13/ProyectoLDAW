@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="cz">
+<head>
+<title>Blue Neutral</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" type="text/css" href="default.css" title="default"/>
+<link rel="stylesheet" href="css/base.css" />
+<link rel="stylesheet" href="style.css" />
+
+</head>
+<body>
+
+<!-- Inicia contenido de pagina -->
+<div id="WholePage">
+  <div id="Inner">
+    <div id="Container">
+      <div id="TopPart">
+        <div id="Head">
+        </div>
+      </div>
+      <div id="Shadow">
+        <div id="CentralPart">
+          <div id="Menu"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </div>
+          <div id="LeftPart">
+            <div class="article_left">
+              <h2 class="heading_left">Nuevo usuario</h2>
+              <p class="paragraf_left"> 
+              
+              <?php echo form_open('usuariosController/registraUsuario'); ?>
+                    <table>
+                        <tr>
+                            <td>Nombre:</td>
+                            <td><input type='text' name='nombre'/></td>
+                        </tr>
+                        <tr>
+                            <td>Apellido Paterno:</td>
+                            <td><input type='text' name='apellidoP'/></td>
+                        </tr>
+                        <tr>
+                            <td>Apellido Materno:</td>
+                            <td><input type='text' name='apellidoM'/></td>
+                        </tr>
+                        <tr>
+                            <td>Contrasenia:</td>
+                            <td><input type='password' name='pass'/></td>
+                        </tr>
+                        <tr>
+                            <td>Correo:</td>
+                            <td><input type='text' name='mail'/></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td><input type='submit' value='Registrar'/></td>
+                        </tr>
+                    </table>
+                <?php echo form_close(); ?>
+                <?php 
+                    if(isset($error)) {
+                            echo "<div class='error'>".$error."</div>";
+                        }
+                ?>
+
+              
+              </p>
+            </div>
+          </div>
+          <div class="cleaner"></div>
+        </div>
+      </div>
+      <div id="Bottom">
+         <p class="down">Copyright &copy; 2014, <a href="http://www.jobscope.com">Design by: Job Scope Team</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
