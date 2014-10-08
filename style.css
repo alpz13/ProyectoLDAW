@@ -34,6 +34,7 @@ button {
  border-radius: 15px;
     border:solid 1px black;
     padding:5px;
+
 	
 	-moz-border-radius-bottomleft:21px;
 	-webkit-border-bottom-left-radius:21px;
@@ -57,10 +58,14 @@ button {
 	height:100%;
 	margin:0px;padding:0px;
 
+
+
 }.table_message tr:last-child td:last-child {
 	-moz-border-radius-bottomright:21px;
 	-webkit-border-bottom-right-radius:21px;
 	border-bottom-right-radius:21px;
+
+
 
 }
 .table_message table tr:first-child td:first-child {
@@ -68,24 +73,32 @@ button {
 	-webkit-border-top-left-radius:21px;
 	border-top-left-radius:21px;
 
+
+
 }
 .table_message table tr:first-child td:last-child {
 	-moz-border-radius-topright:21px;
 	-webkit-border-top-right-radius:21px;
 	border-top-right-radius:21px;
 
+
 }.table_message tr:last-child td:first-child{
 	-moz-border-radius-bottomleft:21px;
 	-webkit-border-bottom-left-radius:21px;
 	border-bottom-left-radius:21px;
+
 }.table_message tr:hover td{
+  
+
 	
 }
 .table_message tr:nth-child(odd){ background-color:#aad4ff;
+
  }
 .table_message tr:nth-child(even)    { background-color:#ffffff;
  }.table_message td{
 	vertical-align:middle;
+
 	
 	-moz-border-radius: 15px;
  border-radius: 15px;
@@ -100,6 +113,7 @@ button {
 	font-weight:normal;
 	color:#000000;
 }.table_message tr:last-child td{
+
 	border-width:0px 1px 0px 0px;
 }.table_message tr td:last-child{
 	border-width:0px 0px 1px 0px;
@@ -121,6 +135,7 @@ button {
 	color:#ffffff;
 }
 .table_message tr:first-child:hover td{
+
 	background:-o-linear-gradient(bottom, #56aaff 5%, #005fbf 100%);	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #56aaff), color-stop(1, #005fbf) );
 	background:-moz-linear-gradient( center top, #56aaff 5%, #005fbf 100% );
 	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr="#56aaff", endColorstr="#005fbf");	background: -o-linear-gradient(top,#56aaff,005fbf);
@@ -129,9 +144,17 @@ button {
 }
 .table_message tr:first-child td:first-child{
 	border-width:0px 0px 1px 0px;
+
 }
 .table_message tr:first-child td:last-child{
 	border-width:0px 0px 1px 1px;
+
+}
+th{
+  -moz-border-radius: 15px;
+ border-radius: 15px;
+    border:solid 1px black;
+    padding:5px;
 }
 
 
