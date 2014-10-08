@@ -1,5 +1,5 @@
 <?php 
-	include_once 'header.php';
+	include_once 'header_intro.php';
   ?>
   
 <!DOCTYPE html>
@@ -23,7 +23,6 @@
 		<li><a href="#intro" title="Next Section"><img src="images/dot.png" alt="Link" /></a></li>
 		<li><a href="#second" title="Next Section"><img src="images/dot.png" alt="Link" /></a></li>
 		<li><a href="#third" title="Next Section"><img src="images/dot.png" alt="Link" /></a></li>
-		<li><a href="#fourth" title="Next Section"><img src="images/dot.png" alt="Link" /></a></li>
 		<li><a href="#fifth" title="Next Section"><img src="images/dot.png" alt="Link" /></a></li>
 	</ul>
 
