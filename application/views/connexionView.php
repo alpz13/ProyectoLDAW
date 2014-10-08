@@ -57,7 +57,7 @@ else
 		{
 			//Otherwise, we say the password is incorrect.
 			$form = true;
-			$message = 'El usuario o contraseﾃｱa es incorrecto.';
+			$message = 'El usuario o contrase・・ｽｱa es incorrecto.';
 		}
 	}
 	else
@@ -74,6 +74,9 @@ else
 	//We display the form
 ?>
 <div class="content">
+	<br />
+	<a href="<?php echo site_url('principalController/mensajesView');?>" class="button2" style="top: 232px; left: 190px;">&nbsp; Regresar</a><br />
+	<br />
     <form action="<?php echo site_url('principalController/conexionView');?>" method="post">
         <br />
         <div class="center">

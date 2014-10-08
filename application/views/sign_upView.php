@@ -102,6 +102,9 @@ if($form)
 	//We display the form
 ?>
 <div class="content">
+	<br />
+	<a href="<?php echo site_url('principalController/mensajesView');?>" class="button2" style="top: 232px; left: 190px;">&nbsp; Regresar</a><br />
+	<br />
     <form action="<?php echo site_url('principalController/mensajessignView');?>" method="post">
         Registro de nuevo usuario.<br /><br />
         <div class="center">
