@@ -103,8 +103,8 @@
                     }
                 ?>
             </select>
-        </div>
-        <div id="contenido">
+        </div><br/><br/>
+        <div id="contenido" style="font-size: 15px;">
             
         </div><br/>
         <div id="buttonShow">
