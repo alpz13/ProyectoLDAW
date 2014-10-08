@@ -12,9 +12,16 @@ p{
    -1px -1px 0 #000,  
     1px -1px 0 #000,
     -1px 1px 0 #000,
+     1px 1px 0 #000;}
+td
+{
+    color: white;
+  text-shadow:
+   -1px -1px 0 #000,  
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
      1px 1px 0 #000;
-  }
-
+}
 p, ul{
     font-family:"Proxima Nova Light", 'Helvetica Neue', Arial, Helvetica, sans-serif;
     font-size-adjust:0.488;
@@ -35,7 +42,7 @@ img{
 h1, #pixels{
     font-family:"Museo 900", Verdana, serif;
     font-size-adjust:0.40;
-    font-weight:700;
+    font-weight:500;
     font-style:normal;
     font-weight: bold;
     font-size: 100px;
@@ -74,11 +81,13 @@ h2{
 .float-left{
     float: left;    
     margin: 0 0 0 20px;
+    width: 500px;
 }
 
 .float-right{
     float: right;
     margin: 0 20px 0 0;
+    width: 300px;
 }
 
 .center{
@@ -156,12 +165,11 @@ h2{
 }
 
 .story .float-left, .story .float-right{
-    padding: 100px 0 0 0;
-    position: relative;
-    width: 350px;   
+    padding: 0 0 0 0;
+    position: relative;   
 }
 
-.button_par {
+.button_par, input[type='submit'] {
    border-top: 1px solid #96d1f8;
    background: #61a6d4;
    background: -webkit-gradient(linear, left top, left bottom, from(#3e779d), to(#61a6d4));
@@ -183,16 +191,17 @@ h2{
    text-decoration: none;
    vertical-align: middle;
    }
-.button_par:hover {
+.button_par:hover, input[type='submit']:hover {
    border-top-color: #76a9c9;
    background: #76a9c9;
    color: #ffffff;
+   cursor: pointer;
    }
-.button_par:active {
+.button_par:active, input[type='submit']:active {
    border-top-color: #153345;
    background: #153345;
    }
-
+   
 input
 {
   -moz-border-radius: 15px;

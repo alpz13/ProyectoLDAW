@@ -26,7 +26,7 @@
             <?php if(isset($proyectos)) { 
                 echo "<div class='resultados'>";
                     foreach($proyectos->result() as $row) {
-                        echo "<table>";
+                        echo "<table class='table_message'>";
                             echo "<tr>";
                                 echo "<td class='nombre'>";
                                     echo "<strong>".$row->NombreTrabajo."</strong><br/><br/>";

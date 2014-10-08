@@ -20,13 +20,14 @@ $(document).ready(function(){
     });
  
     //al enviar el formulario
-    $(':button').click(function(){
+    $('#sendImage').click(function(){
         //información del formulario
         var formData = new FormData($(".formulario")[0]);
         var message = ""; 
+        url = $("#url").val();
         //hacemos la petición ajax  
         $.ajax({
-            url: 'upload.php',  
+            url: url+"index.php/usuariosController/loadImage",  
             type: 'POST',
             // Form data
             //datos del formulario
@@ -38,16 +39,16 @@ $(document).ready(function(){
             //mientras enviamos el archivo
             beforeSend: function(){
                 message = $("<span class='before'>Subiendo la imagen, por favor espere...</span>");
-                showMessage(message)        
+                showMessage(message);        
             },
             //una vez finalizado correctamente
             success: function(data){
                 message = $("<span class='success'>La imagen ha subido correctamente.</span>");
-                showMessage(message);
-                if(isImage(fileExtension))
-                {
-                    $(".showImage").html("<img src='files/"+data+"' />");
-                }
+                showMessage(data);
+//                if(isImage(fileExtension))
+//                {
+                    $(".showImage").html("<img src='../files/"+data+"' />");
+//                }
             },
             //si ha ocurrido un error
             error: function(){

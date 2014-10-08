@@ -11,12 +11,13 @@
     <div id="tooplate_wrapper">
         <div class='menuArea'>
             <?php 
-                include 'headAdmin.php';
+                if($this->session->userdata('id') == 3) {
+                    include 'headWorker.php';
+                } else {
+                    include 'headAdmin.php';
+                }
             ?>
         </div>
-<!--        <div class="displayArea">
-            <img id="flecha" src="../../images/flecha.jpg"/>
-        </div>-->
         <div class="principalArea">
             <div>
                 <div id="title"><h2>Bienvenido! <?php echo $nombre; ?></h2></div>

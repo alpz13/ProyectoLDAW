@@ -154,6 +154,7 @@ button {
    border-top-color: #76a9c9;
    background: #76a9c9;
    color: #ffffff;
+   cursor: pointer;
    }
 .button2:active {
    border-top-color: #153345;
@@ -354,4 +355,12 @@ body.pmr-open #wrapper {
 	body.pmr-open #wrapper {
 	  	left: -100%
 	}
+}
+
+input
+{
+  -moz-border-radius: 15px;
+ border-radius: 15px;
+    border:solid 1px black;
+    padding:5px;
 }
