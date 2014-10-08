@@ -90,6 +90,10 @@ if(isset($error))
 //We display the form
 ?>
 <div class="content">
+	<br />
+	<a href="<?php echo site_url('principalController/mensajeslistView');?>" class="button2" style="top: 232px; left: 190px;">&nbsp; Regresar</a><br />
+	<br />
+   <br />
 	<h1>Nuevo mensaje</h1>
     <form action="<?php echo site_url('principalController/nuevomensajeView');?>" method="post">
 		<br />

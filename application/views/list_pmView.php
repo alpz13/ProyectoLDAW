@@ -17,6 +17,8 @@ $req1 = mysql_query('select m1.id, m1.title, m1.timestamp, count(m2.id) as reps,
 $req2 = mysql_query('select m1.id, m1.title, m1.timestamp, count(m2.id) as reps, users.id as userid, users.username from pm as m1, pm as m2,users where ((m1.user1="'.$_SESSION['userid'].'" and m1.user1read="yes" and users.id=m1.user2) or (m1.user2="'.$_SESSION['userid'].'" and m1.user2read="yes" and users.id=m1.user1)) and m1.id2="1" and m2.id=m1.id group by m1.id order by m1.id desc');
 ?>
 <br />
+<a href="<?php echo site_url('principalController/mensajesView');?>" class="button2" style="top: 232px; left: 190px;">&nbsp; Regresar</a><br />
+<br />
 <br />
 <br />
 <a href="<?php echo site_url('principalController/nuevomensajeView');?>" class="button2" style="top: 232px; left: 190px;">&nbsp; Crear mensaje</a><br />
