@@ -201,3 +201,11 @@ h2{
    border-top-color: #153345;
    background: #153345;
    }
+   
+input
+{
+  -moz-border-radius: 15px;
+ border-radius: 15px;
+    border:solid 1px black;
+    padding:5px;
+}
