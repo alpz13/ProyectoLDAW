@@ -81,5 +81,17 @@ class UsuariosModel extends CI_Model {
         
         return $resultado;
     }
+    
+    public function eliminaUsuario($id)
+    {
+        $this->db->where('idUsuarios', $id);
+        
+        try {
+            $this->db->delete('usuarios');
+            return 1;
+        } catch (Exception $ex) {
+            return 0;
+        }        
+    }
 }
 ?>

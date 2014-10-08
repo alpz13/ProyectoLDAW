@@ -2,7 +2,7 @@ $(document).ready(function() {
     $("#usuarioRegistrarC").hide();
     $("#usuarioEliminarC").hide();
     $("#usuarioModificarC").hide();
-    
+    $("#buttonShow").hide();
     
     $("#enviarConfigurar").click(function() {
         nombre = $("#nombre").val();
@@ -57,19 +57,24 @@ $(document).ready(function() {
     $("#nuevoUsuario").click(function() {
         $("#usuarioEliminarC").slideUp('slow');
         $("#usuarioModificarC").slideUp('slow');
+        $("#buttonShow").hide();
         $("#usuarioRegistrarC").slideDown('slow');
+        $("#contenido").html("");
     });
     
     $("#eliminarUsuario").click(function() {
         $("#usuarioRegistrarC").slideUp('slow');
         $("#usuarioModificarC").slideUp('slow');
         $("#usuarioEliminarC").slideDown('slow');
+        $("#contenido").html("");
     });
     
     $("#modificarUsuario").click(function() {
         $("#usuarioEliminarC").slideUp('slow');
         $("#usuarioRegistrarC").slideUp('slow');
+        $("#buttonShow").hide();
         $("#usuarioModificarC").slideDown('slow');
+        $("#contenido").html("");
     });
     
     $("#registraUsuarioC").click(function() {
@@ -80,19 +85,22 @@ $(document).ready(function() {
         pass = $("#pass").val();
         passCon = $("#passCon").val();
         mail = $("#mail").val();
+        foto = "";
         $.post(url+"index.php/usuariosController/crearUsuario", {
             nombre : nombre,
             apellidoP : apellidoP,
             apellidoM : apellidoM,
             pass : pass,
             passCon : passCon,
-            mail : mail
+            mail : mail,
+            foto : foto
         },function(data) {
             $("#contenido").html(data);
         });
     });
     
     $("#usuarioSelectC").change(function() {
+        $("#buttonShow").show();
         url = $("#urlUsuarios").val();
         id = $("#usuarioSelectC").val();
         $.post(url+"index.php/usuariosController/mostrarEliminarUsuario", {
@@ -103,6 +111,26 @@ $(document).ready(function() {
     });
     
     $("#eliminarUsuarioConfig").click(function() {
-        alert("hola");
+        confirmar = confirm("Deseas eliminar el usuario seleccionado?");
+        if(confirmar) {
+            url = $("#urlUsuarios").val();
+            id = $("#usuarioSelectC").val();
+            $.post(url+"index.php/usuariosController/eliminarUsuario", {
+                id : id
+            }, function(data) {
+                $("#contenido").html(data);
+            });
+        }
+        $("#usuarioEliminarC").hide();
+    });
+    
+    $("#usuarioModificarSelectC").change(function() {
+        url = $("#urlUsuarios").val();
+        id = $("#usuarioModificarSelectC").val();
+        $.post(url+"index.php/usuariosController/modificarUsuarioShow", {
+                id : id
+            }, function(data) {
+                $("#contenido").html(data);
+        });
     });
 });
