@@ -51,6 +51,7 @@ button {
    border-top-color: #76a9c9;
    background: #76a9c9;
    color: #ffffff;
+   cursor: pointer;
    }
 .button2:active {
    border-top-color: #153345;

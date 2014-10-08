@@ -18,11 +18,7 @@ class UsuariosModel extends CI_Model {
         $query = "SELECT * FROM usuarios WHERE Mail='".$user."' AND Passwd='".$pass."';";
         $result = $this->db->query($query);
         
-        if($result->num_rows() > 0) {
-            return $result;
-        } else{
-            return 0;
-        }
+        return $result;
     }
     
     public function registraUsuario($nom, $apeP, $apeM, $pass, $mail, $foto)

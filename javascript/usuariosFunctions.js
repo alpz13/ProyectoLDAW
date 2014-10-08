@@ -3,6 +3,7 @@ $(document).ready(function() {
     $("#usuarioEliminarC").hide();
     $("#usuarioModificarC").hide();
     
+    
     $("#enviarConfigurar").click(function() {
         nombre = $("#nombre").val();
         aPaterno = $("#aPaterno").val();
@@ -28,7 +29,7 @@ $(document).ready(function() {
     });
     
     $("#registrarUsuario").click(function() {
-        url = $("#urlRegistro").val();
+        url = $("#url").val();
         nombre = $("#nombre").val();
         apellidoP = $("#apellidoP").val();
         apellidoM = $("#apellidoM").val();
@@ -38,6 +39,18 @@ $(document).ready(function() {
         $.post(url+"index.php/usuariosController/registraUsuario", {
         },function(data) {
             $("#contenido").html(data);
+        });
+    });
+    
+    $("#loginUser").click(function() {
+        url = $("#url");
+        usuario = $("#usuario").val();
+        passwd = $("#passwd").val();
+        $.post(url+"index.php/principalController/home", {
+            usuario : usuario,
+            passwd : passwd
+        }, function(data) {
+            $("$contenido").html(data);
         });
     });
     

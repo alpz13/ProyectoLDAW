@@ -18,7 +18,7 @@
             </div>
         </div>
         <div>
-            <?php echo form_open('usuariosController/actualizar'); ?>
+            <form style="margin-left: 31%">
                 <table>
                     <tr>
                         <td>Nombre: </td>
@@ -49,12 +49,15 @@
                         <td><input type="text" name="urlFoto" id="urlFoto" value="<?php echo $foto; ?>"/></td>
                     </tr>
                     <tr>
+                        <td><br/></td>
+                    </tr>
+                    <tr>
                         <td></td>
-                        <td><input type="button" id="enviarConfigurar" value="Actualizar"/></td>
+                        <td><input type="button" class="button2" id="enviarConfigurar" value="Actualizar"/></td>
                     </tr>
                 </table>
             <input type="hidden" id="url" value="<?php echo base_url(); ?>"/>
-            <?php echo form_close(); ?>
+            </form>
         </div>
         <br/>
         <div id="mensajeConfig">

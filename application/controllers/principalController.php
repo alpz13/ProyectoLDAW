@@ -33,15 +33,16 @@ class PrincipalController extends CI_Controller {
 	                    $this->load->view('homeView');
 	                } else {
 	                	$data['error'] = "Usuario/Contraseña incorrectos";
-	                    $this->load->view('principalView', $data);
+                                $data['bin'] = 1;
+	                    $this->load->view('indexView', $data);
 	                }
                 } else {
                 	$data['error'] = "Usuario/Contraseña incorrectos";
-	                $this->load->view('principalView', $data);
+	                $this->load->view('indexView', $data);
                 }
 	        } else {
 	        	$data['error'] = "Usuario/Contraseña incorrectos";
-	            $this->load->view('principalView', $data);
+	            $this->load->view('indexView', $data);
 	        }
         }
         
@@ -87,7 +88,7 @@ class PrincipalController extends CI_Controller {
         public function cerrarSesion()
         {
             $this->session->sess_destroy();
-            $this->load->view('principalView');
+            $this->load->view('indexView');
         }
         
         public function registrar()
