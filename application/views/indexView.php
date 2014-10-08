@@ -1,21 +1,20 @@
-<?php 
-	include_once 'header_intro.php';
-  ?>
-  
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
-	<script type="text/javascript" src="../../javascript/nbw-parallax.js"></script>
-	<script type="text/javascript" src="../../javascript/jquery.localscroll-1.2.7-min.js"></script>
-	<script type="text/javascript" src="../../javascript/jquery.scrollTo-1.4.2-min.js"></script>
-	<script type="text/javascript" src="../../javascript/jquery.inview.js"></script>
+	<meta charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+	<!--<script type="text/javascript" src="<?php echo base_url(); ?>javascript/nbw-parallax.js"></script>-->
+	<script type="text/javascript" src="<?php echo base_url(); ?>javascript/jquery.localscroll-1.2.7-min.js"></script>
+	<script type="text/javascript" src="<?php echo base_url(); ?>javascript/jquery.scrollTo-1.4.2-min.js"></script>
+	<script type="text/javascript" src="<?php echo base_url(); ?>javascript/jquery.inview.js"></script>
+        <script type="text/javascript" src="<?php echo base_url(); ?>javascript/indexJavaScript.js"></script>
 	<link href="<?php echo base_url(); ?>/css/parallax.css" rel="stylesheet" type="text/css" />
+        <link type="image/x-icon" href="images/websiteico.ico" rel="shortcut icon"/>
 	<script type="text/javascript">
 		$(document).ready(function(){
-			$('#nav').localScroll();
-		})
+                    $('#nav').localScroll();
+		});
 	</script>
 </head>
 <body>
@@ -54,15 +53,21 @@
 
 	<div id="fifth">
 		<div class="story">
-	    	<div class="float-left">
+	    	<div class="float-left" id="principalDiv">
 	            <h2>Whant to check us out?</h2>
 	            <p><em>Reduce searching hours.</em></p>
 	            <p>Free, simple and designed to pair you with the perfect job for you.</p>
 	            <p>Come feel free to join us and try us out.</p>
 	        </div>
+                <div class="float-left" id="registro">
+                    
+                </div>
+                <div class="float-left" id="login">
+                    
+                </div>
 	        <div class="float-right">
-	        	<button class="button_par" type="button" style="top: 232px; left: 190px;">Login</button>
-	        	<button class="button_par" type="button" style="top: 232px; left: 190px;">Register</button>
+	        	<button class="button_par" type="button" id="loginButton" style="top: 232px; left: 190px;">Login</button>
+	        	<button class="button_par" type="button" id="registerButton" style="top: 232px; left: 190px;">Register</button>
 	        </div>
 	    </div> <!--.story-->
 	</div> <!--#fifth-->
