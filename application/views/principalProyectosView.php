@@ -15,31 +15,32 @@
             ?>
         </div>
         <div class="principalAreaP dark">
-            <table>
+            <table style="margin-left: 14%;">
                 <tr>
                     <td>
                         <?php echo form_open('proyectosController/consultar'); ?>
-                            <input type="submit" value="Consulta proyectos" />
+                            <input class="button2" type="submit" value="Consulta proyectos" />
                         <?php echo form_close(); ?>
                     </td>
                     <td>
                         <?php echo form_open('proyectosController/creaProyecto'); ?>
-                            <input type="submit" value="Crear proyecto"/>
+                            <input class="button2" type="submit" value="Crear proyecto"/>
                         <?php echo form_close(); ?>
                     </td>
                     <td>
                         <?php echo form_open('proyectosController/asignarTrabajador'); ?>
-                            <input type="submit" value="Asignar trabajador"/>
+                            <input class="button2" type="submit" value="Asignar trabajador"/>
                         <?php echo form_close(); ?>
                     </td>
                     <td>
-                        <?php echo form_open(); ?>
-                            <input type="submit" value="Eliminar proyecto" />
+                        <?php echo form_open('proyectosController/eliminar'); ?>
+                            <input type="hidden" id="urlProyectos" value="<?php echo base_url(); ?>"/>
+                            <input class="button2" type="submit" value="Eliminar proyecto" />
                         <?php echo form_close(); ?>
                     </td>
                 </tr>
             </table>
-        </div>
+        </div><br/><br/>
         <div class="result">
             <?php 
                 if(isset($success)) {

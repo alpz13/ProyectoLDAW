@@ -1,12 +1,12 @@
 <?php 
-    include 'header.php';
+    include_once 'header.php';
     if($this->session->userdata('nombre')) {
         $nombre = $this->session->userdata('nombre');
         $nombre .= " ".$this->session->userdata('apellidoP');
         $nombre .= " ".$this->session->userdata('apellidoM');   
 ?>
 
-<title>Mostrar Proyectos</title>
+<title>Eliminar proyecto</title>
 <body class='home'>
     <div id="tooplate_wrapper">
         <div class="menuArea">
@@ -39,37 +39,33 @@
                     </td>
                 </tr>
             </table>
-        </div><br/>
-        <div class="principalAreaP dark principalMostrarP">
-            <?php if(isset($proyectos)) { 
-                echo "<div class='resultados'>";
-                    foreach($proyectos->result() as $row) {
-                        echo "<table class='table_message'>";
-                            echo "<tr>";
-                                echo "<td class='nombre'>";
-                                    echo "<strong>".$row->NombreTrabajo."</strong><br/><br/>";
-                                echo "</td>";
-                            echo "</tr>";
-                            echo "<tr>";
-                                echo "<td>";
-                                    echo $row->Descripcion."<br/><br/>";
-                                echo "</td>";
-                            echo "</tr>";
-                            echo "<tr>";
-                                echo "<td>";
-                                    echo "<strong>Supervisor: </strong>".$row->Nombre." ".$row->APaterno." ".$row->AMaterno;
-                                echo "</td>";
-                            echo "</tr>";
-                        echo "</table>";
-                        echo "<br/>";
+        </div><br/><br/>
+        <div id="mostrarProyectosE">
+            <input type="hidden" id="urlProyectosE" value="<?php echo base_url(); ?>"/>
+            <select id="proyectosSelect" style="margin-left: 33%;">
+                <option value="">Selecciona un proyecto</option>
+                <?php 
+                    if($proyectos->num_rows() > 0) {
+                        foreach($proyectos->result() as $row) {
+                            echo "<option value='".$row->idTrabajos."'>".$row->NombreTrabajo."</option>";
+                        }
                     }
-                echo "</div>";
-            ?>
-            <?php } else {
-                echo "<h3>No hay proyectos disponibles</h3>";
-            } ?>
-            <br/>
+                ?>
+            </select>
+        </div><br/>
+        <br/>
+        <div id="contenido">
+            
+        </div><br/><br/>
+        <div id="divButtonEliminar">
+            <input class="button2" type="button" id="eliminarButtonP" value="Eliminar" style="margin-left: 44%;"/>
         </div>
+    </div><br/><br/>
+    <div style="margin-left: 33%;">
+        <?php if(isset($error)) {
+            echo "<p>".$error."</p>";
+        }
+        ?>
     </div>
     <div id='footerid'>
         <div class="footer">
@@ -83,4 +79,3 @@
         include 'error.php';
     }
 ?>
-    

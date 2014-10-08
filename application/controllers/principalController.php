@@ -53,7 +53,12 @@ class PrincipalController extends CI_Controller {
         
         public function Proyectos()
         {
-            $this->load->view('principalProyectosView');
+            $this->load->model('proyectosModel');
+            $id = $this->session->userdata('id');
+            
+            $resultado = $this->proyectosModel->consultarProyectosSupervisor($id);
+            $data['proyectos'] = $resultado;
+            $this->load->view('principalProyectosView', $data);
         }
         
         public function Configuracion()

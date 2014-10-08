@@ -14,17 +14,36 @@
                 include 'headAdmin.php';
             ?>
         </div>
-        <div class="principalArea">
-            <div>
-                <div id="title"><h2>Bienvenido! <?php echo $nombre; ?></h2></div>
-            </div>
-            <div id="contentArea">
-                
-            </div>
-        </div>
+        <div class="principalAreaP dark">
+            <table style="margin-left: 14%;">
+                <tr>
+                    <td>
+                        <?php echo form_open('proyectosController/consultar'); ?>
+                            <input class="button2" type="submit" value="Consulta proyectos" />
+                        <?php echo form_close(); ?>
+                    </td>
+                    <td>
+                        <?php echo form_open('proyectosController/creaProyecto'); ?>
+                            <input class="button2" type="submit" value="Crear proyecto"/>
+                        <?php echo form_close(); ?>
+                    </td>
+                    <td>
+                        <?php echo form_open('proyectosController/asignarTrabajador'); ?>
+                            <input class="button2" type="submit" value="Asignar trabajador"/>
+                        <?php echo form_close(); ?>
+                    </td>
+                    <td>
+                        <?php echo form_open('proyectosController/eliminar'); ?>
+                            <input type="hidden" id="urlProyectos" value="<?php echo base_url(); ?>"/>
+                            <input class="button2" type="submit" value="Eliminar proyecto" />
+                        <?php echo form_close(); ?>
+                    </td>
+                </tr>
+            </table>
+        </div><br/><br/>
         <div class="principalAreaP dark principalTrabajadores">
             <?php echo form_open('proyectosController/asignarProyecto'); ?>
-                <table>
+                <table style="margin-left: 20%">
                     <tr>
                         <td>
                             <?php if(isset($trabajos)) { ?>
@@ -47,21 +66,20 @@
                                     <option value="">Selecciona un trabajador</option>
                                     <?php
                                         foreach($trabajador->result() as $row) {
-                                            echo "<option value='".$row->idUsuarios."'>".$row->Nombre." ".$row->APaterno." ".$row->AMaterno."</option>";
+                                            if($row->idUsuarios != $this->session->userdata('id')) {
+                                                echo "<option value='".$row->idUsuarios."'>".$row->Nombre." ".$row->APaterno." ".$row->AMaterno."</option>";
+                                            }
                                         }
                                     ?>
                                 </select>
                             <?php } else {
-
+                                echo "<p>No hay trabajadores disponibles</p>";
                             }
                             ?>
                         </td>
                     </tr>
-                    <tr>
-                        <td></td>
-                        <td><input type='submit' value='Asignar'/></td>
-                    </tr>
-                </table>
+                </table><br/>
+                <input class="button2" type='submit' value='Asignar' style="margin-left: 43%"/>
             <?php echo form_close(); ?>
         </div>
     </div>
