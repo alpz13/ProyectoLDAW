@@ -11,7 +11,11 @@
         <div id="tooplate_wrapper">
             <div class='menuArea'>
                 <?php 
-                    include 'headAdmin.php';
+                    if($this->session->userdata('tipo') == 3) {
+                        include_once 'headWorker.php';
+                    } else {
+                        include_once 'headAdmin.php';
+                    }
                 ?>
             </div>
         </div>
@@ -103,8 +107,8 @@
                     }
                 ?>
             </select>
-        </div>
-        <div id="contenido">
+        </div><br/><br/>
+        <div id="contenido" style="font-size: 15px;">
             
         </div><br/>
         <div id="buttonShow">

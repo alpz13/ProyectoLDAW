@@ -32,16 +32,16 @@ class PrincipalController extends CI_Controller {
 	                    $this->session->set_userdata($dataUser);
 	                    $this->load->view('homeView');
 	                } else {
-	                	$data['error'] = "Usuario/Contraseﾃｱa incorrectos";
+	                	$data['error'] = "Usuario/Contraseña incorrectos";
                                 $data['bin'] = 1;
 	                    $this->load->view('indexView', $data);
 	                }
                 } else {
-                	$data['error'] = "Usuario/Contraseﾃｱa incorrectos";
+                	$data['error'] = "Usuario/Contraseña incorrectos";
 	                $this->load->view('indexView', $data);
                 }
 	        } else {
-	        	$data['error'] = "Usuario/Contraseﾃｱa incorrectos";
+	        	$data['error'] = "Usuario/Contraseña incorrectos";
 	            $this->load->view('indexView', $data);
 	        }
         }
@@ -115,7 +115,12 @@ class PrincipalController extends CI_Controller {
         
         public function Proyectos()
         {
-            $this->load->view('principalProyectosView');
+            $this->load->model('proyectosModel');
+            $id = $this->session->userdata('id');
+            
+            $resultado = $this->proyectosModel->consultarProyectosSupervisor($id);
+            $data['proyectos'] = $resultado;
+            $this->load->view('principalProyectosView', $data);
         }
         
         public function Configuracion()

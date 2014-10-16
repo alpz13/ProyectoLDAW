@@ -11,17 +11,39 @@
     <div id="tooplate_wrapper">
         <div class="menuArea">
             <?php 
-                include 'headAdmin.php';
+                if($this->session->userdata('tipo') == 3) {
+                    include_once 'headWorker.php';
+                } else {
+                    include_once 'headAdmin.php';
+                }
             ?>
         </div>
-        <div class="principalArea">
-            <div>
-                <div id="title"><h2>Bienvenido! <?php echo $nombre; ?></h2></div>
-            </div>
-            <div id="contentArea">
-                
-            </div>
-        </div>
+        <div class="principalAreaP dark">
+            <table style="margin-left: 14%;">
+                <tr>
+                    <td>
+                        <?php echo form_open('proyectosController/consultar'); ?>
+                            <input class="button2" type="submit" value="Consulta proyectos" />
+                        <?php echo form_close(); ?>
+                    </td>
+                    <td>
+                        <?php echo form_open('proyectosController/creaProyecto'); ?>
+                            <input class="button2" type="submit" value="Crear proyecto"/>
+                        <?php echo form_close(); ?>
+                    </td>
+                    <td>
+                        <?php echo form_open('proyectosController/asignarTrabajador'); ?>
+                            <input class="button2" type="submit" value="Asignar trabajador"/>
+                        <?php echo form_close(); ?>
+                    </td>
+                    <td>
+                        <?php echo form_open('proyectosController/eliminar'); ?>
+                            <input class="button2" type="submit" value="Eliminar proyecto" />
+                        <?php echo form_close(); ?>
+                    </td>
+                </tr>
+            </table>
+        </div><br/>
         <div class="principalAreaP dark principalMostrarP">
             <?php if(isset($proyectos)) { 
                 echo "<div class='resultados'>";

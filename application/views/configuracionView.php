@@ -13,7 +13,11 @@
         <div id="tooplate_wrapper">
             <div class='menuArea'>
                 <?php 
-                    include 'headAdmin.php';
+                    if($this->session->userdata('tipo') == 3) {
+                        include_once 'headWorker.php';
+                    } else {
+                        include_once 'headAdmin.php';
+                    }
                 ?>
             </div>
         </div>

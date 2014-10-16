@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <?php include_once('header_intro.php'); ?>
 <body>
 	<ul id="nav">

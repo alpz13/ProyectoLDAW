@@ -6,7 +6,7 @@
         $nombre .= " ".$this->session->userdata('apellidoM');   
 ?>
 
-<title>Crea proyecto</title>
+<title>Eliminar proyecto</title>
 <body class='home'>
     <div id="tooplate_wrapper">
         <div class="menuArea">
@@ -44,28 +44,25 @@
                 </tr>
             </table>
         </div><br/><br/>
-        <div class="principalAreaP dark">
-            <?php echo form_open('proyectosController/nuevoProyecto'); ?>
-                <table style="margin-left: 20%;">
-                    <tr>
-                        <td>Nombre de proyecto: </td>
-                        <td><input type="text" name="nombre" value="<?php echo set_value('nombre');?>"/></td>
-                    </tr>
-                    <tr>
-                        <td>Descripción: </td>
-                        <td><textarea name="descripcion" rows="5" cols="70" ><?php echo set_value('descripcion');?></textarea></td>
-                    </tr>
-                    <tr>
-                        <td>Disponibilidad: </td>
-                        <td>
-                            <label>Habilitado: </label><input type="radio" name="habilitado" value="1" checked="true"/>
-                            <label>Deshabilitado: </label><input type="radio" name="habilitado" value="0"/>
-                        </td>
-                    </tr>
-                </table>
-            <br/>
-            <input class="button2" type="submit" value="Crear proyecto" style="margin-left: 20%;"/>
-            <?php echo form_close(); ?>
+        <div id="mostrarProyectosE">
+            <input type="hidden" id="urlProyectosE" value="<?php echo base_url(); ?>"/>
+            <select id="proyectosSelect" style="margin-left: 33%;">
+                <option value="">Selecciona un proyecto</option>
+                <?php 
+                    if($proyectos->num_rows() > 0) {
+                        foreach($proyectos->result() as $row) {
+                            echo "<option value='".$row->idTrabajos."'>".$row->NombreTrabajo."</option>";
+                        }
+                    }
+                ?>
+            </select>
+        </div><br/>
+        <br/>
+        <div id="contenido">
+            
+        </div><br/><br/>
+        <div id="divButtonEliminar">
+            <input class="button2" type="button" id="eliminarButtonP" value="Eliminar" style="margin-left: 44%;"/>
         </div>
     </div><br/><br/>
     <div style="margin-left: 33%;">
@@ -86,4 +83,3 @@
         include 'error.php';
     }
 ?>
-    

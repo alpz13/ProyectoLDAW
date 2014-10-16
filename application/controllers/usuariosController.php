@@ -99,7 +99,7 @@ class UsuariosController extends CI_Controller {
         $this->form_validation->set_rules('mail', 'Correo', 'valid_email');
         
         if ($this->form_validation->run() == FALSE) {
-                echo "<p>Debe indicar un email válido</p>";
+                echo "<p>*Debe indicar un email válido</p>";
         } else {
             $nom = $this->input->post('nombre');
             $apeP = $this->input->post('apellidoP');
@@ -109,10 +109,10 @@ class UsuariosController extends CI_Controller {
             $mail = $this->input->post('mail');
             $foto = $this->input->post('foto');
             
-            if(($nom || $apeP || $apeM || $pass || $passCon) == "") {
-                echo "<p>Debe llenar todos los campos</p>";
+            if($nom || $apeP || $apeM || $pass || $passCon == "") {
+                echo "<p>*Debe llenar todos los campos</p>";
             } else if($pass != $passCon) {
-                echo "<p>Las contraseñas no coinciden</p>";
+                echo "<p>*Las contraseñas no coinciden</p>";
             } else {
                 if($foto == "") {
                     $foto = "../../files/defaultFoto.jpg";
@@ -122,7 +122,7 @@ class UsuariosController extends CI_Controller {
                 if($resultado == 1) {
                     echo '<p>Usuario registrado</p>';
                 } else {
-                    echo "<p>No se ha podido insertar el usuarion con los datos proporcionados</p>";
+                    echo "<p>*No se ha podido insertar el usuarion con los datos proporcionados</p>";
                 }
             }
         }

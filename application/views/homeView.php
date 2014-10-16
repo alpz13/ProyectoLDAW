@@ -11,10 +11,10 @@
     <div id="tooplate_wrapper">
         <div class='menuArea'>
             <?php 
-                if($this->session->userdata('id') == 3) {
-                    include 'headWorker.php';
+                if($this->session->userdata('tipo') == 3) {
+                    include_once 'headWorker.php';
                 } else {
-                    include 'headAdmin.php';
+                    include_once 'headAdmin.php';
                 }
             ?>
         </div>
