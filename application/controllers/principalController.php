@@ -155,6 +155,7 @@ class PrincipalController extends CI_Controller {
             
             $data['usuarios'] = $this->usuariosModel->getUsuarios($id);
             $this->load->view('usuariosView', $data);
+            $this->load->view('footer');
         }
         
         public function cerrarSesion()
