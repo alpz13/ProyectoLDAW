@@ -31,6 +31,7 @@ class PrincipalController extends CI_Controller {
 	                    }
 	                    $this->session->set_userdata($dataUser);
 	                    $this->load->view('homeView');
+                        $this->load->view('footer');
 	                } else {
 	                	$data['error'] = "Usuario/Contraseña incorrectos";
                                 $data['bin'] = 1;
@@ -44,11 +45,13 @@ class PrincipalController extends CI_Controller {
 	        	$data['error'] = "Usuario/Contraseña incorrectos";
 	            $this->load->view('indexView', $data);
 	        }
+
         }
         
         public function homeView()
         {
             $this->load->view('homeView');
+            $this->load->view('footer');
         }
 
         public function mensajesView()
@@ -121,6 +124,7 @@ class PrincipalController extends CI_Controller {
             $resultado = $this->proyectosModel->consultarProyectosSupervisor($id);
             $data['proyectos'] = $resultado;
             $this->load->view('principalProyectosView', $data);
+            $this->load->view('footer');
         }
         
         public function Configuracion()
@@ -141,6 +145,7 @@ class PrincipalController extends CI_Controller {
                 }
             }
             $this->load->view('configuracionView', $data);
+            $this->load->view('footer');
         }
         
         public function Usuarios()

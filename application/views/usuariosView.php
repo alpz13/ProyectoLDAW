@@ -2,7 +2,8 @@
 <!DOCTYPE>
 <html>
     <head>
-        <title>Usuarios</title>
+        <title>Job Scope</title>
+        <link type="image/x-icon" href="<?php echo base_url(); ?>images/websiteico.ico" rel="shortcut icon"/>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
