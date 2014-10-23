@@ -18,6 +18,8 @@ $(document).ready(function() {
     });
     
     $("#registrarUsuario").click(function() {
+        type = $("#registrarUsuario").attr('data-type');
+
         url = $("#url").val();
         nombre = $("#nombre").val();
         apellidoP = $("#apellidoP").val();
@@ -37,6 +39,13 @@ $(document).ready(function() {
         },function(data) {
             $("#contenido").html(data);
         });
+        $('.overlay-container').fadeIn(function() {
+            window.setTimeout(function(){
+                $('.window-container.'+type).addClass('window-container-visible');
+            }, 100);
+            
+        });
     });
+
 });
 

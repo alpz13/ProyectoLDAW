@@ -93,5 +93,25 @@ class UsuariosModel extends CI_Model {
             return 0;
         }        
     }
+    
+    public function getCompetencias($idUser)
+    {
+        $query = "SELECT idCompetencias, MAX (calificacionCompetencia) FROM competenciasusuario WHERE idUsuario = ".$idUser.";";
+        $resultado = $this->db->query($query);
+        if($resultado->num_rows() > 0) {
+            $aux = $resultado->row();
+            $competencia = $this->getNombreCompetencia($aux->idCompetencias);
+            return $competencia;
+        }
+    }
+    
+    public function getNombreCompetencia($idCompetencia)
+    {
+        $this->db->where('idCompetencia', $idCompetencia);
+        $resultado = $this->db->get('competencias');
+        if($resultado->num_rows() > 0) {
+            return $resultado;
+        } 
+    }
 }
 ?>

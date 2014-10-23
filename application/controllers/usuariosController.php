@@ -10,6 +10,7 @@ class UsuariosController extends CI_Controller {
         
         if ($this->form_validation->run() == FALSE) {
                 echo "Debe indicar un email válido";
+                echo "<span class='close'>Cerrar</span>";
         } else {
             $nom = $this->input->post('nombre');
             $apeP = $this->input->post('apellidoP');
@@ -20,9 +21,10 @@ class UsuariosController extends CI_Controller {
             $foto = $this->input->post('foto');
             
             if(($nom || $apeP || $apeM || $pass || $passCon) == "") {
-                echo "<p>Debe llenar todos los campos</p>";
+                $this->load->view("mensajeView");
             } else if($pass != $passCon) {
                 echo "<p>Las contraseñas no coinciden</p>";
+                echo "<span class='close'>Cerrar</span>";
             } else {
                 if($foto == "") {
                     $foto = "../../files/defaultFoto.jpg";
@@ -31,8 +33,10 @@ class UsuariosController extends CI_Controller {
 
                 if($resultado == 1) {
                     echo '<p>Usuario registrado';
+                    echo "<span class='close'>Cerrar</span>";
                 } else {
                     echo "<p>No se ha podido insertar el usuarion con los datos proporcionados</p>";
+                    echo "<span class='close'>Cerrar</span>";
                 }
             }
         }

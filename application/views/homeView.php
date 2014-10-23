@@ -23,7 +23,7 @@
                 <div id="title"><h2>Bienvenido! <?php echo $nombre; ?></h2></div>
             </div>
             <div id="contentArea">
-                
+                <input type="hidden" id="idUser" name="idUser" value="<?php echo $this->session->userdata('id');?>"/>
             </div>
         </div>
     </div>
