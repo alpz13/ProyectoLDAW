@@ -20,6 +20,7 @@
         <script type="text/javascript" src="<?php echo base_url(); ?>javascript/principal.js"></script>
         <script type="text/javascript" src="<?php echo base_url(); ?>javascript/usuariosFunctions.js"></script>
         <script type="text/javascript" src="<?php echo base_url(); ?>javascript/proyectosFunctions.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <title>Job Scope</title>
         <link type="image/x-icon" href="<?php echo base_url(); ?>images/websiteico.ico" rel="shortcut icon"/>
         <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>default.css" title="default">

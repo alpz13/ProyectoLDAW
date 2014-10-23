@@ -4,15 +4,14 @@ require_once ('jpgraph/jpgraph_radar.php');
 
 
 //Array of data extracted from the database.
-//$titles=array('Aplicaciones de escritorio','Web','Seguridad','Base de datos', 'Redes');
-$titles=array('Desktop apps','Web','Security','Data bases', 'Networking');
-$data=array( 4, 7, 9, 4, 2);
+$titles=array('Work under preassure','Teamwork','Comunication','Leadership','Initiative');
+$data=array( 4, 7, 9, 2, 8);
 
 //Defines the a new radar with a set size.
 $graph = new RadarGraph (450,400);
 
 //Sets title of the radar graphics and the fonts used.
-$graph->title->Set('Areas');
+$graph->title->Set('Abilities');
 $graph->title->SetFont(FF_VERDANA,FS_BOLD,12);
 
 //Sets the format of the radar (center, background color).
@@ -32,9 +31,9 @@ $graph->SetSize(0.6);
 
 //Sets the graphic line format.
 $plot = new RadarPlot($data);
-$plot->SetColor('blue@0.2');
+$plot->SetColor('darkgreen@0.5');
 $plot->SetLineWeight(2);
-$plot->SetFillColor('blue@0.7');
+$plot->SetFillColor('green@0.7');
 
 //Sets the color of the dots from each data (if used).
 $plot->mark->SetType(MARK_IMG_SBALL,'red');
