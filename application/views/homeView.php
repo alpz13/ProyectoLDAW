@@ -20,7 +20,7 @@
         </div>
         <div class="principalArea">
             <div>
-                <div id="title"><h2>Bienvenido! <?php echo $nombre; ?></h2></div>
+                <div id="title"><h2>Welcome! <?php echo $nombre; ?></h2></div>
             </div>
             <div id="contentArea">
                 <script>
@@ -47,7 +47,20 @@ $("p2").hide();
 					<button class="button2" id="hide">Areas</button>
 					<button class="button2" id="show">Abilities</button>
 				</div>
-				<br><hr><br><br>
+				<br><hr><br><br>    
+                <div>
+                    <?php
+                        $i = 0;
+                        $j=count($proyectos);
+                        for($i; $i < $j; $i++) {
+                            foreach($proyectos[$i]->result() as $row) {
+                                echo "Nombre: ".$row->Nombre."<br/>";
+                                echo "Descripcion: ".$row->Descripcion;
+                                echo "<br/><br/>";
+                            }
+                        }
+                    ?>
+                </div>
             </div>
         </div>
     </div>

@@ -119,6 +119,22 @@ class ProyectosModel extends CI_Model {
             return 0;
         }
     }
+    
+    public function getProyectos($idArea)
+    {
+        $this->db->where('idArea', $idArea);
+        $resultado = $this->db->get('trabajoarea');
+        
+        return $resultado;
+    }
+    
+    public function getProyectosData($idTrabajo)
+    {
+        $this->db->where('idTrabajos', $idTrabajo);
+        $resultado = $this->db->get('trabajos');
+        
+        return $resultado;
+    }
 }
 
 ?>

@@ -31,42 +31,16 @@ class PrincipalController extends CI_Controller {
 	                        $dataUser['tipo'] = $row->idTipo;
                                 $dataUser['foto'] = $row->urlFoto;
 	                    }
-                            //Obtiene los datos de la competencia con mayor puntaje
-//                            $competencias = $this->usuariosModel->getCompetencias($idUser);
-//                            //Busca los proyectos con el id de competencia mayor
-//                            if($competencias->num_rows() > 0) {
-//                                $row = $competencias->row();
-//                                $idComp = $row->idCompetencias;
-//                                $this->proyectosModel->getProyectos($idComp);
-//                            }
                             
-                            //***Aqui se cargan las graficas***///
-//                            $respuesta = $this->usuariosModel->getCalificaciones($idUser);
-//                            if($respuesta->num_rows() > 0) {
-//                                $nombreAreas = array();
-//                                $i = 0;
-//                                foreach($respuesta->result() as $row) {
-//                                    $idArea = $row->idAreas;
-//                                    $resultado = $this->usuariosModel->getAreas($idArea);
-//                                    if($resultado->num_rows() > 0) {
-//                                        foreach($resultado->result() as $row1) {
-//                                            $nombreAreas[$i] = $row1->NombreArea;
-//                                            $i++;
-//                                        }
-//                                    }
-//                                }
-//                                $data['calificaciones'] = $respuesta;
-//                                $data['areas'] = $nombreAreas;
-//                            }
-                            //**********************************//
+                            //**Busca el área con mayor calificacion**
+                            $area = $this->areaAfin($idUser);
+                            $query = $area->row();
+                            $idAreaMayor = $query->idAreas;
+                            $data['proyectos'] = $this->getProyectos($idAreaMayor);
+                            //********************************************//
+                            //********************************************//
                             
-                            //Obtiene los datos del area con mayor puntaje
-//                            $areas = $this->usuariosModel->getAreas($idUser);
                             
-//                            $data['competencias'] = $competencias;
-//                            $data['areas'] = $areas;
-//                            $data['grafica1'] = $this->radar1();
-//                            $data['grafica2'] = $this->radar2();
 	                    $this->session->set_userdata($dataUser);
 	                    $this->load->view('homeView', $data);
                             $this->load->view('footer');
@@ -208,12 +182,50 @@ class PrincipalController extends CI_Controller {
             $this->load->view('registrarUsuariosView');
         }
         
-        public function radar1()
+        
+        //**Buscar id y nombre de area afin//**
+        public function areaAfin($idUsuario)
         {
-            $this->load->view('radarmarkex1View');
+            $this->load->model('usuariosModel');
+            //**Devuelve el id del Area con mayor puntaje**
+            $resultado = $this->usuariosModel->getArea($idUsuario);
+            
+            $resultado = $this->nombreArea($resultado);
+            
+            return $resultado;
         }
-        public function radar2()
-        {
-            $this->load->view('radarmarkex2View');
-        }
+        
+        //**Busca el nombre del área dependiendo del id que se le pase**
+       public function nombreArea($idArea)
+       {
+           $this->load->model('usuariosModel');
+           $resultado = $this->usuariosModel->getNombreArea($idArea);
+           
+           return $resultado;
+       }
+       
+       public function getProyectos($idArea)
+       {
+           $this->load->model('proyectosModel');
+           $resultado = $this->proyectosModel->getProyectos($idArea);
+           
+           if($resultado->num_rows() > 0) {
+               $proyectos = $this->getProyectosData($resultado);
+           }
+           
+           return $proyectos;
+       }
+       
+       public function getProyectosData($arrayProyectos)
+       {
+           $this->load->model('proyectosModel');
+           $query = array();
+           $i = 0;
+           foreach($arrayProyectos->result() as $row) {
+               $idTrabajo = $row->idTrabajos;
+               $query[$i++] = $this->proyectosModel->getProyectosData($idTrabajo);
+           }
+           
+           return $query;
+       }
 }

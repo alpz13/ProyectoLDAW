@@ -94,41 +94,39 @@ class UsuariosModel extends CI_Model {
         }        
     }
     
-    public function getCompetencias($idUser)
-    {
-        $query = "SELECT idCompetencias, MAX (calificacionCompetencia) FROM competenciasusuario WHERE idUsuario = ".$idUser.";";
-        $resultado = $this->db->query($query);
-        if($resultado->num_rows() > 0) {
-            $aux = $resultado->row();
-            $competencia = $this->getNombreCompetencia($aux->idCompetencias);
-            return $competencia;
-        }
-    }
-    
-    public function getNombreCompetencia($idCompetencia)
-    {
-        $this->db->where('idCompetencia', $idCompetencia);
-        $resultado = $this->db->get('competencias');
-        if($resultado->num_rows() > 0) {
-            return $resultado;
-        } 
-    }
-    
-    function getCalificaciones($idUsuario)
+    public function getCalificaciones($idUsuario)
     {
         $this->db->where('idUsuario', $idUsuario);
-        $this->db->order_by("idAreas", "desc"); 
-        $respuesta = $this->db->get('areasusuario');
-
-        return $respuesta;
+        $resultado = $this->db->get('areasusuario');
+        if($resultado->num_rows() > 0) {
+            $row = $resultado->row();
+            $idArea = $row->idAreas;
+            $calif = $row->calificacionArea;
+            foreach($resultado->result() as $row) {
+                $califRow = $row->calificacionArea;
+                $idAreaRow = $row->idAreas;
+                if($califRow > $calif) {
+                    $calif = $califRow;
+                    $idArea = $idAreaRow;
+                }
+            }
+            $mayor = $idArea;
+        }
+        return $mayor;
     }
+    
 
-    function getAreas($idArea)
+    function getArea($idUsuario)
+    {
+        $resultado = $this->getCalificaciones($idUsuario);
+        return $resultado;
+    }
+    
+    function getNombreArea($idArea)
     {
         $this->db->where('idAreas', $idArea);
-        $this->db->order_by("idAreas", "desc"); 
         $resultado = $this->db->get('areas');
-
+        
         return $resultado;
     }
 
