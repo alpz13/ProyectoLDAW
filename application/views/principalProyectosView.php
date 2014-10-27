@@ -57,11 +57,6 @@
         </div>
     </div>
     <br/><br/><br/>
-    <div id='footerid'>
-        <div class="footer">
-                <?php include_once 'footer.php'; ?>
-        </div>
-    </div>
 </body>
 
 <?php

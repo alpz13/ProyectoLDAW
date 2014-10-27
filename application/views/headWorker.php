@@ -9,7 +9,7 @@
                 
         <li>
         <?php echo form_open('principalController/homeView'); ?>
-        <a href="<?php echo base_url(); ?>index.php/principalController/homeView" class="button2" style="top: 232px; left: 190px;"><img src="<?php echo base_url(); ?>images/user_opt.png" type="submit" id="home" alt="home"/>Profile</a>
+        <a href="<?php echo base_url(); ?>index.php/principalController/homeView" class="button2" style="top: 232px; left: 190px;"><img src="<?php echo base_url(); ?>images/2-Hot-Home-icon_opt.png" type="submit" id="home" alt="home"/>Home</a>
         <!--  <input type="submit" id="home" value="Home"><br/>    -->
         <?php echo form_close(); ?>
         </li>
@@ -30,7 +30,7 @@
         
         <li>
         <?php echo form_open('principalController/Configuracion'); ?>
-        <a href="<?php echo base_url(); ?>index.php/principalController/Configuracion" class="button2" style="top: 232px; left: 190px;"><img src="<?php echo base_url(); ?>images/setting-icon_opt.png" type="submit" id="config" alt="configuracion"/>Settings</a>
+        <a href="<?php echo base_url(); ?>index.php/principalController/Configuracion" class="button2" style="top: 232px; left: 190px;"><img src="<?php echo base_url(); ?>images/setting-icon_opt.png" type="submit" id="config" alt="configuracion"/>Profile</a>
         <!-- <input type="submit" id="config" value="Configuraci・・ｽｳn"><br/>    -->
         <?php echo form_close(); ?>
         </li>

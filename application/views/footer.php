@@ -21,7 +21,7 @@
         </div>
       </div>
       <div id="Bottom">
-         <p class="down">Copyright &copy; 2014, <a href="http://www.jobscope.com">Design by: Job Scope Team</a></p>
+         <p class="down">Copyright &copy; 2014, Design by: Job Scope Team</a></p>
       </div>
     </div>
   </div>

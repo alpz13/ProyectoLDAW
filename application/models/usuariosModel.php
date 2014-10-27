@@ -113,5 +113,24 @@ class UsuariosModel extends CI_Model {
             return $resultado;
         } 
     }
+    
+    function getCalificaciones($idUsuario)
+    {
+        $this->db->where('idUsuario', $idUsuario);
+        $this->db->order_by("idAreas", "desc"); 
+        $respuesta = $this->db->get('areasusuario');
+
+        return $respuesta;
+    }
+
+    function getAreas($idArea)
+    {
+        $this->db->where('idAreas', $idArea);
+        $this->db->order_by("idAreas", "desc"); 
+        $resultado = $this->db->get('areas');
+
+        return $resultado;
+    }
+
 }
 ?>
