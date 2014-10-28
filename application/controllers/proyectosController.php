@@ -19,15 +19,15 @@ class ProyectosController extends CI_Controller {
         $this->form_validation->set_rules('descripcion', 'Descripcion', 'required');
         
         if ($this->form_validation->run() == FALSE) {
-                $data['error'] = "Deben llenarse todos los campos indicados";
+                $data['error'] = "All fields must be filled";
                 $this->load->view("creaProyectoView", $data);
         } else {
             $resultado = $this->proyectosModel->creaProyecto($nombre, $descripcion, $habilitado, $supervisor);
 
             if($resultado == 1) {
-                $data['success'] = "Se ha creado un nuevo proyecto";
+                $data['success'] = "New Project has been created";
             } else {
-                $data['error'] = 'Ha ocurrido un error. Por favor vuelva a intentarlo.';
+                $data['error'] = 'Something has occured, please try again.';
             }
             $id = $this->session->userdata('id');
             $resultado = $this->proyectosModel->consultarProyectosSupervisor($id);
@@ -73,11 +73,11 @@ class ProyectosController extends CI_Controller {
         $resultado = $this->proyectosModel->asignarProyecto($proyecto, $trabajador);
         
         if($resultado == 1) {
-            $data['success'] = "Se ha asignado al trabajador al proyecto exitosamente";
+            $data['success'] = "Project has been assigned succesfully";
         } else if($resultado == 0) {
-            $data['error'] = "El trabajador seleccionado cuenta con más de 5 proyectos. No se puede asignar más";
+            $data['error'] = "Worker has a full load. You cannot assign more";
         } else {
-            $data['error'] = "Ha ocurrido un error. Por favor vuelva a intentarlo";
+            $data['error'] = "Something has happened, please try again.";
         }
         $id = $this->session->userdata('id');
         $resultado = $this->proyectosModel->consultarProyectosSupervisor($id);
@@ -94,7 +94,7 @@ class ProyectosController extends CI_Controller {
         
         if($resultado->num_rows() > 0) {
             echo "<table class='table_message'>";
-                echo "<tr><td>Proyecto</td><td>Descripción</td></tr>";
+                echo "<tr><td>Project</td><td>Description</td></tr>";
                 echo "<tr>";
                     foreach($resultado->result() as $row) {
                         echo "<td>".$row->NombreTrabajo."</td>";
@@ -103,7 +103,7 @@ class ProyectosController extends CI_Controller {
                 echo "</tr>";
             echo "</table>";
         } else {
-            echo "<p>No se han encontrado resultados</p>";
+            echo "<p>No projects has been found</p>";
         }
     }
     
@@ -115,9 +115,9 @@ class ProyectosController extends CI_Controller {
         $resultado = $this->proyectosModel->eliminaProyecto($idProyecto);
         
         if($resultado == 1) {
-            echo "<p>El proyecto se ha eliminado correctamente</p>";
+            echo "<p>The project has been deleted succesfully</p>";
         } else {
-            echo "<p>No se ha podido eliminar el proyecto. Favor de intentarlo de nuevo</p>";
+            echo "<p>Project could not be deleted, please try again.</p>";
         }
     }
     

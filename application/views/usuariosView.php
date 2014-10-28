@@ -48,32 +48,32 @@
             <?php echo form_open(); ?>
                     <table class="tRegistro" style="margin-left: 33%;">
                         <tr>
-                            <td>Nombre:</td>
+                            <td>Name:</td>
                             <td><input type='text' name='nombre' id="nombre" value="<?php echo set_value('nombre');?>"</td>
                             <td class="error"><?php echo form_error('nombre'); ?></td>
                         </tr>
                         <tr>
-                            <td>Apellido Paterno:</td>
+                            <td>Paternal lastname:</td>
                             <td><input type='text' name='apellidoP' id="apellidoP" value="<?php echo set_value('apellidoP');?>"</td>
                             <td class="error"><?php echo form_error('apellidoP'); ?></td>
                         </tr>
                         <tr>
-                            <td>Apellido Materno:</td>
+                            <td>Maternal lastname:</td>
                             <td><input type='text' name='apellidoM' id="apellidoM" value="<?php echo set_value('apellidoM');?>"</td>
                             <td class="error"><?php echo form_error('apellidoM'); ?></td>
                         </tr>
                         <tr>
-                            <td>Contraseña:</td>
+                            <td>Password:</td>
                             <td><input type='password' name='pass' id="pass" value="<?php echo set_value('pass');?>"</td>
                             <td class="error"><?php echo form_error('pass'); ?></td>
                         </tr>
                         <tr>
-                            <td>Repita su contraseña:</td>
+                            <td>Re entry password:</td>
                             <td><input type='password' name='passCon' id="passCon" value="<?php echo set_value('passCon');?>"</td>
                             <td class="error"><?php echo form_error('passCon'); ?></td>
                         </tr>
                         <tr>
-                            <td>Correo:</td>
+                            <td>Mail:</td>
                             <td><input type='text' name='mail' id="mail" value="<?php echo set_value('mail');?>"</td>
                             <td class="error"><?php echo form_error('mail'); ?></td>
                         </tr>
@@ -87,7 +87,7 @@
         </div>
         <div id="usuarioEliminarC">
             <select id="usuarioSelectC" style="margin-left: 40%;">
-                <option value="">Selecciona un usuario</option>
+                <option value="">Choose an user</option>
                 <?php 
                     if($usuarios->num_rows > 0) {
                         foreach($usuarios->result() as $row) {
@@ -99,7 +99,7 @@
         </div>
         <div id="usuarioModificarC">
             <select id="usuarioModificarSelectC" style="margin-left: 40%;">
-                <option value="">Selecciona un usuario</option>
+                <option value="">Choose an user</option>
                 <?php 
                     if($usuarios->num_rows > 0) {
                         foreach($usuarios->result() as $row) {

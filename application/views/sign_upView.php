@@ -46,7 +46,7 @@ if(isset($_POST['username'], $_POST['password'], $_POST['passverif'], $_POST['em
 						//We dont display the form
 						$form = false;
 ?>
-<div class="message">Te has registrado exitosamente. Puedes iniciar tu log in.<br /><br/>
+<div class="message">Register successfully, you can now log in.<br /><br/>
 
 <a href="<?php echo site_url('principalController/conexionView');?>" class="button2">Log in</a></div>
 
@@ -57,35 +57,35 @@ if(isset($_POST['username'], $_POST['password'], $_POST['passverif'], $_POST['em
 					{
 						//Otherwise, we say that an error occured
 						$form = true;
-						$message = 'Ocurrio un error al tratar de registrarse.';
+						$message = 'Something has happened while registering, please try again.';
 					}
 				}
 				else
 				{
 					//Otherwise, we say the username is not available
 					$form = true;
-					$message = 'El nombre de usuario no esta disponible, favor de elegir otro.';
+					$message = 'User name is not available, please try another.';
 				}
 			}
 			else
 			{
 				//Otherwise, we say the email is not valid
 				$form = true;
-				$message = 'El email que utilizo no es valido.';
+				$message = 'Mail is not valid.';
 			}
 		}
 		else
 		{
 			//Otherwise, we say the password is too short
 			$form = true;
-			$message = 'Tu password debe de contener al menos 6 characters.';
+			$message = 'Password must have 6 characters.';
 		}
 	}
 	else
 	{
 		//Otherwise, we say the passwords are not identical
 		$form = true;
-		$message = 'Los passwords no son identicos.';
+		$message = 'Passwords does not match.';
 	}
 }
 else
@@ -106,9 +106,9 @@ if($form)
 	<a href="<?php echo site_url('principalController/mensajesView');?>" class="button2" style="top: 232px; left: 190px;">&nbsp; Regresar</a><br />
 	<br />
     <form action="<?php echo site_url('principalController/mensajessignView');?>" method="post">
-        Registro de nuevo usuario.<br /><br />
+        New user registry.<br /><br />
         <div class="center">
-            <label for="username">Usuario</label><input type="text" name="username" value="<?php if(isset($_POST['username'])){echo htmlentities($_POST['username'], ENT_QUOTES, 'UTF-8');} ?>" /><br />
+            <label for="username">User</label><input type="text" name="username" value="<?php if(isset($_POST['username'])){echo htmlentities($_POST['username'], ENT_QUOTES, 'UTF-8');} ?>" /><br />
             <label for="password">Password<span class="small">(6 caracteres min.)</span></label><input type="password" name="password" /><br />
             <label for="passverif">Password<span class="small">(verificacion)</span></label><input type="password" name="passverif" /><br />
             <label for="email">Email</label><input type="text" name="email" value="<?php if(isset($_POST['email'])){echo htmlentities($_POST['email'], ENT_QUOTES, 'UTF-8');} ?>" /><br />

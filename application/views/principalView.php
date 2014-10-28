@@ -24,16 +24,16 @@
         <div id='header' class="dark">
             <?php echo form_open('principalController/home'); ?>
                 <div>
-                    <h1>Bienvenido!</h1>
+                    <h1>Welcome !</h1>
                     <br/>
-                    <div><h2>Ingresa al sistema:</h2></div>
+                    <div><h2>Log in to the system:</h2></div>
                     <table class='table'>
                         <tr>
-                            <td><label>Usuario: </label></td>
+                            <td><label>User: </label></td>
                             <td><input type="text" id="usuario" name="usuario"/></td>
                         </tr>
                         <tr>
-                            <td>Contraseña: </td>
+                            <td>Password: </td>
                             <td><input type="password" id="passwd" name="passwd"/></td>
                         </tr>
                     </table>
@@ -44,7 +44,7 @@
             <div id='second'>
                 <?php echo form_open('principalController/registrar'); ?>
                     <input type="hidden" id="url" value="<?php echo base_url(); ?>"/>
-                    <label>¿Aún no tienes cuenta?</label><br/>
+                    <label>Do not have an account?</label><br/>
                     <input type='submit' id="nuevoUsuario" value='Registrarse'/>
                 <?php echo form_close(); ?>
             </div>

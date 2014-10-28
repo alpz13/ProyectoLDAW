@@ -33,16 +33,16 @@ class PrincipalController extends CI_Controller {
 	                    $this->load->view('homeView');
                         $this->load->view('footer');
 	                } else {
-	                	$data['error'] = "Usuario/Contraseña incorrectos";
+	                	$data['error'] = "User/Password incorrect";
                                 $data['bin'] = 1;
 	                    $this->load->view('indexView', $data);
 	                }
                 } else {
-                	$data['error'] = "Usuario/Contraseña incorrectos";
+                	$data['error'] = "User/Password incorrect";
 	                $this->load->view('indexView', $data);
                 }
 	        } else {
-	        	$data['error'] = "Usuario/Contraseña incorrectos";
+	        	$data['error'] = "User/Password incorrect";
 	            $this->load->view('indexView', $data);
 	        }
 

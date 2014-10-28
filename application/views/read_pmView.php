@@ -52,15 +52,15 @@ if(isset($_POST['message']) and $_POST['message']!='')
 	if(mysql_query('insert into pm (id, id2, title, user1, user2, message, timestamp, user1read, user2read)values("'.$id.'", "'.(intval(mysql_num_rows($req2))+1).'", "", "'.$_SESSION['userid'].'", "", "'.$message.'", "'.time().'", "", "")') and mysql_query('update pm set user'.$user_partic.'read="yes" where id="'.$id.'" and id2="1"'))
 	{
 ?>
-<div class="message">El mensaje ha sido enviado.<br /><br /><br />
-<a href="<?php echo site_url('principalController/mensajeslistView');?>" class="button2">Regresar a mensajes.</a></div>
+<div class="message">Message has been sent.<br /><br /><br />
+<a href="<?php echo site_url('principalController/mensajeslistView');?>" class="button2">Back to messages.</a></div>
 <?php
 	}
 	else
 	{
 ?>
-<div class="message">Error: no se pudo enviar el mensaje.<br /><br /><br />
-<a href="<?php echo site_url('principalController/mensajeslistView');?>" class="button2">Regresar a mensajes.</a></div>
+<div class="message">Error: message could not be sent.<br /><br /><br />
+<a href="<?php echo site_url('principalController/mensajeslistView');?>" class="button2">Back to messages.</a></div>
 <?php
 	}
 }
@@ -73,7 +73,7 @@ else
 <table class="table_message">
 	<tr>
     	<th class="author">De:</th>
-        <th>Mensaje:</th>
+        <th>Message:</th>
     </tr>
 <?php
 while($dn2 = mysql_fetch_array($req2))
@@ -84,7 +84,7 @@ while($dn2 = mysql_fetch_array($req2))
     	<?php
          ?>
 <br /><p><?php echo $dn2['username']; ?></p></td>
-    	<td class="left"><div class="date">Fecha: <?php echo date('m/d/Y H:i:s' ,$dn2['timestamp']); ?></div>
+    	<td class="left"><div class="date">Date: <?php echo date('m/d/Y H:i:s' ,$dn2['timestamp']); ?></div>
     	<?php echo $dn2['message']; ?></td>
     </tr>
 <?php
@@ -97,7 +97,7 @@ while($dn2 = mysql_fetch_array($req2))
 <br />
 <div class="center">
     <form action="<?php echo site_url('principalController/leermensajeView');?>?id=<?php echo $id; ?>" method="post">
-    	<label for="message" class="center">Mensaje:</label><br />
+    	<label for="message" class="center">Message:</label><br />
         <textarea cols="40" rows="5" name="message" id="message"></textarea><br />
         <input type="submit" class="button2" value="Enviar" />
     </form>
@@ -108,22 +108,22 @@ while($dn2 = mysql_fetch_array($req2))
 }
 else
 {
-	echo '<div class="message">No tienes los permisos para acceder a esta pagina.</div>';
+	echo '<div class="message">You do not have the rights to acces this page.</div>';
 }
 }
 else
 {
-	echo '<div class="message">El mensaje no existe.</div>';
+	echo '<div class="message">Message does not exists.</div>';
 }
 }
 else
 {
-	echo '<div class="message">El id del mensaje no esta definido</div>';
+	echo '<div class="message">The message id is not defined</div>';
 }
 }
 else
 {
-	echo '<div class="message">Debes iniciar sesion para leer el mensaje.</div>';
+	echo '<div class="message">You must log in to read the message.</div>';
 }
 ?>
 
