@@ -6,7 +6,7 @@
         $nombre .= " ".$this->session->userdata('apellidoM');   
 ?>
 
-<title>Crea proyecto</title>
+<title>Create Project</title>
 <body class='home'>
     <div id="tooplate_wrapper">
         <div class="menuArea">
@@ -48,18 +48,18 @@
             <?php echo form_open('proyectosController/nuevoProyecto'); ?>
                 <table style="margin-left: 20%;">
                     <tr>
-                        <td>Nombre de proyecto: </td>
+                        <td>Name of the project: </td>
                         <td><input type="text" name="nombre" value="<?php echo set_value('nombre');?>"/></td>
                     </tr>
                     <tr>
-                        <td>Descripción: </td>
+                        <td>Description: </td>
                         <td><textarea name="descripcion" rows="5" cols="70" ><?php echo set_value('descripcion');?></textarea></td>
                     </tr>
                     <tr>
-                        <td>Disponibilidad: </td>
+                        <td>Availability: </td>
                         <td>
-                            <label>Habilitado: </label><input type="radio" name="habilitado" value="1" checked="true"/>
-                            <label>Deshabilitado: </label><input type="radio" name="habilitado" value="0"/>
+                            <label>Enable: </label><input type="radio" name="habilitado" value="1" checked="true"/>
+                            <label>Disable: </label><input type="radio" name="habilitado" value="0"/>
                         </td>
                     </tr>
                 </table>

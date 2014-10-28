@@ -20,7 +20,7 @@
         </div>
         <div class="principalArea">
             <div>
-                <div id="title"><h2>Bienvenido! <?php echo $nombre; ?></h2></div>
+                <div id="title"><h2>Welcome! <?php echo $nombre; ?></h2></div>
             </div>
             <div id="contentArea">
                 <script>

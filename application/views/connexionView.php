@@ -15,8 +15,8 @@ if(isset($_SESSION['username']))
 	//We log him out by deleting the username and userid sessions
 	unset($_SESSION['username'], $_SESSION['userid']);
 ?>
-<div class="message">Tu sesion ha sido terminada.<br /><br /><br />
-<a href="<?php echo site_url('principalController/mensajesView');?>" class="button2">Inicio</a></div>
+<div class="message">Session expired.<br /><br /><br />
+<a href="<?php echo site_url('principalController/mensajesView');?>" class="button2">Home</a></div>
 <?php
 }
 else
@@ -49,8 +49,8 @@ else
 			$_SESSION['username'] = $_POST['username'];
 			$_SESSION['userid'] = $dn['id'];
 ?>
-<div class="message">Haz iniciado sesion exitosamente.<br /><br /><br />
-<a href="<?php echo site_url('principalController/mensajesView');?>" class="button2">Inicio</a></div>
+<div class="message">Log in successfully.<br /><br /><br />
+<a href="<?php echo site_url('principalController/mensajesView');?>" class="button2">Home</a></div>
 <?php
 		}
 		else
@@ -80,7 +80,7 @@ else
     <form action="<?php echo site_url('principalController/conexionView');?>" method="post">
         <br />
         <div class="center">
-            <label for="username">Usuario</label><input type="text" name="username" id="username" value="<?php echo htmlentities($ousername, ENT_QUOTES, 'UTF-8'); ?>" /><br />
+            <label for="username">User</label><input type="text" name="username" id="username" value="<?php echo htmlentities($ousername, ENT_QUOTES, 'UTF-8'); ?>" /><br />
             <label for="password">Password</label><input type="password" name="password" id="password" /><br /><br />
             <input class="button2" type="submit" value="Log in" />
 		</div>

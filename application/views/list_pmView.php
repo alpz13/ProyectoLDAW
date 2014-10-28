@@ -24,13 +24,13 @@ $req2 = mysql_query('select m1.id, m1.title, m1.timestamp, count(m2.id) as reps,
 <a href="<?php echo site_url('principalController/nuevomensajeView');?>" class="button2" style="top: 232px; left: 190px;">&nbsp; Crear mensaje</a><br />
 <br/>
 <br/>
-<h3>Mensajes nuevos (<?php echo intval(mysql_num_rows($req1)); ?>):</h3>
+<h3>New Messages (<?php echo intval(mysql_num_rows($req1)); ?>):</h3>
 <table class="table_message">
 	<tr>
-    	<th class="title_cell">Titulo</th>
+    	<th class="title_cell">Title</th>
         <!--<th>No. Replies</th>-->
-        <th>De</th>
-        <th>Fecha:</th>
+        <th>From</th>
+        <th>Date:</th>
     </tr>
 <?php
 //We display the list of unread messages
@@ -50,20 +50,20 @@ if(intval(mysql_num_rows($req1))==0)
 {
 ?>
 	<tr>
-    	<td colspan="4" class="center">No hay mensajes nuevos.</td>
+    	<td colspan="4" class="center">No new messages.</td>
     </tr>
 <?php
 }
 ?>
 </table>
 <br />
-<h3>Mensajes leidos/escritos (<?php echo intval(mysql_num_rows($req2)); ?>):</h3>
+<h3>Write/Read Messages (<?php echo intval(mysql_num_rows($req2)); ?>):</h3>
 <table class="table_message">
 	<tr>
-    	<th class="title_cell">Titulo</th>
+    	<th class="title_cell">Title</th>
         <th>No. Replies</th>
-        <th>De</th>
-        <th>Fecha:</th>
+        <th>From</th>
+        <th>Date:</th>
     </tr>
 <?php
 //We display the list of read messages
@@ -83,7 +83,7 @@ if(intval(mysql_num_rows($req2))==0)
 {
 ?>
 	<tr>
-    	<td colspan="4" class="center">No tienes mensajes.</td>
+    	<td colspan="4" class="center">No new messages.</td>
     </tr>
 <?php
 }
@@ -93,7 +93,7 @@ if(intval(mysql_num_rows($req2))==0)
 }
 else
 {
-	echo 'Debes iniciar sesion para leer el mensaje.';
+	echo 'You have to log in to read  iniciar sesion para leer el mensaje.';
 }
 ?>
 		</div>
