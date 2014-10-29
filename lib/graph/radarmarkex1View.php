@@ -2,11 +2,19 @@
 require_once ('jpgraph/jpgraph.php');
 require_once ('jpgraph/jpgraph_radar.php');
 
-
+$a = $_GET['a'];
+$b = $_GET['b'];
+$c = $_GET['c'];
+$d = $_GET['d'];
+$e = $_GET['e'];
 //Array of data extracted from the database.
 //$titles=array('Aplicaciones de escritorio','Web','Seguridad','Base de datos', 'Redes');
-$titles=array('Desktop apps','Web','Security','Data bases', 'Networking');
-$data=array( 4, 7, 9, 4, 2);
+//$a = $_GET['a'];
+//$b = $_GET['b'];
+//$c = $_GET['c'];
+
+$titles=array('Security','Web','Data bases', 'Networking', 'Desktop Apps');
+$data=array( $a, $b, $c, $d, $e);
 
 //Defines the a new radar with a set size.
 $graph = new RadarGraph (450,400);

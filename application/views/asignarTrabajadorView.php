@@ -55,7 +55,7 @@
                                     <option value=''>Choose a project</option>
                                     <?php
                                         foreach($trabajos->result() as $row) {
-                                            echo "<option value='".$row->idTrabajos."'>".$row->NombreTrabajo."</option>";
+                                            echo "<option value='".$row->idTrabajos."'>".$row->Nombre."</option>";
                                         }
                                     ?>
                                 </select>

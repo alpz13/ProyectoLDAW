@@ -35,10 +35,10 @@ $(document).ready(function() {
         apellidoM = $("#apellidoM").val();
         pass = $("#pass").val();
         passCon = $("#passCon").val();
-        mail = $("#mail").val();
+        mail = $("#mail").val();        
         $.post(url+"index.php/usuariosController/registraUsuario", {
         },function(data) {
-            $("#contenido").html(data);
+            alert(data);
         });
     });
     

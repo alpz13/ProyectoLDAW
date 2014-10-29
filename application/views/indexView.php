@@ -66,13 +66,15 @@
                                     </tr>
                                     <tr>
                                         <td></td>
-                                        <td><input id="registrarUsuario" type="button" class="button_par" value='Registrar' style="top: 232px; left: 190px;"/></td>
+                                        <td><input id="registrarUsuario" type="button" class="button_par" value='Registrar' data-type="zoomin" style="top: 232px; left: 190px;"/></td>
                                     </tr>
                                 </table>
                             <?php echo form_close(); ?>
                             <br/>
-                            <div id="contenido">
-                                
+                        </div>
+                        <div class="overlay-container">
+                            <div class="window-container zoomin" id="contenido">
+
                             </div>
                         </div>
                         <div class="float-left" id="login">
