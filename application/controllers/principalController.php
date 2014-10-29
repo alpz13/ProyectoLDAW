@@ -37,7 +37,12 @@ class PrincipalController extends CI_Controller {
                             $area = $this->areaAfin($idUser);
                             $query = $area->row();
                             $idAreaMayor = $query->idAreas;
-                            $data['proyectosAreas'] = $this->getProyectos($idAreaMayor);
+                            $proyectosAreas = $this->getProyectos($idAreaMayor);
+                            if($proyectosAreas != "") {
+                                $data['proyectosAreas'] = $proyectosAreas;
+                            } else {
+                                $data['proyectosAreas'] = null;
+                            }
                             //********************************************//
                             //********************************************//
                             
@@ -45,7 +50,12 @@ class PrincipalController extends CI_Controller {
                             $competencia = $this->competenciaAfin($idUser);
                             $query = $competencia->row();
                             $idCompetenciaMayor = $query->idCompetencias;
-                            $data['proyectosCompetencias'] = $this->getCompetencias($idCompetenciaMayor);
+                            $proyectosCompetencias = $this->getCompetencias($idCompetenciaMayor);
+                            if($proyectosCompetencias != "") {
+                                $data['proyectosCompetencias'] = $proyectosCompetencias;
+                            } else {
+                                $data['proyectosCompetencias'] = null;
+                            }
                             //********************************************//
                             //********************************************//
                             
@@ -62,7 +72,7 @@ class PrincipalController extends CI_Controller {
                                 
                                 $requests = $this->getAllRequests($idUser);
                                 $data['requests'] = $requests;
-                            }
+                            } 
                             //********************************************//
                             //********************************************//
                             
@@ -311,6 +321,7 @@ class PrincipalController extends CI_Controller {
            $this->load->model('proyectosModel');
            $resultado = $this->proyectosModel->getProyectos($idArea, 1);
            
+           $proyectos = "";
            if($resultado->num_rows() > 0) {
                $proyectos = $this->getProyectosData($resultado);
            }
@@ -323,6 +334,7 @@ class PrincipalController extends CI_Controller {
            $this->load->model('proyectosModel');
            $resultado = $this->proyectosModel->getProyectos($idCompetencia, 2);
            
+           $proyectos = "";
            if($resultado->num_rows() > 0) {
                $proyectos = $this->getProyectosData($resultado);
            }
@@ -371,6 +383,7 @@ class PrincipalController extends CI_Controller {
            $resultado = $this->usuariosModel->getProyectosUser($idUser);
            
            $cont = count($resultado->result());
+           $data = null;
            if($cont > 0) {
                $i = 0;
                $data = array();

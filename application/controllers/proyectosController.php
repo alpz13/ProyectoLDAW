@@ -15,6 +15,20 @@ class ProyectosController extends CI_Controller {
         $habilitado = $this->input->post('habilitado');
         $supervisor = $this->session->userdata('id');
         
+        //Areas
+        $security = $this->input->post('security');
+        $web = $this->input->post('web');
+        $db = $this->input->post('db');
+        $network = $this->input->post('network');
+        $desktop = $this->input->post('desktop');
+        
+        //Competences
+        $team = $this->input->post('team');
+        $comunication = $this->input->post('comunication');
+        $work = $this->input->post('work');
+        $initiative = $this->input->post('initiative');
+        $leader = $this->input->post('leader');
+        
         $this->form_validation->set_rules('nombre', 'Nombre', 'required');
         $this->form_validation->set_rules('descripcion', 'Descripcion', 'required');
         
@@ -26,6 +40,38 @@ class ProyectosController extends CI_Controller {
 
             if($resultado == 1) {
                 $data['success'] = "New Project has been created";
+                $idProject = $this->getIdProject($nombre);
+                $row = $idProject->row();
+                if($security != "") {
+                    $this->proyectosModel->insertaAreas($security, $row->idTrabajos);
+                }
+                if($web != "") {
+                    $this->proyectosModel->insertaAreas($web, $row->idTrabajos);
+                }
+                if($db != "") {
+                    $this->proyectosModel->insertaAreas($db, $row->idTrabajos);
+                }
+                if($network != "") {
+                    $this->proyectosModel->insertaAreas($network, $row->idTrabajos);
+                }
+                if($desktop != "") {
+                    $this->proyectosModel->insertaAreas($desktop, $row->idTrabajos);
+                }
+                if($team != "") {
+                    $this->proyectosModel->insertaCompetencias($team, $row->idTrabajos);
+                }
+                if($comunication != "") {
+                    $this->proyectosModel->insertaCompetencias($comunication, $row->idTrabajos);
+                }
+                if($work != "") {
+                    $this->proyectosModel->insertaCompetencias($work, $row->idTrabajos);
+                }
+                if($initiative != "") {
+                    $this->proyectosModel->insertaCompetencias($initiative, $row->idTrabajos);
+                }
+                if($leader != "") {
+                    $this->proyectosModel->insertaCompetencias($leader, $row->idTrabajos);
+                }
             } else {
                 $data['error'] = 'Something has occured, please try again.';
             }
@@ -43,6 +89,7 @@ class ProyectosController extends CI_Controller {
         
         if($resultado->num_rows() > 0) {
             $data['proyectos'] = $resultado;
+            $data['usersProyectos'] = $this->consultarTodosUsuarios($resultado);
         }
         $this->load->view('mostrarProyectosView', $data);
     }
@@ -199,5 +246,26 @@ class ProyectosController extends CI_Controller {
         } else {
             echo "Cannot update user";
         }
+    }
+    
+    public function consultarTodosUsuarios($arrayProyectos)
+    {
+        $this->load->model('usuariosModel');
+        $i = 0;
+        $data = array();
+        foreach($arrayProyectos->result() as $row) {
+            $data[$i++] = $this->usuariosModel->getSupervisor($row->idSupervisor);
+        }
+        
+        return $data;
+    }
+    
+    public function getIdProject($nombre)
+    {
+        $this->load->model('usuariosModel');
+        $this->db->where('Nombre', $nombre);
+        $resultado = $this->db->get('trabajos');
+        
+        return $resultado;
     }
 }

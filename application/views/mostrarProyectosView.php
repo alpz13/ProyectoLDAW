@@ -46,12 +46,15 @@
         </div><br/>
         <div class="principalAreaP dark principalMostrarP">
             <?php if(isset($proyectos)) { 
+                $j = count($usersProyectos);
+                $i = 0;
                 echo "<div class='resultados'>";
                     foreach($proyectos->result() as $row) {
+                        $rowU = $usersProyectos[$i]->row();
                         echo "<table class='table_message'>";
                             echo "<tr>";
                                 echo "<td class='nombre'>";
-                                    echo "<strong>".$row->NombreTrabajo."</strong><br/><br/>";
+                                    echo "<strong>".$row->Nombre."</strong><br/><br/>";
                                 echo "</td>";
                             echo "</tr>";
                             echo "<tr>";
@@ -61,11 +64,12 @@
                             echo "</tr>";
                             echo "<tr>";
                                 echo "<td>";
-                                    echo "<strong>Supervisor: </strong>".$row->Nombre." ".$row->APaterno." ".$row->AMaterno;
+                                    echo "<strong>Supervisor: </strong>".$rowU->Nombre." ".$rowU->APaterno." ".$rowU->AMaterno;
                                 echo "</td>";
                             echo "</tr>";
                         echo "</table>";
                         echo "<br/>";
+                        $i++;
                     }
                 echo "</div>";
             ?>

@@ -13,7 +13,7 @@ class ProyectosModel extends CI_Model {
     {
         try {
             $data = array(
-                    'nombreTrabajo' => $nom,
+                    'Nombre' => $nom,
                     'Descripcion' => $desc,
                     'Habilitado' => $hab,
                     'idSupervisor' => $id
@@ -29,7 +29,6 @@ class ProyectosModel extends CI_Model {
     {
         $this->db->select('*');
         $this->db->from('trabajos');
-        $this->db->join('usuarios', 'usuarios.idUsuarios = trabajos.idSupervisor');
         $this->db->order_by('idTrabajos', "desc");
         
         $query = $this->db->get();
@@ -124,13 +123,33 @@ class ProyectosModel extends CI_Model {
     
     public function getProyectos($id, $flag)
     {
-        if($flag == 1) {
-            $this->db->where('idArea', $id);
-            $resultado = $this->db->get('trabajoarea');    
-        } else if($flag == 2) {
-            $this->db->where('idCompetencias', $id);
-            $resultado = $this->db->get('trabajocompetencia');
+        $notIn = $this->buscarIn($this->session->userdata('id'));
+        $cont = count($notIn);
+        if($cont > 0) {
+            if($flag == 1) {
+                $this->db->where('idArea', $id);
+                foreach($notIn->result() as $row) {
+                    $this->db->where('idTrabajos != ', $row->idTrabajos);
+                }
+                $this->db->group_by('idTrabajos');
+                $resultado = $this->db->get('trabajoarea');    
+            } else if($flag == 2) {
+                $this->db->where('idCompetencias', $id);
+                foreach($notIn->result() as $row) {
+                    $this->db->where('idTrabajos != ', $row->idTrabajos);
+                }
+                $this->db->group_by('idTrabajos');
+                $resultado = $this->db->get('trabajocompetencia');
+            }
         }
+        
+        return $resultado;
+    }
+    
+    public function buscarIn($id)
+    {
+        $this->db->where('idUsuario', $id);
+        $resultado = $this->db->get('usuariotrabajo');
         
         return $resultado;
     }
@@ -213,6 +232,34 @@ class ProyectosModel extends CI_Model {
         $this->db->where('idrequests', $idRequest);
         try {
             $this->db->update('requests', $data);
+            return 1;
+        } catch (Exception $ex) {
+            return 0;
+        }
+    }
+    
+    public function insertaAreas($idArea, $idTrabajos)
+    {
+        $data = array(
+                'idTrabajos'    => $idTrabajos,
+                'idArea'        => $idArea
+            );
+        try {
+            $this->db->insert('trabajoarea', $data);
+            return 1;
+        } catch (Exception $ex) {
+            return 0;
+        }
+    }
+    
+    public function insertaCompetencias($idCompetencia, $idTrabajos)
+    {
+        $data = array(
+                'idTrabajos'    => $idTrabajos,
+                'idCompetencias'        => $idCompetencia
+            );
+        try {
+            $this->db->insert('trabajocompetencia', $data);
             return 1;
         } catch (Exception $ex) {
             return 0;

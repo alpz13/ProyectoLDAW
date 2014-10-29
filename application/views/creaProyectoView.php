@@ -62,6 +62,49 @@
                             <label>Disable: </label><input type="radio" name="habilitado" value="0"/>
                         </td>
                     </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <br/><br/>
+                            Please add the areas/competences for your project
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>Areas:</strong><br/>
+                            Security: <br/>
+                            Web: <br/>
+                            DataBases: <br/>
+                            Networking: <br/>
+                            DesktopApps: <br/>
+                        </td>
+                        <td>
+                            <br/>
+                            <input type="checkbox" name="security" value="1"/><br/>
+                            <input type="checkbox" name="web" value="2"/><br/>
+                            <input type="checkbox" name="db" value="3"/><br/>
+                            <input type="checkbox" name="network" value="4"/><br/>
+                            <input type="checkbox" name="desktop" value="5"/><br/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>Competences:</strong><br/>
+                            Team Work: <br/>
+                            Comunication: <br/>
+                            Work under pressure: <br/>
+                            Initiative: <br/>
+                            Leadership: <br/>
+                        </td>
+                        <td>
+                            <br/>
+                            <input type="checkbox" name="team" value="1"/><br/>
+                            <input type="checkbox" name="comunication" value="1"/><br/>
+                            <input type="checkbox" name="work" value="1"/><br/>
+                            <input type="checkbox" name="initiative" value="1"/><br/>
+                            <input type="checkbox" name="leader" value="1"/><br/>
+                        </td>
+                    </tr>
                 </table>
             <br/>
             <input class="button2" type="submit" value="Crear proyecto" style="margin-left: 20%;"/>

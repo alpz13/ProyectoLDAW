@@ -204,6 +204,14 @@ class UsuariosModel extends CI_Model {
         
         return $resultado;
     }
+    
+    function getSupervisor($idSupervisor)
+    {
+        $this->db->where('idUsuarios', $idSupervisor);
+        $resultado = $this->db->get('usuarios');
+        
+        return $resultado;
+    }
 
 }
 ?>
