@@ -143,16 +143,76 @@ class ProyectosModel extends CI_Model {
         return $resultado;
     }
     
-    public function addRequest($idProyecto, $idUser, $value)
+    public function getSupervisor($idProyecto)
+    {
+        $this->db->where('idTrabajos', $idProyecto);
+        $resultado = $this->db->get('trabajos');
+        
+        $row = $resultado->row();
+        $idSupervisor = $row->idSupervisor;
+        
+        return $idSupervisor;
+    }
+    
+    public function addRequest($idProyecto, $idUser, $idSupervisor, $value)
     {
         $data = array(
-                  'idProyecto'  => $idProyecto,
-                  'idUsuario'   => $idUser,
-                  'status'      => $value
+                  'idProyecto'      => $idProyecto,
+                  'idUsuario'       => $idUser,
+                  'idSupervisor'    => $idSupervisor,
+                  'status'          => $value
                 );
         
         try {
             $this->db->insert('requests', $data);
+            return 1;
+        } catch (Exception $ex) {
+            return 0;
+        }
+    }
+    
+    public function getAllProjects($idUser)
+    {
+        $this->db->where('idSupervisor', $idUser);
+        $resultado = $this->db->get('trabajos');
+        
+        return $resultado;
+    }
+    
+    public function getAllRequests($idUser)
+    {
+        $this->db->where('idSupervisor', $idUser);
+        $this->db->where('status', 1);
+        $resultado = $this->db->get('requests');
+        
+        return $resultado;
+    }
+    
+    public function addUser($idProyecto, $idUsuario)
+    {
+        $data = array(
+                'idTrabajos'    => $idProyecto,
+                'idUsuario'     => $idUsuario
+            );
+        
+        try {
+            $this->db->insert('usuariotrabajo', $data);
+            return 1;
+        } catch (Exception $ex) {
+            return 0;
+        }
+    }
+    
+    public function updateRequest($idRequest, $flag) 
+    {
+        if($flag == 1) {
+            $data = array(
+                'status'    => 2
+            );
+        }
+        $this->db->where('idrequests', $idRequest);
+        try {
+            $this->db->update('requests', $data);
             return 1;
         } catch (Exception $ex) {
             return 0;

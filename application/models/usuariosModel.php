@@ -196,6 +196,14 @@ class UsuariosModel extends CI_Model {
         
         return $resultado;
     }
+    
+    function getProyectosUser($idUser)
+    {
+        $this->db->where('idUsuario', $idUser);
+        $resultado = $this->db->get('usuariotrabajo');
+        
+        return $resultado;
+    }
 
 }
 ?>

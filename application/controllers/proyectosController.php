@@ -144,7 +144,9 @@ class ProyectosController extends CI_Controller {
         $idUser = $this->session->userdata('id');
         $value = $this->input->post('value');
         
-        $resultado = $this->proyectosModel->addRequest($idProyecto, $idUser, $value);
+        $idSupervisor = $this->proyectosModel->getSupervisor($idProyecto);
+        
+        $resultado = $this->proyectosModel->addRequest($idProyecto, $idUser, $idSupervisor, $value);
         if($resultado == 1) {
             echo "Request has been send";
         } else {
@@ -152,4 +154,50 @@ class ProyectosController extends CI_Controller {
         }
     }
     
+    public function seeRequest()
+    {
+        $this->load->model('proyectosModel');
+        $this->load->model('usuariosModel');
+        $idSupervisor = $this->input->post('idSupervisor');
+        
+        $requests = $this->proyectosModel->getAllRequests($idSupervisor);
+        $cont = count($requests->result());
+        
+        $i = 0;
+        $j = 0;
+        $k = 0;
+        foreach($requests->result() as $row) {
+            $projects[$i++] = $this->proyectosModel->getProyectosData($row->idProyecto);
+            $users[$j++] = $this->usuariosModel->getInfo($row->idUsuario);
+            $ids[$k++] = $row->idrequests;
+        }
+        
+        $data['projects'] = $projects;
+        $data['users'] = $users;
+        $data['cont'] = $cont;
+        $data['ids'] = $ids;
+
+        $this->load->view('seeRequestView', $data);
+    }
+    
+    public function acceptRequest()
+    {
+        $this->load->model('proyectosModel');
+        $idProyecto = $this->input->post('idProyect');
+        $idUser = $this->input->post('idUser');
+        $idRequest = $this->input->post('idRequest');
+        
+        $resultado = $this->proyectosModel->addUser($idProyecto, $idUser);
+        
+        if($resultado == 1) {
+            $resultado2 = $this->proyectosModel->updateRequest($idRequest, 1);
+            if($resultado2 == 1) {
+                echo "User added to proyect!";
+            } else {
+                echo "Cannot update user";
+            }
+        } else {
+            echo "Cannot update user";
+        }
+    }
 }
