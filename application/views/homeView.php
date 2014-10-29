@@ -28,7 +28,7 @@
                 if($this->session->userdata('tipo') == 3) { ?>
                     <div>
                         <?php
-                        //*******Se muestran los proyectos a los que está actualmente inscrito//*********
+                        //*******Se muestran los proyectos a los que estﾃ｡ actualmente inscrito//*********
                         $cont = count($proyectosUser);
                         $i = 0;
                         if($cont > 0) {
@@ -61,8 +61,12 @@
                             $i = 0;
                             $j=count($proyectosAreas);
                             if($j > 0) {
+                            echo"<hr/><br/>";
                                 echo "<div class='titleProyects' id='proyectosAreas'>";
-                                    echo "<h2>Same area Projects</h2>";
+                                ?>
+                                <h2><img src="<?php echo base_url(); ?>images/folder-logo_opt.png" alt="logos"/>Same area Projects</h2><h3>(Click to expand)</h3>
+                                <?php
+                                    //echo "<h2>Same area Projects</h2><h3>(Click to expand)</h3>";
                                 echo "</div><br/>";
                                 echo "<div id='divProyectosAreas' class='principalMenus'>";
                                     echo "<table>";
@@ -83,6 +87,7 @@
                                         }
                                     echo "</table>";
                                 echo "</div>";
+                                echo"<br/><hr/><br/>";
                             }
 
                         ?>
@@ -91,8 +96,12 @@
                             $i = 0;
                             $j=count($proyectosCompetencias);
                             if($j > 0) {
+                            echo"<hr/><br/>";
                                 echo "<div class='titleProyects' id='proyectosCompetencias'>";
-                                    echo "<h2>Same competence Projects</h2>";
+                                 ?>
+                                <h2><img src="<?php echo base_url(); ?>images/folder-logo_opt.png" alt="logos"/>Same area Projects</h2><h3>(Click to expand)</h3>
+                                <?php
+                                    //echo "<h2>Same competence Projects</h2><h3>(Click to expand)</h3>";
                                 echo "</div><br/>";
                                  echo "<div id='divProyectosCompetencias' class='principalMenus'>";
                                     echo "<table>";
@@ -112,6 +121,7 @@
                                         }
                                     echo "</table>";
                                 echo "</div>";
+                                echo"<br/><hr/><br/>";
                             }
 
                         ?>
@@ -122,10 +132,14 @@
                             if($j > 0) {
                                 echo form_open('proyectosController/seeRequest');
                                     echo "<div id='requests' class='principalMenus'>";
-                                        echo "<table>";
+                                        ?>
+                                        <table style="margin-left:30%">;
+                                        <?php
                                             echo "<tr>";
-                                                echo "<td>";
-                                                    echo "<span>You have new proyects request!</span>";
+                                                echo "<td class='td'>";
+                                                    ?>
+                                                    <span><img src="<?php echo base_url(); ?>images/00442128_opt.png" alt="logos"/>You have new projects request. </span>
+                                                    <?php
                                                 echo "</td>";
                                                 echo "<td>"; ?>
                                                     <input type="submit" class="button2" value="See requests"/>
