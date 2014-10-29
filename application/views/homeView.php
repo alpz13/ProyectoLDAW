@@ -132,10 +132,14 @@
                             if($j > 0) {
                                 echo form_open('proyectosController/seeRequest');
                                     echo "<div id='requests' class='principalMenus'>";
-                                        echo "<table>";
+                                        ?>
+                                        <table style="margin-left:30%">;
+                                        <?php
                                             echo "<tr>";
-                                                echo "<td>";
-                                                    echo "<span>You have new proyects request!</span>";
+                                                echo "<td class='td'>";
+                                                    ?>
+                                                    <span><img src="<?php echo base_url(); ?>images/00442128_opt.png" alt="logos"/>You have new projects request. </span>
+                                                    <?php
                                                 echo "</td>";
                                                 echo "<td>"; ?>
                                                     <input type="submit" class="button2" value="See requests"/>
