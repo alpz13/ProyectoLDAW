@@ -18,11 +18,7 @@
         <?php } ?>
     
 	<div id="intro">
-		<div class="story">
-			<div class="float-left" id="principalDiv">
-				<h1>Job Scope</h1>
-			</div>
-                    
+		<div class="story">                    
                         <!-- Aquí comienzan las formas de login y registro-->
                         <div class="float-right">
                             <br/><br/><br/><br/><br/><br/>
@@ -112,7 +108,12 @@
                             ?>
                         </div>
                         <input type="hidden" id="url" value="<?php echo base_url(); ?>"/>
+                        
 		</div>
+            <br/><br/><br/><br/>
+            <div style="text-align: center;" id="principalDiv">
+                            <h1>Job Scope</h1>
+                    </div>
 	</div>
 
 	<div id="second">

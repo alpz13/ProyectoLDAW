@@ -19,31 +19,42 @@
             ?>
         </div>
         <div class="principalAreaP dark">
-            <table style="margin-left: 14%;">
-                <tr>
-                    <td>
-                        <?php echo form_open('proyectosController/consultar'); ?>
-                            <input class="button2" type="submit" value="Consulta proyectos" />
-                        <?php echo form_close(); ?>
-                    </td>
-                    <td>
-                        <?php echo form_open('proyectosController/creaProyecto'); ?>
-                            <input class="button2" type="submit" value="Crear proyecto"/>
-                        <?php echo form_close(); ?>
-                    </td>
-                    <td>
-                        <?php echo form_open('proyectosController/asignarTrabajador'); ?>
-                            <input class="button2" type="submit" value="Asignar trabajador"/>
-                        <?php echo form_close(); ?>
-                    </td>
-                    <td>
-                        <?php echo form_open('proyectosController/eliminar'); ?>
-                            <input type="hidden" id="urlProyectos" value="<?php echo base_url(); ?>"/>
-                            <input class="button2" type="submit" value="Eliminar proyecto" />
-                        <?php echo form_close(); ?>
-                    </td>
-                </tr>
-            </table>
+            <?php if($this->session->userdata('tipo') == 1 || $this->session->userdata('tipo') == 2 ) { ?>
+                <table style="margin-left: 14%;">
+                    <tr>
+                        <td>
+                            <?php echo form_open('proyectosController/consultar'); ?>
+                                <input class="button2" type="submit" value="Consulta proyectos" />
+                            <?php echo form_close(); ?>
+                        </td>
+                        <td>
+                            <?php echo form_open('proyectosController/creaProyecto'); ?>
+                                <input class="button2" type="submit" value="Crear proyecto"/>
+                            <?php echo form_close(); ?>
+                        </td>
+                        <td>
+                            <?php echo form_open('proyectosController/asignarTrabajador'); ?>
+                                <input class="button2" type="submit" value="Asignar trabajador"/>
+                            <?php echo form_close(); ?>
+                        </td>
+                        <td>
+                            <?php echo form_open('proyectosController/eliminar'); ?>
+                                <input class="button2" type="submit" value="Eliminar proyecto" />
+                            <?php echo form_close(); ?>
+                        </td>
+                    </tr>
+                </table>
+            <?php } else {?>
+                <table style="margin-left: 40%;">
+                    <tr>
+                        <td>
+                            <?php echo form_open('proyectosController/consultar'); ?>
+                                <input class="button2" type="submit" value="Consulta proyectos" />
+                            <?php echo form_close(); ?>
+                        </td>
+                    </tr>
+                </table>
+            <?php } ?>
         </div><br/><br/>
         <div class="result">
             <?php 

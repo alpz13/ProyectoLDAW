@@ -1,17 +1,17 @@
 $(document).ready(function() {
     $("#registro").hide();
-    $("#login").hide();
+//    $("#login").hide();
     
     $("#loginButton").click(function() {
-        $("#principalDiv").slideUp();
-        $("#registro").slideUp();
+        //$("#principalDiv").slideUp();
+        $("#registro").slideUp('slow');
         setTimeout(function() {
             $("#login").slideDown(); 
         }, 500);
     });
     $("#registerButton").click(function() {
-        $("#principalDiv").slideUp();
-        $("#login").slideUp();
+        //$("#principalDiv").slideUp();
+        $("#login").slideUp('slow');
         setTimeout(function() {
            $("#registro").slideDown(); 
         }, 500);
