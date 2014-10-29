@@ -3,6 +3,8 @@ $(document).ready(function() {
     $("#usuarioEliminarC").hide();
     $("#usuarioModificarC").hide();
     $("#buttonShow").hide();
+    $("#divProyectosAreas").hide();
+    $("#divProyectosCompetencias").hide();
     
     $("#enviarConfigurar").click(function() {
         nombre = $("#nombre").val();
@@ -132,5 +134,17 @@ $(document).ready(function() {
             }, function(data) {
                 $("#contenido").html(data);
         });
+    });
+    
+    $("#proyectosCompetencias").click(function() {
+        $("#divProyectosCompetencias").slideToggle('slow');
+    });
+    
+    $("#proyectosAreas").click(function() {
+        $("#divProyectosAreas").slideToggle('slow');
+    });
+    
+    $("#proyectosActuales").click(function() {
+        $("#divProyectosActuales").slideToggle('slow');
     });
 });

@@ -29,6 +29,7 @@ class PrincipalController extends CI_Controller {
 	                        $dataUser['mail'] = $row->Mail;
 	                        $dataUser['disponible'] = $row->Disponibilidad;
 	                        $dataUser['tipo'] = $row->idTipo;
+                                $tipo = $row->idTipo;
                                 $dataUser['foto'] = $row->urlFoto;
 	                    }
                             
@@ -45,6 +46,23 @@ class PrincipalController extends CI_Controller {
                             $query = $competencia->row();
                             $idCompetenciaMayor = $query->idCompetencias;
                             $data['proyectosCompetencias'] = $this->getCompetencias($idCompetenciaMayor);
+                            //********************************************//
+                            //********************************************//
+                            
+                            //**Busca todos los proyectos en los que está incrito el usuario**
+                            $proyectos = $this->getProyectosUser($idUser);
+                            $data['proyectosUser'] = $proyectos;
+                            //********************************************//
+                            //********************************************//
+                            
+                            //**Busca todos los proyectos a cargo del supervisor**
+                            if($tipo == 1 || $tipo == 2) {
+                                $proyectos = $this->getAllProjects($idUser);                                
+                                $data['proyectosAdmin'] = $proyectos;
+                                
+                                $requests = $this->getAllRequests($idUser);
+                                $data['requests'] = $requests;
+                            }
                             //********************************************//
                             //********************************************//
                             
@@ -97,6 +115,27 @@ class PrincipalController extends CI_Controller {
             $data['proyectosCompetencias'] = $this->getCompetencias($idCompetenciaMayor);
             //********************************************//
             //********************************************//
+            
+            //**Busca todos los proyectos a cargo del supervisor**
+            $tipo = $this->session->userdata('tipo');
+            if($tipo == 1 || $tipo == 2) {
+                $proyectos = $this->getAllProjects($idUser);                                
+                $data['proyectosAdmin'] = $proyectos;
+                
+                $requests = $this->getAllRequests($idUser);
+                $row = $requests->row();
+                $data['requests'] = $requests;
+            }
+            //********************************************//
+            //********************************************//
+            
+            //**Busca todos los proyectos en los que está incrito el usuario**
+            $proyectos = $this->getProyectosUser($idUser);
+            $data['proyectosUser'] = $proyectos;
+            //********************************************//
+            //********************************************//
+                            
+                            
             $this->load->view('homeView', $data);
             $this->load->view('footer');
         }
@@ -307,6 +346,41 @@ class PrincipalController extends CI_Controller {
            }
            
            return $query;
+       }
+       
+       public function getAllProjects($idUser)
+       {
+           $this->load->model('proyectosModel');
+           $resultado = $this->proyectosModel->getAllProjects($idUser);
+           
+           return $resultado;           
+       }
+       
+       public function getAllRequests($idUser)
+       {
+           $this->load->model('proyectosModel');
+           $resultado = $this->proyectosModel->getAllRequests($idUser);
+           
+           return $resultado;
+       }
+       
+       public function getProyectosUser($idUser)
+       {
+           $this->load->model('usuariosModel');
+           $this->load->model('proyectosModel');
+           $resultado = $this->usuariosModel->getProyectosUser($idUser);
+           
+           $cont = count($resultado->result());
+           if($cont > 0) {
+               $i = 0;
+               $data = array();
+               foreach($resultado->result() as $row) {
+                   $idProyecto = $row->idTrabajos;
+                   $data[$i++] = $this->proyectosModel->getProyectosData($idProyecto);
+               }
+           }
+           
+           return $data;
        }
        
 //       public function usuariosGrid()
