@@ -51,16 +51,50 @@ $("p2").hide();
                 <div>
                     <?php
                         $i = 0;
-                        $j=count($proyectos);
-                        for($i; $i < $j; $i++) {
-                            foreach($proyectos[$i]->result() as $row) {
-                                echo "Nombre: ".$row->Nombre."<br/>";
-                                echo "Descripcion: ".$row->Descripcion;
-                                echo "<br/><br/>";
+                        $j=count($proyectosAreas);
+                        if($j > 0) {
+                            echo "<h2>Proyectos con áreas afines</h2>";
+                            for($i; $i < $j; $i++) {
+                                foreach($proyectosAreas[$i]->result() as $row) {
+                                    echo "Nombre: ".$row->Nombre."<br/>";
+                                    echo "Descripcion: ".$row->Descripcion;
+                                    echo "<br/><br/>";
+                                }
+                            }  
+                        }
+                        
+                    ?>
+                    <br/><br/>
+                    <?php
+                        $i = 0;
+                        $j=count($proyectosCompetencias);
+                        if($j > 0) {
+                            echo "<h2>Proyectos con competencias afines</h2>";
+                            for($i; $i < $j; $i++) {
+                                foreach($proyectosCompetencias[$i]->result() as $row) { 
+                                    echo "Nombre: ".$row->Nombre."<br/>";
+                                    echo "Descripcion: ".$row->Descripcion;
+                                    echo "<br/><br/>";
+                                }
                             }
                         }
+                        
                     ?>
                 </div>
+                                <!--
+<!--                                <br/>
+                                <div>
+                                    <?php 
+                                        foreach($proyectosCompetencias->$css_files as $file): ?>
+                                            <link type="text/css" rel="stylesheet" href="<?php echo $file; ?>" />
+
+                                        <?php endforeach; ?>
+                                        <?php foreach($proyectosCompetencias->$js_files as $file): ?>
+
+                                            <script src="<?php echo $file; ?>"></script>
+                                        <?php endforeach; ?>
+                                        <?php echo $proyectosCompetencias->$output; ?>
+                                </div>-->
             </div>
         </div>
     </div>

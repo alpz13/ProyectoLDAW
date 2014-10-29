@@ -41,7 +41,7 @@ class ProyectosModel extends CI_Model {
     {
         $this->db->select('*');
         $this->db->from('trabajos');
-        $this->db->join('usuarios', 'usuarios.idUsuarios = trabajos.idSupervisor');
+        //$this->db->join('usuarios', 'usuarios.idUsuarios = trabajos.idSupervisor');
         $this->db->where('idSupervisor', $idSupervisor);
         
         $query = $this->db->get();
@@ -49,10 +49,12 @@ class ProyectosModel extends CI_Model {
         return $query;
     }
     
-    public function consultaTrabajadores()
+    public function consultaTrabajadores($id)
     {
-        $query = "SELECT idUsuario FROM usuariotrabajo GROUP BY idUsuario HAVING COUNT(*) >= 5 ORDER BY idUsuario";
-        $resultado = $this->db->query($query);
+        //$query = "SELECT idUsuario FROM usuariotrabajo GROUP BY idUsuario HAVING COUNT(*) >= 5 ORDER BY idUsuario";
+        //$resultado = $this->db->query($query);
+        $this->db->where('idUsuarios !=', $id);
+        $resultado = $this->db->get('usuarios');
         
         return $resultado;
     }
@@ -120,10 +122,15 @@ class ProyectosModel extends CI_Model {
         }
     }
     
-    public function getProyectos($idArea)
+    public function getProyectos($id, $flag)
     {
-        $this->db->where('idArea', $idArea);
-        $resultado = $this->db->get('trabajoarea');
+        if($flag == 1) {
+            $this->db->where('idArea', $id);
+            $resultado = $this->db->get('trabajoarea');    
+        } else if($flag == 2) {
+            $this->db->where('idCompetencias', $id);
+            $resultado = $this->db->get('trabajocompetencia');
+        }
         
         return $resultado;
     }

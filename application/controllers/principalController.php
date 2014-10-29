@@ -36,9 +36,27 @@ class PrincipalController extends CI_Controller {
                             $area = $this->areaAfin($idUser);
                             $query = $area->row();
                             $idAreaMayor = $query->idAreas;
-                            $data['proyectos'] = $this->getProyectos($idAreaMayor);
+                            $data['proyectosAreas'] = $this->getProyectos($idAreaMayor);
                             //********************************************//
                             //********************************************//
+                            
+                            //**Busca la competencia con mayor calificacion**
+                            $competencia = $this->competenciaAfin($idUser);
+                            $query = $competencia->row();
+                            $idCompetenciaMayor = $query->idCompetencias;
+                            $data['proyectosCompetencias'] = $this->getCompetencias($idCompetenciaMayor);
+                            //********************************************//
+                            //********************************************//
+                            
+                            //***********************************************
+                            //Librería grid
+//                            $usuarios = $this->usuariosGrid();
+//                            $data['output'] = $usuarios->output;
+//                            $data['js_files'] = $usuarios->js_files;
+//                            $data['css_files'] = $usuarios->css_files;
+                            //$data['grid'] = $usuarios;
+                            //$data['js_files'] = $js_files;
+                            //**********************************************
                             
                             
 	                    $this->session->set_userdata($dataUser);
@@ -195,6 +213,17 @@ class PrincipalController extends CI_Controller {
             return $resultado;
         }
         
+        public function competenciaAfin($idUsuario)
+        {
+            $this->load->model('usuariosModel');
+            //**Devuelve el id de la Competencia con mayor puntaje**
+            $resultado = $this->usuariosModel->getCompetencia($idUsuario);
+            
+            $resultado = $this->nombreCompetencia($resultado);
+            
+            return $resultado;
+        }
+        
         //**Busca el nombre del área dependiendo del id que se le pase**
        public function nombreArea($idArea)
        {
@@ -204,10 +233,31 @@ class PrincipalController extends CI_Controller {
            return $resultado;
        }
        
+       //**Busca el nombre del área dependiendo del id que se le pase**
+       public function nombreCompetencia($idCompetencia)
+       {
+           $this->load->model('usuariosModel');
+           $resultado = $this->usuariosModel->getNombreCompetencia($idCompetencia);
+           
+           return $resultado;
+       }
+       
        public function getProyectos($idArea)
        {
            $this->load->model('proyectosModel');
-           $resultado = $this->proyectosModel->getProyectos($idArea);
+           $resultado = $this->proyectosModel->getProyectos($idArea, 1);
+           
+           if($resultado->num_rows() > 0) {
+               $proyectos = $this->getProyectosData($resultado);
+           }
+           
+           return $proyectos;
+       }
+       
+       public function getCompetencias($idCompetencia)
+       {
+           $this->load->model('proyectosModel');
+           $resultado = $this->proyectosModel->getProyectos($idCompetencia, 2);
            
            if($resultado->num_rows() > 0) {
                $proyectos = $this->getProyectosData($resultado);
@@ -223,9 +273,24 @@ class PrincipalController extends CI_Controller {
            $i = 0;
            foreach($arrayProyectos->result() as $row) {
                $idTrabajo = $row->idTrabajos;
+               
+//               $this->load->library('grocery_CRUD');
+//               $crud =  $crud = new grocery_CRUD();
+//               $crud->where('idTrabajos', $idTrabajo);
+//               $crud->columns('Nombre','Descripcion');
+//               $query = $crud->render();
                $query[$i++] = $this->proyectosModel->getProyectosData($idTrabajo);
            }
            
            return $query;
+       }
+       
+       public function usuariosGrid()
+       {
+           $this->load->library('grocery_CRUD');
+           $this->grocery_crud->set_table('usuarios');
+           $output = $this->grocery_crud->render();
+           
+           return $output;
        }
 }

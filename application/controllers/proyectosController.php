@@ -52,15 +52,21 @@ class ProyectosController extends CI_Controller {
         $this->load->model('proyectosModel');
         $idSupervisor = $this->session->userdata('id');
         $trabajos = $this->proyectosModel->consultarProyectosSupervisor($idSupervisor);
-        $trabajador = $this->proyectosModel->consultaTrabajadores();
-        $trabajadoresReales = $this->proyectosModel->menoresCinco($trabajador, $idSupervisor);
-        
+        $trabajador = $this->proyectosModel->consultaTrabajadores($this->session->userdata('id'));
+//        $trabajadoresReales = $this->proyectosModel->menoresCinco($trabajador, $idSupervisor);
+//        if($trabajadoresReales != "") {
+//            if($trabajadoresReales->num_rows() > 0) {
+//                $data['trabajador'] = $trabajadoresReales;
+//            }
+//        } else {
+//            $data['error'] = "There are no workers assigned";
+//        }
         if($trabajos->num_rows() > 0) {
             $data['trabajos'] = $trabajos;
         } 
-        if($trabajadoresReales->num_rows() > 0) {
-            $data['trabajador'] = $trabajadoresReales;
-        }
+        $data['trabajador'] = $trabajador;
+        
+        
         $this->load->view('asignarTrabajadorView', $data);
     }
     
