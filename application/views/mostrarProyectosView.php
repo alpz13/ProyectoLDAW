@@ -6,7 +6,7 @@
         $nombre .= " ".$this->session->userdata('apellidoM');   
 ?>
 
-<title>Mostrar Proyectos</title>
+<title>Show Project</title>
 <body class='home'>
     <div id="tooplate_wrapper">
         <div class="menuArea">

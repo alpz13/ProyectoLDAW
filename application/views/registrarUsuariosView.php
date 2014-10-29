@@ -9,7 +9,7 @@
         </div>
         <div class="principalArea">
             <div>
-                <div id="title"><h2>Nuevo usuario</h2></div>
+                <div id="title"><h2>New User</h2></div>
             </div>
             <div id="contentArea">
                 
@@ -32,32 +32,32 @@
                 <?php echo form_open('usuariosController/registraUsuario'); ?>
                     <table class="tRegistro">
                         <tr>
-                            <td>Nombre:</td>
+                            <td>Name:</td>
                             <td><input type='text' name='nombre' value="<?php echo set_value('nombre');?>"</td>
                             <td class="error"><?php echo form_error('nombre'); ?></td>
                         </tr>
                         <tr>
-                            <td>Apellido Paterno:</td>
+                            <td>Paternal lastname:</td>
                             <td><input type='text' name='apellidoP' value="<?php echo set_value('apellidoP');?>"</td>
                             <td class="error"><?php echo form_error('apellidoP'); ?></td>
                         </tr>
                         <tr>
-                            <td>Apellido Materno:</td>
+                            <td>Maternal last name:</td>
                             <td><input type='text' name='apellidoM' value="<?php echo set_value('apellidoM');?>"</td>
                             <td class="error"><?php echo form_error('apellidoM'); ?></td>
                         </tr>
                         <tr>
-                            <td>Contraseña:</td>
+                            <td>Password:</td>
                             <td><input type='password' name='pass' value="<?php echo set_value('pass');?>"</td>
                             <td class="error"><?php echo form_error('pass'); ?></td>
                         </tr>
                         <tr>
-                            <td>Repita su contraseña:</td>
+                            <td>Re entry password:</td>
                             <td><input type='password' name='passCon' value="<?php echo set_value('passCon');?>"</td>
                             <td class="error"><?php echo form_error('passCon'); ?></td>
                         </tr>
                         <tr>
-                            <td>Correo:</td>
+                            <td>Mail:</td>
                             <td><input type='text' name='mail' value="<?php echo set_value('mail');?>"</td>
                             <td class="error"><?php echo form_error('mail'); ?></td>
                         </tr>

@@ -6,7 +6,7 @@
         $nombre .= " ".$this->session->userdata('apellidoM');   
 ?>
 
-<title>Asignar proyectos</title>
+<title>Assign projecr</title>
 <body class='home'>
     <div id="tooplate_wrapper">
         <div class="menuArea">
@@ -52,7 +52,7 @@
                         <td>
                             <?php if(isset($trabajos)) { ?>
                                 <select name='proyecto'>
-                                    <option value=''>Selecciona un proyecto</option>
+                                    <option value=''>Choose a project</option>
                                     <?php
                                         foreach($trabajos->result() as $row) {
                                             echo "<option value='".$row->idTrabajos."'>".$row->NombreTrabajo."</option>";
@@ -67,7 +67,7 @@
                         <td>
                             <?php if(isset($trabajador)) { ?>
                                 <select name='trabajador'>
-                                    <option value="">Selecciona un trabajador</option>
+                                    <option value="">Choose a worker</option>
                                     <?php
                                         foreach($trabajador->result() as $row) {
                                             if($row->idUsuarios != $this->session->userdata('id')) {
@@ -77,7 +77,7 @@
                                     ?>
                                 </select>
                             <?php } else {
-                                echo "<p>No hay trabajadores disponibles</p>";
+                                echo "<p>There are no workers assigned</p>";
                             }
                             ?>
                         </td>

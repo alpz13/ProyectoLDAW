@@ -6,7 +6,7 @@
         $nombre .= " ".$this->session->userdata('apellidoM');   
 ?>
 
-<title>Eliminar proyecto</title>
+<title>Delete Project</title>
 <body class='home'>
     <div id="tooplate_wrapper">
         <div class="menuArea">
@@ -47,7 +47,7 @@
         <div id="mostrarProyectosE">
             <input type="hidden" id="urlProyectosE" value="<?php echo base_url(); ?>"/>
             <select id="proyectosSelect" style="margin-left: 33%;">
-                <option value="">Selecciona un proyecto</option>
+                <option value="">Choose a project</option>
                 <?php 
                     if($proyectos->num_rows() > 0) {
                         foreach($proyectos->result() as $row) {

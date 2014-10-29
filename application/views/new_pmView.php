@@ -54,25 +54,25 @@ if(isset($_POST['title'], $_POST['recip'], $_POST['message']))
 				else
 				{
 					//Otherwise, we say that an error occured
-					$error = 'Error al enviar el mensaje.';
+					$error = 'Message could not be sent.';
 				}
 			}
 			else
 			{
 				//Otherwise, we say the user cannot send a message to himself
-				$error = 'Se esta enviando el mensaje al mismo usuario.';
+				$error = 'Same destination.';
 			}
 		}
 		else
 		{
 			//Otherwise, we say the recipient does not exists
-			$error = 'El usuario a enviar mensaje no existe.';
+			$error = 'Destination does not exists.';
 		}
 	}
 	else
 	{
 		//Otherwise, we say a field is empty
-		$error = 'Favor de llenar todos los campos.';
+		$error = 'Please fill all fields.';
 	}
 }
 elseif(isset($_GET['recip']))
@@ -94,14 +94,14 @@ if(isset($error))
 	<a href="<?php echo site_url('principalController/mensajeslistView');?>" class="button2" style="top: 232px; left: 190px;">&nbsp; Regresar</a><br />
 	<br />
    <br />
-	<h1>Nuevo mensaje</h1>
+	<h1>New Message</h1>
     <form action="<?php echo site_url('principalController/nuevomensajeView');?>" method="post">
 		<br />
-        <label for="title">Titulo</label><input type="text" value="<?php echo htmlentities($otitle, ENT_QUOTES, 'UTF-8'); ?>" id="title" name="title" /><br />
+        <label for="title">Title</label><input type="text" value="<?php echo htmlentities($otitle, ENT_QUOTES, 'UTF-8'); ?>" id="title" name="title" /><br />
         <br />
-        <label for="recip">Para:<span class="small"></span></label><input type="text" value="<?php echo htmlentities($orecip, ENT_QUOTES, 'UTF-8'); ?>" id="recip" name="recip" /><br />
+        <label for="recip">To:<span class="small"></span></label><input type="text" value="<?php echo htmlentities($orecip, ENT_QUOTES, 'UTF-8'); ?>" id="recip" name="recip" /><br />
         <br /><br />
-        <label for="message">Mensaje:</label><textarea cols="40" rows="5" id="message" name="message"><?php echo htmlentities($omessage, ENT_QUOTES, 'UTF-8'); ?></textarea><br />
+        <label for="message">Message:</label><textarea cols="40" rows="5" id="message" name="message"><?php echo htmlentities($omessage, ENT_QUOTES, 'UTF-8'); ?></textarea><br />
         <br />
         <input type="submit" class="button2" value="Enviar" />
     </form>
@@ -111,7 +111,7 @@ if(isset($error))
 }
 else
 {
-	echo '<div class="message">Debes iniciar sesion para leer el mensaje.</div>';
+	echo '<div class="message">You must log in to send message.</div>';
 }
 ?>
 		

@@ -32,35 +32,35 @@
                         <div class="float-left" id="registro">
                             <br/><br/><br/><br/>
                             <?php echo form_open('usuariosController/registraUsuario'); ?>
-                            <h2>Nuevo Usuario:</h2>
+                            <h2>New User:</h2>
                                 <table class="tRegistro">
                                     <tr>
-                                        <td>Nombre:</td>
+                                        <td>Name:</td>
                                         <td><input type='text' name='nombre' id="nombre"</td>
                                         <td class="error"><?php echo form_error('nombre'); ?></td>
                                     </tr>
                                     <tr>
-                                        <td>Apellido Paterno:</td>
+                                        <td>Paternal Surname:</td>
                                         <td><input type='text' name='apellidoP' id="apellidoP"</td>
                                         <td class="error"><?php echo form_error('apellidoP'); ?></td>
                                     </tr>
                                     <tr>
-                                        <td>Apellido Materno:</td>
+                                        <td>Maternal Surname:</td>
                                         <td><input type='text' name='apellidoM' id="apellidoM"</td>
                                         <td class="error"><?php echo form_error('apellidoM'); ?></td>
                                     </tr>
                                     <tr>
-                                        <td>Contraseña:</td>
+                                        <td>Password:</td>
                                         <td><input type='password' name='pass' id="pass"</td>
                                         <td class="error"><?php echo form_error('pass'); ?></td>
                                     </tr>
                                     <tr>
-                                        <td>Repita su contraseña:</td>
+                                        <td>Re-entry Password:</td>
                                         <td><input type='password' name='passCon' id="passCon"</td>
                                         <td class="error"><?php echo form_error('passCon'); ?></td>
                                     </tr>
                                     <tr>
-                                        <td>Correo:</td>
+                                        <td>Mail:</td>
                                         <td><input type='text' name='mail' id="mail"</td>
                                         <td class="error"><?php echo form_error('mail'); ?></td>
                                     </tr>
@@ -80,14 +80,14 @@
                         <div class="float-left" id="login">
                             <br/><br/><br/>
                             <?php echo form_open('principalController/home'); ?>
-                                <div><h2>Ingresa al sistema:</h2></div>
+                                <div><h2>Log in:</h2></div>
                                 <table class='table'>
                                     <tr>
-                                        <td><label>Usuario: </label></td>
+                                        <td><label>User: </label></td>
                                         <td><input type="text" id="usuario" name="usuario"/></td>
                                     </tr>
                                     <tr>
-                                        <td>Contraseña: </td>
+                                        <td>Password </td>
                                         <td><input type="password" id="passwd" name="passwd"/></td>
                                     </tr>
                                     <tr>

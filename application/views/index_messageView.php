@@ -5,7 +5,7 @@
 //include('config.php');
 session_start();
 ?>
-<p>Hola</p>
+<p>Hi</p>
 
 <?php 
 if(isset($_SESSION['username'])){
@@ -13,7 +13,7 @@ if(isset($_SESSION['username'])){
 	} 
 ?>
 <br />
-<p>Bienvenido al sistema de mensajeria.</p>
+<p>Welcome to the messaging system</p>
 <!--You can <a href="users.php">see the list of users</a>.--><br />
 <?php
 //If the user is logged, we display links to edit his infos, to see his pms and to log out
@@ -26,8 +26,8 @@ if(isset($_SESSION['username']))
 	//We display the links
 ?>
 
-<a href="<?php echo site_url('principalController/mensajeseditinfoView');?>" class="button2">Editar mi informacion.</a><br /><br /><br />
-<a href="<?php echo site_url('principalController/mensajeslistView');?>" class="button2">Mis mensajes (<?php echo $nb_new_pm; ?> unread)</a><br /><br /><br />
+<a href="<?php echo site_url('principalController/mensajeseditinfoView');?>" class="button2">Edit my information.</a><br /><br /><br />
+<a href="<?php echo site_url('principalController/mensajeslistView');?>" class="button2">My messages(<?php echo $nb_new_pm; ?> unread)</a><br /><br /><br />
 <a href="<?php echo site_url('principalController/conexionView');?>" class="button2">Logout</a><br /><br />
 
 <?php

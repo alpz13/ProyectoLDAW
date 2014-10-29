@@ -49,7 +49,7 @@ if(isset($_SESSION['username']))
 							//We delete the old sessions so the user need to log again
 							unset($_SESSION['username'], $_SESSION['userid']);
 ?>
-<div class="message">Tu informacion ha sido actualizada. Necesitas reinicar tu sesion.<br /><br />
+<div class="message">Changes have been made. Log in needed.<br /><br />
 <a href="<?php echo site_url('principalController/conexionView');?>" class="button2">Log in</a></div>
 <?php
 						}
@@ -57,35 +57,35 @@ if(isset($_SESSION['username']))
 						{
 							//Otherwise, we say that an error occured
 							$form = true;
-							$message = 'Ocurrio un error al actualizar tu informacion.';
+							$message = 'Unexpected error has occurred while making changes.';
 						}
 					}
 					else
 					{
 						//Otherwise, we say the username is not available
 						$form = true;
-						$message = 'El nombre de usuario no esta disponible, favor de elegir otro.';
+						$message = 'User name unavailable, please choose another.';
 					}
 				}
 				else
 				{
 					//Otherwise, we say the email is not valid
 					$form = true;
-					$message = 'El email que utilizo no es valido.';
+					$message = 'Not a valid email.';
 				}
 			}
 			else
 			{
 				//Otherwise, we say the password is too short
 				$form = true;
-				$message = 'Tu password debe de contener 6 characteres minimo.';
+				$message = 'Password must have 6 characters minimum.';
 			}
 		}
 		else
 		{
 			//Otherwise, we say the passwords are not identical
 			$form = true;
-			$message = 'Los passwords no son identicos.';
+			$message = 'Passwords does not match.';
 		}
 	}
 	else
@@ -132,9 +132,9 @@ if(isset($_SESSION['username']))
 <br />
 
     <form action="<?php echo site_url('principalController/mensajeseditinfoView');?>" method="post">
-        Puedes editar tu informacion:<br /><br />
+        Edit information:<br /><br />
         <div class="center">
-            <label for="username">Usuario</label><input type="text" name="username" id="username" value="<?php echo $username; ?>" /><br />
+            <label for="username">User</label><input type="text" name="username" id="username" value="<?php echo $username; ?>" /><br />
             <label for="password">Password<span class="small">(6 caracteres min.)</span></label><input type="password" name="password" id="password" value="<?php echo $password; ?>" /><br />
             <label for="passverif">Password<span class="small">(verificacion)</span></label><input type="password" name="passverif" id="passverif" value="<?php echo $password; ?>" /><br />
             <label for="email">Email</label><input type="text" name="email" id="email" value="<?php echo $email; ?>" /><br />
@@ -149,7 +149,7 @@ if(isset($_SESSION['username']))
 else
 {
 ?>
-<div class="message">Para acceder a esta pagina, necesitas iniciar tu sesion.<br /><br />
+<div class="message">To access this web page, you need to log in.<br /><br />
 <a href="<?php echo site_url('principalController/mensajeslistView');?>" class="button2">Log in</a></div>
 <?php
 }

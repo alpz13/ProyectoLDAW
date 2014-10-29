@@ -9,7 +9,7 @@ class UsuariosController extends CI_Controller {
         $this->form_validation->set_rules('mail', 'Correo', 'valid_email');
         
         if ($this->form_validation->run() == FALSE) {
-                echo "Debe indicar un email válido";
+                echo "Must provide a valid email";
                 echo "<span class='close'>Cerrar</span>";
         } else {
             $nom = $this->input->post('nombre');
@@ -21,9 +21,9 @@ class UsuariosController extends CI_Controller {
             $foto = $this->input->post('foto');
             
             if(($nom || $apeP || $apeM || $pass || $passCon) == "") {
-                $this->load->view("mensajeView");
+                echo "<p>All fields must be filled</p>";
             } else if($pass != $passCon) {
-                echo "<p>Las contraseñas no coinciden</p>";
+                echo "<p>Passwords does not match</p>";
                 echo "<span class='close'>Cerrar</span>";
             } else {
                 if($foto == "") {
@@ -32,10 +32,10 @@ class UsuariosController extends CI_Controller {
                 $resultado = $this->usuariosModel->registraUsuario($nom, $apeP, $apeM, $pass, $mail, $foto);
 
                 if($resultado == 1) {
-                    echo '<p>Usuario registrado';
+                    echo '<p>User register';
                     echo "<span class='close'>Cerrar</span>";
                 } else {
-                    echo "<p>No se ha podido insertar el usuarion con los datos proporcionados</p>";
+                    echo "<p>User could not be created with the information provided</p>";
                     echo "<span class='close'>Cerrar</span>";
                 }
             }
@@ -56,16 +56,16 @@ class UsuariosController extends CI_Controller {
         $foto = $this->input->post('foto');
         
         if(($nombre || $aPaterno || $aMaterno || $pass || $passCon || $mail) == "") {
-            echo "Deben indicarse todos los campos";
+            echo "All fields must be filleds";
         } else if($pass != $passCon) {
-            echo "Las contraseñas no coinciden";
+            echo "Passwords does not match";
         } else {
             if($foto == "") {
                 $foto = "../../files/defaultFoto.jpg";
             }
             $resultado = $this->usuariosModel->actualizaUsuario($id, $nombre, $aPaterno, $aMaterno, $pass, $mail, $foto);
             if($resultado == 1) {
-                echo "Datos actualizados";
+                echo "Information Updated";
                 $dataUser['nombre'] = $nombre;
                 $dataUser['apellidoP'] = $aPaterno;
                 $dataUser['apellidoM'] = $aMaterno;
@@ -74,7 +74,7 @@ class UsuariosController extends CI_Controller {
                 $dataUser['foto'] = $foto;
                 $this->session->set_userdata($dataUser);
             } else {
-                echo "No se han podido registrar los datos. Favor de volver a intentar";
+                echo "Something has happened, please try again";
             }
         }
     }
@@ -92,7 +92,7 @@ class UsuariosController extends CI_Controller {
                 }
             echo "</select>";
         } else {
-            echo "No se han encontrado Usuarios";
+            echo "No users has been found";
         }
     }
     
@@ -114,9 +114,9 @@ class UsuariosController extends CI_Controller {
             $foto = $this->input->post('foto');
             
             if($nom || $apeP || $apeM || $pass || $passCon == "") {
-                echo "<p>*Debe llenar todos los campos</p>";
+                echo "<p>*All fields must be filled</p>";
             } else if($pass != $passCon) {
-                echo "<p>*Las contraseñas no coinciden</p>";
+                echo "<p>*Passwords doesn not match</p>";
             } else {
                 if($foto == "") {
                     $foto = "../../files/defaultFoto.jpg";
@@ -124,9 +124,9 @@ class UsuariosController extends CI_Controller {
                 $resultado = $this->usuariosModel->registraUsuario($nom, $apeP, $apeM, $pass, $mail, $foto);
 
                 if($resultado == 1) {
-                    echo '<p>Usuario registrado</p>';
+                    echo '<p>User has been registered</p>';
                 } else {
-                    echo "<p>*No se ha podido insertar el usuarion con los datos proporcionados</p>";
+                    echo "<p>*User could not be created with provided information, please try again</p>";
                 }
             }
         }
@@ -139,9 +139,9 @@ class UsuariosController extends CI_Controller {
         
         $resultado = $this->usuariosModel->eliminaUsuario($id);
         if($resultado == 1) {
-            echo "<p>Usuario eliminado</p>";
+            echo "<p>User deleted</p>";
         } else {
-            echo "<p>No se ha podido eliminar al usuario. Favor de volver a intentarlo</p>";
+            echo "<p>User could not be deleted, please try again.</p>";
         }
     }
     
@@ -180,7 +180,7 @@ class UsuariosController extends CI_Controller {
             $data['usuario'] = $resultado;
             $this->load->view('usuarioModificarView', $data);
         } else {
-            echo "<p>No se encontraron datos</p>";
+            echo "<p>Information could not be found</p>";
         }
     }
     
@@ -203,9 +203,9 @@ class UsuariosController extends CI_Controller {
             $foto = $this->input->post('foto');
             
             if(($nom || $apeP || $apeM || $pass || $passCon) == "") {
-                echo "<p>Debe llenar todos los campos</p>";
+                echo "<p>All fields must be filleds</p>";
             } else if($pass != $passCon) {
-                echo "<p>Las contraseñas no coinciden</p>";
+                echo "<p>Passwords does not match</p>";
             } else {
                 if($foto == "") {
                     $foto = "../../files/defaultFoto.jpg";
@@ -213,9 +213,9 @@ class UsuariosController extends CI_Controller {
                 $resultado = $this->usuariosModel->actualizaUsuario($id, $nom, $apeP, $apeM, $pass, $mail, $foto);
 
                 if($resultado == 1) {
-                    echo '<p>Datos actualizados</p>';
+                    echo '<p>Information updated</p>';
                 } else {
-                    echo "<p>Los datos no se han podido actualizar. Favor de volver a intentar</p>";
+                    echo "<p>Information could not be updated, please try again.</p>";
                 }
             }
         }
@@ -243,7 +243,7 @@ class UsuariosController extends CI_Controller {
            }
         }else{
             //alert("Cayo aca");
-            echo "Cayo en error";
+            echo "An error has happened.";
         }
     }
 }

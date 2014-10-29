@@ -27,31 +27,31 @@
             <form style="margin-left: 31%">
                 <table>
                     <tr>
-                        <td>Nombre: </td>
+                        <td>Name: </td>
                         <td><input type="text" name="nombre" id="nombre" value="<?php echo $nombre; ?>"/></td>
                     </tr>
                     <tr>
-                        <td>Apellido Paterno: </td>
+                        <td>Paternal Surname: </td>
                         <td><input type="text" name="aPaterno" id="aPaterno" value="<?php echo $aPaterno; ?>"/></td>
                     </tr>
                     <tr>
-                        <td>Apellido Materno: </td>
+                        <td>Maternal Surname: </td>
                         <td><input type="text" name="aMaterno" id="aMaterno" value="<?php echo $aMaterno; ?>"/></td>
                     </tr>
                     <tr>
-                        <td>Contraseña: </td>
+                        <td>Password: </td>
                         <td><input type="password" name="pass" id="pass" value="<?php echo $pass; ?>"/></td>
                     </tr>
                     <tr>
-                        <td>Confirmación: </td>
+                        <td>Re-entry Passworld: </td>
                         <td><input type="password" name="passCon" id="passCon"/></td>
                     </tr>
                     <tr>
-                        <td>Correo: </td>
+                        <td>Mail: </td>
                         <td><input type="text" name="mail" id="mail" value="<?php echo $mail; ?>"/></td>
                     </tr>
                     <tr>
-                        <td>Foto: </td>
+                        <td>Picture: </td>
                         <td><input type="text" name="urlFoto" id="urlFoto" value="<?php echo $foto; ?>"/></td>
                     </tr>
                     <tr>
