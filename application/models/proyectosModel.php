@@ -142,6 +142,22 @@ class ProyectosModel extends CI_Model {
         
         return $resultado;
     }
+    
+    public function addRequest($idProyecto, $idUser, $value)
+    {
+        $data = array(
+                  'idProyecto'  => $idProyecto,
+                  'idUsuario'   => $idUser,
+                  'status'      => $value
+                );
+        
+        try {
+            $this->db->insert('requests', $data);
+            return 1;
+        } catch (Exception $ex) {
+            return 0;
+        }
+    }
 }
 
 ?>

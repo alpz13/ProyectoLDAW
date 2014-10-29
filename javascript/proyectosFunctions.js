@@ -25,3 +25,17 @@ $(document).ready(function() {
         }
     });
 });
+
+function requestProyect(id) {
+    confirmar = confirm("Did you wish to participate in the selected project?");
+    if(confirmar) {
+        url = $("#url").val();
+        idProyecto = id;
+        $.post(url+"index.php/proyectosController/requestProyect", {
+            idProyecto : idProyecto,
+            value : 1
+        }, function(data) {
+            alert(data);
+        });
+    }
+}
