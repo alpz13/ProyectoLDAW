@@ -23,8 +23,9 @@
             </div>
         </div>
         <br/><br/>
-        <div>
-            <table>
+        <hr/><br/>
+        <div class='principalMenus'>
+            <table class="table_message">
                 <?php 
                     $i = 0;
                     for($i; $i < $cont; $i++) {
@@ -33,26 +34,26 @@
                         $rowI = $ids[$i];
                 ?>
                         <tr>
-                            <td>
+                            <td class='td2'>
                                 User: <?php echo $row->APaterno." ".$row->AMaterno." ".$row->Nombre;?>
                             </td>
-                            <td>
-                                <input type="button" value="See user" onClick="seeUser('<?php echo $row->idUsuarios; ?>')"/>
+                            <td class='td'>
+                                <input type="button" class="button2" value="See user" onClick="seeUser('<?php echo $row->idUsuarios; ?>')"/>
                             </td>
-                            <td>
+                            <td class='td2'>
                                 Project: <?php echo $rowP->Nombre?>
                             </td>
-                            <td>
-                                <input type="button" value="See Project" onClick="seeProject('<?php echo $rowP->idTrabajos; ?>')"/>
+                            <td class='td'>
+                                <input type="button" class="button2" value="See Project" onClick="seeProject('<?php echo $rowP->idTrabajos; ?>')"/>
                             </td>
-                            <td>
-                                <input type="button" value="Accept" onClick="acceptProyect('<?php echo $rowP->idTrabajos; ?>', '<?php echo $row->idUsuarios; ?>', '<?php echo $rowI; ?>')"/>
+                            <td class='td'>
+                                <input type="button" class="button2" value="Accept" onClick="acceptProyect('<?php echo $rowP->idTrabajos; ?>', '<?php echo $row->idUsuarios; ?>', '<?php echo $rowI; ?>')"/>
                             </td>
                         </tr>
                         <tr>
-                            <td>
+                            <td class='td'>
                                 <?php echo form_open("principalController/homeView"); ?>
-                                    <input type="submit" value="Back"/>
+                                    <input type="submit" class="button2" value="Back"/>
                                 <?php echo form_close(); ?>
                             </td>
                         </tr>
