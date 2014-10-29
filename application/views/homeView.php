@@ -28,7 +28,7 @@
                 if($this->session->userdata('tipo') == 3) { ?>
                     <div>
                         <?php
-                        //*******Se muestran los proyectos a los que está actualmente inscrito//*********
+                        //*******Se muestran los proyectos a los que estﾃ｡ actualmente inscrito//*********
                         $cont = count($proyectosUser);
                         $i = 0;
                         if($cont > 0) {
@@ -61,8 +61,12 @@
                             $i = 0;
                             $j=count($proyectosAreas);
                             if($j > 0) {
+                            echo"<hr/><br/>";
                                 echo "<div class='titleProyects' id='proyectosAreas'>";
-                                    echo "<h2>Same area Projects</h2>";
+                                ?>
+                                <h2><img src="<?php echo base_url(); ?>images/folder-logo_opt.png" alt="logos"/>Same area Projects</h2><h3>(Click to expand)</h3>
+                                <?php
+                                    //echo "<h2>Same area Projects</h2><h3>(Click to expand)</h3>";
                                 echo "</div><br/>";
                                 echo "<div id='divProyectosAreas' class='principalMenus'>";
                                     echo "<table>";
@@ -83,6 +87,7 @@
                                         }
                                     echo "</table>";
                                 echo "</div>";
+                                echo"<br/><hr/><br/>";
                             }
 
                         ?>
@@ -91,8 +96,12 @@
                             $i = 0;
                             $j=count($proyectosCompetencias);
                             if($j > 0) {
+                            echo"<hr/><br/>";
                                 echo "<div class='titleProyects' id='proyectosCompetencias'>";
-                                    echo "<h2>Same competence Projects</h2>";
+                                 ?>
+                                <h2><img src="<?php echo base_url(); ?>images/folder-logo_opt.png" alt="logos"/>Same area Projects</h2><h3>(Click to expand)</h3>
+                                <?php
+                                    //echo "<h2>Same competence Projects</h2><h3>(Click to expand)</h3>";
                                 echo "</div><br/>";
                                  echo "<div id='divProyectosCompetencias' class='principalMenus'>";
                                     echo "<table>";
@@ -112,6 +121,7 @@
                                         }
                                     echo "</table>";
                                 echo "</div>";
+                                echo"<br/><hr/><br/>";
                             }
 
                         ?>
