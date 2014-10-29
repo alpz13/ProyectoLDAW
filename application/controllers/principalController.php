@@ -163,6 +163,15 @@ class PrincipalController extends CI_Controller {
             $this->load->model('usuariosModel');
             $id = $this->session->userdata('id');
             $resultado = $this->usuariosModel->getInfo($id);
+            $califAreas = $this->usuariosModel->getCalifArea($id);
+            $califCompetencias = $this->usuariosModel->getCalifCompetencias($id);
+            $areas = $this->usuariosModel->getNombreAreas();
+            $competencias = $this->usuariosModel->getNombreCompetencias();
+            
+            $data['califAreas'] = $califAreas;
+            $data['califCompetencias'] = $califCompetencias;
+            $data['areas'] = $areas;
+            $data['competencias'] = $competencias;
             
             if($resultado->num_rows() > 0) {
                 foreach($resultado->result() as $row) {
@@ -273,7 +282,6 @@ class PrincipalController extends CI_Controller {
            $i = 0;
            foreach($arrayProyectos->result() as $row) {
                $idTrabajo = $row->idTrabajos;
-               
 //               $this->load->library('grocery_CRUD');
 //               $crud =  $crud = new grocery_CRUD();
 //               $crud->where('idTrabajos', $idTrabajo);
@@ -285,12 +293,12 @@ class PrincipalController extends CI_Controller {
            return $query;
        }
        
-       public function usuariosGrid()
-       {
-           $this->load->library('grocery_CRUD');
-           $this->grocery_crud->set_table('usuarios');
-           $output = $this->grocery_crud->render();
-           
-           return $output;
-       }
+//       public function usuariosGrid()
+//       {
+//           $this->load->library('grocery_CRUD');
+//           $this->grocery_crud->set_table('usuarios');
+//           $output = $this->grocery_crud->render();
+//           
+//           return $output;
+//       }
 }

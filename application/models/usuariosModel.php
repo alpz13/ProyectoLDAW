@@ -162,6 +162,40 @@ class UsuariosModel extends CI_Model {
         
         return $resultado;
     }
+    
+    function getCalifArea($idUsuario)
+    {
+        $this->db->where('idUsuario', $idUsuario);
+        $this->db->order_by('idAreas', 'desc');
+        $resultado = $this->db->get('areasusuario');
+        
+        return $resultado;
+    }
+    
+    function getCalifCompetencias($idUsuario)
+    {
+        $this->db->where('idUsuario', $idUsuario);
+        $this->db->order_by('idCompetencias', 'desc');
+        $resultado = $this->db->get('competenciasusuario');
+        
+        return $resultado;
+    }
+    
+    function getNombreAreas()
+    {
+        $this->db->order_by('idAreas');
+        $resultado = $this->db->get('areas');
+        
+        return $resultado;
+    }
+    
+    function getNombreCompetencias()
+    {
+        $this->db->order_by('idCompetencias');
+        $resultado = $this->db->get('competencias');
+        
+        return $resultado;
+    }
 
 }
 ?>
