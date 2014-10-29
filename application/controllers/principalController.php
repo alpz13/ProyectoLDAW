@@ -81,7 +81,23 @@ class PrincipalController extends CI_Controller {
         
         public function homeView()
         {
-            $this->load->view('homeView');
+            //**Busca el área con mayor calificacion**
+            $idUser = $this->session->userdata('id');
+            $area = $this->areaAfin($idUser);
+            $query = $area->row();
+            $idAreaMayor = $query->idAreas;
+            $data['proyectosAreas'] = $this->getProyectos($idAreaMayor);
+            //********************************************//
+            //********************************************//
+
+            //**Busca la competencia con mayor calificacion**
+            $competencia = $this->competenciaAfin($idUser);
+            $query = $competencia->row();
+            $idCompetenciaMayor = $query->idCompetencias;
+            $data['proyectosCompetencias'] = $this->getCompetencias($idCompetenciaMayor);
+            //********************************************//
+            //********************************************//
+            $this->load->view('homeView', $data);
             $this->load->view('footer');
         }
 

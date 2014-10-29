@@ -137,4 +137,19 @@ class ProyectosController extends CI_Controller {
         $this->load->view('eliminarProyectoView', $data);
     }
     
+    public function requestProyect()
+    {
+        $this->load->model('proyectosModel');
+        $idProyecto = $this->input->post('idProyecto');
+        $idUser = $this->session->userdata('id');
+        $value = $this->input->post('value');
+        
+        $resultado = $this->proyectosModel->addRequest($idProyecto, $idUser, $value);
+        if($resultado == 1) {
+            echo "Request has been send";
+        } else {
+            echo "Request could not been sent";
+        }
+    }
+    
 }
