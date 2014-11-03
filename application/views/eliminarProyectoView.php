@@ -23,22 +23,22 @@
                 <tr>
                     <td>
                         <?php echo form_open('proyectosController/consultar'); ?>
-                            <input class="button2" type="submit" value="Consulta proyectos" />
+                            <input class="button2" type="submit" value="See all projects" />
                         <?php echo form_close(); ?>
                     </td>
                     <td>
                         <?php echo form_open('proyectosController/creaProyecto'); ?>
-                            <input class="button2" type="submit" value="Crear proyecto"/>
+                            <input class="button2" type="submit" value="Create project"/>
                         <?php echo form_close(); ?>
                     </td>
                     <td>
                         <?php echo form_open('proyectosController/asignarTrabajador'); ?>
-                            <input class="button2" type="submit" value="Asignar trabajador"/>
+                            <input class="button2" type="submit" value="Assign worker"/>
                         <?php echo form_close(); ?>
                     </td>
                     <td>
                         <?php echo form_open('proyectosController/eliminar'); ?>
-                            <input class="button2" type="submit" value="Eliminar proyecto" />
+                            <input class="button2" type="submit" value="Delete project" />
                         <?php echo form_close(); ?>
                     </td>
                 </tr>

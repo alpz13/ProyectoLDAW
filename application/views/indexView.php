@@ -62,7 +62,7 @@
                                     </tr>
                                     <tr>
                                         <td></td>
-                                        <td><input id="registrarUsuario" type="button" class="button_par" value='Registrar' data-type="zoomin" style="top: 232px; left: 190px;"/></td>
+                                        <td><input id="registrarUsuario" type="button" class="button_par" value='Register' data-type="zoomin" style="top: 232px; left: 190px;"/></td>
                                     </tr>
                                 </table>
                             <?php echo form_close(); ?>
@@ -88,7 +88,7 @@
                                     </tr>
                                     <tr>
                                         <td></td>
-                                        <td><input type="submit" value="Entrar" class='button_par'/></td>
+                                        <td><input type="submit" value="Enter" class='button_par'/></td>
                                     </tr>
                                 </table>
                             <?php echo form_close(); ?>
