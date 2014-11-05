@@ -2,12 +2,6 @@
 <html>
 <?php include_once('header_intro.php'); ?>
 <body>
-	<ul id="nav">
-		<li><a href="#intro" title="Next Section"><img src="<?php echo base_url(); ?>images/dot.png" alt="Link" /></a></li>
-		<li><a href="#second" title="Next Section"><img src="<?php echo base_url(); ?>images/dot.png" alt="Link" /></a></li>
-		<li><a href="#third" title="Next Section"><img src="<?php echo base_url(); ?>images/dot.png" alt="Link" /></a></li>
-		<li><a href="#fifth" title="Next Section"><img src="<?php echo base_url(); ?>images/dot.png" alt="Link" /></a></li>
-	</ul>
         <?php if(isset($bin) || isset($error)) { ?>
             <script>
                 $(document).ready(function() {
@@ -16,68 +10,68 @@
                 });
             </script>
         <?php } ?>
-    
+        <div style="text-align: center;" id="principalDiv">
+            <h1>Job Scope</h1>
+        </div>
 	<div id="intro">
-		<div class="story">                    
+		<div>                    
                         <!-- Aquí comienzan las formas de login y registro-->
-                        <div class="float-right">
-                            <br/><br/><br/><br/><br/><br/>
-                            <button class="button_par" type="button" id="loginButton" style="top: 232px; left: 190px;">Login</button>
-                            <button class="button_par" type="button" id="registerButton" style="top: 232px; left: 190px;">Register</button>
-                        </div>
-                        <div class="float-left" id="registro">
+                        <div id="registro">
                             <br/><br/><br/><br/>
                             <?php echo form_open('usuariosController/registraUsuario'); ?>
                             <h2>New User:</h2>
-                                <table class="tRegistro">
+                                <table>
                                     <tr>
                                         <td>Name:</td>
                                         <td><input type='text' name='nombre' id="nombre"</td>
-                                        <td class="error"><?php echo form_error('nombre'); ?></td>
+                                        <td><?php echo form_error('nombre'); ?></td>
                                     </tr>
                                     <tr>
                                         <td>Paternal Surname:</td>
                                         <td><input type='text' name='apellidoP' id="apellidoP"</td>
-                                        <td class="error"><?php echo form_error('apellidoP'); ?></td>
+                                        <td><?php echo form_error('apellidoP'); ?></td>
                                     </tr>
                                     <tr>
                                         <td>Maternal Surname:</td>
                                         <td><input type='text' name='apellidoM' id="apellidoM"</td>
-                                        <td class="error"><?php echo form_error('apellidoM'); ?></td>
+                                        <td><?php echo form_error('apellidoM'); ?></td>
                                     </tr>
                                     <tr>
                                         <td>Password:</td>
                                         <td><input type='password' name='pass' id="pass"</td>
-                                        <td class="error"><?php echo form_error('pass'); ?></td>
+                                        <td><?php echo form_error('pass'); ?></td>
                                     </tr>
                                     <tr>
                                         <td>Re-entry Password:</td>
                                         <td><input type='password' name='passCon' id="passCon"</td>
-                                        <td class="error"><?php echo form_error('passCon'); ?></td>
+                                        <td><?php echo form_error('passCon'); ?></td>
                                     </tr>
                                     <tr>
                                         <td>Mail:</td>
                                         <td><input type='text' name='mail' id="mail"</td>
-                                        <td class="error"><?php echo form_error('mail'); ?></td>
+                                        <td><?php echo form_error('mail'); ?></td>
                                     </tr>
                                     <tr>
                                         <td></td>
-                                        <td><input id="registrarUsuario" type="button" class="button_par" value='Register' data-type="zoomin" style="top: 232px; left: 190px;"/></td>
+                                        <td>
+                                            <input id="registrarUsuario" type="button" value='Register' data-type="zoomin" style="top: 232px; left: 190px;"/>&nbsp;
+                                            <input id="back" type="button" value="Back" />
+                                        </td>
                                     </tr>
                                 </table>
                             <?php echo form_close(); ?>
                             <br/>
                         </div>
-                        <div class="overlay-container">
-                            <div class="window-container zoomin" id="contenido">
+                        <div>
+                            <div id="contenido">
 
                             </div>
                         </div>
-                        <div class="float-left" id="login">
+                        <div id="login">
                             <br/><br/><br/>
                             <?php echo form_open('principalController/home'); ?>
                                 <div><h2>Log in:</h2></div>
-                                <table class='table'>
+                                <table>
                                     <tr>
                                         <td><label>User: </label></td>
                                         <td><input type="text" id="usuario" name="usuario"/></td>
@@ -88,63 +82,35 @@
                                     </tr>
                                     <tr>
                                         <td></td>
-                                        <td><input type="submit" value="Enter" class='button_par'/></td>
+                                        <td>
+                                            <input type="submit" value="Enter"/>
+                                            <input type="button" id="registerButton" value="Register"/>
+                                        </td>
                                     </tr>
                                 </table>
                             <?php echo form_close(); ?>
                         </div>
-                        <div class="float-left">
+                        <div>
+                            <br/><br/><br/>
+                            <!--<button class="button_par" type="button" id="loginButton" style="top: 232px; left: 190px;">Login</button>-->
+                        </div>
+                        <div>
                             <?php 
                                 if(isset($error)) {
-                                    echo "<div class='error'><p>".$error."</p></div>";
+                                    echo "<div><p>".$error."</p></div>";
                                 }
                             ?>
                         </div>
-                        <div class="float-left">
+                        <div>
                             <?php
                                 if(isset($success)) {
-                                    echo "<div class='success'>".$success."</div>";
+                                    echo "<div>".$success."</div>";
                                 }                 
                             ?>
                         </div>
                         <input type="hidden" id="url" value="<?php echo base_url(); ?>"/>
-                        
 		</div>
-            <br/><br/><br/><br/>
-            <div style="text-align: center;" id="principalDiv">
-                            <h1>Job Scope</h1>
-                    </div>
-	</div>
-
-	<div id="second">
-		<div class="story">
-			<div class="float-right">
-				<h2>Basic Idea</h2>
-				<p>Are you looking for a job but you hate to look for one?, you have certain skills but you don't find the perfect job for you, don't even tell me about the many hours spent in the computer just to find a job that you actually qualify. Significantly reduce the hours spent with "JOB SCOPE".</p>
-			</div>
-		</div>
-	</div>
-
-	<div id="third">
-		<div class="story">
-	    	<div class="float-left">
-	        	<h2>Got tired of looking and not finding anything?</h2>
-	            <p>Remove all frustation with us and try us out, easy to use, in a few steps you can be appplying for the job specially designed for you </p>
-	        </div>
-	    </div> <!--.story-->
-	</div> <!--#third-->
-
-	<div id="fifth">
-		<div class="story">
-	    	<div class="float-left">
-	            <h2>Whant to check us out?</h2>
-	            <p><em>Reduce searching hours.</em></p>
-	            <p>Free, simple and designed to pair you with the perfect job for you.</p>
-	            <p>Come feel free to join us and try us out.</p>
-	        </div>
-	    </div> <!--.story-->
-	</div> <!--#fifth-->
-
-	
+            <br/><br/>
+	</div>	
 </body>
 </html>
