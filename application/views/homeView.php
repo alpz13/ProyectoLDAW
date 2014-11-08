@@ -128,29 +128,43 @@
                     <br/><br/>
                     </div>
                 <?php } else if($this->session->userdata('tipo') == 1 || $this->session->userdata('tipo') == 2) { 
-                            $j = count($requests);
-                            if($j > 0) {
-                                echo form_open('proyectosController/seeRequest');
-                                    echo "<div id='requests' class='principalMenus'>";
-                                        ?>
-                                        <table style="margin-left:30%">;
-                                        <?php
-                                            echo "<tr>";
-                                                echo "<td class='td'>";
-                                                    ?>
-                                                    <span><img src="<?php echo base_url(); ?>images/00442128_opt.png" alt="logos"/>You have new projects request. </span>
-                                                    <?php
-                                                echo "</td>";
-                                                echo "<td>"; ?>
-                                                    <input type="submit" class="button2" value="See requests"/>
-                                                    <?php $row = $requests->row(); ?>
-                                                    <input type="hidden" name="idSupervisor" value="<?php echo $row->idSupervisor; ?>"/>
-                                          <?php echo "</td>";
-                                            echo "</tr>";
-                                        echo "</table>";
-                                    echo "</div>";
-                                echo form_close();
-                            }
+                    if(isset($request)) {
+                        $j = count($requests);
+                        if($j > 0) {
+                            echo form_open('proyectosController/seeRequest');
+                                echo "<div id='requests' class='principalMenus'>";
+                                    ?>
+                                    <table style="margin-left:30%">;
+                                    <?php
+                                        echo "<tr>";
+                                            echo "<td class='td'>";
+                                                ?>
+                                                <span><img src="<?php echo base_url(); ?>images/00442128_opt.png" alt="logos"/>You have new projects request. </span>
+                                                <?php
+                                            echo "</td>";
+                                            echo "<td>"; ?>
+                                                <input type="submit" class="button2" value="See requests"/>
+                                                <?php $row = $requests->row(); ?>
+                                                <input type="hidden" name="idSupervisor" value="<?php echo $row->idSupervisor; ?>"/>
+                                      <?php echo "</td>";
+                                        echo "</tr>";
+                                    echo "</table>";
+                                echo "</div>";
+                            echo form_close();
+                        }
+                    } else {
+                        ?>
+                                                <div class="principalMenus">
+                                                    <table style="margin-left:30%">
+                                                        <tr>
+                                                            <td class='td'>
+                                                                <span><img src="<?php echo base_url(); ?>images/00442128_opt.png" alt="logos"/>You don't have any pending request. </span>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                        <?php
+                    }
                 ?>
                             <div id="seeRequests">
                                 

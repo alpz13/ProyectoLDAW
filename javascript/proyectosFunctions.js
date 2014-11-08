@@ -73,3 +73,13 @@ function acceptProyect(idProyect, idUser, idRequest) {
         });
     }
 }
+
+function modifyProyect(num, u) {
+    id = num;
+    url = u;
+    $.post(url+"index.php/proyectosController/getProyectModify", {
+        idProyect : id
+    }, function(data) {
+        alert("hola") ;
+    });
+}

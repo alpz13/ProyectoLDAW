@@ -268,4 +268,45 @@ class ProyectosController extends CI_Controller {
         
         return $resultado;
     }
+    
+    public function myProjects()
+    {
+        $idSupervisor = $this->session->userdata('id');
+        if($idSupervisor != "") {
+            $this->load->model('proyectosModel');
+            $resultado = $this->proyectosModel->getMyProjects($idSupervisor);
+            if(!is_numeric($resultado)) {
+                $data['myProjects'] = $resultado;
+            } else {
+                $data['error'] = "There are no projects to show. Please add some projects";
+            }
+            $this->load->view('principalProyectosView', $data);
+            $this->load->view('footer');
+        } else {
+            $this->session->sess_destroy();
+            $this->load->view("indexView");
+        }
+    }
+    
+    public function getProyectModify()
+    {
+        $idProyect = $this->input->post('idProyecto');
+        $this->load->model("proyectosModel");
+        $resultado = $this->proyectosModel->getInfoProyectoModify($idProyect);
+        if(!is_numeric($resultado)) {
+            $data['project'] = $resultado;
+        } else {
+            $data['error1'] = "There if no information related to the specified project";
+        }
+        $resultado2 = $this->proyectosModel->getGradesAreas($idProyect);
+        if(!is_numeric($resultado2)) {
+            $data['califArea'] = $resultado2;
+        }
+        $resultado3 = $this->proyectosModel->getGradesCompetences($idProyect);
+        if(!is_numeric($resultado3)) {
+            $data['califCompetence'] = $resultado3;
+        }
+        $this->load->view('modifyProjectView', $data);
+        
+    }
 }

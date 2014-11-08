@@ -23,6 +23,11 @@
                 <table style="margin-left: 14%;">
                     <tr>
                         <td>
+                            <?php echo form_open('proyectosController/myProjects'); ?>
+                                <input class="button2" type="submit" value="My Projects" />
+                            <?php echo form_close(); ?>
+                        </td>
+                        <td>
                             <?php echo form_open('proyectosController/consultar'); ?>
                                 <input class="button2" type="submit" value="See all projects" />
                             <?php echo form_close(); ?>
@@ -56,6 +61,44 @@
                 </table>
             <?php } ?>
         </div><br/><br/>
+        <?php if(isset($myProjects)) { ?>
+                <div id="projects">
+                    <?php
+                        foreach($myProjects->result() as $row) {
+                            echo "<table>";
+                                echo "<tr>";
+                                    echo "<td>";
+                                        echo "Name";
+                                    echo "</td>";
+                                    echo "<td>";
+                                        echo "Description";
+                                    echo "</td>";
+                                echo "</tr>";
+                                echo "<tr>";
+                                    echo "<td>";
+                                        echo $row->Nombre;
+                                    echo "</td>";
+                                    echo "<td>";
+                                        echo $row->Descripcion;
+                                    echo "</td>";
+                                    echo "<td>";
+                                        echo form_open('proyectosController/getProyectModify');
+                                            echo "<input type='hidden' name='idProyecto' value=".$row->idTrabajos.'"/>';
+                                            echo "<input type='submit' value='Modify'/>";
+                                        echo form_close();
+                                    echo "</td>";
+                                    echo "<td>";
+                                        echo "<input type='submit' value='Delete'/>";
+                                    echo "</td>";
+                                echo "</tr>";
+                            echo "</table>";
+                        }
+                    ?>
+                </div>
+                <div id="modificar">
+                    
+                </div>
+        <?php } ?>
         <div class="result">
             <?php 
                 if(isset($success)) {

@@ -44,8 +44,11 @@ class ProyectosModel extends CI_Model {
         $this->db->where('idSupervisor', $idSupervisor);
         
         $query = $this->db->get();
-        
-        return $query;
+        if($query->num_rows() > 0) {
+            return $query;
+        } else {
+            return 0;
+        }
     }
     
     public function consultaTrabajadores($id)
@@ -195,7 +198,11 @@ class ProyectosModel extends CI_Model {
         $this->db->where('idSupervisor', $idUser);
         $resultado = $this->db->get('trabajos');
         
-        return $resultado;
+        if($resultado->num_rows() > 0) {
+            return $resultado;
+        } else {
+            return 1;
+        }
     }
     
     public function getAllRequests($idUser)
@@ -204,7 +211,11 @@ class ProyectosModel extends CI_Model {
         $this->db->where('status', 1);
         $resultado = $this->db->get('requests');
         
-        return $resultado;
+        if($resultado->num_rows() > 0) {
+            return $resultado;
+        } else {
+            return 1;
+        }
     }
     
     public function addUser($idProyecto, $idUsuario)
@@ -262,6 +273,50 @@ class ProyectosModel extends CI_Model {
             $this->db->insert('trabajocompetencia', $data);
             return 1;
         } catch (Exception $ex) {
+            return 0;
+        }
+    }
+    
+    public function getMyProjects($idSupervisor) 
+    {
+        $this->db->where('idSupervisor', $idSupervisor);
+        $resultado = $this->db->get('trabajos');
+        if($resultado->num_rows() > 0) {
+            return $resultado;
+        } else {
+            return 0;
+        }
+    }
+    
+    public function getInfoProyectoModify($idProyect)
+    {
+        $this->db->where('idTrabajos', $idProyect);
+        $resultado = $this->db->get('trabajos');
+        if($resultado->num_rows() > 0) {
+            return $resultado;
+        } else {
+            return 0;
+        }
+    }
+    
+    public function getGradesAreas($idProyect)
+    {
+        $this->db->where('idTrabajos', $idProyect);
+        $resultado = $this->db->get('trabajoarea');
+        if($resultado->num_rows() > 0) {
+            return $resultado;
+        } else {
+            return 0;
+        }
+    }
+    
+    public function getGradesCompetences($idProyect)
+    {
+        $this->db->where('idTrabajos', $idProyect);
+        $resultado = $this->db->get('trabajocompetencia');
+        if($resultado->num_rows() > 0) {
+            return $resultado;
+        } else {
             return 0;
         }
     }
