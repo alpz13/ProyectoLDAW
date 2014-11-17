@@ -385,6 +385,22 @@ class ProyectosModel extends CI_Model {
         $this->db->where('idTrabajos', $idProyecto);
         $this->db->delete('trabajocompetencia');
     }
+    
+    public function addComments($idProject, $idUsuario, $comment, $flag)
+    {
+        try {
+            $this->db->where('idProyecto', $idProject);
+            $this->db->where('idUsuario', $idUsuario);
+            $data = array(
+                        'status'    => $flag,
+                        'comments'  => $comment
+                    );
+            $this->db->update('requests', $data);
+            return 1;
+        } catch (Exception $ex) {
+            return 0;
+        }
+    }
 }
 
 ?>

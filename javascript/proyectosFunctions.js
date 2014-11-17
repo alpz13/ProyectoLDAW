@@ -81,6 +81,31 @@ $(document).ready(function() {
             });
         }
     }); 
+    
+    $('[name="denyProject"]').click(function() {
+        user = $(this).attr('ident');
+        project = $(this).attr('ident2');
+        id = "div"+project+user;
+        $('[name="'+id+'"]').slideDown('slow');
+    });
+    
+    $('[name="commentButton"]').click(function() {
+        user = $(this).attr('ident3');
+        project = $(this).attr('ident4');
+        id = "commentText"+project+user;
+        comments = $('[name="'+id+'"]').val();
+        url = $("#url").val();
+        $.post(url+"index.php/proyectosController/sendComments", {
+            idUsuario : user,
+            idProject : project,
+            comment : comments,
+            flag : 3
+        }, function(data) {
+            $("#msgConfirm").html(data);
+            $("#msgConfirm").slideDown('slow');
+            $("#principalRequests").slideDown('slow');
+        });
+    });
 });
 
 function requestProyect(id) {

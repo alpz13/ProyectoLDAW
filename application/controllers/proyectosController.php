@@ -481,4 +481,20 @@ class ProyectosController extends CI_Controller {
             echo "<span>An error has ocurred. Please try again</span>";
         }
     }
+    
+    public function sendComments()
+    {
+        $this->load->model('proyectosModel');
+        $idProject = $this->input->post('idProject');
+        $idUsuario = $this->input->post('idUsuario');
+        $comment = $this->input->post('comment');
+        $flag = $this->input->post('flag');
+        
+        $resultado = $this->proyectosModel->addComments($idProject, $idUsuario, $comment, $flag);
+        if($resultado == 1) {
+            echo "<span>The comments has been sent</span>";
+        } else {
+            echo "<span>An error has occurred. Please try again</span>";
+        }
+    }
 }

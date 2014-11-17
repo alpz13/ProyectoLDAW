@@ -128,7 +128,7 @@
                     <br/><br/>
                     </div>
                 <?php } else if($this->session->userdata('tipo') == 1 || $this->session->userdata('tipo') == 2) { 
-                    if(isset($request)) {
+                    if(isset($requests)) {
                         $j = count($requests);
                         if($j > 0) {
                             echo form_open('proyectosController/seeRequest');

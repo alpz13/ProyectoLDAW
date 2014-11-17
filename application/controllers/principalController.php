@@ -138,8 +138,10 @@ class PrincipalController extends CI_Controller {
                 $data['proyectosAdmin'] = $proyectos;
                 
                 $requests = $this->getAllRequests($idUser);
-                $row = $requests->row();
-                $data['requests'] = $requests;
+                if(!is_numeric($requests)) {
+                   $row = $requests->row(); 
+                   $data['requests'] = $requests;
+                }
             }
             //********************************************//
             //********************************************//
