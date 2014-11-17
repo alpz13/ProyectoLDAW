@@ -61,38 +61,40 @@
                 </table>
             <?php } ?>
         </div><br/><br/>
+        <div id="contenido" style="display: none"></div>
         <?php if(isset($myProjects)) { ?>
                 <div id="projects">
+                    <input type="hidden" id="url" value="<?php echo base_url(); ?>" />
                     <?php
+                    echo "<table>";
+                        echo "<tr>";
+                            echo "<td>";
+                                echo "<strong>Name</strong>";
+                            echo "</td>";
+                            echo "<td>";
+                                echo "<strong>Description</strong>";
+                            echo "</td>";
+                        echo "</tr>";
                         foreach($myProjects->result() as $row) {
-                            echo "<table>";
-                                echo "<tr>";
-                                    echo "<td>";
-                                        echo "Name";
-                                    echo "</td>";
-                                    echo "<td>";
-                                        echo "Description";
-                                    echo "</td>";
-                                echo "</tr>";
-                                echo "<tr>";
-                                    echo "<td>";
-                                        echo $row->Nombre;
-                                    echo "</td>";
-                                    echo "<td>";
-                                        echo $row->Descripcion;
-                                    echo "</td>";
-                                    echo "<td>";
-                                        echo form_open('proyectosController/getProyectModify');
-                                            echo "<input type='hidden' name='idProyecto' value=".$row->idTrabajos.'"/>';
-                                            echo "<input type='submit' value='Modify'/>";
-                                        echo form_close();
-                                    echo "</td>";
-                                    echo "<td>";
-                                        echo "<input type='submit' value='Delete'/>";
-                                    echo "</td>";
-                                echo "</tr>";
-                            echo "</table>";
+                            echo "<tr>";
+                                echo "<td>";
+                                    echo $row->Nombre;
+                                echo "</td>";
+                                echo "<td>";
+                                    echo $row->Descripcion;
+                                echo "</td>";
+                                echo "<td>";
+                                    echo form_open('proyectosController/getProyectModify');
+                                        echo "<input type='hidden' name='idProyecto' value=".$row->idTrabajos.'"/>';
+                                        echo "<input type='submit' value='Modify'/>";
+                                    echo form_close();
+                                echo "</td>";
+                                echo "<td>";
+                                    echo "<input type='button' name='deleteProject' ident='".$row->idTrabajos."' value='Delete'/>";
+                                echo "</td>";
+                            echo "</tr>";
                         }
+                    echo "</table>";
                     ?>
                 </div>
                 <div id="modificar">

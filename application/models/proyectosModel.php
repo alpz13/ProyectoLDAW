@@ -118,9 +118,9 @@ class ProyectosModel extends CI_Model {
         $this->db->where('idTrabajos', $idProyecto);
         try {
             $this->db->delete('trabajos');
-            return 1;
-        } catch (Exception $ex) {
-            return 0;
+                return 1;
+            } catch (Exception $ex) {
+                return 0;
         }
     }
     
@@ -302,6 +302,7 @@ class ProyectosModel extends CI_Model {
     public function getGradesAreas($idProyect)
     {
         $this->db->where('idTrabajos', $idProyect);
+        $this->db->order_by('idArea', 'asc');
         $resultado = $this->db->get('trabajoarea');
         if($resultado->num_rows() > 0) {
             return $resultado;
@@ -313,12 +314,76 @@ class ProyectosModel extends CI_Model {
     public function getGradesCompetences($idProyect)
     {
         $this->db->where('idTrabajos', $idProyect);
+        $this->db->order_by('idCompetencias', 'asc');
         $resultado = $this->db->get('trabajocompetencia');
         if($resultado->num_rows() > 0) {
             return $resultado;
         } else {
             return 0;
         }
+    }
+    
+    public function updateProject($id, $nombre, $desc, $habilitado)
+    {
+        if($habilitado) {
+            $habilitado = 1;
+        } else {
+            $habilitado = 0;
+        }
+        $data = array(
+                    'Nombre'        => $nombre,
+                    'Descripcion'   => $desc,
+                    'Habilitado'    => $habilitado
+                );
+        $this->db->where('idTrabajos', $id);
+        try {
+            $this->db->update('trabajos', $data);
+            return 1;
+        } catch (Exception $ex) {
+            return 0;
+        }
+    }
+    
+    public function getUpdateProject($id, $column, $tabla) {
+        $this->db->where('idTrabajos', $id);
+        if($tabla == "trabajoarea") {
+            $this->db->where('idArea', $column);
+        } elseif($tabla == "trabajocompetencia") {
+            $this->db->where('idCompetencias', $column);
+        }
+        $resultado = $this->db->get($tabla);
+        if($resultado->num_rows() > 0) {
+            $row = $resultado->row();
+            if($tabla == "trabajoarea") {
+                return $row->idTrabajoArea;
+            } else {
+                return $row->idTrabajoCompetencia;
+            }
+        } else {
+            return 0;
+        }
+    }
+    
+    public function deleteAC($idProjecto, $tabla) 
+    {
+        if($tabla == "trabajoarea") {
+            $this->db->where('idTrabajoArea', $idProjecto);
+        } else {
+            $this->db->where('idTrabajoCompetencia', $idProjecto);
+        }
+        $this->db->delete($tabla);
+    }
+    
+    public function deleteAreas($idProyecto) 
+    {
+        $this->db->where('idTrabajos', $idProyecto);
+        $this->db->delete('trabajoarea');
+    }
+    
+    public function deleteCompetences($idProyecto)
+    {
+        $this->db->where('idTrabajos', $idProyecto);
+        $this->db->delete('trabajocompetencia');
     }
 }
 
