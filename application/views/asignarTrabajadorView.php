@@ -22,6 +22,11 @@
             <table style="margin-left: 14%;">
                 <tr>
                     <td>
+                        <?php echo form_open('proyectosController/myProjects'); ?>
+                            <input class="button2" type="submit" value="My Projects" />
+                        <?php echo form_close(); ?>
+                    </td>
+                    <td>
                         <?php echo form_open('proyectosController/consultar'); ?>
                             <input class="button2" type="submit" value="See all projects" />
                         <?php echo form_close(); ?>

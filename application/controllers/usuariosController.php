@@ -246,4 +246,22 @@ class UsuariosController extends CI_Controller {
             echo "An error has happened.";
         }
     }
+    
+    public function seeProfile()
+    {
+        $idUsuario = $this->input->post('idUsuario');
+        $this->load->model('usuariosModel');
+        $resultado = $this->usuariosModel->getInfo($idUsuario);
+        if($resultado->num_rows() > 0) {
+            $data['usuario'] = $resultado->row();
+            $califAreas = $this->usuariosModel->getCalifArea($idUsuario);
+            $califCompetencias = $this->usuariosModel->getCalifCompetencias($idUsuario);
+            $data['califAreas'] = $califAreas;
+            $data['califCompetencias'] = $califCompetencias;
+        } else {
+            $data['error'] = 0;
+        }
+        
+        $this->load->view('seeProfileView', $data);
+    }
 }

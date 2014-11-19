@@ -1,4 +1,4 @@
-    <?php
+<?php
 
 class ProyectosController extends CI_Controller {
     
@@ -150,7 +150,7 @@ class ProyectosController extends CI_Controller {
                 echo "<tr><td>Project</td><td>Description</td></tr>";
                 echo "<tr>";
                     foreach($resultado->result() as $row) {
-                        echo "<td>".$row->NombreTrabajo."</td>";
+                        echo "<td>".$row->Nombre."</td>";
                         echo "<td>".$row->Descripcion."</td>";
                     }
                 echo "</tr>";
@@ -267,5 +267,234 @@ class ProyectosController extends CI_Controller {
         $resultado = $this->db->get('trabajos');
         
         return $resultado;
+    }
+    
+    public function myProjects()
+    {
+        $idSupervisor = $this->session->userdata('id');
+        if($idSupervisor != "") {
+            $this->load->model('proyectosModel');
+            $resultado = $this->proyectosModel->getMyProjects($idSupervisor);
+            if(!is_numeric($resultado)) {
+                $data['myProjects'] = $resultado;
+            } else {
+                $data['error'] = "There are no projects to show. Please add some projects";
+            }
+            $this->load->view('principalProyectosView', $data);
+            $this->load->view('footer');
+        } else {
+            $this->session->sess_destroy();
+            $this->load->view("indexView");
+        }
+    }
+    
+    public function getProyectModify()
+    {
+        $idProyect = $this->input->post('idProyecto');
+        $this->load->model("proyectosModel");
+        $resultado = $this->proyectosModel->getInfoProyectoModify($idProyect);
+        if(!is_numeric($resultado)) {
+            $data['project'] = $resultado;
+        } else {
+            $data['error1'] = "There if no information related to the specified project";
+        }
+        $resultado2 = $this->proyectosModel->getGradesAreas($idProyect);
+        if(!is_numeric($resultado2)) {
+            $data['califArea'] = $resultado2;
+        }
+        $resultado3 = $this->proyectosModel->getGradesCompetences($idProyect);
+        if(!is_numeric($resultado3)) {
+            $data['califCompetence'] = $resultado3;
+        }
+        $this->load->view('modifyProjectView', $data);
+    }
+    
+    public function updateProject()
+    {
+        //**Datos básicos del proyecto
+        $id = $this->input->post("id");
+        $nombre = $this->input->post("nombre");
+        $desc = $this->input->post("descripcion");
+        $habilitado = $this->input->post("habilitado");
+        //**Datos áreas
+        $security = $this->input->post("security");
+        $web = $this->input->post("web");
+        $db = $this->input->post("db");
+        $network = $this->input->post("network");
+        $desktop = $this->input->post("desktop");
+        //**Datos competencias
+        $team = $this->input->post("team");
+        $comunication = $this->input->post("comunication");
+        $work = $this->input->post("work");
+        $initiative = $this->input->post("initiative");
+        $leader = $this->input->post("leader");
+        
+        if($nombre == "" || $desc == "") {
+            echo "<span>All the fields must be filled</span>";
+        } else {
+            $this->load->model('proyectosModel');
+            $resultado = $this->proyectosModel->updateProject($id, $nombre, $desc, $habilitado);
+            //**Se actualizó correctamente el proyecto
+            if($resultado == 1) {
+                //**Se actualizan las áreas, si no existe se inserta
+                $area = "trabajoarea";
+                $competencia = "trabajocompetencia";
+                if($security == "true") {
+                    $flag = $this->proyectosModel->getUpdateProject($id, 1, $area);
+                    if($flag == 0) {
+                        $this->proyectosModel->insertaAreas(1, $id);
+                    }
+                } else {
+                    $flag = $this->proyectosModel->getUpdateProject($id, 1, $area);
+                    if($flag != 0) {
+                        $this->proyectosModel->deleteAC($flag,$area);
+                    }
+                }
+                if($web == "true") {
+                    $flag = $this->proyectosModel->getUpdateProject($id, 2, $area);
+                    if($flag == 0) {
+                        $this->proyectosModel->insertaAreas(2, $id);
+                    }
+                } else {
+                    $flag = $this->proyectosModel->getUpdateProject($id, 2, $area);
+                    if($flag != 0) {
+                        $this->proyectosModel->deleteAC($flag,$area);
+                    }
+                }
+                if($db == "true") {
+                    $flag = $this->proyectosModel->getUpdateProject($id, 3, $area);
+                    if($flag == 0) {
+                        $this->proyectosModel->insertaAreas(3, $id);
+                    }
+                } else {
+                    $flag = $this->proyectosModel->getUpdateProject($id, 3, $area);
+                    if($flag != 0) {
+                        $this->proyectosModel->deleteAC($flag,$area);
+                    }
+                }
+                if($network == "true") {
+                    $flag = $this->proyectosModel->getUpdateProject($id, 4, $area);
+                    if($flag == 0) {
+                        $this->proyectosModel->insertaAreas(4, $id);
+                    }
+                } else {
+                    $flag = $this->proyectosModel->getUpdateProject($id, 4, $area);
+                    if($flag != 0) {
+                        $this->proyectosModel->deleteAC($flag,$area);
+                    }
+                }
+                if($desktop == "true") {
+                    $flag = $this->proyectosModel->getUpdateProject($id, 5, $area);
+                    if($flag == 0) {
+                        $this->proyectosModel->insertaAreas(5, $id);
+                    }
+                } else {
+                    $flag = $this->proyectosModel->getUpdateProject($id, 5, $area);
+                    if($flag != 0) {
+                        $this->proyectosModel->deleteAC($flag,$area);
+                    }
+                }
+                if($team == "true") {
+                    $flag = $this->proyectosModel->getUpdateProject($id, 1, $competencia);
+                    if($flag == 0) {
+                        $this->proyectosModel->insertaCompetencias(1, $id);
+                    }
+                } else {
+                    $flag = $this->proyectosModel->getUpdateProject($id, 1, $competencia);
+                    if($flag != 0) {
+                        $this->proyectosModel->deleteAC($flag, $competencia);
+                    }
+                }
+                if($comunication == "true") {
+                    $flag = $this->proyectosModel->getUpdateProject($id, 2, $competencia);
+                    if($flag == 0) {
+                        $this->proyectosModel->insertaCompetencias(2, $id);
+                    }
+                } else {
+                    $flag = $this->proyectosModel->getUpdateProject($id, 2, $competencia);
+                    if($flag != 0) {
+                        $this->proyectosModel->deleteAC($flag, $competencia);
+                    }
+                }
+                if($work == "true") {
+                    $flag = $this->proyectosModel->getUpdateProject($id, 3, $competencia);
+                    if($flag == 0) {
+                        $this->proyectosModel->insertaCompetencias(3, $id);
+                    }
+                } else {
+                    $flag = $this->proyectosModel->getUpdateProject($id, 3, $competencia);
+                    
+                    if($flag != 0) {
+                        $this->proyectosModel->deleteAC($flag, $competencia);
+                    }
+                } 
+                if($initiative == "true") {
+                    $flag = $this->proyectosModel->getUpdateProject($id, 4, $competencia);
+                    if($flag == 0) {
+                        $this->proyectosModel->insertaCompetencias(4, $id);
+                    }
+                } else {
+                    $flag = $this->proyectosModel->getUpdateProject($id, 4, $competencia);
+                    
+                    if($flag != 0) {
+                        $this->proyectosModel->deleteAC($flag, $competencia);
+                    }
+                }
+                if($leader == "true") {
+                    $flag = $this->proyectosModel->getUpdateProject($id, 5, $competencia);
+                    if($flag == 0) {
+                        $this->proyectosModel->insertaCompetencias(5, $id);
+                    }
+                } else {
+                    $flag = $this->proyectosModel->getUpdateProject($id, 5, $competencia);
+                    
+                    if($flag != 0) {
+                        $this->proyectosModel->deleteAC($flag, $competencia);
+                    }
+                }
+                echo "<span>The project was successfuly updated</span>";
+            } else {
+                echo "<span>An error has ocurred. Please try again</span>";
+            }
+        }
+    }
+    
+    public function cancelUpdate()
+    {
+        $this->load->view("usuariosView");
+    }
+    
+    public function deleteAllProject() 
+    {
+        $idProjecto = $this->input->post('idProyecto');
+        $this->load->model('proyectosModel');
+        try {
+            $this->proyectosModel->deleteAreas($idProjecto);
+            $this->proyectosModel->deleteCompetences($idProjecto);
+            $resultado = $this->proyectosModel->eliminaProyecto($idProjecto);
+            if($resultado == 1) {
+                echo "<span>The project was successfully deleted</span>";
+            } else {
+                echo "<span>An error has ocurred. The project was not deleted</span>";
+            }
+        } catch (Exception $ex) {
+            echo "<span>An error has ocurred. Please try again</span>";
+        }
+    }
+    
+    public function sendComments()
+    {
+        $this->load->model('proyectosModel');
+        $idProject = $this->input->post('idProject');
+        $idUsuario = $this->input->post('idUsuario');
+        $comment = $this->input->post('comment');
+        $flag = $this->input->post('flag');
+        
+        $resultado = $this->proyectosModel->addComments($idProject, $idUsuario, $comment, $flag);
+        if($resultado == 1) {
+            echo "<span>The comments has been sent</span>";
+        } else {
+            echo "<span>An error has occurred. Please try again</span>";
+        }
     }
 }

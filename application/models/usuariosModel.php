@@ -112,6 +112,8 @@ class UsuariosModel extends CI_Model {
                     }
                 }
                 $mayor = $idArea;
+            } else {
+                $mayor = 1;
             }
         } else if($flag == 2) {
             $resultado = $this->db->get('competenciasusuario');
@@ -128,6 +130,8 @@ class UsuariosModel extends CI_Model {
                     }
                 }
                 $mayor = $idCompetencia;
+            } else {
+                $mayor = 1;
             }
         }        
         
