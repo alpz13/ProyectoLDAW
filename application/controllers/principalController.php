@@ -36,12 +36,14 @@ class PrincipalController extends CI_Controller {
                             //**Busca el área con mayor calificacion**
                             $area = $this->areaAfin($idUser);
                             $query = $area->row();
-                            $idAreaMayor = $query->idAreas;
-                            $proyectosAreas = $this->getProyectos($idAreaMayor);
-                            if($proyectosAreas != "") {
-                                $data['proyectosAreas'] = $proyectosAreas;
-                            } else {
-                                $data['proyectosAreas'] = null;
+                            if(!is_numeric($query)) {
+                                $idAreaMayor = $query->idAreas;
+                                $proyectosAreas = $this->getProyectos($idAreaMayor);
+                                if($proyectosAreas != "") {
+                                    $data['proyectosAreas'] = $proyectosAreas;
+                                } else {
+                                    $data['proyectosAreas'] = null;
+                                }
                             }
                             //********************************************//
                             //********************************************//
@@ -68,10 +70,13 @@ class PrincipalController extends CI_Controller {
                             //**Busca todos los proyectos a cargo del supervisor**
                             if($tipo == 1 || $tipo == 2) {
                                 $proyectos = $this->getAllProjects($idUser);                                
-                                $data['proyectosAdmin'] = $proyectos;
-                                
+                                if(!is_numeric($proyectos)) {
+                                    $data['proyectosAdmin'] = $proyectos;
+                                }
                                 $requests = $this->getAllRequests($idUser);
-                                $data['requests'] = $requests;
+                                if(!is_numeric($requests)) {
+                                    $data['requests'] = $requests;
+                                }
                             } 
                             //********************************************//
                             //********************************************//
@@ -133,8 +138,10 @@ class PrincipalController extends CI_Controller {
                 $data['proyectosAdmin'] = $proyectos;
                 
                 $requests = $this->getAllRequests($idUser);
-                $row = $requests->row();
-                $data['requests'] = $requests;
+                if(!is_numeric($requests)) {
+                   $row = $requests->row(); 
+                   $data['requests'] = $requests;
+                }
             }
             //********************************************//
             //********************************************//
@@ -218,7 +225,10 @@ class PrincipalController extends CI_Controller {
             $id = $this->session->userdata('id');
             
             $resultado = $this->proyectosModel->consultarProyectosSupervisor($id);
-            $data['proyectos'] = $resultado;
+            if(!is_numeric($resultado)) {
+                $data['proyectos'] = $resultado;
+            } 
+            $data['errorNumeric'] = 0;
             $this->load->view('principalProyectosView', $data);
             $this->load->view('footer');
         }

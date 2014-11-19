@@ -24,6 +24,88 @@ $(document).ready(function() {
             });
         }
     });
+    
+    $("#updateButton").click(function() {
+        url = $("#url").val();
+        idProyecto = $("#idProyecto").val();
+        nombre = $("#nombre").val();
+        descripcion = $("#descripcion").val();
+        //**Se asignan los valores de areas
+        security = $('[name="security"]').is(":checked");
+        web = $('[name="web"]').is(":checked");
+        db = $('[name="db"]').is(":checked");
+        network = $('[name="network"]').is(":checked");
+        desktop = $('[name="desktop"]').is(":checked");
+        //**Se asignan los valores de competencias
+        team = $('[name="team"]').is(":checked");
+        comunication = $('[name="comunication"]').is(":checked");
+        work = $('[name="work"]').is(":checked");
+        initiative = $('[name="initiative"]').is(":checked");
+        leader = $('[name="leader"]').is(":checked");
+        //**Se verifica si está o no habilitado
+        habilitado = $("#habilitado").is(":checked");
+        $.post(url+"index.php/proyectosController/updateProject", {
+            id : idProyecto,
+            nombre : nombre,
+            descripcion : descripcion,
+            security : security,
+            web : web,
+            db : db,
+            network : network,
+            desktop : desktop,
+            team : team,
+            comunication : comunication,
+            work : work,
+            initiative : initiative,
+            leader : leader,
+            habilitado : habilitado
+        }, function(data) {
+            $("#msgUpdate").html(data);
+            $("#msgUpdate").show('slow');
+        });
+    });
+    
+    $('[name="deleteProject"]').click(function() {
+        confirmar = confirm("Are you sure you want to delete the selected project?");
+        if(confirmar) {
+            url = $("#url").val();
+            idProyecto = $(this).attr('ident');
+            $.post(url+"index.php/proyectosController/deleteAllProject", {
+                idProyecto : idProyecto
+            }, function(data) {
+                $("#contenido").html(data);
+                $("#contenido").slideDown('slow');
+//                setTimeout(function () {
+//                    location.reload();
+//                }, 2000);
+            });
+        }
+    }); 
+    
+    $('[name="denyProject"]').click(function() {
+        user = $(this).attr('ident');
+        project = $(this).attr('ident2');
+        id = "div"+project+user;
+        $('[name="'+id+'"]').slideDown('slow');
+    });
+    
+    $('[name="commentButton"]').click(function() {
+        user = $(this).attr('ident3');
+        project = $(this).attr('ident4');
+        id = "commentText"+project+user;
+        comments = $('[name="'+id+'"]').val();
+        url = $("#url").val();
+        $.post(url+"index.php/proyectosController/sendComments", {
+            idUsuario : user,
+            idProject : project,
+            comment : comments,
+            flag : 3
+        }, function(data) {
+            $("#msgConfirm").html(data);
+            $("#msgConfirm").slideDown('slow');
+            $("#principalRequests").slideDown('slow');
+        });
+    });
 });
 
 function requestProyect(id) {
@@ -72,4 +154,14 @@ function acceptProyect(idProyect, idUser, idRequest) {
             location.reload();
         });
     }
+}
+
+function modifyProyect(num, u) {
+    id = num;
+    url = u;
+    $.post(url+"index.php/proyectosController/getProyectModify", {
+        idProyect : id
+    }, function(data) {
+        alert("hola") ;
+    });
 }

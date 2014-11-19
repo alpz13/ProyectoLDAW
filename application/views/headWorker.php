@@ -2,9 +2,13 @@
 <nav class="menu slide-menu-left">
     <ul>
         <!--<li><button class="close-menu"><img src="images/Button close_opt.jpg" alt="Close"/></button></li>-->
-        <li>        
-        <input type="search" name="buscar" id="buscar" class="busqueda"/>
-        <input type="submit" value="" style="border-style: none; background: url('<?php echo base_url(); ?>images/search.gif') no-repeat; width: 24px; height: 20px;">
+        <li>   
+            <?php echo form_open("buscarController/searchAll"); ?>
+                <input type="hidden" name="urlBuscar" value="<?php echo base_url(); ?>"/>
+                <input type="search" name="buscar" id="buscar" class="busqueda"/>
+                <!--<input type="submit" value="Buscar" style="border-style: none; background: url('<?php echo base_url(); ?>images/search.gif') no-repeat; width: 24px; height: 20px;">-->
+                <input type="submit" value="Search"/>
+            <?php echo form_close();?>
         </li>
                 
         <li>

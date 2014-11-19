@@ -2,18 +2,24 @@ $(document).ready(function() {
     $("#registro").hide();
 //    $("#login").hide();
     
-    $("#loginButton").click(function() {
-        //$("#principalDiv").slideUp();
-        $("#registro").slideUp('slow');
-        setTimeout(function() {
-            $("#login").slideDown(); 
-        }, 500);
-    });
+//    $("#loginButton").click(function() {
+//        //$("#principalDiv").slideUp();
+//        $("#registro").slideUp('slow');
+//        setTimeout(function() {
+//            $("#login").slideDown(); 
+//        }, 500);
+//    });
     $("#registerButton").click(function() {
         //$("#principalDiv").slideUp();
         $("#login").slideUp('slow');
         setTimeout(function() {
-           $("#registro").slideDown(); 
+           $("#registro").slideDown('slow'); 
+        }, 500);
+    });
+    $("#back").click(function() {
+        $("#registro").slideUp('slow');
+        setTimeout(function() {
+           $("#login").slideDown('slow'); 
         }, 500);
     });
     

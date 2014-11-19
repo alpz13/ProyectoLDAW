@@ -1,4 +1,4 @@
-$(document).ready(function() {   
+$(document).ready(function() {       
     $("#usuarioRegistrarC").hide();
     $("#usuarioEliminarC").hide();
     $("#usuarioModificarC").hide();
@@ -146,5 +146,30 @@ $(document).ready(function() {
     
     $("#proyectosActuales").click(function() {
         $("#divProyectosActuales").slideToggle('slow');
+    });
+    
+    $('[name="profileButton"]').click(function() {
+        
+    });
+    
+    //*************************************************//
+    //Funciones para ventanas emergentes
+    $('[name="profileButton"]').click(function() {
+        //**Primero llena el div**
+        idUsuario = $(this).attr('ident');
+        url = $("#url").val();
+        $.post(url+"index.php/usuariosController/seeProfile", {
+            idUsuario : idUsuario
+        }, function(data) {
+            $("#searchValues").html(data);
+        });
+        
+        //**Muestra el div**
+        type = $(this).attr('data-type');
+        $('.overlay-container').fadeIn(function() {		
+            window.setTimeout(function(){
+                $('.window-container.'+type).addClass('window-container-visible');
+            }, 100);
+        });
     });
 });
