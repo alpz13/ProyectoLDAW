@@ -401,6 +401,40 @@ class ProyectosModel extends CI_Model {
             return 0;
         }
     }
+    
+    public function getAreaName($arrayAreas)
+    {
+        $total = count($arrayAreas);
+        $this->db->where('idAreas', $arrayAreas[0]);
+        if($total > 1) {
+            for($i = 1; $i < $total; $i++) {
+                $this->db->or_where('idAreas', $arrayAreas[$i]);
+            }
+        }
+        $resultado = $this->db->get('areas');
+        if($resultado->num_rows() > 0) {
+            return $resultado->result();
+        } else {
+            return 0;
+        }
+    }
+    
+    public function getCompetenceName($arrayCompetences)
+    {
+        $total = count($arrayCompetences);
+        $this->db->where('idCompetencias', $arrayCompetences[0]);
+        if($total > 1) {
+            for($i = 1; $i < $total; $i++) {
+                $this->db->or_where('idCompetencias', $arrayCompetences[$i]);
+            }
+        }
+        $resultado = $this->db->get('competencias');
+        if($resultado->num_rows() > 0) {
+            return $resultado->result();
+        } else {
+            return 0;
+        }
+    }
 }
 
 ?>

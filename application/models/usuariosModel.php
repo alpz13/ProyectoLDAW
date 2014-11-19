@@ -98,6 +98,7 @@ class UsuariosModel extends CI_Model {
     {
         $this->db->where('idUsuario', $idUsuario);
         if($flag == 1) {
+            $this->db->where('calificacionArea >', 8);
             $resultado = $this->db->get('areasusuario');
             if($resultado->num_rows() > 0) {
                 $row = $resultado->row();
@@ -116,6 +117,7 @@ class UsuariosModel extends CI_Model {
                 $mayor = 1;
             }
         } else if($flag == 2) {
+            $this->db->where('calificacionCompetencia >', 8);  
             $resultado = $this->db->get('competenciasusuario');
             if($resultado->num_rows() > 0) {
                 $row = $resultado->row();
@@ -215,6 +217,40 @@ class UsuariosModel extends CI_Model {
         $resultado = $this->db->get('usuarios');
         
         return $resultado;
+    }
+    
+    public function getUsersWorking($idProject)
+    {
+        $this->db->where('idTrabajos', $idProject);
+        $resultado = $this->db->get('usuariotrabajo');
+        if($resultado->num_rows() > 0) {
+            $i = 0;
+            $usuarios = array();
+            foreach($resultado->result() as $row) {
+                $usuarios[$i++] = $row->idUsuario;
+            }
+            $dataUsuarios = $this->usuariosData($usuarios);
+            return $dataUsuarios;
+        }else {
+            return 0;
+        }
+    }
+    
+    public function usuariosData($arrayUsuarios)
+    {
+        $totalUsers = count($arrayUsuarios);
+        $this->db->where('idUsuarios', $arrayUsuarios[0]);
+        if($totalUsers > 1) {
+            for($i = 1; $i < $totalUsers; $i++) {
+                $this->db->or_where('idUsuarios', $arrayUsuarios[$i]);
+            }
+        }
+        $resultado = $this->db->get('usuarios');
+        if($resultado->num_rows() > 0) {
+            return $resultado->result();
+        } else {
+            return 0;
+        }
     }
 
 }

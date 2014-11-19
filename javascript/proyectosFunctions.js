@@ -106,6 +106,27 @@ $(document).ready(function() {
             $("#principalRequests").slideDown('slow');
         });
     });
+    
+    //*************************************************//
+    //Funciones para ventanas emergentes
+    $('[name="projectButton"]').click(function() {
+        //**Primero llena el div**
+        idProyecto = $(this).attr('ident');
+        url = $("#url").val();
+        $.post(url+"index.php/proyectosController/seeProject", {
+            idProyecto : idProyecto
+        }, function(data) {
+            $("#searchValues").html(data);
+        });
+        
+        //**Muestra el div**
+        type = $(this).attr('data-type');
+        $('.overlay-container').fadeIn(function() {		
+            window.setTimeout(function(){
+                $('.window-container.'+type).addClass('window-container-visible');
+            }, 100);
+        });
+    });
 });
 
 function requestProyect(id) {

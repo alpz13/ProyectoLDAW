@@ -497,4 +497,44 @@ class ProyectosController extends CI_Controller {
             echo "<span>An error has occurred. Please try again</span>";
         }
     }
+    
+    public function seeProject()
+    {
+        $idProyecto = $this->input->post('idProyecto');
+        $this->load->model('proyectosModel');
+        $this->load->model('usuariosModel');
+        $resultado = $this->proyectosModel->buscarProyecto($idProyecto);
+        if($resultado->num_rows() > 0) {
+            $data['proyecto'] = $resultado->row();
+            $supervisor = $this->proyectosModel->getSupervisor($idProyecto);
+            $supervisor = $this->usuariosModel->getInfo($supervisor);
+            $data['supervisor'] = $supervisor->row();
+            $califAreas = $this->proyectosModel->getGradesAreas($idProyecto);
+            $califCompetencias = $this->proyectosModel->getGradesCompetences($idProyecto);
+            if(!is_numeric($califAreas)) {
+                $i = 0;
+                $areas = array();
+                foreach($califAreas->result() as $row) {
+                    $areas[$i++] = $row->idArea;
+                }
+                $data['areas'] = $this->proyectosModel->getAreaName($areas);
+            }
+            if(!is_numeric($califCompetencias)) {
+                $i = 0;
+                $competencias = array();
+                foreach($califCompetencias->result() as $row) {
+                    $competencias[$i++] = $row->idCompetencias;
+                }
+                $data['competencias'] = $this->proyectosModel->getCompetenceName($competencias);
+            }  
+            $usuarios = $this->usuariosModel->getUsersWorking($idProyecto);
+            if(!is_numeric($usuarios)) {
+                $data['usuariosWorking'] = $usuarios;
+            }
+        } else {
+            $data['error'] = 0;
+        }
+        
+        $this->load->view('seeProjectView', $data);
+    }
 }
