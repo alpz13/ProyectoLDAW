@@ -29,6 +29,7 @@ class UsuariosController extends CI_Controller {
                 if($foto == "") {
                     $foto = "../../files/defaultFoto.jpg";
                 }
+                $pass = base64_encode($pass);
                 $resultado = $this->usuariosModel->registraUsuario($nom, $apeP, $apeM, $pass, $mail, $foto);
 
                 if($resultado == 1) {
@@ -256,6 +257,10 @@ class UsuariosController extends CI_Controller {
             $data['usuario'] = $resultado->row();
             $califAreas = $this->usuariosModel->getCalifArea($idUsuario);
             $califCompetencias = $this->usuariosModel->getCalifCompetencias($idUsuario);
+            $proyectos = $this->usuariosModel->getMyProjects($idUsuario);
+            if(!is_numeric($proyectos)) {
+                $data['proyectos'] = $proyectos;
+            }
             $data['califAreas'] = $califAreas;
             $data['califCompetencias'] = $califCompetencias;
         } else {

@@ -214,7 +214,7 @@ class ProyectosModel extends CI_Model {
         if($resultado->num_rows() > 0) {
             return $resultado;
         } else {
-            return 1;
+            return 0;
         }
     }
     

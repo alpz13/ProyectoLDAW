@@ -15,8 +15,9 @@ class UsuariosModel extends CI_Model {
     
     public function login($user, $pass)
     {
-        $query = "SELECT * FROM usuarios WHERE Mail='".$user."' AND Passwd='".$pass."';";
-        $result = $this->db->query($query);
+        $this->db->where('Mail', $user);
+        $this->db->where('Passwd', $pass);
+        $result = $this->db->get('usuarios');
         
         return $result;
     }
@@ -252,6 +253,43 @@ class UsuariosModel extends CI_Model {
             return 0;
         }
     }
-
+    
+    public function getMyProjects($idUsuario)
+    {
+        $this->db->where('idUsuario', $idUsuario);
+        $resultado = $this->db->get('usuariotrabajo');
+        if($resultado->num_rows() > 0) {
+            $i = 0;
+            $data = array();
+            foreach($resultado->result() as $row) {
+                $data[$i++] = $row->idTrabajos;
+            }
+            $resultado = $this->getProyectos($data);
+            if(!is_numeric($resultado)) {
+                return $resultado;
+            } else {
+                return 0;
+            }
+        } else {
+            return 0;
+        }
+    }
+    
+    public function getProyectos($data)
+    {
+        $totalProyectos = count($data);
+        $i = 1;
+        $dataProyectos = array();
+        $this->db->where('idTrabajos',$data[0]);
+        for($i; $i < $totalProyectos; $i++) {
+            $this->db->or_where('idTrabajos', $data[$i]);
+        }
+        $resultado = $this->db->get('trabajos');
+        if($resultado->num_rows() > 0) {
+            return $resultado->result();
+        } else {
+            return 0;
+        }
+    }
 }
 ?>

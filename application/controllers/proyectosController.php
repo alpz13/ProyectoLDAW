@@ -208,21 +208,25 @@ class ProyectosController extends CI_Controller {
         $idSupervisor = $this->input->post('idSupervisor');
         
         $requests = $this->proyectosModel->getAllRequests($idSupervisor);
-        $cont = count($requests->result());
+        if(!is_numeric($requests)) {
+            $cont = count($requests->result());
         
-        $i = 0;
-        $j = 0;
-        $k = 0;
-        foreach($requests->result() as $row) {
-            $projects[$i++] = $this->proyectosModel->getProyectosData($row->idProyecto);
-            $users[$j++] = $this->usuariosModel->getInfo($row->idUsuario);
-            $ids[$k++] = $row->idrequests;
+            $i = 0;
+            $j = 0;
+            $k = 0;
+            foreach($requests->result() as $row) {
+                $projects[$i++] = $this->proyectosModel->getProyectosData($row->idProyecto);
+                $users[$j++] = $this->usuariosModel->getInfo($row->idUsuario);
+                $ids[$k++] = $row->idrequests;
+            }
+
+            $data['projects'] = $projects;
+            $data['users'] = $users;
+            $data['cont'] = $cont;
+            $data['ids'] = $ids;
+        } else {
+            $data['error'] = 0;
         }
-        
-        $data['projects'] = $projects;
-        $data['users'] = $users;
-        $data['cont'] = $cont;
-        $data['ids'] = $ids;
 
         $this->load->view('seeRequestView', $data);
     }

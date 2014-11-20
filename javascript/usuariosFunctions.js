@@ -148,10 +148,6 @@ $(document).ready(function() {
         $("#divProyectosActuales").slideToggle('slow');
     });
     
-    $('[name="profileButton"]').click(function() {
-        
-    });
-    
     //*************************************************//
     //Funciones para ventanas emergentes
     $('[name="profileButton"]').click(function() {

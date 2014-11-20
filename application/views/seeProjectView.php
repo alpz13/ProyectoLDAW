@@ -73,6 +73,7 @@
                         echo "<div>";
                             echo "<h2>Information not found</h3>";
                         echo "</div>";
+                        echo '<div style="text-align: center"><span class="close">Close</span></div>';
                     }
             ?>
         </div>

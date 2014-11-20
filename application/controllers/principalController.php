@@ -17,6 +17,7 @@ class PrincipalController extends CI_Controller {
             
             if($usuario != "") {
                 if($passwd != "") {
+                    $passwd = base64_encode($passwd);
                     $response = $this->usuariosModel->login($usuario, $passwd);
                     if($response->num_rows() > 0) {
 	                    foreach($response->result() as $row) {

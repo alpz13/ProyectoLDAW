@@ -38,6 +38,26 @@
                         </table>
                     </div>
                     <br/>
+                    <?php 
+                        if(isset($proyectos)) { 
+                            echo '<div>';
+                                echo '<span><strong>Projects which are currently working</strong></span><br/>';
+                                echo '<table>';
+                                    echo '<tr>';
+                                        echo '<td><strong>Project</strong></td>';
+                                        echo '<td><strong>Description</strong></td>';
+                                    echo '</tr>';
+                                    foreach($proyectos as $row) {
+                                        echo '<tr>';
+                                            echo '<td>'.$row->Nombre.'</td>';
+                                            echo '<td>'.$row->Descripcion.'</td>';
+                                        echo '</tr>';
+                                    }
+                                echo '</table>';
+                            echo '</div>';
+                        } 
+                    ?>
+                    <br/>
                     <!--***Muestra las gráficas con las calificaciones-->
                     <div style="text-align: center">
                         <script>
