@@ -40,19 +40,19 @@
                                 User: <?php echo $row->APaterno." ".$row->AMaterno." ".$row->Nombre;?>
                             </td>
                             <td class='td'>
-                                <input type="button" class="button2" value="See user" onClick="seeUser('<?php echo $row->idUsuarios; ?>')"/>
+                                <input type="button" class="btn btn-primary" value="See user" onClick="seeUser('<?php echo $row->idUsuarios; ?>')"/>
                             </td>
                             <td class='td2'>
                                 Project: <?php echo $rowP->Nombre?>
                             </td>
                             <td class='td'>
-                                <input type="button" class="button2" value="See Project" onClick="seeProject('<?php echo $rowP->idTrabajos; ?>')"/>
+                                <input type="button" class="btn btn-primary" value="See Project" onClick="seeProject('<?php echo $rowP->idTrabajos; ?>')"/>
                             </td>
                             <td class='td'>
-                                <input type="button" class="button2" value="Accept" onClick="acceptProyect('<?php echo $rowP->idTrabajos; ?>', '<?php echo $row->idUsuarios; ?>', '<?php echo $rowI; ?>')"/>
+                                <input type="button" class="btn btn-success" value="Accept" onClick="acceptProyect('<?php echo $rowP->idTrabajos; ?>', '<?php echo $row->idUsuarios; ?>', '<?php echo $rowI; ?>')"/>
                             </td>
                             <td class='td'>
-                                <input type='button' name="denyProject" class='button2' value='Deny' ident='<?php echo $row->idUsuarios;?>' ident2='<?php echo $rowP->idTrabajos;?>'/>
+                                <input type='button' name="denyProject" class='btn btn-danger' value='Deny' ident='<?php echo $row->idUsuarios;?>' ident2='<?php echo $rowP->idTrabajos;?>'/>
                             </td>
                         </tr>
                     </table>
@@ -72,7 +72,7 @@
                 <tr>
                     <td class='td'>
                         <?php echo form_open("principalController/homeView"); ?>
-                            <input type="submit" class="button2" value="Back"/>
+                            <input type="submit" class="btn btn-primary" value="Back"/>
                         <?php echo form_close(); ?>
                     </td>
                 </tr>

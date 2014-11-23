@@ -44,8 +44,8 @@ if(isset($_POST['title'], $_POST['recip'], $_POST['message']))
 				if(mysql_query('insert into mensajes (id, id2, title, user1, user2, message, timestamp, user1read, user2read)values("'.$id.'", "1", "'.$title.'", "'.$sessionIdm.'", "'.$dn1['recipid'].'", "'.$message.'", "'.time().'", "yes", "no")'))
 				{
 ?>
-<div class="message">El mensaje ha sido enviado.<br /><br /><br />
-<a href="<?php echo site_url('principalController/mensajesView');?>" class="button2">Regresar a mensajes.</a></div>
+<div class="message alert alert-success" role="alert">The message has been sent.</div><br />
+<a href="<?php echo site_url('principalController/mensajesView');?>"><button type="button" class="btn btn-primary">Back to Inbox</button></a>
 <?php
 					$form = false;
 				}
@@ -83,25 +83,23 @@ if($form)
 //We display a message if necessary
 if(isset($error))
 {
-	echo '<div class="message">'.$error.'</div>';
+	echo '<div class="message alert alert-warning" role="alert">'.$error.'</div>';
 }
 //We display the form
 ?>
 <div class="content">
-	<br />
-	<a href="<?php echo site_url('principalController/mensajesView');?>" class="button2" style="top: 232px; left: 190px;">&nbsp; Regresar</a><br />
-	<br />
-   <br />
-	<h1>New Message</h1>
+	<br /><br />
+	<a href="<?php echo site_url('principalController/mensajesView');?>" style="top: 232px; left: 190px;"><button type="button" class="btn btn-danger"> Cancel</button></a><br />
+		<h3>New Message</h3>
     <form action="<?php echo site_url('principalController/nuevomensajeView');?>" method="post">
 		<br />
-        <label for="title">Title</label><input type="text" value="<?php echo htmlentities($otitle, ENT_QUOTES, 'UTF-8'); ?>" id="title" name="title" /><br />
+        <label for="title">&nbsp; Title:&nbsp; </label><input type="text" value="<?php echo htmlentities($otitle, ENT_QUOTES, 'UTF-8'); ?>" id="title" name="title" /><br />
         <br />
-        <label for="recip">To:<span class="small"></span></label><input type="text" value="<?php echo htmlentities($orecip, ENT_QUOTES, 'UTF-8'); ?>" id="recip" name="recip" /><br />
-        <br /><br />
-        <label for="message">Message:</label><textarea cols="40" rows="5" id="message" name="message"><?php echo htmlentities($omessage, ENT_QUOTES, 'UTF-8'); ?></textarea><br />
+        <label for="recip">&nbsp; To:<span class="small">&nbsp;&nbsp;&nbsp; </span></label><input type="text" value="<?php echo htmlentities($orecip, ENT_QUOTES, 'UTF-8'); ?>" id="recip" name="recip" /><br />
         <br />
-        <input type="submit" class="button2" value="Enviar" />
+        <label for="message">Message:&nbsp;&nbsp; </label><textarea cols="40" rows="5" id="message" name="message"><?php echo htmlentities($omessage, ENT_QUOTES, 'UTF-8'); ?></textarea><br />
+        <br />
+        <input class="btn btn-primary" type="submit" value="Send" />
     </form>
 </div>
 <?php

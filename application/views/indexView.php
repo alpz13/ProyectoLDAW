@@ -15,7 +15,7 @@
         </div>
 	<div id="intro">
 		<div>                    
-                        <!-- Aquí comienzan las formas de login y registro-->
+                        <!-- Aquﾃｭ comienzan las formas de login y registro-->
                         <div id="registro">
                             <br/><br/><br/><br/>
                             <?php echo form_open('usuariosController/registraUsuario'); ?>
@@ -54,8 +54,8 @@
                                     <tr>
                                         <td></td>
                                         <td>
-                                            <input id="registrarUsuario" type="button" value='Register' data-type="zoomin" style="top: 232px; left: 190px;"/>&nbsp;
-                                            <input id="back" type="button" value="Back" />
+                                            <input id="registrarUsuario" class="btn btn-primary" type="button" value='Register' data-type="zoomin" style="top: 232px; left: 190px;"/>&nbsp;
+                                            <input id="back" class="btn btn-danger" type="button" value="Back" />
                                         </td>
                                     </tr>
                                 </table>
@@ -83,8 +83,8 @@
                                     <tr>
                                         <td></td>
                                         <td>
-                                            <input type="submit" value="Enter"/>
-                                            <input type="button" id="registerButton" value="Register"/>
+                                            <input type="submit" class="btn btn-primary" value="Enter"/>
+                                            <input type="button" class="btn btn-primary" id="registerButton" value="Register"/>
                                         </td>
                                     </tr>
                                 </table>

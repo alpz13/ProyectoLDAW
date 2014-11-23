@@ -18,9 +18,7 @@ $req2 = mysql_query('select m1.id, m1.title, m1.timestamp, count(m2.id) as reps,
 <br />
 <br />
 <br />
-<a href="<?php echo site_url('principalController/nuevomensajeView');?>" class="button2" style="top: 232px; left: 190px;">&nbsp; Crear mensaje</a><br />
-<br/>
-<br/>
+<a href="<?php echo site_url('principalController/nuevomensajeView');?>" style="top: 232px; left: 190px;"><button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-plus" aria-hidden="true"> Create message</span></button></a><br />
 <h3>New Messages (<?php echo intval(mysql_num_rows($req1)); ?>):</h3>
 <table class="table_message">
 	<tr>
@@ -39,7 +37,7 @@ while($dn1 = mysql_fetch_array($req1))
     	<a href="<?php echo site_url('principalController/leermensajeView');?>?id=<?php echo $dn1['id']; ?>">
     	<?php echo htmlentities($dn1['title'], ENT_QUOTES, 'UTF-8'); ?></a></td>
     	<!--<td><?php echo $dn1['reps']-1; ?></td>-->
-    	<td><p><?php echo htmlentities($dn1['Mail'], ENT_QUOTES, 'UTF-8'); ?></p></td>
+    	<td><?php echo "<h3>". $dn1['Mail']. "</h3>"; ?></td>
     	<td><?php echo date('Y/m/d H:i:s' ,$dn1['timestamp']); ?></td>
     </tr>
 <?php
@@ -72,7 +70,8 @@ while($dn2 = mysql_fetch_array($req2))
 	<tr>
     	<td class="left"><a href="<?php echo site_url('principalController/leermensajeView');?>?id=<?php echo $dn2['id']; ?>"><?php echo htmlentities($dn2['title'], ENT_QUOTES, 'UTF-8'); ?></a></td>
     	<td><?php echo $dn2['reps']-1; ?></td>
-    	<td><p><?php echo htmlentities($dn2['Mail'], ENT_QUOTES, 'UTF-8'); ?></p></td>
+    	<?php $dntest =$dn2['Mail']; ?>
+    	<td><p><?php echo htmlentities($dntest, ENT_QUOTES, 'UTF-8'); ?></p></td>
     	<td><?php echo date('Y/m/d H:i:s' ,$dn2['timestamp']); ?></td>
     </tr>
 <?php
