@@ -30,7 +30,11 @@
                 <?php echo form_close();?>
                 </div>
             </div>
-            <div id="searchValues" style="display: none"></div>
+            <div class="overlay-container">
+                <div id="searchValues" class="window-container zoomin">
+                    
+                </div>
+            </div>
             <div id="contentArea">
                 <br/><br/><br/><br/><br/>
                 <?php 
@@ -56,7 +60,7 @@
                                                     echo $row->Descripcion;
                                                 echo "</td>";
                                                 echo "<td>"; ?>
-                                                    <input type='button' class="button2" value='See project' onClick="seeProject('<?php echo $row->idTrabajos;?>')"/>
+                                                    <input type='button' class="button2" value='See project' name="projectButton" ident='<?php echo $row->idTrabajos; ?>' data-type="zoomin"/>
                                           <?php echo "</td>";
                                             }
                                         echo "</tr>";

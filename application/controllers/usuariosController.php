@@ -6,41 +6,29 @@ class UsuariosController extends CI_Controller {
     {
         $this->load->model('usuariosModel');
         
-        $this->form_validation->set_rules('mail', 'Correo', 'valid_email');
-        
-        if ($this->form_validation->run() == FALSE) {
-                echo "Must provide a valid email";
-                echo "<span class='close'>Cerrar</span>";
-        } else {
-            $nom = $this->input->post('nombre');
-            $apeP = $this->input->post('apellidoP');
-            $apeM = $this->input->post('apellidoM');
-            $pass = $this->input->post('pass');
-            $passCon = $this->input->post('passCon');
-            $mail = $this->input->post('mail');
-            $foto = $this->input->post('foto');
-            
-            if(($nom || $apeP || $apeM || $pass || $passCon) == "") {
-                echo "<p>All fields must be filled</p>";
-            } else if($pass != $passCon) {
-                echo "<p>Passwords does not match</p>";
-                echo "<span class='close'>Cerrar</span>";
-            } else {
-                if($foto == "") {
-                    $foto = "../../files/defaultFoto.jpg";
-                }
-                $pass = base64_encode($pass);
-                $resultado = $this->usuariosModel->registraUsuario($nom, $apeP, $apeM, $pass, $mail, $foto);
+        $nom = $this->input->post('nombre');
+        $apeP = $this->input->post('apellidoP');
+        $apeM = $this->input->post('apellidoM');
+        $pass = $this->input->post('pass');
+        $passCon = $this->input->post('passCon');
+        $mail = $this->input->post('mail');
+        $foto = $this->input->post('foto');
 
-                if($resultado == 1) {
-                    echo '<p>User register';
-                    echo "<span class='close'>Cerrar</span>";
-                } else {
-                    echo "<p>User could not be created with the information provided</p>";
-                    echo "<span class='close'>Cerrar</span>";
-                }
+        if(($nom || $apeP || $apeM || $pass || $passCon || $mail) == "") {
+            echo "<span>All fields must be filled</span>";
+        } else if($pass != $passCon) {
+            echo "<span>Passwords does not match</span>";
+        } else {
+            if($foto == "") {
+                $foto = "../../files/defaultFoto.jpg";
             }
-        }
+            $resultado = $this->usuariosModel->registraUsuario($nom, $apeP, $apeM, $pass, $mail, 3, $foto);
+            if($resultado == 1) {
+                echo '<span>User register</span>';
+            } else {
+                echo "</span>User could not be created with the information provided</span>";
+            }
+        }        
     }
     
     public function actualizaUsuario()
@@ -64,6 +52,7 @@ class UsuariosController extends CI_Controller {
             if($foto == "") {
                 $foto = "../../files/defaultFoto.jpg";
             }
+            $pass = base64_encode($pass);
             $resultado = $this->usuariosModel->actualizaUsuario($id, $nombre, $aPaterno, $aMaterno, $pass, $mail, $foto);
             if($resultado == 1) {
                 echo "Information Updated";
@@ -112,9 +101,10 @@ class UsuariosController extends CI_Controller {
             $pass = $this->input->post('pass');
             $passCon = $this->input->post('passCon');
             $mail = $this->input->post('mail');
+            $type = $this->input->post('type');
             $foto = $this->input->post('foto');
             
-            if($nom || $apeP || $apeM || $pass || $passCon == "") {
+            if($nom == "" || $apeP == "" || $apeM == "" || $pass == "" || $passCon == "") {
                 echo "<p>*All fields must be filled</p>";
             } else if($pass != $passCon) {
                 echo "<p>*Passwords doesn not match</p>";
@@ -122,7 +112,7 @@ class UsuariosController extends CI_Controller {
                 if($foto == "") {
                     $foto = "../../files/defaultFoto.jpg";
                 }
-                $resultado = $this->usuariosModel->registraUsuario($nom, $apeP, $apeM, $pass, $mail, $foto);
+                $resultado = $this->usuariosModel->registraUsuario($nom, $apeP, $apeM, $pass, $mail, $type, $foto);
 
                 if($resultado == 1) {
                     echo '<p>User has been registered</p>';
@@ -224,28 +214,7 @@ class UsuariosController extends CI_Controller {
     
     public function loadImage()
     {
-        //comprobamos que sea una petición ajax
-        if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') 
-        {
-
-            //obtenemos el archivo a subir
-            $file = $_FILES['archivo']['name'];
-
-            //comprobamos si existe un directorio para subir el archivo
-            //si no es así, lo creamos
-            if(!is_dir("../files/")) {
-                mkdir("../files/", 0777);
-            }
-            //comprobamos si el archivo ha subido
-            if ($file && move_uploaded_file($_FILES['archivo']['tmp_name'], "../files/".$file))
-            {
-               sleep(3);//retrasamos la petición 3 segundos
-               echo $file;//devolvemos el nombre del archivo para pintar la imagen
-           }
-        }else{
-            //alert("Cayo aca");
-            echo "An error has happened.";
-        }
+        print_r($this->input->post('formData'));
     }
     
     public function seeProfile()
@@ -258,6 +227,10 @@ class UsuariosController extends CI_Controller {
             $califAreas = $this->usuariosModel->getCalifArea($idUsuario);
             $califCompetencias = $this->usuariosModel->getCalifCompetencias($idUsuario);
             $proyectos = $this->usuariosModel->getMyProjects($idUsuario);
+            $average = $this->usuariosModel->getAverage($idUsuario);
+            if($average > 0) {
+                $data['average'] = $average;
+            }
             if(!is_numeric($proyectos)) {
                 $data['proyectos'] = $proyectos;
             }
@@ -268,5 +241,33 @@ class UsuariosController extends CI_Controller {
         }
         
         $this->load->view('seeProfileView', $data);
+    }
+    
+    public function gradeUser()
+    {
+        $user = $this->input->post('user');
+        $idProyecto = $this->input->post('idProyecto');
+        $grade = $this->input->post('grade');
+        $this->load->model('usuariosModel');
+        $resultado = $this->usuariosModel->addGrade($user, $idProyecto, $grade);
+        if($resultado == 1) {
+            echo '<span>The user has been evaluated</span>';
+        } else {
+            echo '<span>The user has not been evaluated. Please try again</span>';
+        }
+    }
+    
+    public function upgradeGrade()
+    {
+        $user = $this->input->post('user');
+        $idProyecto = $this->input->post('idProyecto');
+        $grade = $this->input->post('grade');
+        $this->load->model('usuariosModel');
+        $resultado = $this->usuariosModel->upgradeGrade($user, $idProyecto, $grade);
+        if($resultado == 1) {
+            echo '<span>The user grade has been upgraded</span>';
+        } else {
+            echo '<span>The user grade has not been upgraded. Please try again</span>';
+        }
     }
 }

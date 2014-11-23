@@ -127,6 +127,23 @@ $(document).ready(function() {
             }, 100);
         });
     });
+    
+    $('[name="gradeWorkers"').click(function() {
+        idProyecto = $(this).attr('ident');
+        url = $("#url").val();
+        $.post(url+"index.php/proyectosController/gradeWorkers", {
+            idProyecto : idProyecto
+        }, function(data) {
+            $("#searchValues").html(data);
+        });
+        //**Muestra el div**
+        type = $(this).attr('data-type');
+        $('.overlay-container').fadeIn(function() {		
+            window.setTimeout(function(){
+                $('.window-container.'+type).addClass('window-container-visible');
+            }, 100);
+        });
+    });
 });
 
 function requestProyect(id) {

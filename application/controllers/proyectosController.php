@@ -541,4 +541,27 @@ class ProyectosController extends CI_Controller {
         
         $this->load->view('seeProjectView', $data);
     }
+    
+    public function gradeWorkers()
+    {
+        $idProyecto = $this->input->post('idProyecto');
+        $this->load->model('usuariosModel');
+        $resultado = $this->usuariosModel->getUsuariosProyecto($idProyecto);
+        if(!is_numeric($resultado)) {
+            $i = 0;
+            $users = array();
+            $names = array();
+            foreach($resultado as $row) {
+                $users[$i] = $this->usuariosModel->getGrades($row->idUsuario, $idProyecto);
+                $nameAux = $this->usuariosModel->getInfo($row->idUsuario);
+                $names[$i++] = $nameAux->row();
+            }
+            $data['users'] = $users;
+            $data['names'] = $names;
+            $data['idProyecto'] = $idProyecto;
+        } else {
+            $data['error'] = 0;
+        }
+        $this->load->view('gradeUsersView', $data);
+    }
 }

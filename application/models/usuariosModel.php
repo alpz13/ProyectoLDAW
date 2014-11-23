@@ -22,8 +22,9 @@ class UsuariosModel extends CI_Model {
         return $result;
     }
     
-    public function registraUsuario($nom, $apeP, $apeM, $pass, $mail, $foto)
+    public function registraUsuario($nom, $apeP, $apeM, $pass, $mail, $type, $foto)
     {
+        $pass = base64_encode($pass);
         try {
             $data = array(
                     'Nombre' => $nom,
@@ -32,7 +33,7 @@ class UsuariosModel extends CI_Model {
                     'Passwd' => $pass,
                     'Mail' => $mail,
                     'Disponibilidad' => 1,
-                    'idTipo' => 3,
+                    'idTipo' => $type,
                     'urlFoto' => $foto
                 );
             $this->db->insert('usuarios', $data);
@@ -76,6 +77,9 @@ class UsuariosModel extends CI_Model {
     {
         $this->db->select('*');
         $this->db->where('idUsuarios !=', $id);
+        if($this->session->userdata('tipo') != 1) {
+            $this->db->where('idTipo', 3);
+        }
         $this->db->from('usuarios');
         
         $resultado = $this->db->get();
@@ -289,6 +293,98 @@ class UsuariosModel extends CI_Model {
             return $resultado->result();
         } else {
             return 0;
+        }
+    }
+    
+    public function getUsuariosProyecto($idProyecto)
+    {
+        $this->db->where('idTrabajos', $idProyecto);
+        $resultado = $this->db->get('usuariotrabajo');
+        if($resultado->num_rows() > 0) {
+            return $resultado->result();
+        } else {
+            return 0;
+        }
+    }
+    
+    public function getGrades($idUsuario, $idProyecto) {
+        $this->db->where('idUsuario', $idUsuario);
+        $this->db->where('idProyecto', $idProyecto);
+        $resultado = $this->db->get('calificacion');
+        if($resultado->num_rows() > 0) {
+            return $resultado->result();
+        } else {
+            return 0;
+        }
+    } 
+    
+    public function addGrade($user, $idProject, $grade)
+    {
+        $data = array(
+                    'idUsuario'     => $user,
+                    'idProyecto'    => $idProject,
+                    'Calificacion'  => $grade
+                );
+        try {
+            $this->db->insert('calificacion', $data);
+            return 1;
+        } catch (Exception $ex) {
+            return 0;
+        }
+    }
+    
+    public function upgradeGrade($user, $idProject, $grade) 
+    {
+        $data = array(
+                    'idUsuario'     => $user,
+                    'idProyecto'    => $idProject,
+                    'Calificacion'  => $grade
+                );
+        try{
+            $this->db->where('idUsuario', $user);
+            $this->db->where('idProyecto', $idProject);
+            $this->db->update('calificacion', $data);
+            return 1;
+        } catch (Exception $ex) {
+            return 0;
+        }
+    }
+    
+    public function restorePassword($mail)
+    {
+        $this->db->where('Mail', $mail);
+        $resultado = $this->db->get('usuarios');
+        if($resultado->num_rows() > 0) {
+            return $resultado;
+        } else {
+            return 0;
+        }
+    }
+    
+    public function changePassword($idUsuario, $pass)
+    {
+        $pass = base64_encode($pass);
+        $data = array(
+                    'Passwd'  => $pass
+                );
+        $this->db->where('idUsuarios', $idUsuario);
+        $this->db->update('usuarios', $data);
+    }
+    
+    public function getAverage($idUsuario)
+    {
+        $this->db->where('idUsuario', $idUsuario);
+        $resultado = $this->db->get('calificacion');
+        if($resultado->num_rows() > 0) {
+            $i = $resultado->num_rows();
+            $average = 0;
+            foreach($resultado->result() as $row) {
+                $average = $average + $row->Calificacion;
+            }
+            $average = $average / $i;
+            return $average;
+        } else {
+             return -1;
         }
     }
 }

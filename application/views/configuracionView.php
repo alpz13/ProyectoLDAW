@@ -58,12 +58,37 @@
                     </tr>
                     <tr>
                         <td></td>
-                        <td><input type="button" class="button2" id="enviarConfigurar" value="Actualizar"/></td>
+                        <td><input type="button" class="button2" id="enviarConfigurar" value="Update"/></td>
                     </tr>
                 </table>
             <input type="hidden" id="url" value="<?php echo base_url(); ?>"/>
             </form>
         </div>
+        <br/>
+        <div id="userAverage">
+            <?php 
+                if(isset($average)) {
+                    if($average <= 3) {
+                        echo '<span>General performance: <strong>Bad</strong></span>';
+                    } elseif($average <=6) {
+                        echo '<span>General performance: <strong>Regular</strong></span>';
+                    } elseif($average <= 8) {
+                        echo '<span>General performance: <strong>Good</strong></span>';
+                    } elseif($average <= 10) {
+                        echo '<span>General performance: <strong>Excellent</strong></span>';
+                    }
+                    echo '<br/><br/>';
+                    for($i = 1; $i < $average; $i++) {
+                        echo '<img src="../../files/barra'.$i.'.png" alt="Img" />';
+                    }
+                    echo '<img src="../../files/barra'.$i.'.png" alt="Img"/><span>'.$average.'</span>';
+
+                } else {
+                    echo '<span>The user has not been rated yet</span>';
+                }
+            ?>
+        </div>
+        <br/>
         <div style="text-align: center;">
             <script>
                 //Script para mostrar y esconder las dos graficas (inicia escondiendo la segunda grafica) 23 de octubre del 2014.
