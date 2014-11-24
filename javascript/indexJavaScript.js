@@ -1,5 +1,6 @@
 $(document).ready(function() {
     $("#registro").hide();
+    $("#forgottenPass").hide();
 //    $("#login").hide();
     
 //    $("#loginButton").click(function() {
@@ -16,8 +17,9 @@ $(document).ready(function() {
            $("#registro").slideDown('slow'); 
         }, 500);
     });
-    $("#back").click(function() {
+    $('[name="back"').click(function() {
         $("#registro").slideUp('slow');
+        $("#forgottenPass").slideUp('slow');
         setTimeout(function() {
            $("#login").slideDown('slow'); 
         }, 500);
@@ -45,11 +47,21 @@ $(document).ready(function() {
         },function(data) {
             $("#contenido").html(data);
         });
-        $('.overlay-container').fadeIn(function() {
-            window.setTimeout(function(){
-                $('.window-container.'+type).addClass('window-container-visible');
-            }, 100);
-            
+    });
+    
+    $("#forgotten").click(function() {
+        $("#forgottenPass").slideDown('slow');
+    });
+    
+    $("#sendEmail").click(function() {
+        url = $("#url").val();
+        email = $("#emailForgotten").val();
+        $.post(url+"index.php/principalController/sendPassword", {
+            email : email
+        }, function(data) {
+            $("#forgottenMsg").html(data);
+            $("#forgottenPass").hide();
+            ("#emailForgotten").val('');
         });
     });
 

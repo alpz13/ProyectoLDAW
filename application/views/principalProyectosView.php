@@ -62,6 +62,11 @@
             <?php } ?>
         </div><br/><br/>
         <div id="contenido" style="display: none"></div>
+        <div class="overlay-container">
+                <div id="searchValues" class="window-container zoomin">
+                    
+                </div>
+        </div>
         <?php if(isset($myProjects)) { ?>
                 <div id="projects">
                     <input type="hidden" id="url" value="<?php echo base_url(); ?>" />
@@ -92,6 +97,9 @@
                                 echo "<td>";
                                     echo "<input type='button' name='deleteProject' ident='".$row->idTrabajos."' value='Delete'/>";
                                 echo "</td>";
+                                echo '<td>';
+                                    echo '<input type="button" name="gradeWorkers" ident="'.$row->idTrabajos.'" value="Grade" data-type="zoomin"/>';
+                                echo '</td>';
                             echo "</tr>";
                         }
                     echo "</table>";

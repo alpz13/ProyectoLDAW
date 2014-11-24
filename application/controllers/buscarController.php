@@ -28,7 +28,7 @@ class BuscarController extends CI_Controller {
         if(!is_numeric($projectoAC[1])) {
             $data['projectCompetence'] = $projectoAC[1];
         }
-        
+        $data['error'] = 0;
         $this->load->view('showResultsView', $data);
     }
 }
