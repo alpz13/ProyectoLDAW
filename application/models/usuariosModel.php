@@ -179,8 +179,11 @@ class UsuariosModel extends CI_Model {
         $this->db->where('idUsuario', $idUsuario);
         $this->db->order_by('idAreas', 'desc');
         $resultado = $this->db->get('areasusuario');
-        
-        return $resultado;
+        if($resultado->num_rows() > 0) {
+            return $resultado->result();
+        } else {
+            return 0;
+        }
     }
     
     function getCalifCompetencias($idUsuario)
@@ -188,8 +191,11 @@ class UsuariosModel extends CI_Model {
         $this->db->where('idUsuario', $idUsuario);
         $this->db->order_by('idCompetencias', 'desc');
         $resultado = $this->db->get('competenciasusuario');
-        
-        return $resultado;
+        if($resultado->num_rows() > 0) {
+            return $resultado->result();
+        } else {
+            return 0;
+        }
     }
     
     function getNombreAreas()
@@ -385,6 +391,35 @@ class UsuariosModel extends CI_Model {
             return $average;
         } else {
              return -1;
+        }
+    }
+    
+    public function addGradeArea($area, $average, $user)
+    {
+        $data = array(
+                    'idUsuario'     => $user,
+                    'idAreas'       => $area,
+                    'calificacionArea'  => $average
+                );
+        try {
+            $this->db->insert('areasusuario', $data);
+            return 1;
+        } catch (Exception $ex) {
+            return 0;
+        }
+    }
+    
+    public function updateTest($valor, $user) 
+    {
+        $data = array(
+                'test'  => $valor
+            );
+        $this->db->where('idUsurios', $user);
+        try {
+            $this->db->update('usuarios');
+            return 1;
+        } catch (Exception $ex) {
+            return 0;
         }
     }
 }

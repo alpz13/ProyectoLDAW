@@ -270,4 +270,84 @@ class UsuariosController extends CI_Controller {
             echo '<span>The user grade has not been upgraded. Please try again</span>';
         }
     }
+    
+    public function takeTest()
+    {
+        $user = $this->session->userdata('id');
+        $data['user'] = $user;
+        $this->load->view('testView', $data);
+    }
+    
+    public function gradeAreas()
+    {
+        $this->load->model('usuariosModel');
+        $user = $this->input->post('user');
+        //**Security**//
+        $a21 = $this->input->post('a21');
+        $a22 = $this->input->post('a22');
+        $a23 = $this->input->post('a23');
+        $a24 = $this->input->post('a24');
+        $a25 = $this->input->post('a25');
+        $a26 = $this->input->post('a26');
+        $a27 = $this->input->post('a27');
+        $a28 = $this->input->post('a28');
+        $a29 = $this->input->post('a29');
+        $a30 = $this->input->post('a30');
+        $averageDB = ($a21+$a22+$a23+$a24+$a25+$a26+$a27+$a28+$a29+$a30);
+        $this->usuariosModel->addGradeArea(1, $averageDB, $user);
+        //**Web**//
+        $a11 = $this->input->post('a11');
+        $a12 = $this->input->post('a12');
+        $a13 = $this->input->post('a13');
+        $a14 = $this->input->post('a14');
+        $a15 = $this->input->post('a15');
+        $a16 = $this->input->post('a16');
+        $a17 = $this->input->post('a17');
+        $a18 = $this->input->post('a18');
+        $a19 = $this->input->post('a19');
+        $a20 = $this->input->post('a20');
+        $averageWeb = ($a11+$a12+$a13+$a14+$a15+$a16+$a17+$a18+$a19+$a20);
+        $this->usuariosModel->addGradeArea(2, $averageWeb, $user);
+        //**DB**//
+        $a1 = $this->input->post('a1');
+        $a2 = $this->input->post('a2');
+        $a3 = $this->input->post('a3');
+        $a4 = $this->input->post('a4');
+        $a5 = $this->input->post('a5');
+        $a6 = $this->input->post('a6');
+        $a7 = $this->input->post('a7');
+        $a8 = $this->input->post('a8');
+        $a9 = $this->input->post('a9');
+        $a10 = $this->input->post('a10');
+        $averageSecurity = ($a1+$a2+$a3+$a4+$a5+$a6+$a7+$a8+$a9+$a10);
+        $this->usuariosModel->addGradeArea(3, $averageSecurity, $user);
+        //**Networking**//
+        $a31 = $this->input->post('a31');
+        $a32 = $this->input->post('a32');
+        $a33 = $this->input->post('a33');
+        $a34 = $this->input->post('a34');
+        $a35 = $this->input->post('a35');
+        $a36 = $this->input->post('a36');
+        $a37 = $this->input->post('a37');
+        $a38 = $this->input->post('a38');
+        $a39 = $this->input->post('a39');
+        $a40 = $this->input->post('a30');
+        $averageNetworking = ($a31+$a32+$a33+$a34+$a35+$a36+$a37+$a38+$a39+$a40);
+        $this->usuariosModel->addGradeArea(4, $averageNetworking, $user);
+        //**Desktop**//
+        $a41 = $this->input->post('a41');
+        $a42 = $this->input->post('a42');
+        $a43 = $this->input->post('a43');
+        $a44 = $this->input->post('a44');
+        $a45 = $this->input->post('a45');
+        $a46 = $this->input->post('a46');
+        $a47 = $this->input->post('a47');
+        $a48 = $this->input->post('a48');
+        $a49 = $this->input->post('a49');
+        $a50 = $this->input->post('a50');
+        $averageDesktop = ($a41+$a42+$a43+$a44+$a45+$a46+$a47+$a48+$a49+$a50);
+        $this->usuariosModel->addGradeArea(5, $averageDesktop, $user);
+        $this->usuariosModel->updateTest(1, $user);
+        echo '<span>Test completed. Please check your results in your profile</span>';
+    }
 }

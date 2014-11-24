@@ -106,27 +106,30 @@
                 });
             </script>
             <br><hr><br><br>
-            <img id="usrProfilePhoto" width="250x250" src="<?php echo base_url(); ?>images/user.png">
             <?php
+            if(isset($califAreas)) {
                 $i = 0;
                 $dataAreas = array();
-                foreach($califAreas->result() as $row) {
+                foreach($califAreas as $row) {
                     $dataAreas[$i++] = $row->calificacionArea;
-                }
+                } ?>
+            <p1 style="margin-left:5%" id="graph1"><img style="-webkit-user-select:none;" width="35%" src="<?php echo base_url(); ?>lib/graph/radarmarkex1View.php?a=<?php echo $dataAreas[0];?>&amp;b=<?php echo $dataAreas[1];?>&amp;c=<?php echo $dataAreas[2];?>&amp;d=<?php echo $dataAreas[3];?>&amp;e=<?php echo $dataAreas[4];?>" alt="" ></p1>
+            <br/>
+            <button class="button2" id="hide">Areas</button>
+            <?php }
+            if(isset($califCompetencias)) {
                 $i = 0;
                 $dataCompetencias = array();
-                foreach($califCompetencias->result() as $row) {
+                foreach($califCompetencias as $row) {
                     $dataCompetencias[$i++] = $row->calificacionCompetencia;
                 }
-            ?>
-            <p1 style="margin-left:5%" id="graph1"><img style="-webkit-user-select:none;" width="35%" src="<?php echo base_url(); ?>lib/graph/radarmarkex1View.php?a=<?php echo $dataAreas[0];?>&amp;b=<?php echo $dataAreas[1];?>&amp;c=<?php echo $dataAreas[2];?>&amp;d=<?php echo $dataAreas[3];?>&amp;e=<?php echo $dataAreas[4];?>" alt="" ></p1>
+                ?>
             <p2 style="margin-left:5%" id="graph2"><img style="-webkit-user-select:none;" width="35%" src="<?php echo base_url(); ?>lib/graph/radarmarkex2View.php?a=<?php echo $dataCompetencias[0];?>&amp;b=<?php echo $dataCompetencias[1];?>&amp;c=<?php echo $dataCompetencias[2];?>&amp;d=<?php echo $dataCompetencias[3];?>&amp;e=<?php echo $dataCompetencias[4];?>" alt="" ></p2>
             <br/>
-                    <div style="margin-left:42%">
-                            <button class="button2" id="hide">Areas</button>
-                            <button class="button2" id="show">Abilities</button>
-                    </div>
-                    <br><hr><br><br>   
+            <button class="button2" id="show">Abilities</button>
+            <?php } ?>                
+            <br/>
+                    <br>   
         </div>
         <br/>
         <div id="mensajeConfig">

@@ -32,6 +32,7 @@ class PrincipalController extends CI_Controller {
 	                        $dataUser['tipo'] = $row->idTipo;
                                 $tipo = $row->idTipo;
                                 $dataUser['foto'] = $row->urlFoto;
+                                $dataUser['test'] = $row->test;
 	                    }
                             
                             //**Busca el área con mayor calificacion**
@@ -244,8 +245,12 @@ class PrincipalController extends CI_Controller {
             $areas = $this->usuariosModel->getNombreAreas();
             $competencias = $this->usuariosModel->getNombreCompetencias();
             
-            $data['califAreas'] = $califAreas;
-            $data['califCompetencias'] = $califCompetencias;
+            if(!is_numeric($califAreas)) {
+                $data['califAreas'] = $califAreas;
+            }
+            if(!is_numeric($califCompetencias)) {
+                $data['califCompetencias'] = $califCompetencias;
+            }
             $data['areas'] = $areas;
             $data['competencias'] = $competencias;
             
