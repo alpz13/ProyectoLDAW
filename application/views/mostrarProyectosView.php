@@ -24,27 +24,27 @@
                     <tr>
                         <td>
                             <?php echo form_open('proyectosController/myProjects'); ?>
-                                <input class="button2" type="submit" value="My Projects" />
+                                <input class="btn btn-primary" type="submit" value="My Projects" />
                             <?php echo form_close(); ?>
                         </td>
                         <td>
                             <?php echo form_open('proyectosController/consultar'); ?>
-                                <input class="button2" type="submit" value="See all projects" />
+                                <input class="btn btn-primary" type="submit" value="See all projects" />
                             <?php echo form_close(); ?>
                         </td>
                         <td>
                             <?php echo form_open('proyectosController/creaProyecto'); ?>
-                                <input class="button2" type="submit" value="Create project"/>
+                                <input class="btn btn-primary" type="submit" value="Create project"/>
                             <?php echo form_close(); ?>
                         </td>
                         <td>
                             <?php echo form_open('proyectosController/asignarTrabajador'); ?>
-                                <input class="button2" type="submit" value="Assign worker"/>
+                                <input class="btn btn-primary" type="submit" value="Assign worker"/>
                             <?php echo form_close(); ?>
                         </td>
                         <td>
                             <?php echo form_open('proyectosController/eliminar'); ?>
-                                <input class="button2" type="submit" value="Delete project" />
+                                <input class="btn btn-primary" type="submit" value="Delete project" />
                             <?php echo form_close(); ?>
                         </td>
                     </tr>
@@ -54,7 +54,7 @@
                     <tr>
                         <td>
                             <?php echo form_open('proyectosController/consultar'); ?>
-                                <input class="button2" type="submit" value="Consulta proyectos" />
+                                <input class="btn btn-primary" type="submit" value="Consulta proyectos" />
                             <?php echo form_close(); ?>
                         </td>
                     </tr>

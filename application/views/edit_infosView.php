@@ -139,7 +139,7 @@ if(isset($_SESSION['username']))
             <label for="passverif">Password<span class="small">(verificacion)</span></label><input type="password" name="passverif" id="passverif" value="<?php echo $password; ?>" /><br />
             <label for="email">Email</label><input type="text" name="email" id="email" value="<?php echo $email; ?>" /><br />
             <label for="avatar">Avatar<span class="small">(opcional)</span></label><input type="text" name="avatar" id="avatar" value="<?php echo $avatar; ?>" /><br /><br />
-            <input type="submit" class="button2" value="Actualizar" />
+            <input type="submit" class="btn btn-primary" value="Actualizar" />
         </div>
     </form>
 </div>

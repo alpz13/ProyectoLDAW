@@ -58,7 +58,11 @@
                     </tr>
                     <tr>
                         <td></td>
+<<<<<<< HEAD
+                        <td><input type="button" class="btn btn-primary" id="enviarConfigurar" value="Actualizar"/></td>
+=======
                         <td><input type="button" class="button2" id="enviarConfigurar" value="Update"/></td>
+>>>>>>> 417398a409c885a5e9d99853441ff1e23567f65c
                     </tr>
                 </table>
             <input type="hidden" id="url" value="<?php echo base_url(); ?>"/>
@@ -126,10 +130,19 @@
                 ?>
             <p2 style="margin-left:5%" id="graph2"><img style="-webkit-user-select:none;" width="35%" src="<?php echo base_url(); ?>lib/graph/radarmarkex2View.php?a=<?php echo $dataCompetencias[0];?>&amp;b=<?php echo $dataCompetencias[1];?>&amp;c=<?php echo $dataCompetencias[2];?>&amp;d=<?php echo $dataCompetencias[3];?>&amp;e=<?php echo $dataCompetencias[4];?>" alt="" ></p2>
             <br/>
+<<<<<<< HEAD
+                    <div style="margin-left:42%">
+                            <button class="btn btn-primary" id="hide">Areas</button>
+                            &nbsp;
+                            <button class="btn btn-primary" id="show">Abilities</button>
+                    </div>
+                    <br><hr><br><br>   
+=======
             <button class="button2" id="show">Abilities</button>
             <?php } ?>                
             <br/>
                     <br>   
+>>>>>>> 417398a409c885a5e9d99853441ff1e23567f65c
         </div>
         <br/>
         <div id="mensajeConfig">

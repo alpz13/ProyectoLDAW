@@ -7,7 +7,7 @@ $(document).ready(function() {
 </script>
 
 <div class="mensajeView">
-	Deben llenarse todos los campos
+	All fields must be complete.
 	<br/><br/>
-	<input type='button' class='button_par' id='close' value='Cerrar'/>
+	<input type='button' class='btn btn-primary' id='close' value='Close'/>
 </div>

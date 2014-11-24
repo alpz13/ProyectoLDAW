@@ -38,6 +38,9 @@
                         </table>
                     </div>
                     <br/>
+<<<<<<< HEAD
+                    <!--***Muestra las grﾃ｡ficas con las calificaciones-->
+=======
                     <?php 
                         if(isset($proyectos)) { 
                             echo '<div>';
@@ -83,6 +86,7 @@
                     </div>
                     <br/>
                     <!--***Muestra las gráficas con las calificaciones-->
+>>>>>>> 417398a409c885a5e9d99853441ff1e23567f65c
                     <div style="text-align: center">
                         <script>
                             //Script para mostrar y esconder las dos graficas (inicia escondiendo la segunda grafica) 23 de octubre del 2014.
@@ -115,8 +119,9 @@
                         <p2 id="graph2"><img style="-webkit-user-select:none;" width="60%" src="<?php echo base_url(); ?>lib/graph/radarmarkex2View.php?a=<?php echo $dataCompetencias[0];?>&amp;b=<?php echo $dataCompetencias[1];?>&amp;c=<?php echo $dataCompetencias[2];?>&amp;d=<?php echo $dataCompetencias[3];?>&amp;e=<?php echo $dataCompetencias[4];?>" alt="" ></p2>
                         <br/>
                         <div>
-                                <button class="button2" id="hide">Areas</button>
-                                <button class="button2" id="show">Abilities</button>
+                                <button class="btn btn-primary" id="hide">Areas</button>
+                                &nbsp;
+                                <button class="btn btn-primary" id="show">Abilities</button>
                         </div>
                     </div>
                     

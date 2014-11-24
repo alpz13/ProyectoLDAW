@@ -26,7 +26,7 @@
                     <input type="hidden" name="urlBuscar" value="<?php echo base_url(); ?>"/>
                     <input type="search" name="buscar" id="buscar" class="busqueda"/>
                     <!--<input type="submit" value="Buscar" style="border-style: none; background: url('<?php echo base_url(); ?>images/search.gif') no-repeat; width: 24px; height: 20px;">-->
-                    <input type="submit" value="Search"/>
+                    <input type="submit" class="btn btn-primary" value="Search"/>
                 <?php echo form_close();?>
                 </div>
             </div>
@@ -67,7 +67,7 @@
                 if($this->session->userdata('tipo') == 3) { ?>
                     <div>
                         <?php
-                        //*******Se muestran los proyectos a los que estﾃ｡ actualmente inscrito//*********
+                        //*******Se muestran los proyectos a los que est・・ｽ｡ actualmente inscrito//*********
                         $cont = count($proyectosUser);
                         $i = 0;
                         if($cont > 0) {
@@ -86,7 +86,11 @@
                                                     echo $row->Descripcion;
                                                 echo "</td>";
                                                 echo "<td>"; ?>
+<<<<<<< HEAD
+                                                    <input type='button' class="btn btn-primary" value='See project' onClick="seeProject('<?php echo $row->idTrabajos;?>')"/>
+=======
                                                     <input type='button' class="button2" value='See project' name="projectButton" ident='<?php echo $row->idTrabajos; ?>' data-type="zoomin"/>
+>>>>>>> 417398a409c885a5e9d99853441ff1e23567f65c
                                           <?php echo "</td>";
                                             }
                                         echo "</tr>";
@@ -119,7 +123,7 @@
                                                         echo $row->Descripcion;
                                                     echo "</td>";
                                                     echo "<td>"; ?>
-                                                        <input type='button' class="button2" value='Send request' onClick="requestProyect('<?php echo $row->idTrabajos;?>')"/>
+                                                        <input type='button' class="btn btn-success" value='Send request' onClick="requestProyect('<?php echo $row->idTrabajos;?>')"/>
                                               <?php echo "</td>";
                                                 }
                                             echo "</tr>";
@@ -153,7 +157,7 @@
                                                         echo $row->Descripcion;
                                                     echo "</td>";
                                                     echo "<td>"; ?>
-                                                        <input type='button' class="button2" value='Send request' onClick="requestProyect(<?php echo $row->idTrabajos;?>)"/>
+                                                        <input type='button' class="btn btn-success" value='Send request' onClick="requestProyect(<?php echo $row->idTrabajos;?>)"/>
                                               <?php echo "</td>";
                                                 }
                                             echo "</tr>";
@@ -182,7 +186,7 @@
                                                 <?php
                                             echo "</td>";
                                             echo "<td>"; ?>
-                                                <input type="submit" class="button2" value="See requests"/>
+                                                <input type="submit" class="btn btn-success" value="See requests"/>
                                                 <?php $row = $requests->row(); ?>
                                                 <input type="hidden" name="idSupervisor" value="<?php echo $row->idSupervisor; ?>"/>
                                       <?php echo "</td>";
