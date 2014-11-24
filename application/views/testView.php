@@ -668,7 +668,7 @@
                 <div>
                     <input type="radio" name="31NETWORKING" ident="0"/> &nbsp;Bandwidth<br/>
                     <input type="radio" name="31NETWORKING" ident="0"/> &nbsp;Regeneration ability<br/>
-                    <input type="radio" name="31NETWORKING" ident="1"/> &nbsp;Attenuation - correct answer<br/>
+                    <input type="radio" name="31NETWORKING" ident="1"/> &nbsp;Attenuation<br/>
                 </div> <br/><br/>
                 <div>
                     <input type="button" value="Next" name="buttonQuestion" ident="32"/>

@@ -177,7 +177,7 @@ class UsuariosModel extends CI_Model {
     function getCalifArea($idUsuario)
     {
         $this->db->where('idUsuario', $idUsuario);
-        $this->db->order_by('idAreas', 'desc');
+        $this->db->order_by('idAreas', 'asc');
         $resultado = $this->db->get('areasusuario');
         if($resultado->num_rows() > 0) {
             return $resultado->result();
@@ -189,7 +189,7 @@ class UsuariosModel extends CI_Model {
     function getCalifCompetencias($idUsuario)
     {
         $this->db->where('idUsuario', $idUsuario);
-        $this->db->order_by('idCompetencias', 'desc');
+        $this->db->order_by('idCompetencias', 'asc');
         $resultado = $this->db->get('competenciasusuario');
         if($resultado->num_rows() > 0) {
             return $resultado->result();
@@ -416,7 +416,7 @@ class UsuariosModel extends CI_Model {
             );
         $this->db->where('idUsurios', $user);
         try {
-            $this->db->update('usuarios');
+            $this->db->update('usuarios', $data);
             return 1;
         } catch (Exception $ex) {
             return 0;
