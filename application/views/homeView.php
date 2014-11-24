@@ -30,7 +30,37 @@
                 <?php echo form_close();?>
                 </div>
             </div>
-            <div id="searchValues" style="display: none"></div>
+            <div class="overlay-container">
+                <div id="searchValues" class="window-container zoomin">
+                    
+                </div>
+            </div>
+            <div id="takeTest">
+                <?php 
+                    if($this->session->userdata('test') == 0) {
+                        echo form_open('usuariosController/takeTest');
+                            echo '<div>';
+                                echo '<br/><br/><br/>';
+                                echo '<input type="hidden" name="idUsuario" value="'.$this->session->userdata('id').'"/>';
+                               echo '<input type="submit" value="Take test" style="cursor: pointer"/>';
+                            echo '</div>';
+                        echo form_close();
+                    }
+                ?>
+            </div>
+            <div id="takeTestCompetences">
+                <?php 
+                    if($this->session->userdata('test') == 1) {
+                        echo form_open('usuariosController/takeTestCompetences');
+                            echo '<div>';
+                                echo '<br/><br/><br/>';
+                                echo '<input type="hidden" name="idUsuario" value="'.$this->session->userdata('id').'"/>';
+                               echo '<input type="submit" value="Take test" style="cursor: pointer"/>';
+                            echo '</div>';
+                        echo form_close();
+                    }
+                ?>
+            </div>
             <div id="contentArea">
                 <br/><br/><br/><br/><br/>
                 <?php 
@@ -56,7 +86,11 @@
                                                     echo $row->Descripcion;
                                                 echo "</td>";
                                                 echo "<td>"; ?>
+<<<<<<< HEAD
                                                     <input type='button' class="btn btn-primary" value='See project' onClick="seeProject('<?php echo $row->idTrabajos;?>')"/>
+=======
+                                                    <input type='button' class="button2" value='See project' name="projectButton" ident='<?php echo $row->idTrabajos; ?>' data-type="zoomin"/>
+>>>>>>> 417398a409c885a5e9d99853441ff1e23567f65c
                                           <?php echo "</td>";
                                             }
                                         echo "</tr>";

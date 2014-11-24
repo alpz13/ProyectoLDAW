@@ -87,6 +87,7 @@ $(document).ready(function() {
         pass = $("#pass").val();
         passCon = $("#passCon").val();
         mail = $("#mail").val();
+        type = $("#userType").val();
         foto = "";
         $.post(url+"index.php/usuariosController/crearUsuario", {
             nombre : nombre,
@@ -95,6 +96,7 @@ $(document).ready(function() {
             pass : pass,
             passCon : passCon,
             mail : mail,
+            type : type,
             foto : foto
         },function(data) {
             $("#contenido").html(data);
@@ -146,10 +148,6 @@ $(document).ready(function() {
     
     $("#proyectosActuales").click(function() {
         $("#divProyectosActuales").slideToggle('slow');
-    });
-    
-    $('[name="profileButton"]').click(function() {
-        
     });
     
     //*************************************************//

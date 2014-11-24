@@ -17,6 +17,7 @@ class PrincipalController extends CI_Controller {
             
             if($usuario != "") {
                 if($passwd != "") {
+                    $passwd = base64_encode($passwd);
                     $response = $this->usuariosModel->login($usuario, $passwd);
                     if($response->num_rows() > 0) {
 	                    foreach($response->result() as $row) {
@@ -31,6 +32,7 @@ class PrincipalController extends CI_Controller {
 	                        $dataUser['tipo'] = $row->idTipo;
                                 $tipo = $row->idTipo;
                                 $dataUser['foto'] = $row->urlFoto;
+                                $dataUser['test'] = $row->test;
 	                    }
                             
                             //**Busca el ﾃ｡rea con mayor calificacion**
@@ -210,8 +212,12 @@ class PrincipalController extends CI_Controller {
             $areas = $this->usuariosModel->getNombreAreas();
             $competencias = $this->usuariosModel->getNombreCompetencias();
             
-            $data['califAreas'] = $califAreas;
-            $data['califCompetencias'] = $califCompetencias;
+            if(!is_numeric($califAreas)) {
+                $data['califAreas'] = $califAreas;
+            }
+            if(!is_numeric($califCompetencias)) {
+                $data['califCompetencias'] = $califCompetencias;
+            }
             $data['areas'] = $areas;
             $data['competencias'] = $competencias;
             
@@ -225,6 +231,10 @@ class PrincipalController extends CI_Controller {
                     $data['mail'] = $row->Mail;
                     $data['foto'] = $row->urlFoto;
                 }
+            }
+            $average = $this->usuariosModel->getAverage($id);
+            if($average > 0) {
+                $data['average'] = $average;
             }
             $this->load->view('configuracionView', $data);
             $this->load->view('footer');
@@ -371,6 +381,57 @@ class PrincipalController extends CI_Controller {
            }
            
            return $data;
+       }
+       
+       public function sendPassword()
+       {
+           $mail = $this->input->post('email');
+           //**Se crea un password aleatorio
+           $caracteres = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890"; //posibles caracteres a usar
+            $numerodeletras=10; //numero de letras para generar el texto
+            $cadena = ""; //variable para almacenar la cadena generada
+            for($i=0;$i<$numerodeletras;$i++)
+            {
+                $cadena .= substr($caracteres,rand(0,strlen($caracteres)),1); /*Extraemos 1 caracter de los caracteres 
+            entre el rango 0 a Numero de letras que tiene la cadena */
+            }
+            $this->load->model('usuariosModel');
+            $resultado = $this->usuariosModel->restorePassword($mail);
+            if(!is_numeric($resultado)) {
+                $row = $resultado->row();
+                $this->usuariosModel->changePassword($row->idUsuarios, $cadena);
+                
+                $this->load->library('email');
+                //configuracion para gmail
+                $configGmail = array(
+                    'protocol' => 'smtp',
+                    'smtp_host' => 'ssl://smtp.gmail.com',
+                    'smtp_port' => 465,
+                    'smtp_user' => 'xxfinalmikexx@gmail.com',
+                    'smtp_pass' => '22MikeLegend',
+                    'mailtype' => 'html',
+                    'charset' => 'utf-8',
+                    'newline' => "\r\n"
+                ); 
+                
+                $message = "The following message has been sent because you request a new password. \n";
+                $message .= "Once you enter the application, please change to a new password that you can remember. \n";
+                $message .= "Your new password is: ".$cadena;
+                
+                $this->email->initialize($configGmail);
+                $this->email->from('no-reply@jscope.com', 'JScope');
+                $this->email->to($mail);
+                $this->email->subject('Password restore');
+                $this->email->message($message);	
+
+                if($this->email->send()) {
+                    echo "<span>Your password has been sent to the specified mail</span>";
+                } else {
+                    echo "<span>The password could not been sent</span>";
+                }
+            } else {
+                echo "<span>There is no account with the specified email</span>";
+            }
        }
        
 //       public function usuariosGrid()

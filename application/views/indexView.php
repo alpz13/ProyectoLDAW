@@ -17,7 +17,19 @@
 		<div>                    
                         <!-- Aquﾃｭ comienzan las formas de login y registro-->
                         <div id="registro">
-                            <br/><br/><br/><br/>
+                            <br/>
+<!--                            <div>
+                                <form enctype="multipart/form-data" method="post" id="formulario">
+                                    <label>Upload a file</label><br />
+                                    <input name="archivo" type="file" id="imagen" />
+                                    <input type="button" value="Subir imagen" id="sendImage"/><br />
+                                </form>
+                                div para visualizar mensajes
+                                <div class="messages"></div><br /><br />
+                                div para visualizar en el caso de imagen
+                                <div id="showImage"></div>
+                            </div>-->
+                            <br/>
                             <?php echo form_open('usuariosController/registraUsuario'); ?>
                             <h2>New User:</h2>
                                 <table>
@@ -54,8 +66,13 @@
                                     <tr>
                                         <td></td>
                                         <td>
+<<<<<<< HEAD
                                             <input id="registrarUsuario" class="btn btn-primary" type="button" value='Register' data-type="zoomin" style="top: 232px; left: 190px;"/>&nbsp;
                                             <input id="back" class="btn btn-danger" type="button" value="Back" />
+=======
+                                            <input id="registrarUsuario" type="button" value='Register' data-type="zoomin" style="top: 232px; left: 190px;"/>&nbsp;
+                                            <input name="back" type="button" value="Back" />
+>>>>>>> 417398a409c885a5e9d99853441ff1e23567f65c
                                         </td>
                                     </tr>
                                 </table>
@@ -82,6 +99,10 @@
                                     </tr>
                                     <tr>
                                         <td></td>
+                                        <td><u id="forgotten" style="cursor: pointer">Forgotten password?</u></td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
                                         <td>
                                             <input type="submit" class="btn btn-primary" value="Enter"/>
                                             <input type="button" class="btn btn-primary" id="registerButton" value="Register"/>
@@ -89,6 +110,17 @@
                                     </tr>
                                 </table>
                             <?php echo form_close(); ?>
+                        </div>
+                        <br/>
+                        <div id="forgottenMsg">
+                            
+                        </div>
+                        <br/>
+                        <div id="forgottenPass">
+                            <h3>Insert the email of the associated user</h3>
+                            <input type="text" id="emailForgotten"/><br/><br/>
+                            <input type="button" id="sendEmail" value="Restore password"/>&nbsp;
+                            <input name="back" type="button" value="Back" />
                         </div>
                         <div>
                             <br/><br/><br/>

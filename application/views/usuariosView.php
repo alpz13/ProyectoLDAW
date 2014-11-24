@@ -78,6 +78,21 @@
                             <td class="error"><?php echo form_error('mail'); ?></td>
                         </tr>
                         <tr>
+                            <?php 
+                                if($this->session->userdata('tipo') == 2 || $this->session->userdata('tipo') == 1) {
+                                    echo '<td>User type</td>';
+                                    echo '<td>';
+                                        echo '<select id="userType" name="userType">';
+                                            echo '<option value="2">Supervisor</option>';
+                                            echo '<option value="3">Worker</option>';
+                                        echo '</select>';
+                                    echo '</td>';
+                                } else {
+                                    echo '<input type="hidden" id="userType" name="userType" value="3"/>';
+                                }
+                            ?>
+                        </tr>
+                        <tr>
                             <td></td>
                             <br/><br/>
                             <td><input class='btn btn-primary' type='button' id="registraUsuarioC" value='Register'/></td>

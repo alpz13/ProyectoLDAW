@@ -1,4 +1,5 @@
 $(document).ready(function(){
+ 
     $(".messages").hide();
     //queremos que esta variable sea global
     var fileExtension = "";
@@ -21,62 +22,13 @@ $(document).ready(function(){
  
     //al enviar el formulario
     $('#sendImage').click(function(){
-        //información del formulario
-        var formData = new FormData($(".formulario")[0]);
-        var message = ""; 
+        var formData = new FormData($("#formulario")[0]);
+        alert(formData);
         url = $("#url").val();
-        //hacemos la petición ajax  
-        $.ajax({
-            url: url+"index.php/usuariosController/loadImage",  
-            type: 'POST',
-            // Form data
-            //datos del formulario
-            data: formData,
-            //necesario para subir archivos via ajax
-            cache: false,
-            contentType: false,
-            processData: false,
-            //mientras enviamos el archivo
-            beforeSend: function(){
-                message = $("<span class='before'>Subiendo la imagen, por favor espere...</span>");
-                showMessage(message);        
-            },
-            //una vez finalizado correctamente
-            success: function(data){
-                message = $("<span class='success'>La imagen ha subido correctamente.</span>");
-                showMessage(data);
-//                if(isImage(fileExtension))
-//                {
-                    $(".showImage").html("<img src='../files/"+data+"' />");
-//                }
-            },
-            //si ha ocurrido un error
-            error: function(){
-                message = $("<span class='error'>Ha ocurrido un error.</span>");
-                showMessage(message);
-            }
+        $.post(url+"index.php/usuariosController/loadImage", {
+            formData : formData
+        }, function(data) {
+            $("#showImage").html(data);
         });
     });
-})
- 
-//como la utilizamos demasiadas veces, creamos una función para 
-//evitar repetición de código
-function showMessage(message){
-    $(".messages").html("").show();
-    $(".messages").html(message);
-}
- 
-//comprobamos si el archivo a subir es una imagen
-//para visualizarla una vez haya subido
-function isImage(extension)
-{
-    switch(extension.toLowerCase()) 
-    {
-        case 'jpg': case 'gif': case 'png': case 'jpeg':
-            return true;
-        break;
-        default:
-            return false;
-        break;
-    }
-}   
+});

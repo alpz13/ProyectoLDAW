@@ -89,7 +89,7 @@
                                             echo '<td>'.$row->Nombre.'</td>';
                                             echo '<td>'.$row->Descripcion.'</td>';
                                             echo '<td>';
-                                                echo '<input type="button" value="Description" ident="'.$row->idTrabajos.'" />';
+                                                echo '<input type="button" value="Description" name="projectButton" ident="'.$row->idTrabajos.'" data-type="zoomin"/>';
                                             echo '</td>';
                                         echo '</tr>';
                                     }
@@ -185,7 +185,7 @@
                                             echo '<td>'.$row->Nombre.'</td>';
                                             echo '<td>'.$row->Descripcion.'</td>';
                                             echo '<td>';
-                                                echo '<input type="button" value="Description" ident="'.$row->idTrabajos.'" />';
+                                                echo '<input type="button" value="Description" name="projectButton" ident="'.$row->idTrabajos.'" data-type="zoomin"/>';
                                             echo '</td>';
                                         echo '</tr>';
                                     }
@@ -217,7 +217,7 @@
                                             echo '<td>'.$row->Nombre.'</td>';
                                             echo '<td>'.$row->Descripcion.'</td>';
                                             echo '<td>';
-                                                echo '<input type="button" value="Description" ident="'.$row->idTrabajos.'" />';
+                                                echo '<input type="button" value="Description" name="projectButton" ident="'.$row->idTrabajos.'" data-type="zoomin"/>';
                                             echo '</td>';
                                         echo '</tr>';
                                     }

@@ -38,7 +38,55 @@
                         </table>
                     </div>
                     <br/>
+<<<<<<< HEAD
                     <!--***Muestra las grﾃ｡ficas con las calificaciones-->
+=======
+                    <?php 
+                        if(isset($proyectos)) { 
+                            echo '<div>';
+                                echo '<span><strong>Projects which are currently working</strong></span><br/>';
+                                echo '<table>';
+                                    echo '<tr>';
+                                        echo '<td><strong>Project</strong></td>';
+                                        echo '<td><strong>Description</strong></td>';
+                                    echo '</tr>';
+                                    foreach($proyectos as $row) {
+                                        echo '<tr>';
+                                            echo '<td>'.$row->Nombre.'</td>';
+                                            echo '<td>'.$row->Descripcion.'</td>';
+                                        echo '</tr>';
+                                    }
+                                echo '</table>';
+                            echo '</div>';
+                        } 
+                    ?>
+                    <br/>
+                    <div id="userAverage">
+                        <?php 
+                            if(isset($average)) {
+                                if($average <= 3) {
+                                    echo '<span>General performance: <strong>Bad</strong></span>';
+                                } elseif($average <=6) {
+                                    echo '<span>General performance: <strong>Regular</strong></span>';
+                                } elseif($average <= 8) {
+                                    echo '<span>General performance: <strong>Good</strong></span>';
+                                } elseif($average <= 10) {
+                                    echo '<span>General performance: <strong>Excellent</strong></span>';
+                                }
+                                echo '<br/><br/>';
+                                for($i = 1; $i < $average; $i++) {
+                                    echo '<img src="../../files/barra'.$i.'.png" alt="Img" />';
+                                }
+                                echo '<img src="../../files/barra'.$i.'.png" alt="Img"/><span>'.$average.'</span>';
+                                
+                            } else {
+                                echo '<span>The user has not been rated yet</span>';
+                            }
+                        ?>
+                    </div>
+                    <br/>
+                    <!--***Muestra las gráficas con las calificaciones-->
+>>>>>>> 417398a409c885a5e9d99853441ff1e23567f65c
                     <div style="text-align: center">
                         <script>
                             //Script para mostrar y esconder las dos graficas (inicia escondiendo la segunda grafica) 23 de octubre del 2014.
