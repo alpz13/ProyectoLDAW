@@ -186,7 +186,7 @@
                     <input type="radio" name="1DB" ident="0"/> &nbsp;Strong Question Language<br/>
                 </div> <br/><br/>
                 <div>
-                    <input type="button" value="Next" name="buttonQuestion" ident="2"/>
+                    <input type="button" value="Next" name="buttonQuestion" class="btn btn-default" ident="2"/>
                 </div>
             </div>
             <div id="question2" name="question">
@@ -202,7 +202,7 @@
                     <input type="radio" name="2DB" ident="1"/> &nbsp;SELECT<br/>
                 </div> <br/><br/>
                 <div>
-                    <input type="button" value="Next" name="buttonQuestion" ident="3"/>
+                    <input type="button" value="Next" name="buttonQuestion" class="btn btn-default" ident="3"/>
                 </div>
             </div>
             <div id="question3" name="question">
@@ -218,7 +218,7 @@
                     <input type="radio" name="3DB" ident="1"/> &nbsp;UPDATE<br/>
                 </div> <br/><br/>
                 <div>
-                    <input type="button" value="Next" name="buttonQuestion" ident="4"/>
+                    <input type="button" value="Next" name="buttonQuestion" class="btn btn-default" ident="4"/>
                 </div>
             </div>
             <div id="question4" name="question">
@@ -234,7 +234,7 @@
                     <input type="radio" name="4DB" ident="0"/> &nbsp;REMOVE<br/>
                 </div> <br/><br/>
                 <div>
-                    <input type="button" value="Next" name="buttonQuestion" ident="5"/>
+                    <input type="button" value="Next" name="buttonQuestion" class="btn btn-default" ident="5"/>
                 </div>
             </div>
             <div id="question5" name="question">
@@ -250,7 +250,7 @@
                     <input type="radio" name="5DB" ident="1"/> &nbsp;INSERT<br/>
                 </div> <br/><br/>
                 <div>
-                    <input type="button" value="Next" name="buttonQuestion" ident="6"/>
+                    <input type="button" value="Next" name="buttonQuestion" class="btn btn-default" ident="6"/>
                 </div>
             </div>
             <div id="question6" name="question">
@@ -266,7 +266,7 @@
                     <input type="radio" name="6DB" ident="1"/> &nbsp;SELECT lastname FROM Workers<br/>
                 </div> <br/><br/>
                 <div>
-                    <input type="button" value="Next" name="buttonQuestion" ident="7"/>
+                    <input type="button" value="Next" name="buttonQuestion" class="btn btn-default" ident="7"/>
                 </div>
             </div>
             <div id="question7" name="question">
@@ -282,7 +282,7 @@
                     <input type="radio" name="7DB" ident="0"/> &nbsp;SELECT Workers<br/>
                 </div> <br/><br/>
                 <div>
-                    <input type="button" value="Next" name="buttonQuestion" ident="8"/>
+                    <input type="button" value="Next" name="buttonQuestion" class="btn btn-default" ident="8"/>
                 </div>
             </div>
             <div id="question8" name="question">
@@ -298,7 +298,7 @@
                     <input type="radio" name="8DB" ident="0"/> &nbsp;SELECT * FROM Worker LIKE 'Raﾃｺl'<br/>
                 </div> <br/><br/>
                 <div>
-                    <input type="button" value="Next" name="buttonQuestion" ident="9"/>
+                    <input type="button" value="Next" name="buttonQuestion" class="btn btn-default" ident="9"/>
                 </div>
             </div>
             <div id="question9" name="question">
@@ -314,7 +314,7 @@
                     <input type="radio" name="9DB" ident="0"/> &nbsp;SELECT * FROM Workers WHERE Name LIKE '%a'<br/>
                 </div> <br/><br/>
                 <div>
-                    <input type="button" value="Next" name="buttonQuestion" ident="10"/>
+                    <input type="button" value="Next" name="buttonQuestion" class="btn btn-default" ident="10"/>
                 </div>
             </div>
             <div id="question10" name="question">
@@ -330,7 +330,7 @@
                     <input type="radio" name="10DB" ident="1"/> &nbsp;DISTINCT<br/>
                 </div> <br/><br/>
                 <div>
-                    <input type="button" value="Next" name="buttonQuestion" ident="11"/>
+                    <input type="button" value="Next" name="buttonQuestion" class="btn btn-default" ident="11"/>
                 </div>
             </div>
             <!--*****-->
@@ -348,7 +348,7 @@
                     <input type="radio" name="11WEB" ident="0"/> &nbsp;Private Home Page<br/>
                 </div> <br/><br/>
                 <div>
-                    <input type="button" value="Next" name="buttonQuestion" ident="12"/>
+                    <input type="button" value="Next" name="buttonQuestion" class="btn btn-default" ident="12"/>
                 </div>
             </div>
             <div id="question12" name="question">
@@ -364,7 +364,7 @@
                     <input type="radio" name="12WEB" ident="1"/> &nbsp;< ?php...? ><br/>
                 </div> <br/><br/>
                 <div>
-                    <input type="button" value="Next" name="buttonQuestion" ident="13"/>
+                    <input type="button" value="Next" name="buttonQuestion" class="btn btn-default" ident="13"/>
                 </div>
             </div>
             <div id="question13" name="question">
@@ -380,7 +380,7 @@
                     <input type="radio" name="13WEB" ident="0"/> &nbsp;"Hello World";<br/>
                 </div> <br/><br/>
                 <div>
-                    <input type="button" value="Next" name="buttonQuestion" ident="14"/>
+                    <input type="button" value="Next" name="buttonQuestion" class="btn btn-default" ident="14"/>
                 </div>
             </div>
             <div id="question14" name="question">
@@ -396,7 +396,7 @@
                     <input type="radio" name="14WEB" ident="0"/> &nbsp;!<br/>
                 </div> <br/><br/>
                 <div>
-                    <input type="button" value="Next" name="buttonQuestion" ident="15"/>
+                    <input type="button" value="Next" name="buttonQuestion" class="btn btn-default" ident="15"/>
                 </div>
             </div>
             <div id="question15" name="question">
@@ -412,7 +412,7 @@
                     <input type="radio" name="15WEB" ident="0"/> &nbsp;.<br/>
                 </div> <br/><br/>
                 <div>
-                    <input type="button" value="Next" name="buttonQuestion" ident="16"/>
+                    <input type="button" value="Next" name="buttonQuestion" class="btn btn-default" ident="16"/>
                 </div>
             </div>
             <div id="question16" name="question">
@@ -428,7 +428,7 @@
                     <input type="radio" name="16WEB" ident="0"/> &nbsp;VBScript<br/>
                 </div> <br/><br/>
                 <div>
-                    <input type="button" value="Next" name="buttonQuestion" ident="17"/>
+                    <input type="button" value="Next" name="buttonQuestion" class="btn btn-default" ident="17"/>
                 </div>
             </div>
             <div id="question17" name="question">
@@ -444,7 +444,7 @@
                     <input type="radio" name="17WEB" ident="0"/> &nbsp;Request.QueryString<br/>
                 </div> <br/><br/>
                 <div>
-                    <input type="button" value="Next" name="buttonQuestion" ident="18"/>
+                    <input type="button" value="Next" name="buttonQuestion" class="btn btn-default" ident="18"/>
                 </div>
             </div>
             <div id="question18" name="question">
@@ -460,7 +460,7 @@
                     <input type="radio" name="18WEB" ident="0"/> &nbsp;< ?php include file="time.inc"; ? ><br/>
                 </div> <br/><br/>
                 <div>
-                    <input type="button" value="Next" name="buttonQuestion" ident="19"/>
+                    <input type="button" value="Next" name="buttonQuestion" class="btn btn-default" ident="19"/>
                 </div>
             </div>
             <div id="question19" name="question">
@@ -476,7 +476,7 @@
                     <input type="radio" name="19WEB" ident="0"/> &nbsp;new_function myFunction()<br/>
                 </div> <br/><br/>
                 <div>
-                    <input type="button" value="Next" name="buttonQuestion" ident="20"/>
+                    <input type="button" value="Next" name="buttonQuestion" class="btn btn-default" ident="20"/>
                 </div>
             </div>
             <div id="question20" name="question">
@@ -492,7 +492,7 @@
                     <input type="radio" name="20WEB" ident="1"/> &nbsp;fopen("time.txt","r");<br/>
                 </div> <br/><br/>
                 <div>
-                    <input type="button" value="Next" name="buttonQuestion" ident="21"/>
+                    <input type="button" value="Next" name="buttonQuestion" class="btn btn-default" ident="21"/>
                 </div>
             </div>
             <!--*****-->
@@ -510,7 +510,7 @@
                     <input type="radio" name="21SECURITY" ident="0"/> &nbsp;A data transfer protocol.<br/>
                 </div> <br/><br/>
                 <div>
-                    <input type="button" value="Next" name="buttonQuestion" ident="22"/>
+                    <input type="button" value="Next" name="buttonQuestion" class="btn btn-default" ident="22"/>
                 </div>
             </div>
             <div id="question22" name="question">
@@ -525,7 +525,7 @@
                     <input type="radio" name="22SECURITY" ident="0"/> &nbsp;False<br/>
                 </div> <br/><br/>
                 <div>
-                    <input type="button" value="Next" name="buttonQuestion" ident="23"/>
+                    <input type="button" value="Next" name="buttonQuestion" class="btn btn-default" ident="23"/>
                 </div>
             </div>
             <div id="question23" name="question">
@@ -541,7 +541,7 @@
                     <input type="radio" name="23SECURITY" ident="1"/> &nbsp;Your program should update automatically when you connect to the Internet.<br/>
                 </div> <br/><br/>
                 <div>
-                    <input type="button" value="Next" name="buttonQuestion" ident="24"/>
+                    <input type="button" value="Next" name="buttonQuestion" class="btn btn-default" ident="24"/>
                 </div>
             </div>
             <div id="question24" name="question">
@@ -557,7 +557,7 @@
                     <input type="radio" name="24SECURITY" ident="0"/> &nbsp;A computer virus.<br/>
                 </div> <br/><br/>
                 <div>
-                    <input type="button" value="Next" name="buttonQuestion" ident="25"/>
+                    <input type="button" value="Next" name="buttonQuestion" class="btn btn-default" ident="25"/>
                 </div>
             </div>
             <div id="question25" name="question">
@@ -573,7 +573,7 @@
                     <input type="radio" name="25SECURITY" ident="1"/> &nbsp;To validate your identity.<br/>
                 </div> <br/><br/>
                 <div>
-                    <input type="button" value="Next" name="buttonQuestion" ident="26"/>
+                    <input type="button" value="Next" name="buttonQuestion" class="btn btn-default" ident="26"/>
                 </div>
             </div>
             <div id="question26" name="question">
@@ -589,7 +589,7 @@
                     <input type="radio" name="26SECURITY" ident="1"/> &nbsp;It enables visitors to confirm the authenticity of the site they are on.<br/>
                 </div> <br/><br/>
                 <div>
-                    <input type="button" value="Next" name="buttonQuestion" ident="27"/>
+                    <input type="button" value="Next" name="buttonQuestion" class="btn btn-default" ident="27"/>
                 </div>
             </div>
             <div id="question27" name="question">
@@ -605,7 +605,7 @@
                     <input type="radio" name="27SECURITY" ident="1"/> &nbsp;Encrypting your personal information when sending data on the Internet.<br/>
                 </div> <br/><br/>
                 <div>
-                    <input type="button" value="Next" name="buttonQuestion" ident="28"/>
+                    <input type="button" value="Next" name="buttonQuestion" class="btn btn-default" ident="28"/>
                 </div>
             </div>
             <div id="question28" name="question">
@@ -621,7 +621,7 @@
                     <input type="radio" name="28SECURITY" ident="1"/> &nbsp;Tell him that you will contact your caisse yourself to give them the information.<br/>
                 </div> <br/><br/>
                 <div>
-                    <input type="button" value="Next" name="buttonQuestion" ident="29"/>
+                    <input type="button" value="Next" name="buttonQuestion" class="btn btn-default" ident="29"/>
                 </div>
             </div>
             <div id="question29" name="question">
@@ -637,7 +637,7 @@
                     <input type="radio" name="29SECURITY" ident="0"/> &nbsp;I don't know.<br/>
                 </div> <br/><br/>
                 <div>
-                    <input type="button" value="Next" name="buttonQuestion" ident="30"/>
+                    <input type="button" value="Next" name="buttonQuestion" class="btn btn-default" ident="30"/>
                 </div>
             </div>
             <div id="question30" name="question">
@@ -653,7 +653,7 @@
                     <input type="radio" name="30SECURITY" ident="0"/> &nbsp;Answer the e-mail and ask them to call you with more information.<br/>
                 </div> <br/><br/>
                 <div>
-                    <input type="button" value="Next" name="buttonQuestion" ident="31"/>
+                    <input type="button" value="Next" name="buttonQuestion" class="btn btn-default" ident="31"/>
                 </div>
             </div>
             <!--*****-->
@@ -671,7 +671,7 @@
                     <input type="radio" name="31NETWORKING" ident="1"/> &nbsp;Attenuation<br/>
                 </div> <br/><br/>
                 <div>
-                    <input type="button" value="Next" name="buttonQuestion" ident="32"/>
+                    <input type="button" value="Next" name="buttonQuestion" class="btn btn-default" ident="32"/>
                 </div>
             </div>
             <div id="question32" name="question">
@@ -687,7 +687,7 @@
                     <input type="radio" name="32NETWORKING" ident="0"/> &nbsp;Four<br/>
                 </div> <br/><br/>
                 <div>
-                    <input type="button" value="Next" name="buttonQuestion" ident="33"/>
+                    <input type="button" value="Next" name="buttonQuestion" class="btn btn-default" ident="33"/>
                 </div>
             </div>
             <div id="question33" name="question">
@@ -703,7 +703,7 @@
                     <input type="radio" name="33NETWORKING" ident="0"/> &nbsp;10Base2<br/>
                 </div> <br/><br/>
                 <div>
-                    <input type="button" value="Next" name="buttonQuestion" ident="34"/>
+                    <input type="button" value="Next" name="buttonQuestion" class="btn btn-default" ident="34"/>
                 </div>
             </div>
             <div id="question34" name="question">
@@ -719,7 +719,7 @@
                     <input type="radio" name="34NETWORKING" ident="0"/> &nbsp;Lift<br/>
                 </div> <br/><br/>
                 <div>
-                    <input type="button" value="Next" name="buttonQuestion" ident="35"/>
+                    <input type="button" value="Next" name="buttonQuestion" class="btn btn-default" ident="35"/>
                 </div>
             </div>
             <div id="question35" name="question">
@@ -735,7 +735,7 @@
                     <input type="radio" name="35NETWORKING" ident="0"/> &nbsp;File services<br/>
                 </div> <br/><br/>
                 <div>
-                    <input type="button" value="Next" name="buttonQuestion" ident="36"/>
+                    <input type="button" value="Next" name="buttonQuestion" class="btn btn-default" ident="36"/>
                 </div>
             </div>
             <div id="question36" name="question">
@@ -751,7 +751,7 @@
                     <input type="radio" name="36NETWORKING" ident="1"/> &nbsp;100<br/>
                 </div> <br/><br/>
                 <div>
-                    <input type="button" value="Next" name="buttonQuestion" ident="37"/>
+                    <input type="button" value="Next" name="buttonQuestion" class="btn btn-default" ident="37"/>
                 </div>
             </div>
             <div id="question37" name="question">
@@ -766,7 +766,7 @@
                     <input type="radio" name="37NETWORKING" ident="0"/> &nbsp;False<br/>
                 </div> <br/><br/>
                 <div>
-                    <input type="button" value="Next" name="buttonQuestion" ident="38"/>
+                    <input type="button" value="Next" name="buttonQuestion" class="btn btn-default" ident="38"/>
                 </div>
             </div>
             <div id="question38" name="question">
@@ -782,7 +782,7 @@
                     <input type="radio" name="38NETWORKING" ident="0"/> &nbsp;100BaseTX<br/>
                 </div> <br/><br/>
                 <div>
-                    <input type="button" value="Next" name="buttonQuestion" ident="39"/>
+                    <input type="button" value="Next" name="buttonQuestion" class="btn btn-default" ident="39"/>
                 </div>
             </div>
             <div id="question39" name="question">
@@ -798,7 +798,7 @@
                     <input type="radio" name="39NETWORKING" ident="1"/> &nbsp;None of the above<br/>
                 </div> <br/><br/>
                 <div>
-                    <input type="button" value="Next" name="buttonQuestion" ident="40"/>
+                    <input type="button" value="Next" name="buttonQuestion" class="btn btn-default" ident="40"/>
                 </div>
             </div>
             <div id="question40" name="question">
@@ -814,7 +814,7 @@
                     <input type="radio" name="40NETWORKING" ident="1"/> &nbsp;Heavy use<br/>
                 </div> <br/><br/>
                 <div>
-                    <input type="button" value="Next" name="buttonQuestion" ident="41"/>
+                    <input type="button" value="Next" name="buttonQuestion" class="btn btn-default" ident="41"/>
                 </div>
             </div>
             <!--*****-->
@@ -838,7 +838,7 @@
                     <input type="radio" name="41DESKTOP" ident="1"/> &nbsp;65432<br/>
                 </div> <br/><br/>
                 <div>
-                    <input type="button" value="Next" name="buttonQuestion" ident="42"/>
+                    <input type="button" value="Next" name="buttonQuestion" class="btn btn-default" ident="42"/>
                 </div>
             </div>
             <div id="question42" name="question">
@@ -866,7 +866,7 @@
                     <input type="radio" name="42DESKTOP" ident="1"/> &nbsp;Compilation fails<br/>
                 </div> <br/><br/>
                 <div>
-                    <input type="button" value="Next" name="buttonQuestion" ident="43"/>
+                    <input type="button" value="Next" name="buttonQuestion" class="btn btn-default" ident="43"/>
                 </div>
             </div>
             <div id="question43" name="question">
@@ -890,7 +890,7 @@
                     <input type="radio" name="43DESKTOP" ident="0"/> &nbsp;Will produce output as false<br/>
                 </div> <br/><br/>
                 <div>
-                    <input type="button" value="Next" name="buttonQuestion" ident="44"/>
+                    <input type="button" value="Next" name="buttonQuestion" class="btn btn-default" ident="44"/>
                 </div>
             </div>
             <div id="question44" name="question">
@@ -912,7 +912,7 @@
                     <input type="radio" name="44DESKTOP" ident="0"/> &nbsp;The two objects will get created on the stack<br/>
                 </div> <br/><br/>
                 <div>
-                    <input type="button" value="Next" name="buttonQuestion" ident="45"/>
+                    <input type="button" value="Next" name="buttonQuestion" class="btn btn-default" ident="45"/>
                 </div>
             </div>
             <div id="question45" name="question">
@@ -943,7 +943,7 @@
                     <input type="radio" name="45DESKTOP" ident="0"/> &nbsp;j cannot be declared as public<br/>
                 </div> <br/><br/>
                 <div>
-                    <input type="button" value="Next" name="buttonQuestion" ident="46"/>
+                    <input type="button" value="Next" name="buttonQuestion" class="btn btn-default" ident="46"/>
                 </div>
             </div>
             <div id="question46" name="question">
@@ -964,7 +964,7 @@
                     <input type="radio" name="46DESKTOP" ident="0"/> &nbsp;2, 4, 5<br/>
                 </div> <br/><br/>
                 <div>
-                    <input type="button" value="Next" name="buttonQuestion" ident="47"/>
+                    <input type="button" value="Next" name="buttonQuestion" class="btn btn-default" ident="47"/>
                 </div>
             </div>
             <div id="question47" name="question">
@@ -980,7 +980,7 @@
                     <input type="radio" name="47DESKTOP" ident="0"/> &nbsp;Grammatical User Incorporation<br/>
                 </div> <br/><br/>
                 <div>
-                    <input type="button" value="Next" name="buttonQuestion" ident="48"/>
+                    <input type="button" value="Next" name="buttonQuestion" class="btn btn-default" ident="48"/>
                 </div>
             </div>
             <div id="question48" name="question">
@@ -996,7 +996,7 @@
                     <input type="radio" name="48DESKTOP" ident="1"/> &nbsp;Object-oriented programming language<br/>
                 </div> <br/><br/>
                 <div>
-                    <input type="button" value="Next" name="buttonQuestion" ident="49"/>
+                    <input type="button" value="Next" name="buttonQuestion" class="btn btn-default" ident="49"/>
                 </div>
             </div>
             <div id="question49" name="question">
@@ -1012,7 +1012,7 @@
                     <input type="radio" name="49DESKTOP" ident="0"/> &nbsp;Coding all of the remark statements<br/>
                 </div> <br/><br/>
                 <div>
-                    <input type="button" value="Next" name="buttonQuestion" ident="50"/>
+                    <input type="button" value="Next" name="buttonQuestion" class="btn btn-default" ident="50"/>
                 </div>
             </div>
             <div id="question50" name="question">
