@@ -91,9 +91,8 @@
                             echo "</div>";
                         }
                         ?>
-                        
-                        <?php
-                            $i = 0;
+                        <?php if($this->session->userdata('test') == 1) {
+                           $i = 0;
                             $j=count($proyectosAreas);
                             if($j > 0) {
                             echo"<br/>";
@@ -124,10 +123,11 @@
                                 echo "</div>";
                                 echo"<br/><br/>";
                             }
-
+                        }elseif($this->session->userdat('test') == 2 || $this->session->userdata('test') == 1) {
                         ?>
                         
                         <?php
+                        
                             $i = 0;
                             $j=count($proyectosCompetencias);
                             if($j > 0) {
@@ -157,7 +157,9 @@
                                     echo "</table>";
                                 echo "</div>";
                                 
-                            }
+                            } 
+                        }
+                            
 
                         ?>
                     <br/><br/>

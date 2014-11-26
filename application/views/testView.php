@@ -1028,7 +1028,7 @@
                     <input type="radio" name="50DESKTOP" ident="0"/> &nbsp;The Properties window<br/>
                 </div> <br/><br/>
                 <div>
-                    <input type="button" value="Save Questions" name="Save" ident="50"/>
+                    <input type="button" value="Save Questions" class="btn btn-primary" name="Save" ident="50"/>
                 </div>
             </div>
             <!--*****-->
