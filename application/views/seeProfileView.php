@@ -38,9 +38,9 @@
                         </table>
                     </div>
                     <br/>
-<<<<<<< HEAD
-                    <!--***Muestra las grﾃ｡ficas con las calificaciones-->
-=======
+
+                    <!--***Muestra las gr・・ｽ｡ficas con las calificaciones-->
+
                     <?php 
                         if(isset($proyectos)) { 
                             echo '<div>';
@@ -85,8 +85,8 @@
                         ?>
                     </div>
                     <br/>
-                    <!--***Muestra las gráficas con las calificaciones-->
->>>>>>> 417398a409c885a5e9d99853441ff1e23567f65c
+                    <!--***Muestra las grﾃ｡ficas con las calificaciones----------------AQUI SE CREO UN HEAD DE ERROR DE MERGE-------------->
+
                     <div style="text-align: center">
                         <script>
                             //Script para mostrar y esconder las dos graficas (inicia escondiendo la segunda grafica) 23 de octubre del 2014.

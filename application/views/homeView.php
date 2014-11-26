@@ -18,7 +18,7 @@
                 }
             ?>
         </div>
-        <div class="principalArea">
+        <div class="principalArea" style="margin-left:13%; margin-right:13%">
             <div>
                 <div id="title"><h2>Welcome! <?php echo $nombre; ?></h2></div>
                 <div>
@@ -39,9 +39,9 @@
                     if($this->session->userdata('test') == 0) {
                         echo form_open('usuariosController/takeTest');
                             echo '<div>';
-                                echo '<br/><br/><br/>';
+                                echo '<br/>';
                                 echo '<input type="hidden" name="idUsuario" value="'.$this->session->userdata('id').'"/>';
-                               echo '<input type="submit" value="Take test" style="cursor: pointer"/>';
+                               echo '<input type="submit" class="btn btn-success" value="Take test" style="cursor: pointer"/>';
                             echo '</div>';
                         echo form_close();
                     }
@@ -52,27 +52,27 @@
                     if($this->session->userdata('test') == 1) {
                         echo form_open('usuariosController/takeTestCompetences');
                             echo '<div>';
-                                echo '<br/><br/><br/>';
+                                echo '<br/>';
                                 echo '<input type="hidden" name="idUsuario" value="'.$this->session->userdata('id').'"/>';
-                               echo '<input type="submit" value="Take test" style="cursor: pointer"/>';
+                               echo '<input type="submit" class="btn btn-success" value="Take test" style="cursor: pointer"/>';
                             echo '</div>';
                         echo form_close();
                     }
                 ?>
             </div>
             <div id="contentArea">
-                <br/><br/><br/><br/><br/>
+                
                 <?php 
                 if($this->session->userdata('tipo') == 3) { ?>
                     <div>
                         <?php
-                        //*******Se muestran los proyectos a los que est・・ｽ｡ actualmente inscrito//*********
+                        //*******Se muestran los proyectos a los que est繝ｻ繝ｻ・ｽ・｡ actualmente inscrito//*********
                         $cont = count($proyectosUser);
                         $i = 0;
                         if($cont > 0) {
                             echo "<div class='titleProyects' id='proyectosActuales'>";
                                 echo "<h2>Actual Projects</h2>";
-                            echo "</div><br/>";
+                            echo "</div>";
                             echo "<div id='divProyectosActuales' class='principalMenus'>";
                                 echo "<table>";
                                     for($i; $i < $cont; $i++) {
@@ -85,11 +85,11 @@
                                                     echo $row->Descripcion;
                                                 echo "</td>";
                                                 echo "<td>"; ?>
-<<<<<<< HEAD
+
                                                     <input type='button' class="btn btn-primary" value='See project' onClick="seeProject('<?php echo $row->idTrabajos;?>')"/>
-=======
-                                                    <input type='button' class="button2" value='See project' name="projectButton" ident='<?php echo $row->idTrabajos; ?>' data-type="zoomin"/>
->>>>>>> 417398a409c885a5e9d99853441ff1e23567f65c
+
+                                                    <!--<input type='button' class="button2" value='See project' name="projectButton" ident='<?php echo $row->idTrabajos; ?>' data-type="zoomin"/>
+>>>>>>> 417398a409c885a5e9d99853441ff1e23567f65c-->
                                           <?php echo "</td>";
                                             }
                                         echo "</tr>";
@@ -98,12 +98,12 @@
                             echo "</div>";
                         }
                         ?>
-                        <br/><br/>
+                        
                         <?php
                             $i = 0;
                             $j=count($proyectosAreas);
                             if($j > 0) {
-                            echo"<hr/><br/>";
+                            echo"<br/>";
                                 echo "<div class='titleProyects' id='proyectosAreas'>";
                                 ?>
                                 <h2><img src="<?php echo base_url(); ?>images/folder-logo_opt.png" alt="logos"/>Same area Projects</h2><h3>(Click to expand)</h3>
@@ -129,16 +129,16 @@
                                         }
                                     echo "</table>";
                                 echo "</div>";
-                                echo"<br/><hr/><br/>";
+                                echo"<br/><br/>";
                             }
 
                         ?>
-                        <br/><br/>
+                        
                         <?php
                             $i = 0;
                             $j=count($proyectosCompetencias);
                             if($j > 0) {
-                            echo"<hr/><br/>";
+                            
                                 echo "<div class='titleProyects' id='proyectosCompetencias'>";
                                  ?>
                                 <h2><img src="<?php echo base_url(); ?>images/folder-logo_opt.png" alt="logos"/>Same area Projects</h2><h3>(Click to expand)</h3>
@@ -163,7 +163,7 @@
                                         }
                                     echo "</table>";
                                 echo "</div>";
-                                echo"<br/><hr/><br/>";
+                                
                             }
 
                         ?>
@@ -215,7 +215,6 @@
             </div>
         </div>
     </div>
-    <br/><br/><br/>
     <input type="hidden" id="url" value="<?php echo base_url(); ?>"/>
 </body>
 

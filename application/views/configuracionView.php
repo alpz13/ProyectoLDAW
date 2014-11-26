@@ -84,7 +84,7 @@
                     echo '<img src="../../files/barra'.$i.'.png" alt="Img"/><span>'.$average.'</span>';
 
                 } else {
-                    echo '<span>The user has not been rated yet</span>';
+                    echo '<span style="margin-left:13%; margin-right:13%" class="alert alert-warning" role="alert">The user has not been rated yet</span>';
                 }
             ?>
         </div>
@@ -114,7 +114,8 @@
                     $dataAreas[$i++] = $row->calificacionArea;
                 } ?>
             <p1 style="margin-left:5%" id="graph1"><img style="-webkit-user-select:none;" width="35%" src="<?php echo base_url(); ?>lib/graph/radarmarkex1View.php?a=<?php echo $dataAreas[0];?>&amp;b=<?php echo $dataAreas[1];?>&amp;c=<?php echo $dataAreas[2];?>&amp;d=<?php echo $dataAreas[3];?>&amp;e=<?php echo $dataAreas[4];?>" alt="" ></p1>
-            
+            <br/>
+       
             <?php }
             if(isset($califCompetencias)) {
                 $i = 0;

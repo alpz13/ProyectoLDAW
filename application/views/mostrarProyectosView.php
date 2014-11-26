@@ -61,7 +61,7 @@
                 </table>
             <?php } ?>
         </div><br/>
-        <div class="principalAreaP dark principalMostrarP">
+        <div class="principalAreaP dark principalMostrarP" style="margin-left:13%; margin-right:13%">
             <?php if(isset($proyectos)) { 
                 $j = count($usersProyectos);
                 $i = 0;
