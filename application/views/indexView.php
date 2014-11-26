@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <?php include_once('header_intro.php'); ?>
-<body>
+<body style="background-color:silver">
         <?php if(isset($bin) || isset($error)) { ?>
             <script>
                 $(document).ready(function() {
@@ -10,13 +10,15 @@
                 });
             </script>
         <?php } ?>
-        <div style="text-align: center;" id="principalDiv">
+       <!-- <div style="text-align: center;" id="principalDiv">
             <h1>Job Scope</h1>
-        </div>
+        </div>-->
 	<div id="intro">
-		<div>                    
-                        <!-- Aquﾃｭ comienzan las formas de login y registro-->
-                        <div id="registro">
+		<div align="center">                    
+		 <h1>Job Scope</h1>
+
+                        <!-- Aqu・・ｽｭ comienzan las formas de login y registro-->
+                        <div id="registro" align="center">
                             <br/>
 <!--                            <div>
                                 <form enctype="multipart/form-data" method="post" id="formulario">
@@ -66,13 +68,11 @@
                                     <tr>
                                         <td></td>
                                         <td>
-<<<<<<< HEAD
                                             <input id="registrarUsuario" class="btn btn-primary" type="button" value='Register' data-type="zoomin" style="top: 232px; left: 190px;"/>&nbsp;
-                                            <input id="back" class="btn btn-danger" type="button" value="Back" />
+                                            <!--<input id="back" class="btn btn-danger" type="button" value="Back" />
 =======
-                                            <input id="registrarUsuario" type="button" value='Register' data-type="zoomin" style="top: 232px; left: 190px;"/>&nbsp;
-                                            <input name="back" type="button" value="Back" />
->>>>>>> 417398a409c885a5e9d99853441ff1e23567f65c
+                                            <input id="registrarUsuario" type="button" value='Register' data-type="zoomin" style="top: 232px; left: 190px;"/>&nbsp;-->
+                                            <input name="back" type="button" class="btn btn-primary" value="Back" />
                                         </td>
                                     </tr>
                                 </table>
@@ -84,7 +84,7 @@
 
                             </div>
                         </div>
-                        <div id="login">
+                        <div id="login" align="center">
                             <br/><br/><br/>
                             <?php echo form_open('principalController/home'); ?>
                                 <div><h2>Log in:</h2></div>
@@ -129,7 +129,7 @@
                         <div>
                             <?php 
                                 if(isset($error)) {
-                                    echo "<div><p>".$error."</p></div>";
+                                    echo "<div class='alert alert-danger'><p>".$error."</p></div>";
                                 }
                             ?>
                         </div>

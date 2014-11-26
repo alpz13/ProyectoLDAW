@@ -10,20 +10,20 @@
         <div>
             <?php 
                 if(isset($error)) {
-                    echo "<div class='error'>".$error."</div>";
+                    echo "<div class='alert alert-danger'>".$error."</div>";
                 }
             ?>
         </div>
         <div>
             <?php
                 if(isset($success)) {
-                    echo "<div class='success'>".$success."</div>";
+                    echo "<div class='alert alert-success'>".$success."</div>";
                 }                 
             ?>
         </div>
-        <div id='header' class="dark">
+        <div id='header' class="dark" align="center">
             <?php echo form_open('principalController/home'); ?>
-                <div>
+                <div align="center">
                     <h1>Welcome !</h1>
                     <br/>
                     <div><h2>Log in to the system:</h2></div>

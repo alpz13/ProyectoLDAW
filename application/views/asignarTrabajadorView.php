@@ -50,7 +50,7 @@
                 </tr>
             </table>
         </div><br/><br/>
-        <div class="principalAreaP dark principalTrabajadores">
+        <div class="principalAreaP dark principalTrabajadores" style="margin-left:13%; margin-right:13%">
             <?php echo form_open('proyectosController/asignarProyecto'); ?>
                 <table style="margin-left: 20%">
                     <tr>

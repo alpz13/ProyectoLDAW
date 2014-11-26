@@ -63,7 +63,7 @@
             <li>
             <?php echo form_open('principalController/Configuracion'); ?>
             <div style="margin-top:9px">
-            &nbsp;&nbsp;&nbsp;<button type="button" class="btn btn-info"><a href="<?php echo base_url(); ?>index.php/principalController/Configuracion" id="config" alt="configuracion">Settings</a></button>
+            &nbsp;&nbsp;&nbsp;<a href="<?php echo base_url(); ?>index.php/principalController/Configuracion" id="config" alt="configuracion"><button type="button" class="btn btn-info">Settings</button></a>
             <?php echo form_close(); ?>
             </div>
             </li>

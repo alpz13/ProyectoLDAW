@@ -150,7 +150,7 @@
                 }
             ?>
         </div>
-        <div class="principalArea">
+        <div class="principalArea" style="margin-left:13%; margin-right:13%">
             <div id="instructions" style="text-align: center; width: 70%; margin-left: 16%; font-size: medium;">
                 <p>
                     The following test was implemented to evaluate your capabilities into different areas 
@@ -293,9 +293,9 @@
                     </li>
                 </div>
                 <div>
-                    <input type="radio" name="8DB" ident="0"/> &nbsp;SELECT * FROM Workers WHERE Name:'Raúl'<br/>
-                    <input type="radio" name="8DB" ident="1"/> &nbsp;SELECT * FROM Workers WHERE Name='Raúl'<br/>
-                    <input type="radio" name="8DB" ident="0"/> &nbsp;SELECT * FROM Worker LIKE 'Raúl'<br/>
+                    <input type="radio" name="8DB" ident="0"/> &nbsp;SELECT * FROM Workers WHERE Name:'Raﾃｺl'<br/>
+                    <input type="radio" name="8DB" ident="1"/> &nbsp;SELECT * FROM Workers WHERE Name='Raﾃｺl'<br/>
+                    <input type="radio" name="8DB" ident="0"/> &nbsp;SELECT * FROM Worker LIKE 'Raﾃｺl'<br/>
                 </div> <br/><br/>
                 <div>
                     <input type="button" value="Next" name="buttonQuestion" ident="9"/>
@@ -628,11 +628,11 @@
                 <div ident1="security" ident2="29" style="font-size: 20px">
                     <strong>Question 29.</strong> <br/><br/>
                     <li>
-                        You are logged on to AccèsD in an Internet café. What should you do to make sure your transactions remain safe?
+                        You are logged on to AccﾃｨsD in an Internet cafﾃｩ. What should you do to make sure your transactions remain safe?
                     </li>
                 </div>
                 <div>
-                    <input type="radio" name="29SECURITY" ident="1"/> &nbsp;Check the I am using a public or shared computerbox on the AccèsD home page when you log on and click onLog off at the top of the screen, clear the cache memory and close the browser when you're done.<br/>
+                    <input type="radio" name="29SECURITY" ident="1"/> &nbsp;Check the I am using a public or shared computerbox on the AccﾃｨsD home page when you log on and click onLog off at the top of the screen, clear the cache memory and close the browser when you're done.<br/>
                     <input type="radio" name="29SECURITY" ident="0"/> &nbsp;Turn off the computer.<br/>
                     <input type="radio" name="29SECURITY" ident="0"/> &nbsp;I don't know.<br/>
                 </div> <br/><br/>
