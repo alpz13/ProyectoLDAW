@@ -99,19 +99,19 @@
                             echo"<br/>";
                                 echo "<div class='titleProyects' id='proyectosAreas'>";
                                 ?>
-                                <h2><img src="<?php echo base_url(); ?>images/folder-logo_opt.png" alt="logos"/>Same area Projects</h2><h3>(Click to expand)</h3>
+                                <h3><img src="<?php echo base_url(); ?>images/folder-logo_opt.png" alt="logos"/>Same area Projects</h3><h4>(Click to expand)</h4>
                                 <?php
                                     //echo "<h2>Same area Projects</h2><h3>(Click to expand)</h3>";
                                 echo "</div><br/>";
                                 echo "<div id='divProyectosAreas' class='principalMenus'>";
-                                    echo "<table>";
+                                    echo '<table class="table table-bordered table-hover table-striped">';
                                         for($i; $i < $j; $i++) {
                                             echo "<tr>";
                                                 foreach($proyectosAreas[$i]->result() as $row) {
-                                                    echo "<td class='td'>";
+                                                    echo "<td>";
                                                         echo $row->Nombre;
                                                     echo "</td>";
-                                                    echo "<td class='td2'>";
+                                                    echo "<td>";
                                                         echo $row->Descripcion;
                                                     echo "</td>";
                                                     echo "<td>"; ?>
@@ -134,18 +134,18 @@
                             
                                 echo "<div class='titleProyects' id='proyectosCompetencias'>";
                                  ?>
-                                <h2><img src="<?php echo base_url(); ?>images/folder-logo_opt.png" alt="logos"/>Same area Projects</h2><h3>(Click to expand)</h3>
+                                <h3><img src="<?php echo base_url(); ?>images/folder-logo_opt.png" alt="logos"/>Same competence Projects</h3><h4>(Click to expand)</h4>
                                 <?php
                                     //echo "<h2>Same competence Projects</h2><h3>(Click to expand)</h3>";
                                 echo "</div><br/>";
                                  echo "<div id='divProyectosCompetencias' class='principalMenus'>";
-                                    echo "<table>";
+                                    echo '<table class="table table-bordered table-hover table-striped">';
                                         for($i; $i < $j; $i++) {
                                             foreach($proyectosCompetencias[$i]->result() as $row) { 
-                                                echo "<td class='td'>";
+                                                echo "<td>";
                                                         echo $row->Nombre;
                                                     echo "</td>";
-                                                    echo "<td class='td2'>";
+                                                    echo "<td>";
                                                         echo $row->Descripcion;
                                                     echo "</td>";
                                                     echo "<td>"; ?>
@@ -189,11 +189,12 @@
                         }
                     } else {
                         ?>
-                                                <div class="principalMenus">
+                                                <div>
+                                                    <br/>
                                                     <table style="margin-left:35%">
                                                         <tr>
-                                                            <td class='td'>
-                                                                <span><img src="<?php echo base_url(); ?>images/00442128_opt.png" alt="logos"/>You don't have any pending request. </span>
+                                                            <td>
+                                                                <span class="alert alert-info" role="alert"><img src="<?php echo base_url(); ?>images/00442128_opt.png" alt="logos"/>You don't have any pending request. </span>
                                                             </td>
                                                         </tr>
                                                     </table>

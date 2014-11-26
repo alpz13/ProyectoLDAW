@@ -13,6 +13,7 @@ $(document).ready(function() {
     $("#registerButton").click(function() {
         //$("#principalDiv").slideUp();
         $("#login").slideUp('slow');
+        $("#error").hide();
         setTimeout(function() {
            $("#registro").slideDown('slow'); 
         }, 500);
@@ -26,6 +27,7 @@ $(document).ready(function() {
     });
     
     $("#registrarUsuario").click(function() {
+        $("#contenido").hide();
         type = $("#registrarUsuario").attr('data-type');
 
         url = $("#url").val();
@@ -36,7 +38,7 @@ $(document).ready(function() {
         passCon = $("#passCon").val();
         mail = $("#mail").val();
         foto = "";
-        $.post(url+"index.php/usuariosController/registraUsuario", {
+        $.post(url+"index.php/usuarioscontroller/registraUsuario", {
             nombre : nombre,
             apellidoP : apellidoP,
             apellidoM : apellidoM,
@@ -46,6 +48,7 @@ $(document).ready(function() {
             foto : foto
         },function(data) {
             $("#contenido").html(data);
+            $("#contenido").slideDown('slow');
         });
     });
     
@@ -56,7 +59,7 @@ $(document).ready(function() {
     $("#sendEmail").click(function() {
         url = $("#url").val();
         email = $("#emailForgotten").val();
-        $.post(url+"index.php/principalController/sendPassword", {
+        $.post(url+"index.php/principalcontroller/sendPassword", {
             email : email
         }, function(data) {
             $("#forgottenMsg").html(data);

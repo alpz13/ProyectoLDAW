@@ -22,7 +22,7 @@
         </div>
         <div>
             <input type="hidden" id="url" value="<?php echo base_url(); ?>"/>
-            <table style="margin-left: 27%;">
+            <table style="margin-left: 38%;">
                 <tr>
                     <?php echo form_open("usuarioscontroller/crearUsuario"); ?>
                         <td>
@@ -43,46 +43,50 @@
             </table>
         </div>
         <br/><br/>
+        <div id="contenido" style="font-size: 15px; margin-left: 30%; margin-right: 30%">
+            
+        </div><br/>
         <input type="hidden" id="urlUsuarios" value="<?php echo base_url(); ?>"/>
-        <div id="usuarioRegistrarC">
+        <div id="usuarioRegistrarC" style="margin-left:13%; margin-right:13%">
             <?php echo form_open(); ?>
-                    <table class="tRegistro" style="margin-left: 33%;">
+            <div style="width: 70%">
+                    <table class="table table-bordered table-hover table-striped" style="margin-left: 20%">
                         <tr>
-                            <td>Name:</td>
-                            <td><input type='text' name='nombre' id="nombre" value="<?php echo set_value('nombre');?>"</td>
+                            <td><strong>Name:</strong></td>
+                            <td><input type='text' class="form-control" name='nombre' id="nombre" value="<?php echo set_value('nombre');?>"</td>
                             <td class="error"><?php echo form_error('nombre'); ?></td>
                         </tr>
                         <tr>
-                            <td>Paternal lastname:</td>
-                            <td><input type='text' name='apellidoP' id="apellidoP" value="<?php echo set_value('apellidoP');?>"</td>
+                            <td><strong>Paternal lastname:</strong></td>
+                            <td><input type='text' class="form-control" name='apellidoP' id="apellidoP" value="<?php echo set_value('apellidoP');?>"</td>
                             <td class="error"><?php echo form_error('apellidoP'); ?></td>
                         </tr>
                         <tr>
-                            <td>Maternal lastname:</td>
-                            <td><input type='text' name='apellidoM' id="apellidoM" value="<?php echo set_value('apellidoM');?>"</td>
+                            <td><strong>Maternal lastname:</strong></td>
+                            <td><input type='text' class="form-control" name='apellidoM' id="apellidoM" value="<?php echo set_value('apellidoM');?>"</td>
                             <td class="error"><?php echo form_error('apellidoM'); ?></td>
                         </tr>
                         <tr>
-                            <td>Password:</td>
-                            <td><input type='password' name='pass' id="pass" value="<?php echo set_value('pass');?>"</td>
+                            <td><strong>Password:</strong></td>
+                            <td><input type='password' class="form-control" name='pass' id="pass" value="<?php echo set_value('pass');?>"</td>
                             <td class="error"><?php echo form_error('pass'); ?></td>
                         </tr>
                         <tr>
-                            <td>Re entry password:</td>
-                            <td><input type='password' name='passCon' id="passCon" value="<?php echo set_value('passCon');?>"</td>
+                            <td><strong>Re entry password:</strong></td>
+                            <td><input type='password' class="form-control" name='passCon' id="passCon" value="<?php echo set_value('passCon');?>"</td>
                             <td class="error"><?php echo form_error('passCon'); ?></td>
                         </tr>
                         <tr>
-                            <td>Mail:</td>
-                            <td><input type='text' name='mail' id="mail" value="<?php echo set_value('mail');?>"</td>
+                            <td><strong>Mail:</strong></td>
+                            <td><input type='text' class="form-control" name='mail' id="mail" value="<?php echo set_value('mail');?>"</td>
                             <td class="error"><?php echo form_error('mail'); ?></td>
                         </tr>
                         <tr>
                             <?php 
                                 if($this->session->userdata('tipo') == 2 || $this->session->userdata('tipo') == 1) {
-                                    echo '<td>User type</td>';
+                                    echo '<td><strong>User type</strong></td>';
                                     echo '<td>';
-                                        echo '<select id="userType" name="userType">';
+                                        echo '<select id="userType" class="form-control" name="userType">';
                                             echo '<option value="2">Supervisor</option>';
                                             echo '<option value="3">Worker</option>';
                                         echo '</select>';
@@ -98,10 +102,11 @@
                             <td><input class='btn btn-primary' type='button' id="registraUsuarioC" value='Register'/></td>
                         </tr>
                     </table>
+            </div>
             <?php echo form_close(); ?>
         </div>
-        <div id="usuarioEliminarC">
-            <select id="usuarioSelectC" style="margin-left: 40%;">
+        <div id="usuarioEliminarC" style="text-align: center; margin-left: 35%; margin-right: 35%">
+            <select id="usuarioSelectC" class="form-control">
                 <option value="">Choose an user</option>
                 <?php 
                     if($usuarios->num_rows > 0) {
@@ -112,8 +117,8 @@
                 ?>
             </select>
         </div>
-        <div id="usuarioModificarC">
-            <select id="usuarioModificarSelectC" style="margin-left: 40%;">
+        <div id="usuarioModificarC" style="text-align: center; margin-left: 35%; margin-right: 35%">
+            <select id="usuarioModificarSelectC" class="form-control">
                 <option value="">Choose an user</option>
                 <?php 
                     if($usuarios->num_rows > 0) {
@@ -124,11 +129,11 @@
                 ?>
             </select>
         </div><br/><br/>
-        <div id="contenido" style="font-size: 15px;">
+        <div id="contenidoModificar" style="margin-left: 25%; margin-right: 25%; text-align: center">
             
-        </div><br/>
-        <div id="buttonShow">
-            <input class='btn btn-danger' type='button' id='eliminarUsuarioConfig' value='Delete' style="margin-left: 45%;"/>
+        </div>
+        <div id="buttonShow" style="text-align: center">
+            <input class='btn btn-danger' type='button' id='eliminarUsuarioConfig' value='Delete'/>
         </div>
     </body>
 </html>

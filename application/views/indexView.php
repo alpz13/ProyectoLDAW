@@ -78,19 +78,20 @@
                                 </table>
                               <?php echo form_close(); ?>
                             <br/>
-                        </div>
-                        <div>
-                            <div id="contenido">
+                            <div style="width: 30%; text-align: center">
+                                <div id="contenido">
 
+                                </div>
                             </div>
                         </div>
+                        <br/>
                         <div id="login" align="center">
                             <br/><br/><br/>
                             <?php echo form_open('principalcontroller/home'); ?>
                                 <div><h2>Log in:</h2></div>
                                 <table>
                                     <tr>
-                                        <td align="right">User: </td>
+                                        <td>Mail: </td>
                                         <td>&nbsp;<input type="text" class="form-control" id="usuario" name="usuario"/></td>
                                     </tr>
                                     <tr>
@@ -104,7 +105,7 @@
                                     <tr>
                                         <td></td>
                                         <td>
-                                            <br><input type="submit" class="btn btn-primary" value="Enter"/>
+                                            <br><input type="submit" class="btn btn-default" value="Enter"/>
                                             <input type="button" class="btn btn-default" id="registerButton" value="Register"/>
                                         </td>
                                     </tr>
@@ -129,7 +130,7 @@
                         <div>
                             <?php 
                                 if(isset($error)) {
-                                    echo "<div class='alert alert-danger'  role='alert'><p>".$error."</p></div>";
+                                    echo "<div id='error' class='alert alert-danger'  role='alert'><p>".$error."</p></div>";
                                 }
                             ?>
                         </div>

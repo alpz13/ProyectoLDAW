@@ -41,7 +41,7 @@
               <!--<input type="text" placeholder="Search" class="form-control">-->
                     <div>
                         <?php echo form_open("buscarcontroller/searchAll"); ?>
-                            <input type="text" name="buscar" id="buscar" class="busqueda"/>
+                            <input type="text" class="form-control" name="buscar" id="buscar" class="busqueda"/>
                             <!--<input type="submit" value="Buscar" style="border-style: none; background: url('<?php echo base_url(); ?>images/search.gif') no-repeat; width: 24px; height: 20px;">-->
                               <input type="submit" class="btn btn-primary" value="Search"/>
                         <?php echo form_close();?>
@@ -67,7 +67,7 @@
             <?php
                 $usuario = $this->session->userdata('apellidoP')." ".$this->session->userdata('apellidoM')." ".$this->session->userdata('nombre');
             ?>
-            &nbsp;&nbsp;&nbsp;<button type="button" class="btn btn-info"><a href="<?php echo base_url(); ?>index.php/principalcontroller/Configuracion" id="config" alt="configuracion"><?php echo $usuario; ?></a></button>
+            &nbsp;&nbsp;&nbsp;<a href="<?php echo base_url(); ?>index.php/principalcontroller/Configuracion" id="config" alt="configuracion"><button type="button" class="btn btn-info"><?php echo $usuario; ?></button></a>
             <?php echo form_close(); ?>
             </div>
             </li>

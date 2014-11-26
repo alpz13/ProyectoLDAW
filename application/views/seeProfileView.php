@@ -5,7 +5,7 @@
     </head>
     <script>
         $(document).ready(function() {
-            $('.close').click(function() {
+            $('#close').click(function() {
                 $('.overlay-container').fadeOut().end().find('.window-container').removeClass('window-container-visible');
             });
         });
@@ -20,7 +20,7 @@
                         <img src="<?php echo $usuario->urlFoto; ?>" title="User picture" alt="Nothing to display" width="200" height="200"/>
                     </div>
                     <div style="text-align: center">
-                        <table>
+                        <table class="table table-bordered table-hover table-striped">
                             <tr>
                                 <td><strong>Lastname</strong></td>
                                 <td><strong>Name</strong></td>
@@ -45,7 +45,7 @@
                         if(isset($proyectos)) { 
                             echo '<div>';
                                 echo '<span><strong>Projects which are currently working</strong></span><br/>';
-                                echo '<table>';
+                                echo '<table class="table table-bordered table-hover table-striped">';
                                     echo '<tr>';
                                         echo '<td><strong>Project</strong></td>';
                                         echo '<td><strong>Description</strong></td>';
@@ -104,28 +104,37 @@
                             });
                         </script>
                         <?php
+                        if(isset($califAreas)) {
                             $i = 0;
                             $dataAreas = array();
-                            foreach($califAreas->result() as $row) {
+                            foreach($califAreas as $row) {
                                 $dataAreas[$i++] = $row->calificacionArea;
-                            }
+                            } ?>
+                        <p1 id="graph1"><img style="-webkit-user-select:none;" width="60%" src="<?php echo base_url(); ?>lib/graph/radarmarkex1View.php?a=<?php echo $dataAreas[0];?>&amp;b=<?php echo $dataAreas[1];?>&amp;c=<?php echo $dataAreas[2];?>&amp;d=<?php echo $dataAreas[3];?>&amp;e=<?php echo $dataAreas[4];?>" alt="" ></p1>
+                        <?php } 
+                        if(isset($califCompetencias)) {
                             $i = 0;
                             $dataCompetencias = array();
-                            foreach($califCompetencias->result() as $row) {
+                            foreach($califCompetencias as $row) {
                                 $dataCompetencias[$i++] = $row->calificacionCompetencia;
-                            }
-                        ?>
-                        <p1 id="graph1"><img style="-webkit-user-select:none;" width="60%" src="<?php echo base_url(); ?>lib/graph/radarmarkex1View.php?a=<?php echo $dataAreas[0];?>&amp;b=<?php echo $dataAreas[1];?>&amp;c=<?php echo $dataAreas[2];?>&amp;d=<?php echo $dataAreas[3];?>&amp;e=<?php echo $dataAreas[4];?>" alt="" ></p1>
+                            } ?>
                         <p2 id="graph2"><img style="-webkit-user-select:none;" width="60%" src="<?php echo base_url(); ?>lib/graph/radarmarkex2View.php?a=<?php echo $dataCompetencias[0];?>&amp;b=<?php echo $dataCompetencias[1];?>&amp;c=<?php echo $dataCompetencias[2];?>&amp;d=<?php echo $dataCompetencias[3];?>&amp;e=<?php echo $dataCompetencias[4];?>" alt="" ></p2>
+                        <?php }
+                        ?>
                         <br/>
                         <div>
-                                <button class="btn btn-primary" id="hide">Areas</button>
-                                &nbsp;
-                                <button class="btn btn-primary" id="show">Abilities</button>
+                            <?php if(isset($califAreas)) {
+                                echo '<button class="btn btn-primary" id="hide">Areas</button>&nbsp;';
+                            }
+                            if(isset($califCompetencias)) {
+                                echo '<button class="btn btn-primary" id="show">Abilities</button>';
+                            } ?>
                         </div>
                     </div>
-                    
-                    <span class="close">Close</span>
+                    <br/><br/>
+                    <div style="text-align: center">
+                        <span class="btn btn-default" id="close">Close</span>
+                    </div>
                 </div>
             <?php } else {
                         echo "<div>";

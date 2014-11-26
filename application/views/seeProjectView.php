@@ -5,7 +5,7 @@
     </head>
     <script>
         $(document).ready(function() {
-            $('.close').click(function() {
+            $('#close').click(function() {
                 $('.overlay-container').fadeOut().end().find('.window-container').removeClass('window-container-visible');
             });
         });
@@ -20,7 +20,7 @@
                         <img src="<?php echo $proyecto->urlFotoTrabajo; ?>" title="Project picture" alt="Nothing to display" width="200" height="200"/>
                     </div>
                     <div style="text-align: center">
-                        <table>
+                        <table class="table table-bordered table-hover table-striped">
                             <tr>
                                 <td><strong>Project name</strong></td>
                                 <td><strong>Description</strong></td>
@@ -67,7 +67,10 @@
                             }
                         ?>
                     </div>
-                    <span class="close">Close</span>
+                    <br/><br/>
+                    <div style="text-align: center">
+                        <span class="btn btn-default" id="close">Close</span>
+                    </div>
                 </div>
             <?php } else {
                         echo "<div>";

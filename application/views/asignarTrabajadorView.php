@@ -19,7 +19,7 @@
             ?>
         </div>
         <div class="principalAreaP dark">
-            <table style="margin-left: 14%;">
+            <table style="margin-left: 30%;">
                 <tr>
                     <td>
                         <?php echo form_open('proyectoscontroller/myProjects'); ?>
@@ -52,7 +52,7 @@
         </div><br/><br/>
         <div class="principalAreaP dark principalTrabajadores" style="margin-left:13%; margin-right:13%">
             <?php echo form_open('proyectoscontroller/asignarProyecto'); ?>
-                <table style="margin-left: 20%">
+                <table style="width: 60%; margin-left: 25%">
                     <tr>
                         <td>
                             <?php if(isset($trabajos)) { ?>
@@ -88,7 +88,9 @@
                         </td>
                     </tr>
                 </table><br/>
-                <input class="btn btn-primary" type='submit' value='Assign' style="margin-left: 43%"/>
+                <div style="text-align: center">
+                    <input class="btn btn-default" type='submit' value='Assign'/>
+                </div>
             <?php echo form_close(); ?>
         </div>
     </div>

@@ -2,7 +2,7 @@
 <!----------------OTHER VIEW-------------------------------->
 <!---------------------------------------------------------->				
 
-<div class="content">
+<div class="content" style="margin-left: 10%; margin-right: 10%">
 <?php
 //We check if the user is logged
 //We list his messages in a table
@@ -20,12 +20,12 @@ $req2 = mysql_query('select m1.id, m1.title, m1.timestamp, count(m2.id) as reps,
 <br />
 <a href="<?php echo site_url('principalcontroller/nuevomensajeView');?>" style="top: 232px; left: 190px;"><button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-plus" aria-hidden="true"> Create message</span></button></a><br />
 <h3>New Messages (<?php echo intval(mysql_num_rows($req1)); ?>):</h3>
-<table class="table_message">
+<table class="table table-bordered table-hover table-striped">
 	<tr>
-    	<th class="title_cell">Title</th>
+            <th><strong>Title</strong></th>
         <!--<th>No. Replies</th>-->
-        <th>From</th>
-        <th>Date:</th>
+        <th><strong>From</strong></th>
+        <th><strong>Date:</strong></th>
     </tr>
 <?php
 //We display the list of unread messages
@@ -55,12 +55,12 @@ if(intval(mysql_num_rows($req1))==0)
 </table>
 <br />
 <h3>Write/Read Messages (<?php echo intval(mysql_num_rows($req2)); ?>):</h3>
-<table class="table_message">
+<table class="table table-bordered table-hover table-striped">
 	<tr>
-    	<th class="title_cell">Title</th>
-        <th>No. Replies</th>
-        <th>From</th>
-        <th>Date:</th>
+    	<th><strong>Title</strong></th>
+        <th><strong>No. Replies</strong></th>
+        <th><strong>From</strong></th>
+        <th><strong>Date:</strong></th>
     </tr>
 <?php
 //We display the list of read messages

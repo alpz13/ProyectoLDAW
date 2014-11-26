@@ -19,7 +19,7 @@
             ?>
         </div>
         <div class="principalAreaP dark">
-            <table style="margin-left: 14%;">
+            <table style="margin-left: 30%;">
                 <tr>
                     <td>
                         <?php echo form_open('proyectoscontroller/myProjects'); ?>
@@ -49,19 +49,23 @@
                 </tr>
             </table>
         </div><br/><br/>
-        <div class="principalAreaP dark">
+        <div id="projectMsg">
+            
+        </div>
+        <div class="principalAreaP dark" style="margin-left:18%; margin-right:18%">
             <?php echo form_open('proyectoscontroller/nuevoProyecto'); ?>
-                <table style="margin-left: 20%;">
+                <input type="hidden" id="url" value="<?php echo base_url(); ?>"/>
+                <table class="table table-bordered table-hover table-striped">
                     <tr>
-                        <td>Name of the project: </td>
-                        <td><input type="text" name="nombre" value="<?php echo set_value('nombre');?>"/></td>
+                        <td><strong>Name of the project:</strong> </td>
+                        <td><input class="form-control" type="text" name="nombre" value="<?php echo set_value('nombre');?>"/></td>
                     </tr>
                     <tr>
-                        <td>Description: </td>
-                        <td><textarea name="descripcion" rows="5" cols="70" ><?php echo set_value('descripcion');?></textarea></td>
+                        <td><strong>Description: </strong></td>
+                        <td><textarea class="form-control" name="descripcion" rows="5" cols="70" ><?php echo set_value('descripcion');?></textarea></td>
                     </tr>
                     <tr>
-                        <td>Availability: </td>
+                        <td><strong>Availability: </strong></td>
                         <td>
                             <label>Enable: </label><input type="radio" name="habilitado" value="1" checked="true"/>
                             <label>Disable: </label><input type="radio" name="habilitado" value="0"/>
@@ -71,7 +75,7 @@
                         <td></td>
                         <td>
                             <br/><br/>
-                            Please add the areas/competences for your project
+                            <strong>Please add the areas/competences for your project</strong>
                         </td>
                     </tr>
                     <tr>
@@ -112,7 +116,7 @@
                     </tr>
                 </table>
             <br/>
-            <input class="btn btn-success" type="submit" value="Create" style="margin-left: 20%;"/>
+            <input class="btn btn-success" type="submit" id="buttonCreate" value="Create" style="text-align: center"/>
             <?php echo form_close(); ?>
         </div>
     </div><br/><br/>

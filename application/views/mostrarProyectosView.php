@@ -20,7 +20,7 @@
         </div>
         <div class="principalAreaP dark">
             <?php if($this->session->userdata('tipo') == 1 || $this->session->userdata('tipo') == 2 ) { ?>
-                <table style="margin-left: 14%;">
+                <table style="margin-left: 30%;">
                     <tr>
                         <td>
                             <?php echo form_open('proyectoscontroller/myProjects'); ?>
@@ -68,9 +68,9 @@
                 echo "<div class='resultados'>";
                     foreach($proyectos->result() as $row) {
                         $rowU = $usersProyectos[$i]->row();
-                        echo "<table class='table_message'>";
-                            echo "<tr>";
-                                echo "<td class='nombre'>";
+                        echo '<table class="table table-bordered table-hover table-striped">';
+                            echo "<tr class='success'>";
+                                echo "<td>";
                                     echo "<strong>".$row->Nombre."</strong><br/><br/>";
                                 echo "</td>";
                             echo "</tr>";
