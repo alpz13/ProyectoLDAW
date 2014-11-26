@@ -50,7 +50,7 @@ if(isset($_SESSION['username']))
 							unset($_SESSION['username'], $_SESSION['userid']);
 ?>
 <div class="message">Changes have been made. Log in needed.<br /><br />
-<a href="<?php echo site_url('principalController/conexionView');?>" class="button2">Log in</a></div>
+<a href="<?php echo site_url('principalcontroller/conexionView');?>" class="button2">Log in</a></div>
 <?php
 						}
 						else
@@ -128,10 +128,10 @@ if(isset($_SESSION['username']))
 <div class="content">
 
 <br />
-<a href="<?php echo site_url('principalController/mensajesView');?>" class="button2" style="top: 232px; left: 190px;">&nbsp; Regresar</a><br />
+<a href="<?php echo site_url('principalcontroller/mensajesView');?>" class="button2" style="top: 232px; left: 190px;">&nbsp; Regresar</a><br />
 <br />
 
-    <form action="<?php echo site_url('principalController/mensajeseditinfoView');?>" method="post">
+    <form action="<?php echo site_url('principalcontroller/mensajeseditinfoView');?>" method="post">
         Edit information:<br /><br />
         <div class="center">
             <label for="username">User</label><input type="text" name="username" id="username" value="<?php echo $username; ?>" /><br />
@@ -150,7 +150,7 @@ else
 {
 ?>
 <div class="message">To access this web page, you need to log in.<br /><br />
-<a href="<?php echo site_url('principalController/mensajeslistView');?>" class="button2">Log in</a></div>
+<a href="<?php echo site_url('principalcontroller/mensajeslistView');?>" class="button2">Log in</a></div>
 <?php
 }
 ?>

@@ -16,7 +16,7 @@ if(isset($_SESSION['username']))
 	unset($_SESSION['username'], $_SESSION['userid']);
 ?>
 <div class="message">Session expired.<br /><br /><br />
-<a href="<?php echo site_url('principalController/mensajesView');?>" class="button2">Home</a></div>
+<a href="<?php echo site_url('principalcontroller/mensajesView');?>" class="button2">Home</a></div>
 <?php
 }
 else
@@ -50,7 +50,7 @@ else
 			$_SESSION['userid'] = $dn['id'];
 ?>
 <div class="message">Log in successfully.<br /><br /><br />
-<a href="<?php echo site_url('principalController/mensajesView');?>" class="button2">Home</a></div>
+<a href="<?php echo site_url('principalcontroller/mensajesView');?>" class="button2">Home</a></div>
 <?php
 		}
 		else
@@ -75,9 +75,9 @@ else
 ?>
 <div class="content">
 	<br />
-	<a href="<?php echo site_url('principalController/mensajesView');?>" class="button2" style="top: 232px; left: 190px;">&nbsp; Regresar</a><br />
+	<a href="<?php echo site_url('principalcontroller/mensajesView');?>" class="button2" style="top: 232px; left: 190px;">&nbsp; Regresar</a><br />
 	<br />
-    <form action="<?php echo site_url('principalController/conexionView');?>" method="post">
+    <form action="<?php echo site_url('principalcontroller/conexionView');?>" method="post">
         <br />
         <div class="center">
             <label for="username">User</label><input type="text" name="username" id="username" value="<?php echo htmlentities($ousername, ENT_QUOTES, 'UTF-8'); ?>" /><br />

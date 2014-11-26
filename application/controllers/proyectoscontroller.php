@@ -9,7 +9,7 @@ class ProyectosController extends CI_Controller {
     
     public function nuevoProyecto()
     {
-        $this->load->model('proyectosModel');
+        $this->load->model('proyectosmodel');
         $nombre = $this->input->post('nombre');
         $descripcion = $this->input->post('descripcion');
         $habilitado = $this->input->post('habilitado');
@@ -36,47 +36,47 @@ class ProyectosController extends CI_Controller {
                 $data['error'] = "All fields must be filled";
                 $this->load->view("creaProyectoView", $data);
         } else {
-            $resultado = $this->proyectosModel->creaProyecto($nombre, $descripcion, $habilitado, $supervisor);
+            $resultado = $this->proyectosmodel->creaProyecto($nombre, $descripcion, $habilitado, $supervisor);
 
             if($resultado == 1) {
                 $data['success'] = "New Project has been created";
                 $idProject = $this->getIdProject($nombre);
                 $row = $idProject->row();
                 if($security != "") {
-                    $this->proyectosModel->insertaAreas($security, $row->idTrabajos);
+                    $this->proyectosmodel->insertaAreas($security, $row->idTrabajos);
                 }
                 if($web != "") {
-                    $this->proyectosModel->insertaAreas($web, $row->idTrabajos);
+                    $this->proyectosmodel->insertaAreas($web, $row->idTrabajos);
                 }
                 if($db != "") {
-                    $this->proyectosModel->insertaAreas($db, $row->idTrabajos);
+                    $this->proyectosmodel->insertaAreas($db, $row->idTrabajos);
                 }
                 if($network != "") {
-                    $this->proyectosModel->insertaAreas($network, $row->idTrabajos);
+                    $this->proyectosmodel->insertaAreas($network, $row->idTrabajos);
                 }
                 if($desktop != "") {
-                    $this->proyectosModel->insertaAreas($desktop, $row->idTrabajos);
+                    $this->proyectosmodel->insertaAreas($desktop, $row->idTrabajos);
                 }
                 if($team != "") {
-                    $this->proyectosModel->insertaCompetencias($team, $row->idTrabajos);
+                    $this->proyectosmodel->insertaCompetencias($team, $row->idTrabajos);
                 }
                 if($comunication != "") {
-                    $this->proyectosModel->insertaCompetencias($comunication, $row->idTrabajos);
+                    $this->proyectosmodel->insertaCompetencias($comunication, $row->idTrabajos);
                 }
                 if($work != "") {
-                    $this->proyectosModel->insertaCompetencias($work, $row->idTrabajos);
+                    $this->proyectosmodel->insertaCompetencias($work, $row->idTrabajos);
                 }
                 if($initiative != "") {
-                    $this->proyectosModel->insertaCompetencias($initiative, $row->idTrabajos);
+                    $this->proyectosmodel->insertaCompetencias($initiative, $row->idTrabajos);
                 }
                 if($leader != "") {
-                    $this->proyectosModel->insertaCompetencias($leader, $row->idTrabajos);
+                    $this->proyectosmodel->insertaCompetencias($leader, $row->idTrabajos);
                 }
             } else {
                 $data['error'] = 'Something has occured, please try again.';
             }
             $id = $this->session->userdata('id');
-            $resultado = $this->proyectosModel->consultarProyectosSupervisor($id);
+            $resultado = $this->proyectosmodel->consultarProyectosSupervisor($id);
             $data['proyectos'] = $resultado;
             $this->load->view('principalProyectosView', $data);
         }
@@ -84,8 +84,8 @@ class ProyectosController extends CI_Controller {
     
     public function consultar()
     {
-        $this->load->model('proyectosModel');
-        $resultado = $this->proyectosModel->consultarTodo();
+        $this->load->model('proyectosmodel');
+        $resultado = $this->proyectosmodel->consultarTodo();
         
         if($resultado->num_rows() > 0) {
             $data['proyectos'] = $resultado;
@@ -96,11 +96,11 @@ class ProyectosController extends CI_Controller {
     
     public function asignarTrabajador()
     {
-        $this->load->model('proyectosModel');
+        $this->load->model('proyectosmodel');
         $idSupervisor = $this->session->userdata('id');
-        $trabajos = $this->proyectosModel->consultarProyectosSupervisor($idSupervisor);
-        $trabajador = $this->proyectosModel->consultaTrabajadores($this->session->userdata('id'));
-//        $trabajadoresReales = $this->proyectosModel->menoresCinco($trabajador, $idSupervisor);
+        $trabajos = $this->proyectosmodel->consultarProyectosSupervisor($idSupervisor);
+        $trabajador = $this->proyectosmodel->consultaTrabajadores($this->session->userdata('id'));
+//        $trabajadoresReales = $this->proyectosmodel->menoresCinco($trabajador, $idSupervisor);
 //        if($trabajadoresReales != "") {
 //            if($trabajadoresReales->num_rows() > 0) {
 //                $data['trabajador'] = $trabajadoresReales;
@@ -122,8 +122,8 @@ class ProyectosController extends CI_Controller {
         $proyecto = $this->input->post('proyecto');
         $trabajador = $this->input->post('trabajador');
         
-        $this->load->model('proyectosModel');
-        $resultado = $this->proyectosModel->asignarProyecto($proyecto, $trabajador);
+        $this->load->model('proyectosmodel');
+        $resultado = $this->proyectosmodel->asignarProyecto($proyecto, $trabajador);
         
         if($resultado == 1) {
             $data['success'] = "Project has been assigned succesfully";
@@ -133,17 +133,17 @@ class ProyectosController extends CI_Controller {
             $data['error'] = "Something has happened, please try again.";
         }
         $id = $this->session->userdata('id');
-        $resultado = $this->proyectosModel->consultarProyectosSupervisor($id);
+        $resultado = $this->proyectosmodel->consultarProyectosSupervisor($id);
         $data['proyectos'] = $resultado;
         $this->load->view('principalProyectosView', $data);
     }
     
     public function buscarProyecto()
     {
-        $this->load->model('proyectosModel');
+        $this->load->model('proyectosmodel');
         $idProyecto = $this->input->post('idProyecto');
         
-        $resultado = $this->proyectosModel->buscarProyecto($idProyecto);
+        $resultado = $this->proyectosmodel->buscarProyecto($idProyecto);
         
         if($resultado->num_rows() > 0) {
             echo "<table class='table_message'>";
@@ -162,10 +162,10 @@ class ProyectosController extends CI_Controller {
     
     public function eliminarProyecto()
     {
-        $this->load->model('proyectosModel');
+        $this->load->model('proyectosmodel');
         $idProyecto = $this->input->post('idProyecto');
         
-        $resultado = $this->proyectosModel->eliminaProyecto($idProyecto);
+        $resultado = $this->proyectosmodel->eliminaProyecto($idProyecto);
         
         if($resultado == 1) {
             echo "<p>The project has been deleted succesfully</p>";
@@ -176,24 +176,24 @@ class ProyectosController extends CI_Controller {
     
     public function eliminar()
     {
-        $this->load->model('proyectosModel');
+        $this->load->model('proyectosmodel');
         $id = $this->session->userdata('id');
         
-        $resultado = $this->proyectosModel->consultarProyectosSupervisor($id);
+        $resultado = $this->proyectosmodel->consultarProyectosSupervisor($id);
         $data['proyectos'] = $resultado;
         $this->load->view('eliminarProyectoView', $data);
     }
     
     public function requestProyect()
     {
-        $this->load->model('proyectosModel');
+        $this->load->model('proyectosmodel');
         $idProyecto = $this->input->post('idProyecto');
         $idUser = $this->session->userdata('id');
         $value = $this->input->post('value');
         
-        $idSupervisor = $this->proyectosModel->getSupervisor($idProyecto);
+        $idSupervisor = $this->proyectosmodel->getSupervisor($idProyecto);
         
-        $resultado = $this->proyectosModel->addRequest($idProyecto, $idUser, $idSupervisor, $value);
+        $resultado = $this->proyectosmodel->addRequest($idProyecto, $idUser, $idSupervisor, $value);
         if($resultado == 1) {
             echo "Request has been send";
         } else {
@@ -203,11 +203,11 @@ class ProyectosController extends CI_Controller {
     
     public function seeRequest()
     {
-        $this->load->model('proyectosModel');
-        $this->load->model('usuariosModel');
+        $this->load->model('proyectosmodel');
+        $this->load->model('usuariosmodel');
         $idSupervisor = $this->input->post('idSupervisor');
         
-        $requests = $this->proyectosModel->getAllRequests($idSupervisor);
+        $requests = $this->proyectosmodel->getAllRequests($idSupervisor);
         if(!is_numeric($requests)) {
             $cont = count($requests->result());
         
@@ -215,8 +215,8 @@ class ProyectosController extends CI_Controller {
             $j = 0;
             $k = 0;
             foreach($requests->result() as $row) {
-                $projects[$i++] = $this->proyectosModel->getProyectosData($row->idProyecto);
-                $users[$j++] = $this->usuariosModel->getInfo($row->idUsuario);
+                $projects[$i++] = $this->proyectosmodel->getProyectosData($row->idProyecto);
+                $users[$j++] = $this->usuariosmodel->getInfo($row->idUsuario);
                 $ids[$k++] = $row->idrequests;
             }
 
@@ -233,15 +233,15 @@ class ProyectosController extends CI_Controller {
     
     public function acceptRequest()
     {
-        $this->load->model('proyectosModel');
+        $this->load->model('proyectosmodel');
         $idProyecto = $this->input->post('idProyect');
         $idUser = $this->input->post('idUser');
         $idRequest = $this->input->post('idRequest');
         
-        $resultado = $this->proyectosModel->addUser($idProyecto, $idUser);
+        $resultado = $this->proyectosmodel->addUser($idProyecto, $idUser);
         
         if($resultado == 1) {
-            $resultado2 = $this->proyectosModel->updateRequest($idRequest, 1);
+            $resultado2 = $this->proyectosmodel->updateRequest($idRequest, 1);
             if($resultado2 == 1) {
                 echo "User added to proyect!";
             } else {
@@ -254,11 +254,11 @@ class ProyectosController extends CI_Controller {
     
     public function consultarTodosUsuarios($arrayProyectos)
     {
-        $this->load->model('usuariosModel');
+        $this->load->model('usuariosmodel');
         $i = 0;
         $data = array();
         foreach($arrayProyectos->result() as $row) {
-            $data[$i++] = $this->usuariosModel->getSupervisor($row->idSupervisor);
+            $data[$i++] = $this->usuariosmodel->getSupervisor($row->idSupervisor);
         }
         
         return $data;
@@ -266,7 +266,7 @@ class ProyectosController extends CI_Controller {
     
     public function getIdProject($nombre)
     {
-        $this->load->model('usuariosModel');
+        $this->load->model('usuariosmodel');
         $this->db->where('Nombre', $nombre);
         $resultado = $this->db->get('trabajos');
         
@@ -277,8 +277,8 @@ class ProyectosController extends CI_Controller {
     {
         $idSupervisor = $this->session->userdata('id');
         if($idSupervisor != "") {
-            $this->load->model('proyectosModel');
-            $resultado = $this->proyectosModel->getMyProjects($idSupervisor);
+            $this->load->model('proyectosmodel');
+            $resultado = $this->proyectosmodel->getMyProjects($idSupervisor);
             if(!is_numeric($resultado)) {
                 $data['myProjects'] = $resultado;
             } else {
@@ -295,18 +295,18 @@ class ProyectosController extends CI_Controller {
     public function getProyectModify()
     {
         $idProyect = $this->input->post('idProyecto');
-        $this->load->model("proyectosModel");
-        $resultado = $this->proyectosModel->getInfoProyectoModify($idProyect);
+        $this->load->model("proyectosmodel");
+        $resultado = $this->proyectosmodel->getInfoProyectoModify($idProyect);
         if(!is_numeric($resultado)) {
             $data['project'] = $resultado;
         } else {
             $data['error1'] = "There if no information related to the specified project";
         }
-        $resultado2 = $this->proyectosModel->getGradesAreas($idProyect);
+        $resultado2 = $this->proyectosmodel->getGradesAreas($idProyect);
         if(!is_numeric($resultado2)) {
             $data['califArea'] = $resultado2;
         }
-        $resultado3 = $this->proyectosModel->getGradesCompetences($idProyect);
+        $resultado3 = $this->proyectosmodel->getGradesCompetences($idProyect);
         if(!is_numeric($resultado3)) {
             $data['califCompetence'] = $resultado3;
         }
@@ -336,124 +336,124 @@ class ProyectosController extends CI_Controller {
         if($nombre == "" || $desc == "") {
             echo "<span>All the fields must be filled</span>";
         } else {
-            $this->load->model('proyectosModel');
-            $resultado = $this->proyectosModel->updateProject($id, $nombre, $desc, $habilitado);
+            $this->load->model('proyectosmodel');
+            $resultado = $this->proyectosmodel->updateProject($id, $nombre, $desc, $habilitado);
             //**Se actualizó correctamente el proyecto
             if($resultado == 1) {
                 //**Se actualizan las áreas, si no existe se inserta
                 $area = "trabajoarea";
                 $competencia = "trabajocompetencia";
                 if($security == "true") {
-                    $flag = $this->proyectosModel->getUpdateProject($id, 1, $area);
+                    $flag = $this->proyectosmodel->getUpdateProject($id, 1, $area);
                     if($flag == 0) {
-                        $this->proyectosModel->insertaAreas(1, $id);
+                        $this->proyectosmodel->insertaAreas(1, $id);
                     }
                 } else {
-                    $flag = $this->proyectosModel->getUpdateProject($id, 1, $area);
+                    $flag = $this->proyectosmodel->getUpdateProject($id, 1, $area);
                     if($flag != 0) {
-                        $this->proyectosModel->deleteAC($flag,$area);
+                        $this->proyectosmodel->deleteAC($flag,$area);
                     }
                 }
                 if($web == "true") {
-                    $flag = $this->proyectosModel->getUpdateProject($id, 2, $area);
+                    $flag = $this->proyectosmodel->getUpdateProject($id, 2, $area);
                     if($flag == 0) {
-                        $this->proyectosModel->insertaAreas(2, $id);
+                        $this->proyectosmodel->insertaAreas(2, $id);
                     }
                 } else {
-                    $flag = $this->proyectosModel->getUpdateProject($id, 2, $area);
+                    $flag = $this->proyectosmodel->getUpdateProject($id, 2, $area);
                     if($flag != 0) {
-                        $this->proyectosModel->deleteAC($flag,$area);
+                        $this->proyectosmodel->deleteAC($flag,$area);
                     }
                 }
                 if($db == "true") {
-                    $flag = $this->proyectosModel->getUpdateProject($id, 3, $area);
+                    $flag = $this->proyectosmodel->getUpdateProject($id, 3, $area);
                     if($flag == 0) {
-                        $this->proyectosModel->insertaAreas(3, $id);
+                        $this->proyectosmodel->insertaAreas(3, $id);
                     }
                 } else {
-                    $flag = $this->proyectosModel->getUpdateProject($id, 3, $area);
+                    $flag = $this->proyectosmodel->getUpdateProject($id, 3, $area);
                     if($flag != 0) {
-                        $this->proyectosModel->deleteAC($flag,$area);
+                        $this->proyectosmodel->deleteAC($flag,$area);
                     }
                 }
                 if($network == "true") {
-                    $flag = $this->proyectosModel->getUpdateProject($id, 4, $area);
+                    $flag = $this->proyectosmodel->getUpdateProject($id, 4, $area);
                     if($flag == 0) {
-                        $this->proyectosModel->insertaAreas(4, $id);
+                        $this->proyectosmodel->insertaAreas(4, $id);
                     }
                 } else {
-                    $flag = $this->proyectosModel->getUpdateProject($id, 4, $area);
+                    $flag = $this->proyectosmodel->getUpdateProject($id, 4, $area);
                     if($flag != 0) {
-                        $this->proyectosModel->deleteAC($flag,$area);
+                        $this->proyectosmodel->deleteAC($flag,$area);
                     }
                 }
                 if($desktop == "true") {
-                    $flag = $this->proyectosModel->getUpdateProject($id, 5, $area);
+                    $flag = $this->proyectosmodel->getUpdateProject($id, 5, $area);
                     if($flag == 0) {
-                        $this->proyectosModel->insertaAreas(5, $id);
+                        $this->proyectosmodel->insertaAreas(5, $id);
                     }
                 } else {
-                    $flag = $this->proyectosModel->getUpdateProject($id, 5, $area);
+                    $flag = $this->proyectosmodel->getUpdateProject($id, 5, $area);
                     if($flag != 0) {
-                        $this->proyectosModel->deleteAC($flag,$area);
+                        $this->proyectosmodel->deleteAC($flag,$area);
                     }
                 }
                 if($team == "true") {
-                    $flag = $this->proyectosModel->getUpdateProject($id, 1, $competencia);
+                    $flag = $this->proyectosmodel->getUpdateProject($id, 1, $competencia);
                     if($flag == 0) {
-                        $this->proyectosModel->insertaCompetencias(1, $id);
+                        $this->proyectosmodel->insertaCompetencias(1, $id);
                     }
                 } else {
-                    $flag = $this->proyectosModel->getUpdateProject($id, 1, $competencia);
+                    $flag = $this->proyectosmodel->getUpdateProject($id, 1, $competencia);
                     if($flag != 0) {
-                        $this->proyectosModel->deleteAC($flag, $competencia);
+                        $this->proyectosmodel->deleteAC($flag, $competencia);
                     }
                 }
                 if($comunication == "true") {
-                    $flag = $this->proyectosModel->getUpdateProject($id, 2, $competencia);
+                    $flag = $this->proyectosmodel->getUpdateProject($id, 2, $competencia);
                     if($flag == 0) {
-                        $this->proyectosModel->insertaCompetencias(2, $id);
+                        $this->proyectosmodel->insertaCompetencias(2, $id);
                     }
                 } else {
-                    $flag = $this->proyectosModel->getUpdateProject($id, 2, $competencia);
+                    $flag = $this->proyectosmodel->getUpdateProject($id, 2, $competencia);
                     if($flag != 0) {
-                        $this->proyectosModel->deleteAC($flag, $competencia);
+                        $this->proyectosmodel->deleteAC($flag, $competencia);
                     }
                 }
                 if($work == "true") {
-                    $flag = $this->proyectosModel->getUpdateProject($id, 3, $competencia);
+                    $flag = $this->proyectosmodel->getUpdateProject($id, 3, $competencia);
                     if($flag == 0) {
-                        $this->proyectosModel->insertaCompetencias(3, $id);
+                        $this->proyectosmodel->insertaCompetencias(3, $id);
                     }
                 } else {
-                    $flag = $this->proyectosModel->getUpdateProject($id, 3, $competencia);
+                    $flag = $this->proyectosmodel->getUpdateProject($id, 3, $competencia);
                     
                     if($flag != 0) {
-                        $this->proyectosModel->deleteAC($flag, $competencia);
+                        $this->proyectosmodel->deleteAC($flag, $competencia);
                     }
                 } 
                 if($initiative == "true") {
-                    $flag = $this->proyectosModel->getUpdateProject($id, 4, $competencia);
+                    $flag = $this->proyectosmodel->getUpdateProject($id, 4, $competencia);
                     if($flag == 0) {
-                        $this->proyectosModel->insertaCompetencias(4, $id);
+                        $this->proyectosmodel->insertaCompetencias(4, $id);
                     }
                 } else {
-                    $flag = $this->proyectosModel->getUpdateProject($id, 4, $competencia);
+                    $flag = $this->proyectosmodel->getUpdateProject($id, 4, $competencia);
                     
                     if($flag != 0) {
-                        $this->proyectosModel->deleteAC($flag, $competencia);
+                        $this->proyectosmodel->deleteAC($flag, $competencia);
                     }
                 }
                 if($leader == "true") {
-                    $flag = $this->proyectosModel->getUpdateProject($id, 5, $competencia);
+                    $flag = $this->proyectosmodel->getUpdateProject($id, 5, $competencia);
                     if($flag == 0) {
-                        $this->proyectosModel->insertaCompetencias(5, $id);
+                        $this->proyectosmodel->insertaCompetencias(5, $id);
                     }
                 } else {
-                    $flag = $this->proyectosModel->getUpdateProject($id, 5, $competencia);
+                    $flag = $this->proyectosmodel->getUpdateProject($id, 5, $competencia);
                     
                     if($flag != 0) {
-                        $this->proyectosModel->deleteAC($flag, $competencia);
+                        $this->proyectosmodel->deleteAC($flag, $competencia);
                     }
                 }
                 echo "<span>The project was successfuly updated</span>";
@@ -471,11 +471,11 @@ class ProyectosController extends CI_Controller {
     public function deleteAllProject() 
     {
         $idProjecto = $this->input->post('idProyecto');
-        $this->load->model('proyectosModel');
+        $this->load->model('proyectosmodel');
         try {
-            $this->proyectosModel->deleteAreas($idProjecto);
-            $this->proyectosModel->deleteCompetences($idProjecto);
-            $resultado = $this->proyectosModel->eliminaProyecto($idProjecto);
+            $this->proyectosmodel->deleteAreas($idProjecto);
+            $this->proyectosmodel->deleteCompetences($idProjecto);
+            $resultado = $this->proyectosmodel->eliminaProyecto($idProjecto);
             if($resultado == 1) {
                 echo "<span>The project was successfully deleted</span>";
             } else {
@@ -488,13 +488,13 @@ class ProyectosController extends CI_Controller {
     
     public function sendComments()
     {
-        $this->load->model('proyectosModel');
+        $this->load->model('proyectosmodel');
         $idProject = $this->input->post('idProject');
         $idUsuario = $this->input->post('idUsuario');
         $comment = $this->input->post('comment');
         $flag = $this->input->post('flag');
         
-        $resultado = $this->proyectosModel->addComments($idProject, $idUsuario, $comment, $flag);
+        $resultado = $this->proyectosmodel->addComments($idProject, $idUsuario, $comment, $flag);
         if($resultado == 1) {
             echo "<span>The comments has been sent</span>";
         } else {
@@ -505,23 +505,23 @@ class ProyectosController extends CI_Controller {
     public function seeProject()
     {
         $idProyecto = $this->input->post('idProyecto');
-        $this->load->model('proyectosModel');
-        $this->load->model('usuariosModel');
-        $resultado = $this->proyectosModel->buscarProyecto($idProyecto);
+        $this->load->model('proyectosmodel');
+        $this->load->model('usuariosmodel');
+        $resultado = $this->proyectosmodel->buscarProyecto($idProyecto);
         if($resultado->num_rows() > 0) {
             $data['proyecto'] = $resultado->row();
-            $supervisor = $this->proyectosModel->getSupervisor($idProyecto);
-            $supervisor = $this->usuariosModel->getInfo($supervisor);
+            $supervisor = $this->proyectosmodel->getSupervisor($idProyecto);
+            $supervisor = $this->usuariosmodel->getInfo($supervisor);
             $data['supervisor'] = $supervisor->row();
-            $califAreas = $this->proyectosModel->getGradesAreas($idProyecto);
-            $califCompetencias = $this->proyectosModel->getGradesCompetences($idProyecto);
+            $califAreas = $this->proyectosmodel->getGradesAreas($idProyecto);
+            $califCompetencias = $this->proyectosmodel->getGradesCompetences($idProyecto);
             if(!is_numeric($califAreas)) {
                 $i = 0;
                 $areas = array();
                 foreach($califAreas->result() as $row) {
                     $areas[$i++] = $row->idArea;
                 }
-                $data['areas'] = $this->proyectosModel->getAreaName($areas);
+                $data['areas'] = $this->proyectosmodel->getAreaName($areas);
             }
             if(!is_numeric($califCompetencias)) {
                 $i = 0;
@@ -529,9 +529,9 @@ class ProyectosController extends CI_Controller {
                 foreach($califCompetencias->result() as $row) {
                     $competencias[$i++] = $row->idCompetencias;
                 }
-                $data['competencias'] = $this->proyectosModel->getCompetenceName($competencias);
+                $data['competencias'] = $this->proyectosmodel->getCompetenceName($competencias);
             }  
-            $usuarios = $this->usuariosModel->getUsersWorking($idProyecto);
+            $usuarios = $this->usuariosmodel->getUsersWorking($idProyecto);
             if(!is_numeric($usuarios)) {
                 $data['usuariosWorking'] = $usuarios;
             }
@@ -545,15 +545,15 @@ class ProyectosController extends CI_Controller {
     public function gradeWorkers()
     {
         $idProyecto = $this->input->post('idProyecto');
-        $this->load->model('usuariosModel');
-        $resultado = $this->usuariosModel->getUsuariosProyecto($idProyecto);
+        $this->load->model('usuariosmodel');
+        $resultado = $this->usuariosmodel->getUsuariosProyecto($idProyecto);
         if(!is_numeric($resultado)) {
             $i = 0;
             $users = array();
             $names = array();
             foreach($resultado as $row) {
-                $users[$i] = $this->usuariosModel->getGrades($row->idUsuario, $idProyecto);
-                $nameAux = $this->usuariosModel->getInfo($row->idUsuario);
+                $users[$i] = $this->usuariosmodel->getGrades($row->idUsuario, $idProyecto);
+                $nameAux = $this->usuariosmodel->getInfo($row->idUsuario);
                 $names[$i++] = $nameAux->row();
             }
             $data['users'] = $users;

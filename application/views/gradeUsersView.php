@@ -15,7 +15,7 @@
                 grade = $("#gradeUser"+user).val();
                 idProyecto = $("#idProyecto").val();
                 url = $("#url").val();
-                $.post(url+"index.php/usuariosController/gradeUser", {
+                $.post(url+"index.php/usuarioscontroller/gradeUser", {
                     user : user,
                     idProyecto : idProyecto,
                     grade : grade
@@ -28,7 +28,7 @@
                 grade = $("#gradeUser"+user).val();
                 idProyecto = $("#idProyecto").val();
                 url = $("#url").val();
-                $.post(url+"index.php/usuariosController/upgradeGrade", {
+                $.post(url+"index.php/usuarioscontroller/upgradeGrade", {
                     user : user,
                     idProyecto : idProyecto,
                     grade : grade

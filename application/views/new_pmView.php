@@ -45,7 +45,7 @@ if(isset($_POST['title'], $_POST['recip'], $_POST['message']))
 				{
 ?>
 <div class="message alert alert-success" role="alert">The message has been sent.</div><br />
-<a href="<?php echo site_url('principalController/mensajesView');?>"><button type="button" class="btn btn-primary">Back to Inbox</button></a>
+<a href="<?php echo site_url('principalcontroller/mensajesView');?>"><button type="button" class="btn btn-primary">Back to Inbox</button></a>
 <?php
 					$form = false;
 				}
@@ -89,9 +89,9 @@ if(isset($error))
 ?>
 <div class="content">
 	<br /><br />
-	<a href="<?php echo site_url('principalController/mensajesView');?>" style="top: 232px; left: 190px;"><button type="button" class="btn btn-danger"> Cancel</button></a><br />
+	<a href="<?php echo site_url('principalcontroller/mensajesView');?>" style="top: 232px; left: 190px;"><button type="button" class="btn btn-danger"> Cancel</button></a><br />
 		<h3>New Message</h3>
-    <form action="<?php echo site_url('principalController/nuevomensajeView');?>" method="post">
+    <form action="<?php echo site_url('principalcontroller/nuevomensajeView');?>" method="post">
 		<br />
         <label for="title">&nbsp; Title:&nbsp; </label><input type="text" value="<?php echo htmlentities($otitle, ENT_QUOTES, 'UTF-8'); ?>" id="title" name="title" /><br />
         <br />

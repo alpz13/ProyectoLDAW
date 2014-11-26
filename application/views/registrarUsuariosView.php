@@ -29,7 +29,7 @@
                 <div class="showImage">
                     <!--div para visualizar en el caso de imagen-->
                 </div>
-                <?php echo form_open('usuariosController/registraUsuario'); ?>
+                <?php echo form_open('usuarioscontroller/registraUsuario'); ?>
                     <table class="tRegistro">
                         <tr>
                             <td>Name:</td>

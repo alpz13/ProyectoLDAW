@@ -22,7 +22,7 @@
             ?>
         </div>
         <div id='header' class="dark" align="center">
-            <?php echo form_open('principalController/home'); ?>
+            <?php echo form_open('principalcontroller/home'); ?>
                 <div align="center">
                     <h1>Welcome !</h1>
                     <br/>
@@ -42,7 +42,7 @@
             <?php echo form_close(); ?>
             <br/>
             <div id='second'>
-                <?php echo form_open('principalController/registrar'); ?>
+                <?php echo form_open('principalcontroller/registrar'); ?>
                     <input type="hidden" id="url" value="<?php echo base_url(); ?>"/>
                     <label>Do not have an account?</label><br/>
                     <input type='submit' id="nuevoUsuario" value='Registrarse'/>

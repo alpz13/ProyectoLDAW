@@ -9,8 +9,8 @@ class PrincipalController extends CI_Controller {
         
         public function home()
         {
-            $this->load->model('usuariosModel');
-            $this->load->model('proyectosModel');
+            $this->load->model('usuariosmodel');
+            $this->load->model('proyectosmodel');
             
             $usuario = $this->input->post('usuario');
             $passwd = $this->input->post('passwd');
@@ -18,7 +18,7 @@ class PrincipalController extends CI_Controller {
             if($usuario != "") {
                 if($passwd != "") {
                     $passwd = base64_encode($passwd);
-                    $response = $this->usuariosModel->login($usuario, $passwd);
+                    $response = $this->usuariosmodel->login($usuario, $passwd);
                     if($response->num_rows() > 0) {
 	                    foreach($response->result() as $row) {
 	                        $dataUser['id'] = $row->idUsuarios;
@@ -194,10 +194,10 @@ class PrincipalController extends CI_Controller {
         
         public function Proyectos()
         {
-            $this->load->model('proyectosModel');
+            $this->load->model('proyectosmodel');
             $id = $this->session->userdata('id');
             
-            $resultado = $this->proyectosModel->consultarProyectosSupervisor($id);
+            $resultado = $this->proyectosmodel->consultarProyectosSupervisor($id);
             if(!is_numeric($resultado)) {
                 $data['proyectos'] = $resultado;
             } 
@@ -208,13 +208,13 @@ class PrincipalController extends CI_Controller {
         
         public function Configuracion()
         {
-            $this->load->model('usuariosModel');
+            $this->load->model('usuariosmodel');
             $id = $this->session->userdata('id');
-            $resultado = $this->usuariosModel->getInfo($id);
-            $califAreas = $this->usuariosModel->getCalifArea($id);
-            $califCompetencias = $this->usuariosModel->getCalifCompetencias($id);
-            $areas = $this->usuariosModel->getNombreAreas();
-            $competencias = $this->usuariosModel->getNombreCompetencias();
+            $resultado = $this->usuariosmodel->getInfo($id);
+            $califAreas = $this->usuariosmodel->getCalifArea($id);
+            $califCompetencias = $this->usuariosmodel->getCalifCompetencias($id);
+            $areas = $this->usuariosmodel->getNombreAreas();
+            $competencias = $this->usuariosmodel->getNombreCompetencias();
             
             if(!is_numeric($califAreas)) {
                 $data['califAreas'] = $califAreas;
@@ -236,7 +236,7 @@ class PrincipalController extends CI_Controller {
                     $data['foto'] = $row->urlFoto;
                 }
             }
-            $average = $this->usuariosModel->getAverage($id);
+            $average = $this->usuariosmodel->getAverage($id);
             if($average > 0) {
                 $data['average'] = $average;
             }
@@ -246,10 +246,10 @@ class PrincipalController extends CI_Controller {
         
         public function Usuarios()
         {
-            $this->load->model('usuariosModel');
+            $this->load->model('usuariosmodel');
             $id = $this->session->userdata('id');
             
-            $data['usuarios'] = $this->usuariosModel->getUsuarios($id);
+            $data['usuarios'] = $this->usuariosmodel->getUsuarios($id);
             $this->load->view('usuariosView', $data);
             $this->load->view('footer');
         }
@@ -269,9 +269,9 @@ class PrincipalController extends CI_Controller {
         //**Buscar id y nombre de area afin//**
         public function areaAfin($idUsuario)
         {
-            $this->load->model('usuariosModel');
+            $this->load->model('usuariosmodel');
             //**Devuelve el id del Area con mayor puntaje**
-            $resultado = $this->usuariosModel->getArea($idUsuario);
+            $resultado = $this->usuariosmodel->getArea($idUsuario);
             
             $resultado = $this->nombreArea($resultado);
             
@@ -280,9 +280,9 @@ class PrincipalController extends CI_Controller {
         
         public function competenciaAfin($idUsuario)
         {
-            $this->load->model('usuariosModel');
+            $this->load->model('usuariosmodel');
             //**Devuelve el id de la Competencia con mayor puntaje**
-            $resultado = $this->usuariosModel->getCompetencia($idUsuario);
+            $resultado = $this->usuariosmodel->getCompetencia($idUsuario);
             
             $resultado = $this->nombreCompetencia($resultado);
             
@@ -292,8 +292,8 @@ class PrincipalController extends CI_Controller {
         //**Busca el nombre del ﾃ｡rea dependiendo del id que se le pase**
        public function nombreArea($idArea)
        {
-           $this->load->model('usuariosModel');
-           $resultado = $this->usuariosModel->getNombreArea($idArea);
+           $this->load->model('usuariosmodel');
+           $resultado = $this->usuariosmodel->getNombreArea($idArea);
            
            return $resultado;
        }
@@ -301,16 +301,16 @@ class PrincipalController extends CI_Controller {
        //**Busca el nombre del ﾃ｡rea dependiendo del id que se le pase**
        public function nombreCompetencia($idCompetencia)
        {
-           $this->load->model('usuariosModel');
-           $resultado = $this->usuariosModel->getNombreCompetencia($idCompetencia);
+           $this->load->model('usuariosmodel');
+           $resultado = $this->usuariosmodel->getNombreCompetencia($idCompetencia);
            
            return $resultado;
        }
        
        public function getProyectos($idArea)
        {
-           $this->load->model('proyectosModel');
-           $resultado = $this->proyectosModel->getProyectos($idArea, 1);
+           $this->load->model('proyectosmodel');
+           $resultado = $this->proyectosmodel->getProyectos($idArea, 1);
            
            $proyectos = "";
            if($resultado->num_rows() > 0) {
@@ -322,8 +322,8 @@ class PrincipalController extends CI_Controller {
        
        public function getCompetencias($idCompetencia)
        {
-           $this->load->model('proyectosModel');
-           $resultado = $this->proyectosModel->getProyectos($idCompetencia, 2);
+           $this->load->model('proyectosmodel');
+           $resultado = $this->proyectosmodel->getProyectos($idCompetencia, 2);
            
            $proyectos = "";
            if($resultado->num_rows() > 0) {
@@ -335,7 +335,7 @@ class PrincipalController extends CI_Controller {
        
        public function getProyectosData($arrayProyectos)
        {
-           $this->load->model('proyectosModel');
+           $this->load->model('proyectosmodel');
            $query = array();
            $i = 0;
            foreach($arrayProyectos->result() as $row) {
@@ -345,7 +345,7 @@ class PrincipalController extends CI_Controller {
 //               $crud->where('idTrabajos', $idTrabajo);
 //               $crud->columns('Nombre','Descripcion');
 //               $query = $crud->render();
-               $query[$i++] = $this->proyectosModel->getProyectosData($idTrabajo);
+               $query[$i++] = $this->proyectosmodel->getProyectosData($idTrabajo);
            }
            
            return $query;
@@ -353,25 +353,25 @@ class PrincipalController extends CI_Controller {
        
        public function getAllProjects($idUser)
        {
-           $this->load->model('proyectosModel');
-           $resultado = $this->proyectosModel->getAllProjects($idUser);
+           $this->load->model('proyectosmodel');
+           $resultado = $this->proyectosmodel->getAllProjects($idUser);
            
            return $resultado;           
        }
        
        public function getAllRequests($idUser)
        {
-           $this->load->model('proyectosModel');
-           $resultado = $this->proyectosModel->getAllRequests($idUser);
+           $this->load->model('proyectosmodel');
+           $resultado = $this->proyectosmodel->getAllRequests($idUser);
            
            return $resultado;
        }
        
        public function getProyectosUser($idUser)
        {
-           $this->load->model('usuariosModel');
-           $this->load->model('proyectosModel');
-           $resultado = $this->usuariosModel->getProyectosUser($idUser);
+           $this->load->model('usuariosmodel');
+           $this->load->model('proyectosmodel');
+           $resultado = $this->usuariosmodel->getProyectosUser($idUser);
            
            $cont = count($resultado->result());
            $data = null;
@@ -380,7 +380,7 @@ class PrincipalController extends CI_Controller {
                $data = array();
                foreach($resultado->result() as $row) {
                    $idProyecto = $row->idTrabajos;
-                   $data[$i++] = $this->proyectosModel->getProyectosData($idProyecto);
+                   $data[$i++] = $this->proyectosmodel->getProyectosData($idProyecto);
                }
            }
            
@@ -399,11 +399,11 @@ class PrincipalController extends CI_Controller {
                 $cadena .= substr($caracteres,rand(0,strlen($caracteres)),1); /*Extraemos 1 caracter de los caracteres 
             entre el rango 0 a Numero de letras que tiene la cadena */
             }
-            $this->load->model('usuariosModel');
-            $resultado = $this->usuariosModel->restorePassword($mail);
+            $this->load->model('usuariosmodel');
+            $resultado = $this->usuariosmodel->restorePassword($mail);
             if(!is_numeric($resultado)) {
                 $row = $resultado->row();
-                $this->usuariosModel->changePassword($row->idUsuarios, $cadena);
+                $this->usuariosmodel->changePassword($row->idUsuarios, $cadena);
                 
                 $this->load->library('email');
                 //configuracion para gmail

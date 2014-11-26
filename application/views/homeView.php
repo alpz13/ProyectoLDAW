@@ -19,26 +19,18 @@
             ?>
         </div>
         <div class="principalArea" style="margin-left:13%; margin-right:13%">
-            <div>
-                <div id="title"><h2>Welcome! <?php echo $nombre; ?></h2></div>
-                <div>
-                    <?php echo form_open("buscarController/searchAll"); ?>
-                        <input type="search" name="buscar" id="buscar" class="busqueda"/>
-                        <!--<input type="submit" value="Buscar" style="border-style: none; background: url('<?php echo base_url(); ?>images/search.gif') no-repeat; width: 24px; height: 20px;">-->
-                        <input type="submit" class="btn btn-primary" value="Search"/>
-                    <?php echo form_close();?>
-                </div>
-            </div>
             <div class="overlay-container">
                 <div id="searchValues" class="window-container zoomin">
                     
                 </div>
             </div>
+            <br/>
             <div id="takeTest">
                 <?php 
                     if($this->session->userdata('test') == 0) {
-                        echo form_open('usuariosController/takeTest');
-                            echo '<div>';
+                        echo form_open('usuarioscontroller/takeTest');
+                            echo '<div style="text-align:center">';
+                            echo '<label>Please take a minutes to take the competence test</label>';
                                 echo '<br/>';
                                 echo '<input type="hidden" name="idUsuario" value="'.$this->session->userdata('id').'"/>';
                                echo '<input type="submit" class="btn btn-success" value="Take test" style="cursor: pointer"/>';
@@ -50,8 +42,9 @@
             <div id="takeTestCompetences">
                 <?php 
                     if($this->session->userdata('test') == 1) {
-                        echo form_open('usuariosController/takeTestCompetences');
-                            echo '<div>';
+                        echo form_open('usuarioscontroller/takeTestCompetences');
+                            echo '<div style="text-align:center">';
+                                echo '<label>Please take a minutes to take the competence test</label>';
                                 echo '<br/>';
                                 echo '<input type="hidden" name="idUsuario" value="'.$this->session->userdata('id').'"/>';
                                echo '<input type="submit" class="btn btn-success" value="Take test" style="cursor: pointer"/>';
@@ -60,8 +53,8 @@
                     }
                 ?>
             </div>
-            <div id="contentArea">
-                
+            <br/>
+            <div id="contentArea" style="text-align: center">
                 <?php 
                 if($this->session->userdata('tipo') == 3) { ?>
                     <div>
@@ -173,10 +166,10 @@
                     if(isset($requests)) {
                         $j = count($requests);
                         if($j > 0) {
-                            echo form_open('proyectosController/seeRequest');
+                            echo form_open('proyectoscontroller/seeRequest');
                                 echo "<div id='requests' class='principalMenus'>";
                                     ?>
-                                    <table style="margin-left:30%">;
+                                    <table style="margin-left:33%">;
                                     <?php
                                         echo "<tr>";
                                             echo "<td class='td'>";
@@ -197,7 +190,7 @@
                     } else {
                         ?>
                                                 <div class="principalMenus">
-                                                    <table style="margin-left:30%">
+                                                    <table style="margin-left:35%">
                                                         <tr>
                                                             <td class='td'>
                                                                 <span><img src="<?php echo base_url(); ?>images/00442128_opt.png" alt="logos"/>You don't have any pending request. </span>

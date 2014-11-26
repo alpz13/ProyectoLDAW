@@ -409,18 +409,38 @@ class UsuariosModel extends CI_Model {
         }
     }
     
+    public function addGradeCompetence($competence, $average, $user)
+    {
+        $data = array(
+                    'idUsuario'     => $user,
+                    'idCompetencias'       => $competence,
+                    'calificacionCompetencia'  => $average
+                );
+        try {
+            $this->db->insert('competenciasusuario', $data);
+            return 1;
+        } catch (Exception $ex) {
+            return 0;
+        }
+    }
+    
     public function updateTest($valor, $user) 
     {
         $data = array(
                 'test'  => $valor
             );
-        $this->db->where('idUsurios', $user);
+        $this->db->where('idUsuarios', $user);
         try {
             $this->db->update('usuarios', $data);
             return 1;
         } catch (Exception $ex) {
             return 0;
         }
+    }
+    
+    public function alert()
+    {
+        return "Hola";
     }
 }
 ?>

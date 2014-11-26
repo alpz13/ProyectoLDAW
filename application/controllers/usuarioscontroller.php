@@ -1,10 +1,10 @@
 <?php
 
-class UsuariosController extends CI_Controller {
+class Usuarioscontroller extends CI_Controller {
 
     public function registraUsuario()
     {
-        $this->load->model('usuariosModel');
+        $this->load->model('usuariosmodel');
         
         $nom = $this->input->post('nombre');
         $apeP = $this->input->post('apellidoP');
@@ -22,7 +22,7 @@ class UsuariosController extends CI_Controller {
             if($foto == "") {
                 $foto = "../../files/defaultFoto.jpg";
             }
-            $resultado = $this->usuariosModel->registraUsuario($nom, $apeP, $apeM, $pass, $mail, 3, $foto);
+            $resultado = $this->usuariosmodel->registraUsuario($nom, $apeP, $apeM, $pass, $mail, 3, $foto);
             if($resultado == 1) {
                 echo "<span class='alert alert-info' role='alert'>User register</span>";
             } else {
@@ -33,7 +33,7 @@ class UsuariosController extends CI_Controller {
     
     public function actualizaUsuario()
     {
-        $this->load->model('usuariosModel');
+        $this->load->model('usuariosmodel');
         
         $id = $this->session->userdata('id');
         $nombre = $this->input->post('nombre');
@@ -53,7 +53,7 @@ class UsuariosController extends CI_Controller {
                 $foto = "../../files/defaultFoto.jpg";
             }
             $pass = base64_encode($pass);
-            $resultado = $this->usuariosModel->actualizaUsuario($id, $nombre, $aPaterno, $aMaterno, $pass, $mail, $foto);
+            $resultado = $this->usuariosmodel->actualizaUsuario($id, $nombre, $aPaterno, $aMaterno, $pass, $mail, $foto);
             if($resultado == 1) {
                 echo "Information Updated";
                 $dataUser['nombre'] = $nombre;
@@ -71,9 +71,9 @@ class UsuariosController extends CI_Controller {
     
     public function cargaUsuarios()
     {
-        $this->load->model('usuariosModel');
+        $this->load->model('usuariosmodel');
         $id = $this->session->userdata('id');
-        $resultados = $this->usuariosModel->getUsuarios($id);
+        $resultados = $this->usuariosmodel->getUsuarios($id);
         
         if($resultados->num_rows() > 0) {
             echo "<select id='usuariosSelect'>";
@@ -88,7 +88,7 @@ class UsuariosController extends CI_Controller {
     
     public function crearUsuario()
     {
-        $this->load->model('usuariosModel');
+        $this->load->model('usuariosmodel');
         
         $this->form_validation->set_rules('mail', 'Correo', 'valid_email');
         
@@ -112,7 +112,7 @@ class UsuariosController extends CI_Controller {
                 if($foto == "") {
                     $foto = "../../files/defaultFoto.jpg";
                 }
-                $resultado = $this->usuariosModel->registraUsuario($nom, $apeP, $apeM, $pass, $mail, $type, $foto);
+                $resultado = $this->usuariosmodel->registraUsuario($nom, $apeP, $apeM, $pass, $mail, $type, $foto);
 
                 if($resultado == 1) {
                     echo '<p>User has been registered</p>';
@@ -125,10 +125,10 @@ class UsuariosController extends CI_Controller {
     
     public function eliminarUsuario()
     {
-        $this->load->model('usuariosModel');
+        $this->load->model('usuariosmodel');
         $id = $this->input->post('id');
         
-        $resultado = $this->usuariosModel->eliminaUsuario($id);
+        $resultado = $this->usuariosmodel->eliminaUsuario($id);
         if($resultado == 1) {
             echo "<p>User deleted</p>";
         } else {
@@ -138,9 +138,9 @@ class UsuariosController extends CI_Controller {
     
     public function mostrarEliminarUsuario()
     {
-        $this->load->model("usuariosModel");
+        $this->load->model("usuariosmodel");
         $id = $this->input->post('id');
-        $resultado = $this->usuariosModel->getInfo($id);
+        $resultado = $this->usuariosmodel->getInfo($id);
         
         if($resultado->num_rows > 0) {
             echo "<br/><br/>";
@@ -162,10 +162,10 @@ class UsuariosController extends CI_Controller {
     
     public function modificarUsuarioShow()
     {
-        $this->load->model('usuariosModel');
+        $this->load->model('usuariosmodel');
         $id = $this->input->post('id');
         
-        $resultado = $this->usuariosModel->getInfo($id);
+        $resultado = $this->usuariosmodel->getInfo($id);
         
         if($resultado->num_rows > 0){
             $data['usuario'] = $resultado;
@@ -177,7 +177,7 @@ class UsuariosController extends CI_Controller {
     
     public function modificarUsuario()
     {
-        $this->load->model('usuariosModel');
+        $this->load->model('usuariosmodel');
         
         $this->form_validation->set_rules('mail', 'Correo', 'valid_email');
         
@@ -201,7 +201,7 @@ class UsuariosController extends CI_Controller {
                 if($foto == "") {
                     $foto = "../../files/defaultFoto.jpg";
                 }
-                $resultado = $this->usuariosModel->actualizaUsuario($id, $nom, $apeP, $apeM, $pass, $mail, $foto);
+                $resultado = $this->usuariosmodel->actualizaUsuario($id, $nom, $apeP, $apeM, $pass, $mail, $foto);
 
                 if($resultado == 1) {
                     echo '<p>Information updated</p>';
@@ -220,14 +220,14 @@ class UsuariosController extends CI_Controller {
     public function seeProfile()
     {
         $idUsuario = $this->input->post('idUsuario');
-        $this->load->model('usuariosModel');
-        $resultado = $this->usuariosModel->getInfo($idUsuario);
+        $this->load->model('usuariosmodel');
+        $resultado = $this->usuariosmodel->getInfo($idUsuario);
         if($resultado->num_rows() > 0) {
             $data['usuario'] = $resultado->row();
-            $califAreas = $this->usuariosModel->getCalifArea($idUsuario);
-            $califCompetencias = $this->usuariosModel->getCalifCompetencias($idUsuario);
-            $proyectos = $this->usuariosModel->getMyProjects($idUsuario);
-            $average = $this->usuariosModel->getAverage($idUsuario);
+            $califAreas = $this->usuariosmodel->getCalifArea($idUsuario);
+            $califCompetencias = $this->usuariosmodel->getCalifCompetencias($idUsuario);
+            $proyectos = $this->usuariosmodel->getMyProjects($idUsuario);
+            $average = $this->usuariosmodel->getAverage($idUsuario);
             if($average > 0) {
                 $data['average'] = $average;
             }
@@ -248,8 +248,8 @@ class UsuariosController extends CI_Controller {
         $user = $this->input->post('user');
         $idProyecto = $this->input->post('idProyecto');
         $grade = $this->input->post('grade');
-        $this->load->model('usuariosModel');
-        $resultado = $this->usuariosModel->addGrade($user, $idProyecto, $grade);
+        $this->load->model('usuariosmodel');
+        $resultado = $this->usuariosmodel->addGrade($user, $idProyecto, $grade);
         if($resultado == 1) {
             echo '<span>The user has been evaluated</span>';
         } else {
@@ -262,8 +262,8 @@ class UsuariosController extends CI_Controller {
         $user = $this->input->post('user');
         $idProyecto = $this->input->post('idProyecto');
         $grade = $this->input->post('grade');
-        $this->load->model('usuariosModel');
-        $resultado = $this->usuariosModel->upgradeGrade($user, $idProyecto, $grade);
+        $this->load->model('usuariosmodel');
+        $resultado = $this->usuariosmodel->upgradeGrade($user, $idProyecto, $grade);
         if($resultado == 1) {
             echo '<span>The user grade has been upgraded</span>';
         } else {
@@ -278,9 +278,16 @@ class UsuariosController extends CI_Controller {
         $this->load->view('testView', $data);
     }
     
+    public function takeTestCompetences()
+    {
+        $user = $this->session->userdata('id');
+        $data['user'] = $user;
+        $this->load->view('testViewCompetences', $data);
+    }
+    
     public function gradeAreas()
     {
-        $this->load->model('usuariosModel');
+        $this->load->model('usuariosmodel');
         $user = $this->input->post('user');
         //**Security**//
         $a21 = $this->input->post('a21');
@@ -294,7 +301,7 @@ class UsuariosController extends CI_Controller {
         $a29 = $this->input->post('a29');
         $a30 = $this->input->post('a30');
         $averageDB = ($a21+$a22+$a23+$a24+$a25+$a26+$a27+$a28+$a29+$a30);
-        $this->usuariosModel->addGradeArea(1, $averageDB, $user);
+        $this->usuariosmodel->addGradeArea(1, $averageDB, $user);
         //**Web**//
         $a11 = $this->input->post('a11');
         $a12 = $this->input->post('a12');
@@ -307,7 +314,7 @@ class UsuariosController extends CI_Controller {
         $a19 = $this->input->post('a19');
         $a20 = $this->input->post('a20');
         $averageWeb = ($a11+$a12+$a13+$a14+$a15+$a16+$a17+$a18+$a19+$a20);
-        $this->usuariosModel->addGradeArea(2, $averageWeb, $user);
+        $this->usuariosmodel->addGradeArea(2, $averageWeb, $user);
         //**DB**//
         $a1 = $this->input->post('a1');
         $a2 = $this->input->post('a2');
@@ -320,7 +327,7 @@ class UsuariosController extends CI_Controller {
         $a9 = $this->input->post('a9');
         $a10 = $this->input->post('a10');
         $averageSecurity = ($a1+$a2+$a3+$a4+$a5+$a6+$a7+$a8+$a9+$a10);
-        $this->usuariosModel->addGradeArea(3, $averageSecurity, $user);
+        $this->usuariosmodel->addGradeArea(3, $averageSecurity, $user);
         //**Networking**//
         $a31 = $this->input->post('a31');
         $a32 = $this->input->post('a32');
@@ -333,7 +340,7 @@ class UsuariosController extends CI_Controller {
         $a39 = $this->input->post('a39');
         $a40 = $this->input->post('a30');
         $averageNetworking = ($a31+$a32+$a33+$a34+$a35+$a36+$a37+$a38+$a39+$a40);
-        $this->usuariosModel->addGradeArea(4, $averageNetworking, $user);
+        $this->usuariosmodel->addGradeArea(4, $averageNetworking, $user);
         //**Desktop**//
         $a41 = $this->input->post('a41');
         $a42 = $this->input->post('a42');
@@ -346,8 +353,80 @@ class UsuariosController extends CI_Controller {
         $a49 = $this->input->post('a49');
         $a50 = $this->input->post('a50');
         $averageDesktop = ($a41+$a42+$a43+$a44+$a45+$a46+$a47+$a48+$a49+$a50);
-        $this->usuariosModel->addGradeArea(5, $averageDesktop, $user);
-        $this->usuariosModel->updateTest(1, $user);
+        $this->usuariosmodel->addGradeArea(5, $averageDesktop, $user);
+        $this->usuariosmodel->updateTest(1, $user);
+        //**Se vuelve a crear la sesion**//
+        $dataUser['id'] = $this->session->userdata('id');
+        $dataUser['nombre'] = $this->session->userdata('nombre');
+        $dataUser['apellidoP'] = $this->session->userdata('apellidoP');
+        $dataUser['apellidoM'] = $this->session->userdata('apellidoM');
+        $dataUser['pass'] = $this->session->userdata('pass');
+        $dataUser['mail'] = $this->session->userdata('mail');
+        $dataUser['disponible'] = $this->session->userdata('disponible');
+        $dataUser['tipo'] = $this->session->userdata('tipo');
+        $dataUser['foto'] = $this->session->userdata('foto');
+        $dataUser['test'] = 1;
+        $this->session->set_userdata($dataUser);
+        echo '<span>Test completed. Please check your results in your profile</span>';
+    }
+    
+    public function gradeCompetences()
+    {
+        $this->load->model('usuariosmodel');
+        $user = $this->input->post('user');
+        //**Team**//
+        $a1 = $this->input->post('a1');
+        $a2 = $this->input->post('a2');
+        $a3 = $this->input->post('a3');
+        $a4 = $this->input->post('a4');
+        $a5 = $this->input->post('a5');
+        $averageTeam = (($a1+$a2+$a3+$a4+$a5)*10)/5;
+        $this->usuariosmodel->addGradeCompetence(1, $averageTeam, $user);
+        //**Comunication**//
+        $a6 = $this->input->post('a6');
+        $a7 = $this->input->post('a7');
+        $a8 = $this->input->post('a8');
+        $a9 = $this->input->post('a9');
+        $a10 = $this->input->post('a10');
+        $averageComunication = (($a6+$a7+$a8+$a9+$a10)*10)/5;
+        $this->usuariosmodel->addGradeCompetence(2, $averageComunication, $user);
+        //**Work**//
+        $a11 = $this->input->post('a11');
+        $a12 = $this->input->post('a12');
+        $a13 = $this->input->post('a13');
+        $a14 = $this->input->post('a14');
+        $a15 = $this->input->post('a15');
+        $averageWork = (($a11+$a12+$a13+$a14+$a15)*10)/5;
+        $this->usuariosmodel->addGradeCompetence(3, $averageWork, $user);
+        //**Leader**//
+        $a16 = $this->input->post('a16');
+        $a17 = $this->input->post('a17');
+        $a18 = $this->input->post('a18');
+        $a19 = $this->input->post('a19');
+        $a20 = $this->input->post('a20');
+        $averageLeader = (($a16+$a17+$a18+$a19+$a20)*10)/5;
+        $this->usuariosmodel->addGradeCompetence(5, $averageLeader, $user);
+        //**Initiative**//
+        $a21 = $this->input->post('a21');
+        $a22 = $this->input->post('a22');
+        $a23 = $this->input->post('a23');
+        $a24 = $this->input->post('a24');
+        $a25 = $this->input->post('a25');
+        $averageInitiative = (($a21+$a22+$a23+$a24+$a25)*10)/5;
+        $this->usuariosmodel->addGradeCompetence(4, $averageInitiative, $user);
+        $this->usuariosmodel->updateTest(2, $user);
+        //**Se vuelve a crear la sesión**//
+        $dataUser['id'] = $this->session->userdata('id');
+        $dataUser['nombre'] = $this->session->userdata('nombre');
+        $dataUser['apellidoP'] = $this->session->userdata('apellidoP');
+        $dataUser['apellidoM'] = $this->session->userdata('apellidoM');
+        $dataUser['pass'] = $this->session->userdata('pass');
+        $dataUser['mail'] = $this->session->userdata('mail');
+        $dataUser['disponible'] = $this->session->userdata('disponible');
+        $dataUser['tipo'] = $this->session->userdata('tipo');
+        $dataUser['foto'] = $this->session->userdata('foto');
+        $dataUser['test'] = 2;
+        $this->session->set_userdata($dataUser);
         echo '<span>Test completed. Please check your results in your profile</span>';
     }
 }

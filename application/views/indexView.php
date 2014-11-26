@@ -32,7 +32,7 @@
                                 <div id="showImage"></div>
                             </div>-->
                             <br/>
-                            <?php echo form_open('usuariosController/registraUsuario'); ?>
+                            <?php echo form_open('usuarioscontroller/registraUsuario'); ?>
                             <h2>New User:</h2>
                                 <table>
                                     <tr>
@@ -86,7 +86,7 @@
                         </div>
                         <div id="login" align="center">
                             <br/><br/><br/>
-                            <?php echo form_open('principalController/home'); ?>
+                            <?php echo form_open('principalcontroller/home'); ?>
                                 <div><h2>Log in:</h2></div>
                                 <table>
                                     <tr>

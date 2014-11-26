@@ -5,11 +5,11 @@ class BuscarController extends CI_Controller {
     public function searchAll()
     {
         $search = $this->input->post('buscar');
-        $this->load->model('buscarModel');
-        $users = $this->buscarModel->searchAllUsuarios($search);
-        $projects = $this->buscarModel->searchAllProjects($search);
-        $usuarioAC = $this->buscarModel->searchAllUsuarioAC($search);
-        $projectoAC = $this->buscarModel->searchAllProjectAC($search);
+        $this->load->model('buscarmodel');
+        $users = $this->buscarmodel->searchAllUsuarios($search);
+        $projects = $this->buscarmodel->searchAllProjects($search);
+        $usuarioAC = $this->buscarmodel->searchAllUsuarioAC($search);
+        $projectoAC = $this->buscarmodel->searchAllProjectAC($search);
         if(!is_numeric($users)) {
             $data['users'] = $users->result();
         } 
