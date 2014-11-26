@@ -73,7 +73,7 @@
         </tr>
         <tr>
             <td></td>
-            <td><input class='btn btn-primary' type='button' id="actualizaUsuario" value='Actualizar'/></td>
+            <td><input class='btn btn-primary' type='button' id="actualizaUsuario" value='Update'/></td>
         </tr>
     </table>
 </div>

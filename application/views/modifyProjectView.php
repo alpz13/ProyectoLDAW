@@ -18,7 +18,7 @@
                 }
             ?>
         </div>
-        <div class="principalAreaP dark">
+        <div class="principalAreaP dark" style="margin-left: 20%; margin-right: 20%">
             <table style="margin-left: 14%;">
                 <tr>
                     <td>
@@ -51,32 +51,32 @@
         </div><br/><br/>
         <div id="msgUpdate" style="display: none"></div>
         <input type="hidden" id="url" value="<?php echo base_url();?>"/>
-    <div>
+    <div style="margin-left: 20%; margin-right: 20%">
         <?php
             if(isset($project)) { 
                 echo form_open("proyectoscontroller/updateProject");
-                echo "<table>";
+                echo '<table class="table table-bordered table-hover table-striped">';
                     foreach($project->result() as $row) {
-                        echo "<tr><td><input type='hidden' id='idProyecto' value='".$row->idTrabajos."'/>";
+                        echo "<tr><td><input type='hidden' class='form-control' id='idProyecto' value='".$row->idTrabajos."'/>";
                         echo "<tr>";
                             echo "<td>";
-                                echo "Name of project:";
+                                echo "<strong>Name of project:</strong>";
                             echo "</td>";
                             echo "<td>";
-                                echo '<input type="text" name="nombre" id="nombre" value="'.$row->Nombre.'"/>';
+                                echo '<input type="text" class="form-control" name="nombre" id="nombre" value="'.$row->Nombre.'"/>';
                             echo "</td>";
                         echo "</tr>";
                         echo "<tr>";
                             echo "<td>";
-                                echo "Description:";
+                                echo "<strong>Description:</strong>";
                             echo "</td>";
                             echo "<td>";
-                                echo '<textarea id="descripcion" rows="5" cols="70">'.$row->Descripcion.'</textarea>';
+                                echo '<textarea id="descripcion" class="form-control" rows="5" cols="70">'.$row->Descripcion.'</textarea>';
                             echo "</td>";
                         echo "</tr>";
                         echo "<tr>";
                             echo "<td>";
-                                echo "Availability:";
+                                echo "<strong>Availability:</strong>";
                             echo "</td>";
                             echo "<td>";
                                 if($row->Habilitado == 1) {
@@ -225,8 +225,8 @@
                         echo "<tr>";
                             echo "<td></td>";
                             echo "<td>";
-                                echo "<input type='button' id='updateButton' value='Update'/> &nbsp;";
-                                echo "<input type='button' id='cancelButton' onclick='javascript:window.history.back();' value='Cancel'/>";
+                                echo "<input type='button' class='btn btn-primary' id='updateButton' value='Update'/> &nbsp;";
+                                echo "<input type='button' class='btn btn-danger' id='cancelButton' onclick='javascript:window.history.back();' value='Cancel'/>";
                             echo "</td>";
                         echo "</tr>";
                     }

@@ -5,7 +5,7 @@
     </head>
     <script>
         $(document).ready(function() {
-            $('.close').click(function() {
+            $('#close').click(function() {
                 $('.overlay-container').fadeOut().end().find('.window-container').removeClass('window-container-visible');
             });
             
@@ -103,13 +103,17 @@
                     </table>
                 </div>
                 <br/>
-                <span class="close">Close</span>
+                <div style="text-align: center" id="close">
+                    <span class="btn btn-default">Close</span>
+                </div>
             <?php }else { ?>
                 <div style="text-align: center">
                     <h2>There are no users in the project</h2>
                 </div>
                 <br/>
-                <span class="close">Close</span>
+                <div style="text-align: center" id="close">
+                    <span class="btn btn-default">Close</span>
+                </div>
             <?php } ?>
         </div>
     </body>
