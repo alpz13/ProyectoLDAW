@@ -38,7 +38,55 @@
                         </table>
                     </div>
                     <br/>
-                    <!--***Muestra las gráficas con las calificaciones-->
+
+                    <!--***Muestra las gr・・ｽ｡ficas con las calificaciones-->
+
+                    <?php 
+                        if(isset($proyectos)) { 
+                            echo '<div>';
+                                echo '<span><strong>Projects which are currently working</strong></span><br/>';
+                                echo '<table>';
+                                    echo '<tr>';
+                                        echo '<td><strong>Project</strong></td>';
+                                        echo '<td><strong>Description</strong></td>';
+                                    echo '</tr>';
+                                    foreach($proyectos as $row) {
+                                        echo '<tr>';
+                                            echo '<td>'.$row->Nombre.'</td>';
+                                            echo '<td>'.$row->Descripcion.'</td>';
+                                        echo '</tr>';
+                                    }
+                                echo '</table>';
+                            echo '</div>';
+                        } 
+                    ?>
+                    <br/>
+                    <div id="userAverage">
+                        <?php 
+                            if(isset($average)) {
+                                if($average <= 3) {
+                                    echo '<span>General performance: <strong>Bad</strong></span>';
+                                } elseif($average <=6) {
+                                    echo '<span>General performance: <strong>Regular</strong></span>';
+                                } elseif($average <= 8) {
+                                    echo '<span>General performance: <strong>Good</strong></span>';
+                                } elseif($average <= 10) {
+                                    echo '<span>General performance: <strong>Excellent</strong></span>';
+                                }
+                                echo '<br/><br/>';
+                                for($i = 1; $i < $average; $i++) {
+                                    echo '<img src="../../files/barra'.$i.'.png" alt="Img" />';
+                                }
+                                echo '<img src="../../files/barra'.$i.'.png" alt="Img"/><span>'.$average.'</span>';
+                                
+                            } else {
+                                echo '<span>The user has not been rated yet</span>';
+                            }
+                        ?>
+                    </div>
+                    <br/>
+                    <!--***Muestra las grﾃ｡ficas con las calificaciones----------------AQUI SE CREO UN HEAD DE ERROR DE MERGE-------------->
+
                     <div style="text-align: center">
                         <script>
                             //Script para mostrar y esconder las dos graficas (inicia escondiendo la segunda grafica) 23 de octubre del 2014.
@@ -71,8 +119,9 @@
                         <p2 id="graph2"><img style="-webkit-user-select:none;" width="60%" src="<?php echo base_url(); ?>lib/graph/radarmarkex2View.php?a=<?php echo $dataCompetencias[0];?>&amp;b=<?php echo $dataCompetencias[1];?>&amp;c=<?php echo $dataCompetencias[2];?>&amp;d=<?php echo $dataCompetencias[3];?>&amp;e=<?php echo $dataCompetencias[4];?>" alt="" ></p2>
                         <br/>
                         <div>
-                                <button class="button2" id="hide">Areas</button>
-                                <button class="button2" id="show">Abilities</button>
+                                <button class="btn btn-primary" id="hide">Areas</button>
+                                &nbsp;
+                                <button class="btn btn-primary" id="show">Abilities</button>
                         </div>
                     </div>
                     

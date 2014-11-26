@@ -26,17 +26,17 @@
                 <tr>
                     <?php echo form_open("usuariosController/crearUsuario"); ?>
                         <td>
-                            <input class='button2' type="button" id="nuevoUsuario" value="Create user"/>
+                            <input class='btn btn-primary' type="button" id="nuevoUsuario" value="Create user"/>
                         </td>
                     <?php echo form_close(); ?>
                     <?php echo form_open("usuariosController/eliminarUsuario"); ?>
                         <td>
-                            <input class='button2' type="button" id="eliminarUsuario" value="Delete user"/>
+                            <input class='btn btn-primary' type="button" id="eliminarUsuario" value="Delete user"/>
                         </td>
                     <?php echo form_close(); ?>
                     <?php echo form_open("usuariosController/modificarUsuario"); ?>
                         <td>
-                            <input class='button2' type="button" id="modificarUsuario" value="Modify user"/>
+                            <input class='btn btn-primary' type="button" id="modificarUsuario" value="Modify user"/>
                         </td>
                     <?php echo form_close(); ?>
                 </tr>
@@ -78,9 +78,24 @@
                             <td class="error"><?php echo form_error('mail'); ?></td>
                         </tr>
                         <tr>
+                            <?php 
+                                if($this->session->userdata('tipo') == 2 || $this->session->userdata('tipo') == 1) {
+                                    echo '<td>User type</td>';
+                                    echo '<td>';
+                                        echo '<select id="userType" name="userType">';
+                                            echo '<option value="2">Supervisor</option>';
+                                            echo '<option value="3">Worker</option>';
+                                        echo '</select>';
+                                    echo '</td>';
+                                } else {
+                                    echo '<input type="hidden" id="userType" name="userType" value="3"/>';
+                                }
+                            ?>
+                        </tr>
+                        <tr>
                             <td></td>
                             <br/><br/>
-                            <td><input class='button2' type='button' id="registraUsuarioC" value='Register'/></td>
+                            <td><input class='btn btn-primary' type='button' id="registraUsuarioC" value='Register'/></td>
                         </tr>
                     </table>
             <?php echo form_close(); ?>
@@ -113,7 +128,7 @@
             
         </div><br/>
         <div id="buttonShow">
-            <input class='button2' type='button' id='eliminarUsuarioConfig' value='Delete' style="margin-left: 45%;"/>
+            <input class='btn btn-danger' type='button' id='eliminarUsuarioConfig' value='Delete' style="margin-left: 45%;"/>
         </div>
     </body>
 </html>

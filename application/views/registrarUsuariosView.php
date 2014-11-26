@@ -24,7 +24,7 @@
                     </form>                    
                 </div>-->
                 <div class="messages">
-                    <!--Aquí se visualiza el mensaje de cargar imagenes-->
+                    <!--Aquﾃｭ se visualiza el mensaje de cargar imagenes-->
                 </div><br/>
                 <div class="showImage">
                     <!--div para visualizar en el caso de imagen-->
@@ -64,7 +64,7 @@
                         <tr>
                             <td></td>
                             <br/><br/>
-                            <td><input type='submit' value='Registrar'/></td>
+                            <td><input type='submit' class="btn btn-primary" value='Registrar'/></td>
                         </tr>
                     </table>
                 <?php echo form_close(); ?>

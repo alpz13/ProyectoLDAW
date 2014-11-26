@@ -113,7 +113,7 @@ if($form)
             <label for="passverif">Password<span class="small">(verificacion)</span></label><input type="password" name="passverif" /><br />
             <label for="email">Email</label><input type="text" name="email" value="<?php if(isset($_POST['email'])){echo htmlentities($_POST['email'], ENT_QUOTES, 'UTF-8');} ?>" /><br />
             <label for="avatar">Avatar<span class="small">(opcional)</span></label><input type="text" name="avatar" value="<?php if(isset($_POST['avatar'])){echo htmlentities($_POST['avatar'], ENT_QUOTES, 'UTF-8');} ?>" /><br /><br />
-            <input type="submit" class="button2" value="Registrar" />    
+            <input type="submit" class="btn btn-primary" value="Registrar" />    
 		</div>
     </form>
 </div>

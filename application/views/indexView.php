@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <?php include_once('header_intro.php'); ?>
-<body>
+<body style="background-color:silver">
         <?php if(isset($bin) || isset($error)) { ?>
             <script>
                 $(document).ready(function() {
@@ -10,14 +10,28 @@
                 });
             </script>
         <?php } ?>
-        <div style="text-align: center;" id="principalDiv">
+       <!-- <div style="text-align: center;" id="principalDiv">
             <h1>Job Scope</h1>
-        </div>
+        </div>-->
 	<div id="intro">
-		<div>                    
-                        <!-- Aquí comienzan las formas de login y registro-->
-                        <div id="registro">
-                            <br/><br/><br/><br/>
+		<div align="center">                    
+		 <h1>Job Scope</h1>
+
+                        <!-- Aqu・・ｽｭ comienzan las formas de login y registro-->
+                        <div id="registro" align="center">
+                            <br/>
+<!--                            <div>
+                                <form enctype="multipart/form-data" method="post" id="formulario">
+                                    <label>Upload a file</label><br />
+                                    <input name="archivo" type="file" id="imagen" />
+                                    <input type="button" value="Subir imagen" id="sendImage"/><br />
+                                </form>
+                                div para visualizar mensajes
+                                <div class="messages"></div><br /><br />
+                                div para visualizar en el caso de imagen
+                                <div id="showImage"></div>
+                            </div>-->
+                            <br/>
                             <?php echo form_open('usuariosController/registraUsuario'); ?>
                             <h2>New User:</h2>
                                 <table>
@@ -54,8 +68,11 @@
                                     <tr>
                                         <td></td>
                                         <td>
-                                            <input id="registrarUsuario" type="button" value='Register' data-type="zoomin" style="top: 232px; left: 190px;"/>&nbsp;
-                                            <input id="back" type="button" value="Back" />
+                                            <input id="registrarUsuario" class="btn btn-primary" type="button" value='Register' data-type="zoomin" style="top: 232px; left: 190px;"/>&nbsp;
+                                            <!--<input id="back" class="btn btn-danger" type="button" value="Back" />
+=======
+                                            <input id="registrarUsuario" type="button" value='Register' data-type="zoomin" style="top: 232px; left: 190px;"/>&nbsp;-->
+                                            <input name="back" type="button" class="btn btn-primary" value="Back" />
                                         </td>
                                     </tr>
                                 </table>
@@ -67,7 +84,7 @@
 
                             </div>
                         </div>
-                        <div id="login">
+                        <div id="login" align="center">
                             <br/><br/><br/>
                             <?php echo form_open('principalController/home'); ?>
                                 <div><h2>Log in:</h2></div>
@@ -82,13 +99,28 @@
                                     </tr>
                                     <tr>
                                         <td></td>
+                                        <td><u id="forgotten" style="cursor: pointer">Forgotten password?</u></td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
                                         <td>
-                                            <input type="submit" value="Enter"/>
-                                            <input type="button" id="registerButton" value="Register"/>
+                                            <input type="submit" class="btn btn-primary" value="Enter"/>
+                                            <input type="button" class="btn btn-primary" id="registerButton" value="Register"/>
                                         </td>
                                     </tr>
                                 </table>
                             <?php echo form_close(); ?>
+                        </div>
+                        <br/>
+                        <div id="forgottenMsg">
+                            
+                        </div>
+                        <br/>
+                        <div id="forgottenPass">
+                            <h3>Insert the email of the associated user</h3>
+                            <input type="text" id="emailForgotten"/><br/><br/>
+                            <input type="button" id="sendEmail" value="Restore password"/>&nbsp;
+                            <input name="back" type="button" value="Back" />
                         </div>
                         <div>
                             <br/><br/><br/>
@@ -97,7 +129,7 @@
                         <div>
                             <?php 
                                 if(isset($error)) {
-                                    echo "<div><p>".$error."</p></div>";
+                                    echo "<div class='alert alert-danger'><p>".$error."</p></div>";
                                 }
                             ?>
                         </div>
