@@ -58,9 +58,6 @@
                     </tr>
                     <tr>
                         <td></td>
-
-                        <!--<td><input type="button" class="btn btn-primary" id="enviarConfigurar" value="Actualizar"/></td>-->
-
                         <td><input type="button" class="btn btn-primary" id="enviarConfigurar" value="Update"/></td>
                     </tr>
                 </table>
@@ -129,19 +126,14 @@
                 ?>
             <p2 style="margin-left:5%" id="graph2"><img style="-webkit-user-select:none;" width="35%" src="<?php echo base_url(); ?>lib/graph/radarmarkex2View.php?a=<?php echo $dataCompetencias[0];?>&amp;b=<?php echo $dataCompetencias[1];?>&amp;c=<?php echo $dataCompetencias[2];?>&amp;d=<?php echo $dataCompetencias[3];?>&amp;e=<?php echo $dataCompetencias[4];?>" alt="" ></p2>
             <br/>
-
-                    <div style="margin-left:42%">
-                            <button class="btn btn-primary" id="hide">Areas</button>
-                            &nbsp;
+                    <div style="margin-left:30%">
+                        <button class="btn btn-primary" id="hide">Areas</button>
                             <button class="btn btn-primary" id="show">Abilities</button>
                     </div>
-                    <br><hr><br><br>   
-
-           
+                    <br/><br/>
             <?php } ?>                
             <br/>
                     <br>   
-
         </div>
         <br/>
         <div id="mensajeConfig">

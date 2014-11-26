@@ -26,7 +26,6 @@
         <div id="msgConfirm" style="display: none">
             
         </div>
-<<<<<<< HEAD
         <div class='principalMenus' id="principalRequests">
                 <?php 
                     $i = 0;
@@ -65,7 +64,6 @@
                             <input type="button" name="commentButton" ident3="<?php echo $row->idUsuarios;?>" ident4="<?php echo $rowP->idTrabajos;?>" value="Send comments"/>
                         </div>
                     <br/>
-=======
         <div class="overlay-container">
             <div id="searchValues" class="window-container zoomin">
 
@@ -73,7 +71,6 @@
         </div>
         <?php if(!isset($error)) { ?>
             <div class='principalMenus' id="principalRequests">
->>>>>>> 417398a409c885a5e9d99853441ff1e23567f65c
                     <?php 
                         $i = 0;
                         for($i; $i < $cont; $i++) {
@@ -81,7 +78,6 @@
                             $rowP = $projects[$i]->row($i);
                             $rowI = $ids[$i];
                     ?>
-<<<<<<< HEAD
             <table>
                 <tr>
                     <td class='td'>
@@ -92,7 +88,6 @@
                 </tr>
             </table>
         </div>
-=======
                         <table class="table_message">
                             <tr>
                                 <td class='td2'>
@@ -139,9 +134,8 @@
             </div>
         <?php } else {
             echo '<div style="center"><span>There are no pending requests</span></div>';
-        }
+                    }}
         ?>
->>>>>>> 417398a409c885a5e9d99853441ff1e23567f65c
         <input type="hidden" id="url" value="<?php echo base_url(); ?>" />
     </body>
 </html>

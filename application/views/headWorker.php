@@ -36,22 +36,23 @@
             
            
                  
-          <form class="navbar-form navbar-left" role="form" style="margin-right: %50">
+          <div class="navbar-form navbar-left" role="form" style="margin-right: ">
             <div class="form-group" style="margin-top:2px">
               <!--<input type="text" placeholder="Search" class="form-control">-->
-                                  <?php echo form_open("buscarController/searchAll"); ?>
-                    <input type="hidden" name="urlBuscar" value="<?php echo base_url(); ?>"/>
-                    <input type="search" name="buscar" id="buscar" class="busqueda"/>
-                    <!--<input type="submit" value="Buscar" style="border-style: none; background: url('<?php echo base_url(); ?>images/search.gif') no-repeat; width: 24px; height: 20px;">-->
-                    <input type="submit"  value="Search">
-                    <?php echo form_close();?>
+                    <div>
+                        <?php echo form_open("buscarController/searchAll"); ?>
+                            <input type="text" name="buscar" id="buscar" class="busqueda"/>
+                            <!--<input type="submit" value="Buscar" style="border-style: none; background: url('<?php echo base_url(); ?>images/search.gif') no-repeat; width: 24px; height: 20px;">-->
+                            <input type="submit" class="btn btn-primary" value="Search"/>
+                        <?php echo form_close();?>
+                    </div>
 
               <!--<input type="search" name="buscar" id="buscar" class="busqueda"/>
               <input type="submit" value="" style="border-style: none; background: url('<?php echo base_url(); ?>images/search.gif') no-repeat; width: 24px; height: 20px;">-->
 
             </div>
             <!--<button type="submit" class="btn btn-success">Search</button>-->
-          </form>      
+          </div>      
             
             <!--<li>        
         <input type="search" name="buscar" id="buscar" class="busqueda"/>
@@ -63,7 +64,10 @@
             <li>
             <?php echo form_open('principalController/Configuracion'); ?>
             <div style="margin-top:9px">
-            &nbsp;&nbsp;&nbsp;<a href="<?php echo base_url(); ?>index.php/principalController/Configuracion" id="config" alt="configuracion"><button type="button" class="btn btn-info">Settings</button></a>
+            <?php
+                $usuario = $this->session->userdata('apellidoP')." ".$this->session->userdata('apellidoM')." ".$this->session->userdata('nombre');
+            ?>
+            &nbsp;&nbsp;&nbsp;<button type="button" class="btn btn-info"><a href="<?php echo base_url(); ?>index.php/principalController/Configuracion" id="config" alt="configuracion"><?php echo $usuario; ?></a></button>
             <?php echo form_close(); ?>
             </div>
             </li>
