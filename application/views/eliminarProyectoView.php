@@ -67,7 +67,7 @@
             
         </div>
         <div id="divButtonEliminar" style="text-align: center">
-            <input class="btn btn-danger" type="button" id="eliminarButtonP" value="Eliminar"/>
+            <input class="btn btn-danger" type="button" id="eliminarButtonP" value="Delete"/>
         </div>
     </div><br/><br/>
     <div style="margin-left: 33%;">
