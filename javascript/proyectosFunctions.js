@@ -5,7 +5,7 @@ $(document).ready(function() {
         $("#divButtonEliminar").show();
         url = $("#urlProyectosE").val();
         idProyecto = $("#proyectosSelect").val();
-        $.post(url+"index.php/proyectosController/buscarProyecto", {
+        $.post(url+"index.php/proyectoscontroller/buscarProyecto", {
             idProyecto : idProyecto
         }, function(data) {
             $("#contenido").html(data);
@@ -13,14 +13,16 @@ $(document).ready(function() {
     });
     
     $("#eliminarButtonP").click(function() {
-        confirmar = confirm("¿Está seguro de eliminar el proyecto seleccionado?");
+        confirmar = confirm("Are you sure you want to delete the selected project?");
         if(confirmar) {
+            $("#contenido").slideUp('slow');
             url = $("#urlProyectosE").val();
             idProyecto = $("#proyectosSelect").val();
-            $.post(url+"index.php/proyectosController/eliminarProyecto", {
+            $.post(url+"index.php/proyectoscontroller/eliminarProyecto", {
                 idProyecto : idProyecto
             }, function(data) {
                 $("#contenido").html(data);
+                $("#contenido").slideDown('slow');
             });
         }
     });
@@ -44,7 +46,7 @@ $(document).ready(function() {
         leader = $('[name="leader"]').is(":checked");
         //**Se verifica si está o no habilitado
         habilitado = $("#habilitado").is(":checked");
-        $.post(url+"index.php/proyectosController/updateProject", {
+        $.post(url+"index.php/proyectoscontroller/updateProject", {
             id : idProyecto,
             nombre : nombre,
             descripcion : descripcion,
@@ -70,7 +72,7 @@ $(document).ready(function() {
         if(confirmar) {
             url = $("#url").val();
             idProyecto = $(this).attr('ident');
-            $.post(url+"index.php/proyectosController/deleteAllProject", {
+            $.post(url+"index.php/proyectoscontroller/deleteAllProject", {
                 idProyecto : idProyecto
             }, function(data) {
                 $("#contenido").html(data);
@@ -95,7 +97,7 @@ $(document).ready(function() {
         id = "commentText"+project+user;
         comments = $('[name="'+id+'"]').val();
         url = $("#url").val();
-        $.post(url+"index.php/proyectosController/sendComments", {
+        $.post(url+"index.php/proyectoscontroller/sendComments", {
             idUsuario : user,
             idProject : project,
             comment : comments,
@@ -113,7 +115,7 @@ $(document).ready(function() {
         //**Primero llena el div**
         idProyecto = $(this).attr('ident');
         url = $("#url").val();
-        $.post(url+"index.php/proyectosController/seeProject", {
+        $.post(url+"index.php/proyectoscontroller/seeProject", {
             idProyecto : idProyecto
         }, function(data) {
             $("#searchValues").html(data);
@@ -131,7 +133,7 @@ $(document).ready(function() {
     $('[name="gradeWorkers"').click(function() {
         idProyecto = $(this).attr('ident');
         url = $("#url").val();
-        $.post(url+"index.php/proyectosController/gradeWorkers", {
+        $.post(url+"index.php/proyectoscontroller/gradeWorkers", {
             idProyecto : idProyecto
         }, function(data) {
             $("#searchValues").html(data);
@@ -151,7 +153,7 @@ function requestProyect(id) {
     if(confirmar) {
         url = $("#url").val();
         idProyecto = id;
-        $.post(url+"index.php/proyectosController/requestProyect", {
+        $.post(url+"index.php/proyectoscontroller/requestProyect", {
             idProyecto : idProyecto,
             value : 1
         }, function(data) {
@@ -163,7 +165,7 @@ function requestProyect(id) {
 function seeRequests(id) {
     idSupervisor = id;
     url = $("#url").val();
-    $.post(url+"index.php/proyectosController/seeRequest", {
+    $.post(url+"index.php/proyectoscontroller/seeRequest", {
             idSupervisor : idSupervisor
         }, function(data) {
             //$("#seeRequests").html(data);
@@ -183,7 +185,7 @@ function acceptProyect(idProyect, idUser, idRequest) {
     confirmar = confirm("Did you wish to add the selected user to the proyect?");
     if(confirmar) {
         url = $("#url").val();
-        $.post(url+"index.php/proyectosController/acceptRequest", {
+        $.post(url+"index.php/proyectoscontroller/acceptRequest", {
             idProyect : idProyect,
             idUser : idUser,
             idRequest : idRequest
@@ -197,7 +199,7 @@ function acceptProyect(idProyect, idUser, idRequest) {
 function modifyProyect(num, u) {
     id = num;
     url = u;
-    $.post(url+"index.php/proyectosController/getProyectModify", {
+    $.post(url+"index.php/proyectoscontroller/getProyectModify", {
         idProyect : id
     }, function(data) {
         alert("hola") ;

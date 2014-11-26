@@ -15,18 +15,18 @@ class Usuarioscontroller extends CI_Controller {
         $foto = $this->input->post('foto');
 
         if(($nom || $apeP || $apeM || $pass || $passCon || $mail) == "") {
-            echo "<span class='alert alert-info' role='alert'>All fields must be filled</span>";
+            echo '<div class="alert alert-danger" role="alert">'."All fields must be filled</div>";
         } else if($pass != $passCon) {
-            echo "<span class='alert alert-info' role='alert'>Passwords does not match</span>";
+            echo '<div class="alert alert-danger" role="alert">'."Passwords does not match</div>";
         } else {
             if($foto == "") {
                 $foto = "../../files/defaultFoto.jpg";
             }
             $resultado = $this->usuariosmodel->registraUsuario($nom, $apeP, $apeM, $pass, $mail, 3, $foto);
             if($resultado == 1) {
-                echo "<span class='alert alert-info' role='alert'>User register</span>";
+                echo '<div class="alert alert-success" role="alert">'."<span>The user has been added</span></div>";
             } else {
-                echo "</span>User could not be created with the information provided</span>";
+                echo '<div class="alert alert-warning" role="alert">'."User could not be created with the information provided</div>";
             }
         }        
     }
@@ -45,9 +45,9 @@ class Usuarioscontroller extends CI_Controller {
         $foto = $this->input->post('foto');
         
         if(($nombre || $aPaterno || $aMaterno || $pass || $passCon || $mail) == "") {
-            echo "All fields must be filleds";
+            echo '<div class="alert alert-danger" role="alert">All fields must be filleds</div>';
         } else if($pass != $passCon) {
-            echo "Passwords does not match";
+            echo '<div class="alert alert-danger" role="alert">Passwords does not match</div>';
         } else {
             if($foto == "") {
                 $foto = "../../files/defaultFoto.jpg";
@@ -55,7 +55,7 @@ class Usuarioscontroller extends CI_Controller {
             $pass = base64_encode($pass);
             $resultado = $this->usuariosmodel->actualizaUsuario($id, $nombre, $aPaterno, $aMaterno, $pass, $mail, $foto);
             if($resultado == 1) {
-                echo "Information Updated";
+                echo '<div class="alert alert-success" role="alert">Information Updated</div>';
                 $dataUser['nombre'] = $nombre;
                 $dataUser['apellidoP'] = $aPaterno;
                 $dataUser['apellidoM'] = $aMaterno;
@@ -64,7 +64,7 @@ class Usuarioscontroller extends CI_Controller {
                 $dataUser['foto'] = $foto;
                 $this->session->set_userdata($dataUser);
             } else {
-                echo "Something has happened, please try again";
+                echo '<div class="alert alert-warning" role="alert">Something has happened, please try again</div>';
             }
         }
     }
@@ -93,7 +93,7 @@ class Usuarioscontroller extends CI_Controller {
         $this->form_validation->set_rules('mail', 'Correo', 'valid_email');
         
         if ($this->form_validation->run() == FALSE) {
-                echo "<p>*Debe indicar un email vﾃ｡lido</p>";
+                echo "<p>*Debe indicar un email válido</p>";
         } else {
             $nom = $this->input->post('nombre');
             $apeP = $this->input->post('apellidoP');
@@ -115,9 +115,9 @@ class Usuarioscontroller extends CI_Controller {
                 $resultado = $this->usuariosmodel->registraUsuario($nom, $apeP, $apeM, $pass, $mail, $type, $foto);
 
                 if($resultado == 1) {
-                    echo '<p>User has been registered</p>';
+                    echo '<div class="alert alert-success" role="alert">User has been registered</div>';
                 } else {
-                    echo "<p>*User could not be created with provided information, please try again</p>";
+                    echo '<div class="alert alert-danger" role="alert">*User could not be created with provided information, please try again</div>';
                 }
             }
         }
@@ -130,9 +130,9 @@ class Usuarioscontroller extends CI_Controller {
         
         $resultado = $this->usuariosmodel->eliminaUsuario($id);
         if($resultado == 1) {
-            echo "<p>User deleted</p>";
+            echo '<div class="alert alert-success" role="alert">User deleted</p>';
         } else {
-            echo "<p>User could not be deleted, please try again.</p>";
+            echo '<div class="alert alert-danger" role="alert">User could not be deleted, please try again.</p>';
         }
     }
     
@@ -145,13 +145,13 @@ class Usuarioscontroller extends CI_Controller {
         if($resultado->num_rows > 0) {
             echo "<br/><br/>";
             foreach($resultado->result() as $row) {
-                echo "<table class='table_message'>";
+                echo "<table class='table table-bordered table-hover table-striped'>";
                     echo "<tr>";
                         echo "<td>";
                             echo "<img src='".$row->urlFoto."' width='100' height='100' alt='img'/>";
                         echo "</td>";
                         echo "<td>";
-                            echo $row->Nombre."<br/>".$row->APaterno." ".$row->AMaterno."<br/>";
+                            echo "<strong>".$row->Nombre." ".$row->APaterno." ".$row->AMaterno."</strong><br/>";
                             echo $row->Mail;
                         echo "</td>";
                     echo "</tr>";
@@ -171,7 +171,7 @@ class Usuarioscontroller extends CI_Controller {
             $data['usuario'] = $resultado;
             $this->load->view('usuarioModificarView', $data);
         } else {
-            echo "<p>Information could not be found</p>";
+            echo '<div class="alert alert-danger" role="alert">Information could not be found</div>';
         }
     }
     
@@ -182,7 +182,7 @@ class Usuarioscontroller extends CI_Controller {
         $this->form_validation->set_rules('mail', 'Correo', 'valid_email');
         
         if ($this->form_validation->run() == FALSE) {
-                echo "<p>Debe indicar un email vﾃ｡lido</p>";
+                echo "<p>Debe indicar un email válido</p>";
         } else {
             $id = $this->input->post('id');
             $nom = $this->input->post('nombre');
@@ -194,9 +194,9 @@ class Usuarioscontroller extends CI_Controller {
             $foto = $this->input->post('foto');
             
             if(($nom || $apeP || $apeM || $pass || $passCon) == "") {
-                echo "<p>All fields must be filleds</p>";
+                echo '<div class="alert alert-danger" role="alert">All fields must be filleds</p>';
             } else if($pass != $passCon) {
-                echo "<p>Passwords does not match</p>";
+                echo '<div class="alert alert-danger" role="alert">Passwords does not match</div>';
             } else {
                 if($foto == "") {
                     $foto = "../../files/defaultFoto.jpg";
@@ -204,9 +204,9 @@ class Usuarioscontroller extends CI_Controller {
                 $resultado = $this->usuariosmodel->actualizaUsuario($id, $nom, $apeP, $apeM, $pass, $mail, $foto);
 
                 if($resultado == 1) {
-                    echo '<p>Information updated</p>';
+                    echo '<div class="alert alert-success" role="alert">Information updated</div>';
                 } else {
-                    echo "<p>Information could not be updated, please try again.</p>";
+                    echo '<div class="alert alert-warning" role="alert"Information could not be updated, please try again.</div>';
                 }
             }
         }
@@ -234,8 +234,12 @@ class Usuarioscontroller extends CI_Controller {
             if(!is_numeric($proyectos)) {
                 $data['proyectos'] = $proyectos;
             }
-            $data['califAreas'] = $califAreas;
-            $data['califCompetencias'] = $califCompetencias;
+            if(!is_numeric($califAreas)) {
+                $data['califAreas'] = $califAreas;
+            }
+            if(!is_numeric($califCompetencias)) {
+                $data['califCompetencias'] = $califCompetencias;
+            }
         } else {
             $data['error'] = 0;
         }

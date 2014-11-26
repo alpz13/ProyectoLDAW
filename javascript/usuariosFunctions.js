@@ -7,6 +7,7 @@ $(document).ready(function() {
     $("#divProyectosCompetencias").hide();
     
     $("#enviarConfigurar").click(function() {
+        $("#mensajeConfig").hide();
         nombre = $("#nombre").val();
         aPaterno = $("#aPaterno").val();
         aMaterno = $("#aMaterno").val();
@@ -15,7 +16,7 @@ $(document).ready(function() {
         mail = $("#mail").val();
         foto = $("#urlFoto").val();
         url = $("#url").val();
-        $.post(url+"index.php/usuariosController/actualizaUsuario", {
+        $.post(url+"index.php/usuarioscontroller/actualizaUsuario", {
             nombre : nombre,
             aPaterno : aPaterno,
             aMaterno : aMaterno,
@@ -25,6 +26,7 @@ $(document).ready(function() {
             foto : foto
         }, function(data) {
             $("#mensajeConfig").html(data);
+            $("#mensajeConfig").slideDown('slow');
             foto = document.getElementById("urlFoto");
             foto.innerHTML = "../../files/defaultFoto.jpg";
         });
@@ -38,7 +40,7 @@ $(document).ready(function() {
         pass = $("#pass").val();
         passCon = $("#passCon").val();
         mail = $("#mail").val();        
-        $.post(url+"index.php/usuariosController/registraUsuario", {
+        $.post(url+"index.php/usuarioscontroller/registraUsuario", {
         },function(data) {
             alert(data);
         });
@@ -48,7 +50,7 @@ $(document).ready(function() {
         url = $("#url");
         usuario = $("#usuario").val();
         passwd = $("#passwd").val();
-        $.post(url+"index.php/principalController/home", {
+        $.post(url+"index.php/principalcontroller/home", {
             usuario : usuario,
             passwd : passwd
         }, function(data) {
@@ -80,6 +82,7 @@ $(document).ready(function() {
     });
     
     $("#registraUsuarioC").click(function() {
+        $("#contenido").hide();
         url = $("#urlUsuarios").val();
         nombre = $("#nombre").val();
         apellidoP = $("#apellidoP").val();
@@ -89,7 +92,7 @@ $(document).ready(function() {
         mail = $("#mail").val();
         type = $("#userType").val();
         foto = "";
-        $.post(url+"index.php/usuariosController/crearUsuario", {
+        $.post(url+"index.php/usuarioscontroller/crearUsuario", {
             nombre : nombre,
             apellidoP : apellidoP,
             apellidoM : apellidoM,
@@ -100,6 +103,7 @@ $(document).ready(function() {
             foto : foto
         },function(data) {
             $("#contenido").html(data);
+            $("#contenido").slideDown('slow');
         });
     });
     
@@ -107,7 +111,7 @@ $(document).ready(function() {
         $("#buttonShow").show();
         url = $("#urlUsuarios").val();
         id = $("#usuarioSelectC").val();
-        $.post(url+"index.php/usuariosController/mostrarEliminarUsuario", {
+        $.post(url+"index.php/usuarioscontroller/mostrarEliminarUsuario", {
             id : id
         },function(data) {
             $("#contenido").html(data);
@@ -115,26 +119,31 @@ $(document).ready(function() {
     });
     
     $("#eliminarUsuarioConfig").click(function() {
-        confirmar = confirm("Deseas eliminar el usuario seleccionado?");
+        confirmar = confirm("Are you sure you want to delete the selected user?");
         if(confirmar) {
+            $("#contenido").hide();
             url = $("#urlUsuarios").val();
             id = $("#usuarioSelectC").val();
-            $.post(url+"index.php/usuariosController/eliminarUsuario", {
+            $.post(url+"index.php/usuarioscontroller/eliminarUsuario", {
                 id : id
             }, function(data) {
                 $("#contenido").html(data);
+                $("#contenido").slideDown('slow');
             });
         }
         $("#usuarioEliminarC").hide();
+        $("#buttonShow").hide();
     });
     
     $("#usuarioModificarSelectC").change(function() {
+        $("#contenidoModificar").hide();
         url = $("#urlUsuarios").val();
         id = $("#usuarioModificarSelectC").val();
-        $.post(url+"index.php/usuariosController/modificarUsuarioShow", {
+        $.post(url+"index.php/usuarioscontroller/modificarUsuarioShow", {
                 id : id
             }, function(data) {
-                $("#contenido").html(data);
+                $("#contenidoModificar").html(data);
+                $("#contenidoModificar").slideDown('slow');
         });
     });
     
@@ -156,7 +165,7 @@ $(document).ready(function() {
         //**Primero llena el div**
         idUsuario = $(this).attr('ident');
         url = $("#url").val();
-        $.post(url+"index.php/usuariosController/seeProfile", {
+        $.post(url+"index.php/usuarioscontroller/seeProfile", {
             idUsuario : idUsuario
         }, function(data) {
             $("#searchValues").html(data);

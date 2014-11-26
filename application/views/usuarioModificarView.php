@@ -1,6 +1,6 @@
 <script>
     $(document).ready(function() {
-        $("#contenido2").hide();
+        $("#contenido").hide();
         $("#actualizaUsuario").click(function() {
             url = $("#urlUsuarioActualizar").val();
             id = $("#idUsuario").val();
@@ -21,8 +21,8 @@
                 mail : mail,
                 foto : foto
             }, function(data) {
-                $("#contenido2").html(data);
-                $("#contenido2").show();
+                $("#contenido").html(data);
+                $("#contenido").slideDown('slow');
             });
         });
     });
@@ -40,40 +40,39 @@
 <div>
     <input type="hidden" id="urlUsuarioActualizar" value="<?php echo base_url(); ?>"/>
     <input type="hidden" id="idUsuario" value="<?php echo $id; ?>"/>
-    <table class="tRegistro" style="margin-left: 30%;">
+    <table class="table table-bordered table-hover table-striped">
         <tr>
-            <td>Name:</td>
-            <td><input type='text' name='nombre' id="nombreM" value="<?php echo $nombre;?>"</td>
+            <td><strong>Name:</strong></td>
+            <td><input type='text' class="form-control" name='nombre' id="nombreM" value="<?php echo $nombre;?>"</td>
             <td class="error"><?php echo form_error('nombre'); ?></td>
         </tr>
         <tr>
-            <td>Paternal lastname:</td>
-            <td><input type='text' name='apellidoP' id="apellidoPM" value="<?php echo $aPaterno;?>"</td>
+            <td><strong>Paternal lastname:</strong></td>
+            <td><input type='text' class="form-control" name='apellidoP' id="apellidoPM" value="<?php echo $aPaterno;?>"</td>
             <td class="error"><?php echo form_error('apellidoP'); ?></td>
         </tr>
         <tr>
-            <td>Maternal lastname:</td>
-            <td><input type='text' name='apellidoM' id="apellidoMM" value="<?php echo $aMaterno;?>"</td>
+            <td><strong>Maternal lastname:</strong></td>
+            <td><input type='text' class="form-control" name='apellidoM' id="apellidoMM" value="<?php echo $aMaterno;?>"</td>
             <td class="error"><?php echo form_error('apellidoM'); ?></td>
         </tr>
         <tr>
-            <td>Password:</td>
-            <td><input type='password' name='pass' id="passM" value="<?php echo $pass;?>"</td>
+            <td><strong>Password:</strong></td>
+            <td><input type='password' class="form-control" name='pass' id="passM" value="<?php echo $pass;?>"</td>
             <td class="error"><?php echo form_error('pass'); ?></td>
         </tr>
         <tr>
-            <td>Re entry password:</td>
-            <td><input type='password' name='passCon' id="passConM" </td>
+            <td><strong>Re entry password:</strong></td>
+            <td><input type='password' class="form-control" name='passCon' id="passConM" </td>
             <td class="error"><?php echo form_error('passCon'); ?></td>
         </tr>
         <tr>
-            <td>Mail:</td>
-            <td><input type='text' name='mail' id="mailM" value="<?php echo $mail;?>"</td>
+            <td><strong>Mail:</strong></td>
+            <td><input type='text' class="form-control" name='mail' id="mailM" value="<?php echo $mail;?>"</td>
             <td class="error"><?php echo form_error('mail'); ?></td>
         </tr>
         <tr>
             <td></td>
-            <br/><br/>
             <td><input class='btn btn-primary' type='button' id="actualizaUsuario" value='Actualizar'/></td>
         </tr>
     </table>

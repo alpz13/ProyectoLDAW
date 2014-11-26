@@ -146,8 +146,8 @@ class ProyectosController extends CI_Controller {
         $resultado = $this->proyectosmodel->buscarProyecto($idProyecto);
         
         if($resultado->num_rows() > 0) {
-            echo "<table class='table_message'>";
-                echo "<tr><td>Project</td><td>Description</td></tr>";
+            echo "<table class='table table-bordered table-hover table-striped'>";
+                echo "<tr><td><strong>Project</strong></td><td><strong>Description<strong></td></tr>";
                 echo "<tr>";
                     foreach($resultado->result() as $row) {
                         echo "<td>".$row->Nombre."</td>";
@@ -164,13 +164,11 @@ class ProyectosController extends CI_Controller {
     {
         $this->load->model('proyectosmodel');
         $idProyecto = $this->input->post('idProyecto');
-        
         $resultado = $this->proyectosmodel->eliminaProyecto($idProyecto);
-        
         if($resultado == 1) {
-            echo "<p>The project has been deleted succesfully</p>";
+            echo '<div class="alert alert-success" role="alert">The project has been deleted</div>';
         } else {
-            echo "<p>Project could not be deleted, please try again.</p>";
+            echo '<div class="alert alert-danger" role="alert">Project could not be deleted, please try again</div>';
         }
     }
     

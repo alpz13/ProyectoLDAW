@@ -19,7 +19,7 @@
             ?>
         </div>
         <div class="principalAreaP dark">
-            <table style="margin-left: 14%;">
+            <table style="margin-left: 30%;">
                 <tr>
                     <td>
                         <?php echo form_open('proyectoscontroller/myProjects'); ?>
@@ -43,15 +43,15 @@
                     </td>
                     <td>
                         <?php echo form_open('proyectoscontroller/eliminar'); ?>
-                            <input class="btn btn-danger" type="submit" value="Delete project" />
+                            <input class="btn btn-primary" type="submit" value="Delete project" />
                         <?php echo form_close(); ?>
                     </td>
                 </tr>
             </table>
         </div><br/><br/>
-        <div id="mostrarProyectosE">
+        <div id="mostrarProyectosE" style="margin-left:13%; margin-right:13%; text-align: center">
             <input type="hidden" id="urlProyectosE" value="<?php echo base_url(); ?>"/>
-            <select id="proyectosSelect" style="margin-left: 33%;">
+            <select id="proyectosSelect">
                 <option value="">Choose a project</option>
                 <?php 
                     if($proyectos->num_rows() > 0) {
@@ -63,11 +63,11 @@
             </select>
         </div><br/>
         <br/>
-        <div id="contenido">
+        <div id="contenido" style="margin-left:13%; margin-right:13%; text-align: center">
             
-        </div><br/><br/>
-        <div id="divButtonEliminar">
-            <input class="btn btn-danger" type="button" id="eliminarButtonP" value="Eliminar" style="margin-left: 44%;"/>
+        </div>
+        <div id="divButtonEliminar" style="text-align: center">
+            <input class="btn btn-danger" type="button" id="eliminarButtonP" value="Eliminar"/>
         </div>
     </div><br/><br/>
     <div style="margin-left: 33%;">

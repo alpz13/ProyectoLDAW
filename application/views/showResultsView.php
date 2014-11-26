@@ -18,19 +18,7 @@
                 }
             ?>
         </div>
-        <div class="principalArea">
-            <div>
-                <div id="title"><h2>Welcome! <?php echo $nombre; ?></h2></div>
-                <br/><br/>
-                <div>
-                    <?php echo form_open("buscarcontroller/searchAll"); ?>
-                    <input type="hidden" name="urlBuscar" value="<?php echo base_url(); ?>"/>
-                    <input type="search" name="buscar" id="buscar" class="busqueda"/>
-                    <!--<input type="submit" value="Buscar" style="border-style: none; background: url('<?php echo base_url(); ?>images/search.gif') no-repeat; width: 24px; height: 20px;">-->
-                    <input type="submit" class="btn btn-primary" value="Search"/>
-                <?php echo form_close();?>
-                </div>
-            </div>
+        <div class="principalArea" style="margin-left:13%; margin-right:13%">
             <div class="overlay-container">
                 <div id="searchValues" class="window-container zoomin">
                     
@@ -42,11 +30,10 @@
                     <?php
                     //************************USERS*****************************************************//
                         if(isset($users)) {
-                            echo '<div id="divUsers" style="cursor: pointer"><h2>Users</h2></div>';
-                            echo '<div id="usersSearchId">';
-                                echo '<span>Users found</span><br/>';
+                            echo '<div id="divUsers" class="alert alert-info" role="alert" style="cursor: pointer"><strong>Users</strong></div>';
+                            echo '<div id="usersSearchId" style="width: 70%">';
                                 echo '<br/>';
-                                echo '<table>';
+                                echo '<table class="table table-bordered table-hover table-striped">';
                                     echo '<tr>';
                                         echo '<td><strong>Last Name</strong></td>';
                                         echo '<td><strong>Name</strong></td>';
@@ -57,14 +44,14 @@
                                             echo '<td>'.$row->APaterno.' '.$row->AMaterno.'</td>';
                                             echo '<td>'.$row->Nombre.'</td>';
                                             echo '<td>';
-                                                echo '<input type="button" value="See profile" name="profileButton" ident="'.$row->idUsuarios.'" data-type="zoomin"/>';
+                                                echo '<input type="button" class="btn btn-info" value="See profile" name="profileButton" ident="'.$row->idUsuarios.'" data-type="zoomin"/>';
                                             echo '</td>';
                                         echo '</tr>';
                                     }
                                 echo '</table>';
                             echo '</div>';
                         } else {
-                            echo '<div id="divUsers" style="cursor: pointer"><h2>Users</h2></div>';
+                            echo '<div id="divUsers" class="alert alert-info" role="alert" style="cursor: pointer"><strong>Users</strong></div>';
                             echo '<div id="usersSearchId">';
                                 echo '<span>Users not found</span>';
                             echo '</div>';
@@ -74,11 +61,10 @@
                         
                         //************************PROJECTS*****************************************************//
                         if(isset($projects)) {
-                            echo '<div id="divProject" style="cursor: pointer"><h2>Projects</h2></div>';
-                                echo '<div id="projectSearchId" style="display: none">';
-                                echo '<span>Projects found</span><br/>';
+                            echo '<div id="divProject" class="alert alert-info" role="alert" style="cursor: pointer"><strong>Projects</strong></div>';
+                                echo '<div id="projectSearchId" style="display: none; width: 70%">';
                                 echo '<br/>';
-                                echo '<table>';
+                                echo '<table class="table table-bordered table-hover table-striped">';
                                     echo '<tr>';
                                         echo '<td><strong>Name</strong></td>';
                                         echo '<td><strong>Description</strong></td>';
@@ -89,14 +75,14 @@
                                             echo '<td>'.$row->Nombre.'</td>';
                                             echo '<td>'.$row->Descripcion.'</td>';
                                             echo '<td>';
-                                                echo '<input type="button" value="Description" name="projectButton" ident="'.$row->idTrabajos.'" data-type="zoomin"/>';
+                                                echo '<input type="button" class="btn btn-info" value="Description" name="projectButton" ident="'.$row->idTrabajos.'" data-type="zoomin"/>';
                                             echo '</td>';
                                         echo '</tr>';
                                     }
                                 echo '</table>';
                             echo '</div>';
                         } else {
-                            echo '<div id="divProject" style="cursor: pointer"><h2>Projects</h2></div>';
+                            echo '<div id="divProject" class="alert alert-info" role="alert" style="cursor: pointer"><strong>Projects</strong></div>';
                             echo '<div id="projectSearchId">';
                                 echo '<span>Projects not found</span>';
                             echo '</div>';
@@ -106,11 +92,10 @@
                         
                         //************************USERS WITH AREAS*****************************************************//
                         if(isset($userArea)) {
-                            echo '<div id="divUserArea" style="cursor: pointer"><h2>Users that match with Area</h2></div>';
-                            echo '<div id="usersAreaSearchId" style="display: none">';
-                                echo '<span>Users with specific area found</span><br/>';
+                            echo '<div id="divUserArea" class="alert alert-info" role="alert" style="cursor: pointer"><strong>Users that match with Area</strong></div>';
+                            echo '<div id="usersAreaSearchId" style="display: none; width: 70%">';
                                 echo '<br/>';
-                                echo '<table>';
+                                echo '<table class="table table-bordered table-hover table-striped">';
                                     echo '<tr>';
                                         echo '<td><strong>Last Name</strong></td>';
                                         echo '<td><strong>Name</strong></td>';
@@ -121,14 +106,14 @@
                                             echo '<td>'.$row->APaterno.' '.$row->AMaterno.'</td>';
                                             echo '<td>'.$row->Nombre.'</td>';
                                             echo '<td>';
-                                                echo '<input type="button" value="Profile" name="profileButton" ident="'.$row->idUsuarios.'" data-type="zoomin"/>';
+                                                echo '<input type="button" class="btn btn-info" value="Profile" name="profileButton" ident="'.$row->idUsuarios.'" data-type="zoomin"/>';
                                             echo '</td>';
                                         echo '</tr>';
                                     }
                                 echo '</table>';
                             echo '</div>';
                         } else {
-                            echo '<div id="divUserArea" style="cursor: pointer"><h2>Users that match with Area</h2></div>';
+                            echo '<div id="divUserArea" class="alert alert-info" role="alert" style="cursor: pointer"><strong>Users that match with Area</strong></div>';
                             echo '<div id="usersAreaSearchId">';
                                 echo '<span>Users with specific area not found</span>';
                             echo '</div>';
@@ -138,11 +123,10 @@
                         
                         //************************USERS COMPETENCE*****************************************************//
                         if(isset($userCompetence)) {
-                            echo '<div id="divUserCompetence" style="cursor: pointer"><h2>Users that match with Competence</h2></div>';
-                            echo '<div id="usersCompetenceSearchId" style="display: none">';
-                                echo '<span>Users with specific competence found</span><br/>';
+                            echo '<div id="divUserCompetence" class="alert alert-info" role="alert" style="cursor: pointer"><strong>Users that match with Competence</strong></div>';
+                            echo '<div id="usersCompetenceSearchId" style="display: none; width: 70%">';
                                 echo '<br/>';
-                                echo '<table>';
+                                echo '<table class="table table-bordered table-hover table-striped">';
                                     echo '<tr>';
                                         echo '<td><strong>Last Name</strong></td>';
                                         echo '<td><strong>Name</strong></td>';
@@ -153,14 +137,14 @@
                                             echo '<td>'.$row->APaterno.' '.$row->AMaterno.'</td>';
                                             echo '<td>'.$row->Nombre.'</td>';
                                             echo '<td>';
-                                                echo '<input type="button" value="Profile" name="profileButton" ident="'.$row->idUsuarios.'" data-type="zoomin"/>';
+                                                echo '<input type="button" class="btn btn-info" value="Profile" name="profileButton" ident="'.$row->idUsuarios.'" data-type="zoomin"/>';
                                             echo '</td>';
                                         echo '</tr>';
                                     }
                                 echo '</table>';
                             echo '</div>';
                         } else {
-                            echo '<div id="divUserCompetence" style="cursor: pointer"><h2>Users that match with Competence</h2></div>';
+                            echo '<div id="divUserCompetence" class="alert alert-info" role="alert" style="cursor: pointer"><strong>Users that match with Competence</strong></div>';
                             echo '<div id="usersCompetenceSearchId">';
                                 echo '<span>Users with specific competence not found</span>';
                             echo '</div>';
@@ -170,11 +154,10 @@
                         
                         //************************PROJECTS AREA*****************************************************//
                         if(isset($projectArea)) {
-                            echo '<div id="divProjectArea" style="cursor: pointer"><h2>Projects that match with Area</h2></div>';
-                            echo '<div id="projectAreaSearchId" style="display: none">';
-                                echo '<span>Projects with specific area found</span><br/>';
+                            echo '<div id="divProjectArea" class="alert alert-info" role="alert" style="cursor: pointer"><strong>Projects that match with Area</strong></div>';
+                            echo '<div id="projectAreaSearchId" style="display: none; width: 70%">';
                                 echo '<br/>';
-                                echo '<table>';
+                                echo '<table class="table table-bordered table-hover table-striped">';
                                     echo '<tr>';
                                         echo '<td><strong>Name</strong></td>';
                                         echo '<td><strong>Description</strong></td>';
@@ -185,14 +168,14 @@
                                             echo '<td>'.$row->Nombre.'</td>';
                                             echo '<td>'.$row->Descripcion.'</td>';
                                             echo '<td>';
-                                                echo '<input type="button" value="Description" name="projectButton" ident="'.$row->idTrabajos.'" data-type="zoomin"/>';
+                                                echo '<input type="button" class="btn btn-info" value="Description" name="projectButton" ident="'.$row->idTrabajos.'" data-type="zoomin"/>';
                                             echo '</td>';
                                         echo '</tr>';
                                     }
                                 echo '</table>';
                             echo '</div>';
                         } else {
-                            echo '<div id="divProjectArea" style="cursor: pointer"><h2>Projects that match with Area</h2></div>';
+                            echo '<div id="divProjectArea" class="alert alert-info" role="alert" style="cursor: pointer"><strong>Projects that match with Area</strong></div>';
                             echo '<div id="projectAreaSearchId">';
                                 echo '<span>Projects with specific area not found</span>';
                             echo '</div>';
@@ -202,11 +185,10 @@
                         
                         //************************PROJECTS COMPETENCE*****************************************************//
                         if(isset($projectCompetence)) {
-                            echo '<div id="divProjectCompetence" style="cursor: pointer"><h2>Projects that match with Competence</h2></div>';
-                            echo '<div id="projectCompetenceSearchId" style="display: none">';
-                                echo '<span>Projects with specific competence found</span><br/>';
+                            echo '<div id="divProjectCompetence" class="alert alert-info" role="alert" style="cursor: pointer"><strong>Projects that match with Competence</strong></div>';
+                            echo '<div id="projectCompetenceSearchId" style="display: none; width: 70%">';
                                 echo '<br/>';
-                                echo '<table>';
+                                echo '<table class="table table-bordered table-hover table-striped">';
                                     echo '<tr>';
                                         echo '<td><strong>Name</strong></td>';
                                         echo '<td><strong>Description</strong></td>';
@@ -217,14 +199,14 @@
                                             echo '<td>'.$row->Nombre.'</td>';
                                             echo '<td>'.$row->Descripcion.'</td>';
                                             echo '<td>';
-                                                echo '<input type="button" value="Description" name="projectButton" ident="'.$row->idTrabajos.'" data-type="zoomin"/>';
+                                                echo '<input type="button" class="btn btn-info" value="Description" name="projectButton" ident="'.$row->idTrabajos.'" data-type="zoomin"/>';
                                             echo '</td>';
                                         echo '</tr>';
                                     }
                                 echo '</table>';
                             echo '</div>';
                         } else {
-                            echo '<div id="divProjectCompetence" style="cursor: pointer"><h2>Projects that match with Competence</h2></div>';
+                            echo '<div id="divProjectCompetence" class="alert alert-info" role="alert" style="cursor: pointer"><strong>Projects that match with Competence</strong></div>';
                             echo '<div id="projectCompetenceSearchId">';
                                 echo '<span>Projects with specific competence not found</span>';
                             echo '</div>';

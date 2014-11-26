@@ -115,13 +115,13 @@ class ProyectosModel extends CI_Model {
     
     public function eliminaProyecto($idProyecto)
     {
-        $this->db->where('idTrabajos', $idProyecto);
-        try {
-            $this->db->delete('trabajos');
-                return 1;
-            } catch (Exception $ex) {
-                return 0;
-        }
+        $data = array(
+                'idTrabajos'    => $idProyecto
+                );
+        $this->db->delete('trabajocompetencia', $data);
+        $this->db->delete('trabajoarea', $data);
+        $this->db->delete('trabajos', $data);
+        return 1;
     }
     
     public function getProyectos($id, $flag)

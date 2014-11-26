@@ -47,7 +47,7 @@
               <!--<input type="text" placeholder="Search" class="form-control">-->
                     <div>
                         <?php echo form_open("buscarcontroller/searchAll"); ?>
-                            <input type="text" name="buscar" id="buscar" class="busqueda"/>
+                            <input type="text" class="form-control" name="buscar" id="buscar" class="busqueda"/>
                             <input type="submit" class="btn btn-primary" value="Search"/>
                         <?php echo form_close();?>
                     </div>
