@@ -15,11 +15,11 @@
         </div>-->
 	<div id="intro">
 		<div align="center">                    
-		 <h1><img src="<?php echo base_url(); ?>img/iconfrontpage.png" alt="JobScope" /></h1>
+		 <!--<h1><img src="<?php echo base_url(); ?>img/iconfrontpage.png" alt="JobScope" width="15%" height="15%"/></h1>-->
 
                         <!-- Aqu繝ｻ繝ｻ・ｽ・ｭ comienzan las formas de login y registro-->
                         <div id="registro" align="center">
-                            <br/>
+                           
 <!--                            <div>
                                 <form enctype="multipart/form-data" method="post" id="formulario">
                                     <label>Upload a file</label><br />
@@ -118,7 +118,7 @@
                         <br/>
                         <div id="forgottenPass">
                             <h3>Insert the email of the associated user</h3>
-                            <input type="text" class="form-control" id="emailForgotten"/><br/><br/>
+                            <input type="text" class="form-control" style="width:15%" id="emailForgotten"/><br/>
                             <input type="button" class="btn btn-success" id="sendEmail" value="Restore password"/>&nbsp;
                             <input name="back" class="btn btn-danger" type="button" value="Cancel" />
                         </div>
