@@ -15,6 +15,15 @@ $id = intval($_GET['id']);
 //We get the title and the narators of the discussion
 $req1 = mysql_query('select title, user1, user2 from mensajes where id="'.$id.'" and id2="1"');
 $dn1 = mysql_fetch_array($req1);
+
+if(isset($_POST['update']))
+{
+$updt = mysql_query('UPDATE mensajes SET user1 = 0, user2 = 0 WHERE user1 = "'.$sessionIdm.'" AND id ="'.$id.'"');
+//redirect($this->session->userdata('mensajesView')));
+$this->session->set_userdata('prev_url', $_SERVER['HTTP_REFERER']);
+}
+
+
 //We check if the discussion exists
 if(mysql_num_rows($req1)==1)
 {
@@ -96,9 +105,18 @@ while($dn2 = mysql_fetch_array($req2))
 //We display the reply form
 ?>
 </table>
-<hr>
+
 <div class="center">
+<<<<<<< HEAD
+        <form action="<?php echo site_url('principalController/leermensajeView');?>?id=<?php echo $id; ?>" method="post">
+    	<input name="update" type="submit" id="update" class="btn btn-danger" value="Delete"/>
+    </form>
+<hr>
+<br>
+    <form action="<?php echo site_url('principalController/leermensajeView');?>?id=<?php echo $id; ?>" method="post">
+=======
     <form action="<?php echo site_url('principalcontroller/leermensajeView');?>?id=<?php echo $id; ?>" method="post">
+>>>>>>> 94ca10b1dd67bc14e9bcce8c09b05f4581a99980
     	<label for="message" class="center">Message:</label><br />
         <textarea cols="40" rows="5" name="message" id="message"></textarea><br />
         <input type="submit" class="btn btn-primary" value="Reply"/>
@@ -109,8 +127,6 @@ while($dn2 = mysql_fetch_array($req2))
 }
 }
 }
-
-
 ?>
 
 <!---------------------------------------------------------->

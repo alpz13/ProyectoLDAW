@@ -48,10 +48,10 @@
 $active_group = 'default';
 $active_record = TRUE;
 
-$db['default']['hostname'] = 'localhost';
-$db['default']['username'] = 'root';
-$db['default']['password'] = '';
-$db['default']['database'] = 'ldaw';
+$db['default']['hostname'] = 'localhost'; //mysql16.000webhost.com //localhost
+$db['default']['username'] = 'root';	  //a7597984_ldaw //root
+$db['default']['password'] = '';		  //ldaw2014 //''
+$db['default']['database'] = 'ldaw';	  //a7597984_ldaw //ldaw
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = '';
 $db['default']['pconnect'] = TRUE;

@@ -298,7 +298,7 @@ class ProyectosController extends CI_Controller {
         if(!is_numeric($resultado)) {
             $data['project'] = $resultado;
         } else {
-            $data['error1'] = "There if no information related to the specified project";
+            $data['error1'] = "There is no information related to the specified project";
         }
         $resultado2 = $this->proyectosmodel->getGradesAreas($idProyect);
         if(!is_numeric($resultado2)) {

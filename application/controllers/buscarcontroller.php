@@ -30,5 +30,6 @@ class BuscarController extends CI_Controller {
         }
         $data['error'] = 0;
         $this->load->view('showResultsView', $data);
+        
     }
 }
