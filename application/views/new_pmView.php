@@ -1,6 +1,7 @@
 <!---------------------------------------------------------->
 <!----------------OTHER VIEW-------------------------------->
 <!---------------------------------------------------------->
+<div style="text-align: center; margin-left: 10%; margin-right: 10%">
 <?php
 //We check if the user is logged
 $sessionIdm=$this->session->userdata('id');
@@ -52,25 +53,25 @@ if(isset($_POST['title'], $_POST['recip'], $_POST['message']))
 				else
 				{
 					//Otherwise, we say that an error occured
-					$error = 'Message could not be sent.';
+					$error = '<div class="alert alert-danger" role="alert">Message could not be sent.</div>';
 				}
 			}
 			else
 			{
 				//Otherwise, we say the user cannot send a message to himself
-				$error = 'Same destination.';
+				$error = '<div class="alert alert-warning" role="alert">Same destination.</div>';
 			}
 		}
 		else
 		{
 			//Otherwise, we say the recipient does not exists
-			$error = 'Destination does not exists.';
+			$error = '<div class="alert alert-danger" role="alert">Destination does not exists.</div>';
 		}
 	}
 	else
 	{
 		//Otherwise, we say a field is empty
-		$error = 'Please fill all fields.';
+		$error = '<div class="alert alert-warning" role="alert">Please fill all fields.</div>';
 	}
 }
 elseif(isset($_GET['recip']))
@@ -89,23 +90,50 @@ if(isset($error))
 ?>
 <div class="content">
 	<br /><br />
-	<a href="<?php echo site_url('principalcontroller/mensajesView');?>" style="top: 232px; left: 190px;"><button type="button" class="btn btn-danger"> Cancel</button></a><br />
 		<h3>New Message</h3>
     <form action="<?php echo site_url('principalcontroller/nuevomensajeView');?>" method="post">
 		<br />
-        <label for="title">&nbsp; Title:&nbsp; </label><input type="text" value="<?php echo htmlentities($otitle, ENT_QUOTES, 'UTF-8'); ?>" id="title" name="title" /><br />
-        <br />
-        <label for="recip">&nbsp; To:<span class="small">&nbsp;&nbsp;&nbsp; </span></label><input type="text" value="<?php echo htmlentities($orecip, ENT_QUOTES, 'UTF-8'); ?>" id="recip" name="recip" /><br />
-        <br />
-        <label for="message">Message:&nbsp;&nbsp; </label><textarea cols="40" rows="5" id="message" name="message"><?php echo htmlentities($omessage, ENT_QUOTES, 'UTF-8'); ?></textarea><br />
-        <br />
-        <input class="btn btn-primary" type="submit" value="Send" />
+                <table class="table table-bordered table-hover table-striped">
+                    <tr>
+                        <td>
+                            <label for="title">&nbsp; Title:&nbsp; </label>
+                        </td>
+                        <td>
+                            <input type="text" class="form-control" value="<?php echo htmlentities($otitle, ENT_QUOTES, 'UTF-8'); ?>" id="title" name="title" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="recip">&nbsp; To:<span class="small">&nbsp;&nbsp;&nbsp; </span></label>
+                        </td>
+                        <td>
+                            <input type="text" class="form-control" value="<?php echo htmlentities($orecip, ENT_QUOTES, 'UTF-8'); ?>" id="recip" name="recip" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="message">Message:&nbsp;&nbsp; </label>
+                        </td>
+                        <td>
+                            <textarea cols="40" rows="5" class="form-control" id="message" name="message"><?php echo htmlentities($omessage, ENT_QUOTES, 'UTF-8'); ?></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <input class="btn btn-primary" type="submit" value="Send" />
+                            <a href="<?php echo site_url('principalcontroller/mensajesView');?>" style="top: 232px; left: 190px;"><button type="button" class="btn btn-danger"> Cancel</button></a>
+                        </td>
+                    </tr>
+                </table>
+        
     </form>
 </div>
 <?php
 }
 ?>
-		
+	
+</div>
 <!---------------------------------------------------------->
 <!---------------FOOTER------------------------------------->
 <!---------------------------------------------------------->
