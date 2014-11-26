@@ -26,9 +26,9 @@ if(isset($_SESSION['username']))
 	//We display the links
 ?>
 
-<a href="<?php echo site_url('principalController/mensajeseditinfoView');?>" class="button2">Edit my information.</a><br /><br /><br />
-<a href="<?php echo site_url('principalController/mensajeslistView');?>" class="button2">My messages(<?php echo $nb_new_pm; ?> unread)</a><br /><br /><br />
-<a href="<?php echo site_url('principalController/conexionView');?>" class="button2">Logout</a><br /><br />
+<a href="<?php echo site_url('principalcontroller/mensajeseditinfoView');?>" class="button2">Edit my information.</a><br /><br /><br />
+<a href="<?php echo site_url('principalcontroller/mensajeslistView');?>" class="button2">My messages(<?php echo $nb_new_pm; ?> unread)</a><br /><br /><br />
+<a href="<?php echo site_url('principalcontroller/conexionView');?>" class="button2">Logout</a><br /><br />
 
 <?php
 }
@@ -37,11 +37,11 @@ else
 //Otherwise, we display a link to log in and to Sign up
 ?>
 
-	<?php echo form_open('principalController/mensajessignView'); ?>
+	<?php echo form_open('principalcontroller/mensajessignView'); ?>
 	   <input type="submit" class="button2" value="Registrar" />
 	<?php echo form_close(); ?>
 
-	<?php echo form_open('principalController/conexionView'); ?>
+	<?php echo form_open('principalcontroller/conexionView'); ?>
 	   <input type="submit" class="button2" value="Log in" />
 	<?php echo form_close(); ?>
 

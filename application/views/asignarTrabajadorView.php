@@ -22,27 +22,27 @@
             <table style="margin-left: 14%;">
                 <tr>
                     <td>
-                        <?php echo form_open('proyectosController/myProjects'); ?>
+                        <?php echo form_open('proyectoscontroller/myProjects'); ?>
                             <input class="btn btn-primary" type="submit" value="My Projects" />
                         <?php echo form_close(); ?>
                     </td>
                     <td>
-                        <?php echo form_open('proyectosController/consultar'); ?>
+                        <?php echo form_open('proyectoscontroller/consultar'); ?>
                             <input class="btn btn-primary" type="submit" value="See all projects" />
                         <?php echo form_close(); ?>
                     </td>
                     <td>
-                        <?php echo form_open('proyectosController/creaProyecto'); ?>
+                        <?php echo form_open('proyectoscontroller/creaProyecto'); ?>
                             <input class="btn btn-primary" type="submit" value="Create project"/>
                         <?php echo form_close(); ?>
                     </td>
                     <td>
-                        <?php echo form_open('proyectosController/asignarTrabajador'); ?>
+                        <?php echo form_open('proyectoscontroller/asignarTrabajador'); ?>
                             <input class="btn btn-primary" type="submit" value="Assign worker"/>
                         <?php echo form_close(); ?>
                     </td>
                     <td>
-                        <?php echo form_open('proyectosController/eliminar'); ?>
+                        <?php echo form_open('proyectoscontroller/eliminar'); ?>
                             <input type="hidden" id="urlProyectos" value="<?php echo base_url(); ?>"/>
                             <input class="btn btn-primary" type="submit" value="Delete project" />
                         <?php echo form_close(); ?>
@@ -51,7 +51,7 @@
             </table>
         </div><br/><br/>
         <div class="principalAreaP dark principalTrabajadores" style="margin-left:13%; margin-right:13%">
-            <?php echo form_open('proyectosController/asignarProyecto'); ?>
+            <?php echo form_open('proyectoscontroller/asignarProyecto'); ?>
                 <table style="margin-left: 20%">
                     <tr>
                         <td>

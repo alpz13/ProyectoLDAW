@@ -81,7 +81,7 @@
             <table>
                 <tr>
                     <td class='td'>
-                        <?php echo form_open("principalController/homeView"); ?>
+                        <?php echo form_open("principalcontroller/homeView"); ?>
                             <input type="submit" class="btn btn-primary" value="Back"/>
                         <?php echo form_close(); ?>
                     </td>
@@ -125,7 +125,7 @@
                 <table>
                     <tr>
                         <td class='td'>
-                            <?php echo form_open("principalController/homeView"); ?>
+                            <?php echo form_open("principalcontroller/homeView"); ?>
                                 <input type="submit" class="button2" value="Back"/>
                             <?php echo form_close(); ?>
                         </td>

@@ -23,7 +23,7 @@
                 <div id="title"><h2>Welcome! <?php echo $nombre; ?></h2></div>
                 <br/><br/>
                 <div>
-                    <?php echo form_open("buscarController/searchAll"); ?>
+                    <?php echo form_open("buscarcontroller/searchAll"); ?>
                     <input type="hidden" name="urlBuscar" value="<?php echo base_url(); ?>"/>
                     <input type="search" name="buscar" id="buscar" class="busqueda"/>
                     <!--<input type="submit" value="Buscar" style="border-style: none; background: url('<?php echo base_url(); ?>images/search.gif') no-repeat; width: 24px; height: 20px;">-->

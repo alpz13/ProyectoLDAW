@@ -48,7 +48,7 @@ if(isset($_POST['username'], $_POST['password'], $_POST['passverif'], $_POST['em
 ?>
 <div class="message">Register successfully, you can now log in.<br /><br/>
 
-<a href="<?php echo site_url('principalController/conexionView');?>" class="button2">Log in</a></div>
+<a href="<?php echo site_url('principalcontroller/conexionView');?>" class="button2">Log in</a></div>
 
 
 <?php
@@ -103,9 +103,9 @@ if($form)
 ?>
 <div class="content">
 	<br />
-	<a href="<?php echo site_url('principalController/mensajesView');?>" class="button2" style="top: 232px; left: 190px;">&nbsp; Regresar</a><br />
+	<a href="<?php echo site_url('principalcontroller/mensajesView');?>" class="button2" style="top: 232px; left: 190px;">&nbsp; Regresar</a><br />
 	<br />
-    <form action="<?php echo site_url('principalController/mensajessignView');?>" method="post">
+    <form action="<?php echo site_url('principalcontroller/mensajessignView');?>" method="post">
         New user registry.<br /><br />
         <div class="center">
             <label for="username">User</label><input type="text" name="username" value="<?php if(isset($_POST['username'])){echo htmlentities($_POST['username'], ENT_QUOTES, 'UTF-8');} ?>" /><br />

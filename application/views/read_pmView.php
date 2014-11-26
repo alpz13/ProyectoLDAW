@@ -62,14 +62,14 @@ if(isset($_POST['message']) and $_POST['message']!='')
 	{
 ?>
 <div class="message alert alert-success" role="alert">Message has been sent.</div>
-<a href="<?php echo site_url('principalController/mensajesView');?>"><button type="button" class="btn btn-primary">Back to Inbox</button></a>
+<a href="<?php echo site_url('principalcontroller/mensajesView');?>"><button type="button" class="btn btn-primary">Back to Inbox</button></a>
 <?php
 	}
 	else
 	{
 ?>
 <div class="message alert alert-warning" role="alert">Error: message could not be sent.</div>
-<a href="<?php echo site_url('principalController/mensajesView');?>"><button type="button" class="btn btn-primary">Back to Inbox</button></a>
+<a href="<?php echo site_url('principalcontroller/mensajesView');?>"><button type="button" class="btn btn-primary">Back to Inbox</button></a>
 <?php
 	}
 }
@@ -107,12 +107,16 @@ while($dn2 = mysql_fetch_array($req2))
 </table>
 
 <div class="center">
+<<<<<<< HEAD
         <form action="<?php echo site_url('principalController/leermensajeView');?>?id=<?php echo $id; ?>" method="post">
     	<input name="update" type="submit" id="update" class="btn btn-danger" value="Delete"/>
     </form>
 <hr>
 <br>
     <form action="<?php echo site_url('principalController/leermensajeView');?>?id=<?php echo $id; ?>" method="post">
+=======
+    <form action="<?php echo site_url('principalcontroller/leermensajeView');?>?id=<?php echo $id; ?>" method="post">
+>>>>>>> 94ca10b1dd67bc14e9bcce8c09b05f4581a99980
     	<label for="message" class="center">Message:</label><br />
         <textarea cols="40" rows="5" name="message" id="message"></textarea><br />
         <input type="submit" class="btn btn-primary" value="Reply"/>

@@ -11,7 +11,7 @@
             passCon = $("#passConM").val();
             mail = $("#mailM").val();
             foto = "";
-            $.post(url+"index.php/usuariosController/modificarUsuario", {
+            $.post(url+"index.php/usuarioscontroller/modificarUsuario", {
                 id : id,
                 nombre : nombre,
                 apellidoP : apellidoP,

@@ -78,7 +78,7 @@
             url = $("#url").val();
             user = $("#idUsuario").val();            
             
-            $.post(url+"index.php/usuariosController/gradeAreas", {
+            $.post(url+"index.php/usuarioscontroller/gradeAreas", {
                 a1 : question1,
                 a2 : question2,
                 a3 : question3,
@@ -153,8 +153,8 @@
         <div class="principalArea" style="margin-left:13%; margin-right:13%">
             <div id="instructions" style="text-align: center; width: 70%; margin-left: 16%; font-size: medium;">
                 <p>
-                    The following test was implemented to evaluate your capabilities into different areas 
-                    and competencies. Please answer honestly and be sure to save all your responses at the 
+                    The following test was implemented to evaluate your capabilities into different areas. 
+                    Please answer honestly and be sure to save all your responses at the 
                     end of the test. <br/>
                     The test lasts approximately 20 minutes. 
                     Make sure you answer correctly, you are no longer allowed to return to a previous question<br/>

@@ -24,17 +24,17 @@
             <input type="hidden" id="url" value="<?php echo base_url(); ?>"/>
             <table style="margin-left: 27%;">
                 <tr>
-                    <?php echo form_open("usuariosController/crearUsuario"); ?>
+                    <?php echo form_open("usuarioscontroller/crearUsuario"); ?>
                         <td>
                             <input class='btn btn-primary' type="button" id="nuevoUsuario" value="Create user"/>
                         </td>
                     <?php echo form_close(); ?>
-                    <?php echo form_open("usuariosController/eliminarUsuario"); ?>
+                    <?php echo form_open("usuarioscontroller/eliminarUsuario"); ?>
                         <td>
                             <input class='btn btn-primary' type="button" id="eliminarUsuario" value="Delete user"/>
                         </td>
                     <?php echo form_close(); ?>
-                    <?php echo form_open("usuariosController/modificarUsuario"); ?>
+                    <?php echo form_open("usuarioscontroller/modificarUsuario"); ?>
                         <td>
                             <input class='btn btn-primary' type="button" id="modificarUsuario" value="Modify user"/>
                         </td>
