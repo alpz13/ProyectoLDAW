@@ -162,7 +162,11 @@ class PrincipalController extends CI_Controller {
      	 public function mensajesView()
         {
             $this->load->view('header');
-            $this->load->view('headAdmin');
+            if($this->session->userdata('tipo') == 1 || $this->session->userdata('tipo') == 2) {
+                $this->load->view('headAdmin');
+            } else {
+                $this->load->view('headWorker');
+            }
             $this->load->view('list_pmView');
             $this->load->view('footer');
         }

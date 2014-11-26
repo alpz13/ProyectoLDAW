@@ -23,11 +23,10 @@
                 <div id="title"><h2>Welcome! <?php echo $nombre; ?></h2></div>
                 <div>
                     <?php echo form_open("buscarController/searchAll"); ?>
-                    <input type="hidden" name="urlBuscar" value="<?php echo base_url(); ?>"/>
-                    <input type="search" name="buscar" id="buscar" class="busqueda"/>
-                    <!--<input type="submit" value="Buscar" style="border-style: none; background: url('<?php echo base_url(); ?>images/search.gif') no-repeat; width: 24px; height: 20px;">-->
-                    <input type="submit" class="btn btn-primary" value="Search"/>
-                <?php echo form_close();?>
+                        <input type="search" name="buscar" id="buscar" class="busqueda"/>
+                        <!--<input type="submit" value="Buscar" style="border-style: none; background: url('<?php echo base_url(); ?>images/search.gif') no-repeat; width: 24px; height: 20px;">-->
+                        <input type="submit" class="btn btn-primary" value="Search"/>
+                    <?php echo form_close();?>
                 </div>
             </div>
             <div class="overlay-container">
