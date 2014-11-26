@@ -126,13 +126,16 @@
                 }
                 ?>
             <p2 id="graph2"><img style="-webkit-user-select:none;" width="35%" src="<?php echo base_url(); ?>lib/graph/radarmarkex2View.php?a=<?php echo $dataCompetencias[0];?>&amp;b=<?php echo $dataCompetencias[1];?>&amp;c=<?php echo $dataCompetencias[2];?>&amp;d=<?php echo $dataCompetencias[3];?>&amp;e=<?php echo $dataCompetencias[4];?>" alt="" ></p2>
-            <br/>
-                    <div>
-                        <button class="btn btn-primary" id="hide">Areas</button>
-                            <button class="btn btn-primary" id="show">Abilities</button>
-                    </div>
-                    <br/><br/>
             <?php } ?>                
+            <div>
+            <?php if(isset($califAreas)) { ?>
+                <br/>
+                        <button class="btn btn-primary" id="hide">Areas</button>
+            <?php }
+            if(isset($califCompetencias)) { ?>
+                <button class="btn btn-primary" id="show">Abilities</button>
+            <?php } ?>
+            </div>
             <br/>
                     <br>   
         </div>
