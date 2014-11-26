@@ -15,9 +15,9 @@
         </div>-->
 	<div id="intro">
 		<div align="center">                    
-		 <h1>Job Scope</h1>
+		 <h1><img src="<?php echo base_url(); ?>img/iconfrontpage.png" alt="JobScope" /></h1>
 
-                        <!-- Aqu・・ｽｭ comienzan las formas de login y registro-->
+                        <!-- Aqu繝ｻ繝ｻ・ｽ・ｭ comienzan las formas de login y registro-->
                         <div id="registro" align="center">
                             <br/>
 <!--                            <div>
@@ -37,46 +37,46 @@
                                 <table>
                                     <tr>
                                         <td>Name:</td>
-                                        <td><input type='text' name='nombre' id="nombre"</td>
+                                        <td><input type='text' class="form-control" name='nombre' id="nombre"</td>
                                         <td><?php echo form_error('nombre'); ?></td>
                                     </tr>
                                     <tr>
                                         <td>Paternal Surname:</td>
-                                        <td><input type='text' name='apellidoP' id="apellidoP"</td>
+                                        <td><input type='text' class="form-control" name='apellidoP' id="apellidoP"</td>
                                         <td><?php echo form_error('apellidoP'); ?></td>
                                     </tr>
                                     <tr>
                                         <td>Maternal Surname:</td>
-                                        <td><input type='text' name='apellidoM' id="apellidoM"</td>
+                                        <td><input type='text' class="form-control" name='apellidoM' id="apellidoM"</td>
                                         <td><?php echo form_error('apellidoM'); ?></td>
                                     </tr>
                                     <tr>
                                         <td>Password:</td>
-                                        <td><input type='password' name='pass' id="pass"</td>
+                                        <td><input type='password' class="form-control" name='pass' id="pass"</td>
                                         <td><?php echo form_error('pass'); ?></td>
                                     </tr>
                                     <tr>
                                         <td>Re-entry Password:</td>
-                                        <td><input type='password' name='passCon' id="passCon"</td>
+                                        <td><input type='password' class="form-control" name='passCon' id="passCon"</td>
                                         <td><?php echo form_error('passCon'); ?></td>
                                     </tr>
                                     <tr>
                                         <td>Mail:</td>
-                                        <td><input type='text' name='mail' id="mail"</td>
+                                        <td><input type='text' class="form-control" name='mail' id="mail"</td>
                                         <td><?php echo form_error('mail'); ?></td>
                                     </tr>
                                     <tr>
                                         <td></td>
                                         <td>
-                                            <input id="registrarUsuario" class="btn btn-primary" type="button" value='Register' data-type="zoomin" style="top: 232px; left: 190px;"/>&nbsp;
+                                            <br><input id="registrarUsuario" class="btn btn-success" type="button" value='Register' data-type="zoomin" style="top: 232px; left: 190px;"/>&nbsp;
                                             <!--<input id="back" class="btn btn-danger" type="button" value="Back" />
 =======
                                             <input id="registrarUsuario" type="button" value='Register' data-type="zoomin" style="top: 232px; left: 190px;"/>&nbsp;-->
-                                            <input name="back" type="button" class="btn btn-primary" value="Back" />
+                                            <input name="back" type="button" class="btn btn-danger" value="Cancel" />
                                         </td>
                                     </tr>
                                 </table>
-                            <?php echo form_close(); ?>
+                              <?php echo form_close(); ?>
                             <br/>
                         </div>
                         <div>
@@ -90,12 +90,12 @@
                                 <div><h2>Log in:</h2></div>
                                 <table>
                                     <tr>
-                                        <td><label>User: </label></td>
-                                        <td><input type="text" id="usuario" name="usuario"/></td>
+                                        <td align="right">User: </td>
+                                        <td>&nbsp;<input type="text" class="form-control" id="usuario" name="usuario"/></td>
                                     </tr>
                                     <tr>
-                                        <td>Password </td>
-                                        <td><input type="password" id="passwd" name="passwd"/></td>
+                                        <td>Password: </td>
+                                        <td>&nbsp;<input type="password" class="form-control" id="passwd" name="passwd"/></td>
                                     </tr>
                                     <tr>
                                         <td></td>
@@ -104,8 +104,8 @@
                                     <tr>
                                         <td></td>
                                         <td>
-                                            <input type="submit" class="btn btn-primary" value="Enter"/>
-                                            <input type="button" class="btn btn-primary" id="registerButton" value="Register"/>
+                                            <br><input type="submit" class="btn btn-primary" value="Enter"/>
+                                            <input type="button" class="btn btn-default" id="registerButton" value="Register"/>
                                         </td>
                                     </tr>
                                 </table>
@@ -118,9 +118,9 @@
                         <br/>
                         <div id="forgottenPass">
                             <h3>Insert the email of the associated user</h3>
-                            <input type="text" id="emailForgotten"/><br/><br/>
-                            <input type="button" id="sendEmail" value="Restore password"/>&nbsp;
-                            <input name="back" type="button" value="Back" />
+                            <input type="text" class="form-control" id="emailForgotten"/><br/><br/>
+                            <input type="button" class="btn btn-success" id="sendEmail" value="Restore password"/>&nbsp;
+                            <input name="back" class="btn btn-danger" type="button" value="Cancel" />
                         </div>
                         <div>
                             <br/><br/><br/>
@@ -129,14 +129,14 @@
                         <div>
                             <?php 
                                 if(isset($error)) {
-                                    echo "<div class='alert alert-danger'><p>".$error."</p></div>";
+                                    echo "<div class='alert alert-danger'  role='alert'><p>".$error."</p></div>";
                                 }
                             ?>
                         </div>
                         <div>
                             <?php
                                 if(isset($success)) {
-                                    echo "<div>".$success."</div>";
+                                    echo "<div class='alert alert-success' role='alert'>".$success."</div>";
                                 }                 
                             ?>
                         </div>
