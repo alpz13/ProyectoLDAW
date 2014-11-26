@@ -532,7 +532,7 @@
                     <input type="radio" name="5initiative" ident="0"/> &nbsp;False<br/>
                 </div> <br/><br/>
                 <div>
-                    <input type="button" value="Save Questions" name="Save" ident="26"/>
+                    <input type="button" value="Save Questions" class="btn btn-primary" name="Save" ident="26"/>
                 </div>
             </div>
             <!--*****-->
