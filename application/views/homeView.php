@@ -91,7 +91,7 @@
                             echo "</div>";
                         }
                         ?>
-                        <?php if($this->session->userdata('test') == 1) {
+                        <?php if($this->session->userdata('test') == 1 || $this->session->userdata('test') == 2) {
                            $i = 0;
                             $j=count($proyectosAreas);
                             if($j > 0) {
@@ -123,7 +123,8 @@
                                 echo "</div>";
                                 echo"<br/><br/>";
                             }
-                        }elseif($this->session->userdat('test') == 2 || $this->session->userdata('test') == 1) {
+                        }
+                        if($this->session->userdata('test') == 2) {
                         ?>
                         
                         <?php
