@@ -35,7 +35,7 @@ class PrincipalController extends CI_Controller {
                                 $dataUser['test'] = $row->test;
 	                    }
                             
-                            //**Busca el ﾃ｡rea con mayor calificacion**
+                            //**Busca el ・・ｽ｡rea con mayor calificacion**
                             $area = $this->areaAfin($idUser);
                             $query = $area->row();
                             if(!is_numeric($query)) {
@@ -63,7 +63,7 @@ class PrincipalController extends CI_Controller {
                             //********************************************//
                             //********************************************//
                             
-                            //**Busca todos los proyectos en los que estﾃ｡ incrito el usuario**
+                            //**Busca todos los proyectos en los que est・・ｽ｡ incrito el usuario**
                             $proyectos = $this->getProyectosUser($idUser);
                             $data['proyectosUser'] = $proyectos;
                             //********************************************//
@@ -84,7 +84,7 @@ class PrincipalController extends CI_Controller {
                             //********************************************//
                             
                             //***********************************************
-                            //Librerﾃｭa grid
+                            //Librer・・ｽｭa grid
 //                            $usuarios = $this->usuariosGrid();
 //                            $data['output'] = $usuarios->output;
 //                            $data['js_files'] = $usuarios->js_files;
@@ -116,7 +116,7 @@ class PrincipalController extends CI_Controller {
         
         public function homeView()
         {
-            //**Busca el ﾃ｡rea con mayor calificacion**
+            //**Busca el ・・ｽ｡rea con mayor calificacion**
             $idUser = $this->session->userdata('id');
             $area = $this->areaAfin($idUser);
             $query = $area->row();
@@ -148,7 +148,7 @@ class PrincipalController extends CI_Controller {
             //********************************************//
             //********************************************//
             
-            //**Busca todos los proyectos en los que estﾃ｡ incrito el usuario**
+            //**Busca todos los proyectos en los que est・・ｽ｡ incrito el usuario**
             $proyectos = $this->getProyectosUser($idUser);
             $data['proyectosUser'] = $proyectos;
             //********************************************//
@@ -174,7 +174,11 @@ class PrincipalController extends CI_Controller {
         public function nuevomensajeView()
         {
             $this->load->view('header');
-            $this->load->view('headAdmin');
+            if($this->session->userdata('tipo') == 1 || $this->session->userdata('tipo') == 2) {
+                $this->load->view('headAdmin');
+            } else {
+                $this->load->view('headWorker');
+            }
             $this->load->view('new_pmView');
             $this->load->view('footer');
         }
@@ -182,7 +186,11 @@ class PrincipalController extends CI_Controller {
         public function leermensajeView()
         {
             $this->load->view('header');
-            $this->load->view('headAdmin');
+            if($this->session->userdata('tipo') == 1 || $this->session->userdata('tipo') == 2) {
+                $this->load->view('headAdmin');
+            } else {
+                $this->load->view('headWorker');
+            }
             $this->load->view('read_pmView');
             $this->load->view('footer');
         }
@@ -289,7 +297,7 @@ class PrincipalController extends CI_Controller {
             return $resultado;
         }
         
-        //**Busca el nombre del ﾃ｡rea dependiendo del id que se le pase**
+        //**Busca el nombre del ・・ｽ｡rea dependiendo del id que se le pase**
        public function nombreArea($idArea)
        {
            $this->load->model('usuariosModel');
@@ -298,7 +306,7 @@ class PrincipalController extends CI_Controller {
            return $resultado;
        }
        
-       //**Busca el nombre del ﾃ｡rea dependiendo del id que se le pase**
+       //**Busca el nombre del ・・ｽ｡rea dependiendo del id que se le pase**
        public function nombreCompetencia($idCompetencia)
        {
            $this->load->model('usuariosModel');
