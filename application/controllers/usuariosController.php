@@ -15,16 +15,16 @@ class UsuariosController extends CI_Controller {
         $foto = $this->input->post('foto');
 
         if(($nom || $apeP || $apeM || $pass || $passCon || $mail) == "") {
-            echo "<span>All fields must be filled</span>";
+            echo "<span class='alert alert-info' role='alert'>All fields must be filled</span>";
         } else if($pass != $passCon) {
-            echo "<span>Passwords does not match</span>";
+            echo "<span class='alert alert-info' role='alert'>Passwords does not match</span>";
         } else {
             if($foto == "") {
                 $foto = "../../files/defaultFoto.jpg";
             }
             $resultado = $this->usuariosModel->registraUsuario($nom, $apeP, $apeM, $pass, $mail, 3, $foto);
             if($resultado == 1) {
-                echo '<span>User register</span>';
+                echo "<span class='alert alert-info' role='alert'>User register</span>";
             } else {
                 echo "</span>User could not be created with the information provided</span>";
             }
@@ -93,7 +93,7 @@ class UsuariosController extends CI_Controller {
         $this->form_validation->set_rules('mail', 'Correo', 'valid_email');
         
         if ($this->form_validation->run() == FALSE) {
-                echo "<p>*Debe indicar un email válido</p>";
+                echo "<p>*Debe indicar un email vﾃ｡lido</p>";
         } else {
             $nom = $this->input->post('nombre');
             $apeP = $this->input->post('apellidoP');
@@ -182,7 +182,7 @@ class UsuariosController extends CI_Controller {
         $this->form_validation->set_rules('mail', 'Correo', 'valid_email');
         
         if ($this->form_validation->run() == FALSE) {
-                echo "<p>Debe indicar un email válido</p>";
+                echo "<p>Debe indicar un email vﾃ｡lido</p>";
         } else {
             $id = $this->input->post('id');
             $nom = $this->input->post('nombre');
