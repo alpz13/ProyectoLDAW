@@ -11,6 +11,7 @@
 	<link href="<?php echo base_url(); ?>/css/parallax.css" rel="stylesheet" type="text/css" />
         <link href="<?php echo base_url(); ?>/css/demo.css" rel="stylesheet" type="text/css" />
         <link type="image/x-icon" href="images/websiteico.ico" rel="shortcut icon"/>
+        <link href="<?php echo base_url(); ?>/css/bootstrap.min.css" rel="stylesheet">
 	<script type="text/javascript">
 		$(document).ready(function(){
                     $('#nav').localScroll();
