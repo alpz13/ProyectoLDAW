@@ -137,7 +137,7 @@
                     <input type="radio" name="1team" ident="1"/> &nbsp;Strongly Disagree<br/>
                 </div> <br/><br/>
                 <div>
-                    <input type="button" value="Next" name="buttonQuestion" ident="2"/>
+                    <input type="button" value="Next" name="buttonQuestion" class="btn btn-default" ident="2"/>
                 </div>
             </div>
             <div id="question2" name="question">
@@ -155,7 +155,7 @@
                     <input type="radio" name="2team" ident="1"/> &nbsp;Strongly Disagree<br/>
                 </div> <br/><br/>
                 <div>
-                    <input type="button" value="Next" name="buttonQuestion" ident="3"/>
+                    <input type="button" value="Next" name="buttonQuestion" class="btn btn-default" ident="3"/>
                 </div>
             </div>
             <div id="question3" name="question">
@@ -173,7 +173,7 @@
                     <input type="radio" name="3team" ident="1"/> &nbsp;Strongly Disagree<br/>
                 </div> <br/><br/>
                 <div>
-                    <input type="button" value="Next" name="buttonQuestion" ident="4"/>
+                    <input type="button" value="Next" name="buttonQuestion" class="btn btn-default" ident="4"/>
                 </div>
             </div>
             <div id="question4" name="question">
@@ -191,7 +191,7 @@
                     <input type="radio" name="4team" ident="1"/> &nbsp;Strongly Disagree<br/>
                 </div> <br/><br/>
                 <div>
-                    <input type="button" value="Next" name="buttonQuestion" ident="5"/>
+                    <input type="button" value="Next" name="buttonQuestion" class="btn btn-default" ident="5"/>
                 </div>
             </div>
             <div id="question5" name="question">
@@ -209,7 +209,7 @@
                     <input type="radio" name="5team" ident="1"/> &nbsp;Strongly Disagree<br/>
                 </div> <br/><br/>
                 <div>
-                    <input type="button" value="Next" name="buttonQuestion" ident="6"/>
+                    <input type="button" value="Next" name="buttonQuestion" class="btn btn-default" ident="6"/>
                 </div>
             </div>
             <!--*****-->
@@ -228,7 +228,7 @@
                     <input type="radio" name="1comunication" ident="2"/> &nbsp;Abject<br/>
                 </div> <br/><br/>
                 <div>
-                    <input type="button" value="Next" name="buttonQuestion" ident="7"/>
+                    <input type="button" value="Next" name="buttonQuestion" class="btn btn-default" ident="7"/>
                 </div>
             </div>
             <div id="question7" name="question">
@@ -245,7 +245,7 @@
                     <input type="radio" name="2comunication" ident="2"/> &nbsp;Defer<br/>
                 </div> <br/><br/>
                 <div>
-                    <input type="button" value="Next" name="buttonQuestion" ident="8"/>
+                    <input type="button" value="Next" name="buttonQuestion" class="btn btn-default" ident="8"/>
                 </div>
             </div>
             <div id="question8" name="question">
@@ -262,7 +262,7 @@
                     <input type="radio" name="3comunication" ident="2"/> &nbsp;Added<br/>
                 </div> <br/><br/>
                 <div>
-                    <input type="button" value="Next" name="buttonQuestion" ident="9"/>
+                    <input type="button" value="Next" name="buttonQuestion" class="btn btn-default" ident="9"/>
                 </div>
             </div>
             <div id="question9" name="question">
@@ -279,7 +279,7 @@
                     <input type="radio" name="4comunication" ident="2"/> &nbsp;Famous<br/>
                 </div> <br/><br/>
                 <div>
-                    <input type="button" value="Next" name="buttonQuestion" ident="10"/>
+                    <input type="button" value="Next" name="buttonQuestion" class="btn btn-default" ident="10"/>
                 </div>
             </div>
             <div id="question10" name="question">
@@ -296,7 +296,7 @@
                     <input type="radio" name="5comunication" ident="2"/> &nbsp;Gamut<br/>
                 </div> <br/><br/>
                 <div>
-                    <input type="button" value="Next" name="buttonQuestion" ident="11"/>
+                    <input type="button" value="Next" name="buttonQuestion" class="btn btn-default" ident="11"/>
                 </div>
             </div>
             <!--*****-->
@@ -313,7 +313,7 @@
                     <input type="radio" name="1work" ident="5"/> &nbsp;No, I'm pretty loose<br/>
                 </div> <br/><br/>
                 <div>
-                    <input type="button" value="Next" name="buttonQuestion" ident="12"/>
+                    <input type="button" value="Next" name="buttonQuestion" class="btn btn-default" ident="12"/>
                 </div>
             </div>
             <div id="question12" name="question">
@@ -328,7 +328,7 @@
                     <input type="radio" name="2work" ident="5"/> &nbsp;No, I'm still pretty sharp<br/>
                 </div> <br/><br/>
                 <div>
-                    <input type="button" value="Next" name="buttonQuestion" ident="13"/>
+                    <input type="button" value="Next" name="buttonQuestion" class="btn btn-default" ident="13"/>
                 </div>
             </div>
             <div id="question13" name="question">
@@ -343,7 +343,7 @@
                     <input type="radio" name="3work" ident="5"/> &nbsp;No, I still enjoy my work as much as I ever did.<br/>
                 </div> <br/><br/>
                 <div>
-                    <input type="button" value="Next" name="buttonQuestion" ident="14"/>
+                    <input type="button" value="Next" name="buttonQuestion" class="btn btn-default" ident="14"/>
                 </div>
             </div>
             <div id="question14" name="question">
@@ -358,7 +358,7 @@
                     <input type="radio" name="4work" ident="5"/> &nbsp;No, I don't think I've experienced stress-related weight changes.<br/>
                 </div> <br/><br/>
                 <div>
-                    <input type="button" value="Next" name="buttonQuestion" ident="15"/>
+                    <input type="button" value="Next" name="buttonQuestion" class="btn btn-default" ident="15"/>
                 </div>
             </div>
             <div id="question15" name="question">
@@ -373,7 +373,7 @@
                     <input type="radio" name="5work" ident="5"/> &nbsp;No, acne hasn't been a problem for me since high school.<br/>
                 </div> <br/><br/>
                 <div>
-                    <input type="button" value="Next" name="buttonQuestion" ident="16"/>
+                    <input type="button" value="Next" name="buttonQuestion" class="btn btn-default" ident="16"/>
                 </div>
             </div>
             <!--*****-->
@@ -391,7 +391,7 @@
                     <input type="radio" name="1leader" ident="0"/> &nbsp;Not interfere at all with the team’s activities as his/her workload is extensive and there are other things to do<br/>
                 </div> <br/><br/>
                 <div>
-                    <input type="button" value="Next" name="buttonQuestion" ident="17"/>
+                    <input type="button" value="Next" name="buttonQuestion" class="btn btn-default" ident="17"/>
                 </div>
             </div>
             <div id="question17" name="question">
@@ -407,7 +407,7 @@
                     <input type="radio" name="2leader" ident="0"/> &nbsp;Overcome the conflicts and challenges that arise during the course of a normal day, project etc<br/>
                 </div> <br/><br/>
                 <div>
-                    <input type="button" value="Next" name="buttonQuestion" ident="18"/>
+                    <input type="button" value="Next" name="buttonQuestion" class="btn btn-default" ident="18"/>
                 </div>
             </div>
             <div id="question18" name="question">
@@ -423,7 +423,7 @@
                     <input type="radio" name="3leader" ident="0"/> &nbsp;Take charge of more challenging assignments<br/>
                 </div> <br/><br/>
                 <div>
-                    <input type="button" value="Next" name="buttonQuestion" ident="19"/>
+                    <input type="button" value="Next" name="buttonQuestion" class="btn btn-default" ident="19"/>
                 </div>
             </div>
             <div id="question19" name="question">
@@ -439,7 +439,7 @@
                     <input type="radio" name="4leader" ident="0"/> &nbsp;Ambiguous and unfocused so others can adapt it to their own agendas and style of work<br/>
                 </div> <br/><br/>
                 <div>
-                    <input type="button" value="Next" name="buttonQuestion" ident="20"/>
+                    <input type="button" value="Next" name="buttonQuestion" class="btn btn-default" ident="20"/>
                 </div>
             </div>
             <div id="question20" name="question">
@@ -455,7 +455,7 @@
                     <input type="radio" name="5leader" ident="0"/> &nbsp;Loathing uncertainty<br/>
                 </div> <br/><br/>
                 <div>
-                    <input type="button" value="Next" name="buttonQuestion" ident="21"/>
+                    <input type="button" value="Next" name="buttonQuestion" class="btn btn-default" ident="21"/>
                 </div>
             </div>
             <!--*****-->
@@ -472,7 +472,7 @@
                     <input type="radio" name="1initiative" ident="0"/> &nbsp;False<br/>
                 </div> <br/><br/>
                 <div>
-                    <input type="button" value="Next" name="buttonQuestion" ident="22"/>
+                    <input type="button" value="Next" name="buttonQuestion" class="btn btn-default" ident="22"/>
                 </div>
             </div>
             <div id="question22" name="question">
@@ -487,7 +487,7 @@
                     <input type="radio" name="2initiative" ident="0"/> &nbsp;False<br/>
                 </div> <br/><br/>
                 <div>
-                    <input type="button" value="Next" name="buttonQuestion" ident="23"/>
+                    <input type="button" value="Next" name="buttonQuestion" class="btn btn-default" ident="23"/>
                 </div>
             </div>
             <div id="question23" name="question">
@@ -502,7 +502,7 @@
                     <input type="radio" name="3initiative" ident="0"/> &nbsp;False<br/>
                 </div> <br/><br/>
                 <div>
-                    <input type="button" value="Next" name="buttonQuestion" ident="24"/>
+                    <input type="button" value="Next" name="buttonQuestion" class="btn btn-default" ident="24"/>
                 </div>
             </div>
             <div id="question24" name="question">
@@ -517,7 +517,7 @@
                     <input type="radio" name="4initiative" ident="0"/> &nbsp;False<br/>
                 </div> <br/><br/>
                 <div>
-                    <input type="button" value="Next" name="buttonQuestion" ident="25"/>
+                    <input type="button" value="Next" name="buttonQuestion" class="btn btn-default" ident="25"/>
                 </div>
             </div>
             <div id="question25" name="question">
